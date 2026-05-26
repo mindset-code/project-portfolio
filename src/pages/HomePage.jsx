@@ -46,7 +46,7 @@ const T = {
         color: '#a78bfa',
         title: 'Stack IA como rutina diaria',
         body: 'Herramientas que uso todos los días para diseñar, construir y operar soluciones.',
-        stack: ['Claude Code', 'Antigravity', 'Claude Cowork', 'OpenClaw', 'n8n', 'Power BI (DAX, RLS)', 'SQL', 'Python (Pandas, Scikit-learn, XGBoost)', 'React', 'Firebase', 'ETL', 'APIs REST', 'Agentic AI', 'LLM fine-tuning'],
+        stack: ['Claude Code', 'Antigravity', 'Claude Cowork', 'OpenClaw', 'n8n', 'Linear', 'Power BI (DAX, RLS)', 'SQL', 'Python (Pandas, Scikit-learn, XGBoost)', 'React', 'Firebase', 'ETL', 'APIs REST', 'Agentic AI', 'LLM fine-tuning'],
       },
     ],
     projectsTitle: 'Proyectos de portafolio',
@@ -82,6 +82,7 @@ const T = {
       'Web & Cloud',
       'IA & Automatización',
       'Ciberseguridad',
+      'DevOps & PM',
     ],
     projectDescs: [
       'Pipeline ETL que integra 9.800 transacciones de ventas con datos climáticos de ciudades US. Feature engineering y visualización en producción.',
@@ -139,7 +140,7 @@ const T = {
         color: '#a78bfa',
         title: 'AI stack as daily routine',
         body: 'Tools I use every day to design, build and operate solutions.',
-        stack: ['Claude Code', 'Antigravity', 'Claude Cowork', 'OpenClaw', 'n8n', 'Power BI (DAX, RLS)', 'SQL', 'Python (Pandas, Scikit-learn, XGBoost)', 'React', 'Firebase', 'ETL', 'REST APIs', 'Agentic AI', 'LLM fine-tuning'],
+        stack: ['Claude Code', 'Antigravity', 'Claude Cowork', 'OpenClaw', 'n8n', 'Linear', 'Power BI (DAX, RLS)', 'SQL', 'Python (Pandas, Scikit-learn, XGBoost)', 'React', 'Firebase', 'ETL', 'REST APIs', 'Agentic AI', 'LLM fine-tuning'],
       },
     ],
     projectsTitle: 'Portfolio Projects',
@@ -175,6 +176,7 @@ const T = {
       'Web & Cloud',
       'AI & Automation',
       'Cybersecurity',
+      'DevOps & PM',
     ],
     projectDescs: [
       'ETL pipeline integrating 9,800 sales transactions with daily temperature data from US cities. Feature engineering and production-ready visualization.',
@@ -200,9 +202,10 @@ const SKILL_ITEMS  = [
   ['ARR / MRR', 'CAC & LTV', 'NRR & Churn', 'RevPAR / ADR', 'Pipeline & Funnel'],
   ['React', 'Vite', 'Firebase', 'Google Cloud', 'REST APIs'],
   ['Claude (Anthropic)', 'n8n', 'Paperclip', 'Agentes IA', 'Apify'],
+  ['Linear', 'Git / GitHub', 'Firebase Hosting', 'Google Cloud', 'Claude Code'],
   ['ISC2 CC', 'SIEM', 'OWASP Top 10', 'Palo Alto Networks', 'Google Cybersecurity'],
 ]
-const SKILL_COLORS = ['#60a5fa','#34d399','#60a5fa','#fbbf24','#34d399','#f472b6','#a78bfa']
+const SKILL_COLORS = ['#60a5fa','#34d399','#60a5fa','#fbbf24','#34d399','#f472b6','#a78bfa','#e879f9']
 
 /* ── Projects ──────────────────────────────────────────────────────────────── */
 const PROJECTS = [
@@ -217,6 +220,8 @@ const PROJECTS = [
   { to:'https://github.com/mindset-code/project-sales-optimization-sql',   external:true, icon:'🗄️', color:'#38bdf8', title:'Sales Optimization SQL',   category:'SQL & BI',           techs:['SQL','GROUP BY','Power BI','Tableau'] },
   { to:'https://github.com/mindset-code/project-revenue-management-web',   external:true, icon:'💡', color:'#fbbf24', title:'Revenue Management Web',   category:'Web Development',     techs:['HTML','CSS','Vanilla JS','Canvas API'] },
   { to:'https://github.com/mindset-code/project-security-log-analysis',    external:true, icon:'🛡️', color:'#ef4444', title:'Security Log Analysis + Scanner', category:'Ciberseguridad',      techs:['Python','SIEM','ISC2 CC','Nmap'] },
+  { to:'https://github.com/mindset-code/project-vulnerability-scanner',    external:true, icon:'🔍', color:'#f97316', title:'Vulnerability Scanner',            category:'Ciberseguridad',      techs:['Python','Nmap','ISC2 CC','Markdown'] },
+  { to:'https://github.com/mindset-code/project-portfolio',                external:true, icon:'🗂️', color:'#94a3b8', title:'Portafolio Profesional GUG',       category:'Web · React · Firebase', techs:['React','Vite','Firebase','Linear'] },
 ]
 
 /* ── Education ─────────────────────────────────────────────────────────────── */
