@@ -222,6 +222,7 @@ const PROJECTS = [
   { to:'https://github.com/mindset-code/project-security-log-analysis',    external:true, icon:'🛡️', color:'#ef4444', title:'Security Log Analysis + Scanner', category:'Ciberseguridad',      techs:['Python','SIEM','ISC2 CC','Nmap'] },
   { to:'https://github.com/mindset-code/project-vulnerability-scanner',    external:true, icon:'🔍', color:'#f97316', title:'Vulnerability Scanner',            category:'Ciberseguridad',      techs:['Python','Nmap','ISC2 CC','Markdown'] },
   { to:'https://github.com/mindset-code/project-portfolio',                external:true, icon:'🗂️', color:'#94a3b8', title:'Portafolio Profesional GUG',       category:'Web · React · Firebase', techs:['React','Vite','Firebase','Linear'] },
+  { to:'https://github.com/mindset-code/agentforge',                       external:true, icon:'🏗️', color:'#6366f1', title:'AgentForge',                        category:'SaaS · AI Agents',       techs:['React','Firebase','n8n','Claude'] },
 ]
 
 /* ── Education ─────────────────────────────────────────────────────────────── */
