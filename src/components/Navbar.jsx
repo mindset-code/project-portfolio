@@ -2,28 +2,69 @@ import { useState, useRef, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useLang } from '../contexts/LangContext'
 
-const INTERNAL = [
-  { to: '/etl',         label: 'Sales & Weather ETL',           badge: 'Data Engineering',   icon: '⚙️', color: '#60a5fa' },
-  { to: '/executive',   label: 'Executive Dashboard 360°',      badge: 'BI & RevOps',        icon: '📊', color: '#34d399' },
-  { to: '/churn',       label: 'Churn Analysis',                badge: 'Data Science',       icon: '🔬', color: '#a78bfa' },
-  { to: '/hotel',       label: 'Hotel Pricing Engine',          badge: 'Revenue Management', icon: '🏨', color: '#fb923c' },
-  { to: '/ia-digox',    label: 'Consultoría Tech',              badge: 'AI Automation',      icon: '🤖', color: '#f472b6' },
-  { to: '/automations', label: 'Automatizaciones',              badge: 'n8n · Paperclip',    icon: '⚡', color: '#a78bfa' },
-  { to: '/dashboards',  label: 'Dashboards Power BI / Tableau', badge: 'BI Embed',           icon: '📈', color: '#10b981' },
+const CATEGORIES = [
+  {
+    label: 'Data & BI',
+    icon: '📊',
+    color: '#60a5fa',
+    items: [
+      { to: '/etl',        label: 'Sales & Weather ETL',           badge: 'Data Engineering', icon: '⚙️', color: '#60a5fa', ext: false },
+      { to: '/executive',  label: 'Executive Dashboard 360°',      badge: 'BI & RevOps',      icon: '📊', color: '#34d399', ext: false },
+      { to: '/dashboards', label: 'Dashboards Power BI / Tableau', badge: 'BI Embed',         icon: '📈', color: '#10b981', ext: false },
+    ],
+  },
+  {
+    label: 'Data Science & Revenue',
+    icon: '🔬',
+    color: '#a78bfa',
+    items: [
+      { to: '/churn', label: 'Churn Analysis',       badge: 'Data Science',       icon: '🔬', color: '#a78bfa', ext: false },
+      { to: '/hotel', label: 'Hotel Pricing Engine', badge: 'Revenue Management', icon: '🏨', color: '#fb923c', ext: false },
+    ],
+  },
+  {
+    label: 'AI & Automatización',
+    icon: '🤖',
+    color: '#f472b6',
+    items: [
+      { to: '/ia-digox',    label: 'Consultoría Tech',            badge: 'AI Automation',  icon: '🤖', color: '#f472b6', ext: false },
+      { to: '/automations', label: 'Automatizaciones',            badge: 'n8n · Paperclip', icon: '⚡', color: '#8b5cf6', ext: false },
+      { to: 'https://consultoria-tech.web.app',              label: 'Consultoría Tech Corporate', badge: 'Corporate Web',  icon: '🌐', color: '#06b6d4', ext: true },
+      { to: 'https://github.com/mindset-code/agentforge',   label: 'AgentForge',                 badge: 'SaaS · AI',      icon: '🏗️', color: '#6366f1', ext: true },
+    ],
+  },
+  {
+    label: 'Web & SQL',
+    icon: '💻',
+    color: '#fbbf24',
+    items: [
+      { to: 'https://github.com/mindset-code/project-sales-optimization-sql',  label: 'Sales Optimization SQL',   badge: 'SQL & BI',        icon: '🗄️', color: '#38bdf8', ext: true },
+      { to: 'https://github.com/mindset-code/project-revenue-management-web',  label: 'Revenue Management Web',   badge: 'Web Development', icon: '💡', color: '#fbbf24', ext: true },
+      { to: 'https://github.com/mindset-code/project-portfolio',               label: 'Portafolio Profesional',   badge: 'React · Firebase', icon: '🗂️', color: '#94a3b8', ext: true },
+    ],
+  },
+  {
+    label: 'Ciberseguridad',
+    icon: '🛡️',
+    color: '#ef4444',
+    items: [
+      { to: 'https://github.com/mindset-code/project-security-log-analysis',  label: 'Security Log Analysis', badge: 'Ciberseguridad', icon: '🛡️', color: '#ef4444', ext: true },
+      { to: 'https://github.com/mindset-code/project-vulnerability-scanner',  label: 'Vulnerability Scanner', badge: 'Ciberseguridad', icon: '🔍', color: '#f97316', ext: true },
+    ],
+  },
 ]
 
-const EXTERNAL = [
-  { to: 'https://consultoria-tech.web.app',                                 label: 'Consultoría Tech Corporate', badge: 'Corporate Web',      icon: '🌐', color: '#06b6d4' },
-  { to: 'https://github.com/mindset-code/project-sales-optimization-sql',  label: 'Sales Optimization SQL',     badge: 'SQL & BI',           icon: '🗄️', color: '#38bdf8' },
-  { to: 'https://github.com/mindset-code/project-revenue-management-web',  label: 'Revenue Management Web',     badge: 'Web Development',    icon: '💡', color: '#fbbf24' },
-  { to: 'https://github.com/mindset-code/project-security-log-analysis',   label: 'Security Log Analysis',      badge: 'Ciberseguridad',     icon: '🛡️', color: '#ef4444' },
-  { to: 'https://github.com/mindset-code/project-vulnerability-scanner',   label: 'Vulnerability Scanner',      badge: 'Ciberseguridad',     icon: '🔍', color: '#f97316' },
-  { to: 'https://github.com/mindset-code/project-portfolio',               label: 'Portafolio Profesional',     badge: 'React · Firebase',   icon: '🗂️', color: '#94a3b8' },
-  { to: 'https://github.com/mindset-code/agentforge',                      label: 'AgentForge',                 badge: 'SaaS · AI Agents',   icon: '🏗️', color: '#6366f1' },
-]
+function ExtIcon({ color }) {
+  return (
+    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style={{ flexShrink: 0, opacity: 0.5 }}>
+      <path d="M1.5 8.5L8.5 1.5M8.5 1.5H3.5M8.5 1.5V6.5" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  )
+}
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const [expanded, setExpanded] = useState(new Set([0]))
   const ref = useRef(null)
   const { lang, toggleLang } = useLang()
 
@@ -34,6 +75,14 @@ export default function Navbar() {
     document.addEventListener('mousedown', handler)
     return () => document.removeEventListener('mousedown', handler)
   }, [])
+
+  function toggleCat(i) {
+    setExpanded(prev => {
+      const next = new Set(prev)
+      next.has(i) ? next.delete(i) : next.add(i)
+      return next
+    })
+  }
 
   return (
     <nav className="navbar" ref={ref}>
@@ -69,50 +118,67 @@ export default function Navbar() {
 
       {open && (
         <div className="nav-dropdown">
-          <div className="nav-dropdown-section-label">Dashboard interactivo</div>
-          {INTERNAL.map(({ to, label, badge, icon, color }) => (
-            <NavLink
-              key={to}
-              to={to}
-              className={({ isActive }) =>
-                `nav-dropdown-item${isActive ? ' nav-dropdown-item--active' : ''}`
-              }
-              style={({ isActive }) => isActive ? { '--item-color': color } : {}}
-              onClick={() => setOpen(false)}
-            >
-              <span className="nav-item-icon">{icon}</span>
-              <div className="nav-item-text">
-                <span className="nav-item-label">{label}</span>
-                <span className="nav-item-badge" style={{ color }}>{badge}</span>
-              </div>
-              <svg className="nav-item-check" width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path d="M2.5 7l3.5 3.5 5.5-6" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </NavLink>
-          ))}
+          {CATEGORIES.map((cat, i) => {
+            const isOpen = expanded.has(i)
+            return (
+              <div key={cat.label} className="nav-cat">
+                <button
+                  className={`nav-cat-header${isOpen ? ' nav-cat-header--open' : ''}`}
+                  style={{ '--cat-color': cat.color }}
+                  onClick={() => toggleCat(i)}
+                >
+                  <span className="nav-cat-icon">{cat.icon}</span>
+                  <span className="nav-cat-label">{cat.label}</span>
+                  <span className="nav-cat-count">{cat.items.length}</span>
+                  <svg className="nav-cat-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <path d="M2.5 4.5l3.5 3 3.5-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
 
-          <div className="nav-dropdown-divider" />
-          <div className="nav-dropdown-section-label">GitHub / Web</div>
-          {EXTERNAL.map(({ to, label, badge, icon, color }) => (
-            <a
-              key={to}
-              href={to}
-              target="_blank"
-              rel="noreferrer"
-              className="nav-dropdown-item nav-dropdown-item--external"
-              style={{ '--item-color': color }}
-              onClick={() => setOpen(false)}
-            >
-              <span className="nav-item-icon">{icon}</span>
-              <div className="nav-item-text">
-                <span className="nav-item-label">{label}</span>
-                <span className="nav-item-badge" style={{ color }}>{badge}</span>
+                {isOpen && (
+                  <div className="nav-cat-items">
+                    {cat.items.map(({ to, label, badge, icon, color, ext }) =>
+                      ext ? (
+                        <a
+                          key={to}
+                          href={to}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="nav-subitem"
+                          style={{ '--item-color': color }}
+                          onClick={() => setOpen(false)}
+                        >
+                          <span className="nav-subitem-icon">{icon}</span>
+                          <div className="nav-subitem-text">
+                            <span className="nav-subitem-label">{label}</span>
+                            <span className="nav-subitem-badge" style={{ color }}>{badge}</span>
+                          </div>
+                          <ExtIcon color={color} />
+                        </a>
+                      ) : (
+                        <NavLink
+                          key={to}
+                          to={to}
+                          className={({ isActive }) => `nav-subitem${isActive ? ' nav-subitem--active' : ''}`}
+                          style={({ isActive }) => isActive ? { '--item-color': color } : { '--item-color': color }}
+                          onClick={() => setOpen(false)}
+                        >
+                          <span className="nav-subitem-icon">{icon}</span>
+                          <div className="nav-subitem-text">
+                            <span className="nav-subitem-label">{label}</span>
+                            <span className="nav-subitem-badge" style={{ color }}>{badge}</span>
+                          </div>
+                          <svg width="11" height="11" viewBox="0 0 11 11" fill="none" className="nav-subitem-check">
+                            <path d="M2 5.5l2.5 2.5 4.5-5" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </NavLink>
+                      )
+                    )}
+                  </div>
+                )}
               </div>
-              <svg className="nav-item-ext" width="11" height="11" viewBox="0 0 11 11" fill="none">
-                <path d="M2 9L9 2M9 2H4M9 2V7" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </a>
-          ))}
+            )
+          })}
         </div>
       )}
     </nav>
