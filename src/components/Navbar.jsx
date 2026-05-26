@@ -37,8 +37,8 @@ export default function Navbar() {
   return (
     <nav className="navbar" ref={ref}>
       <div className="navbar-brand">
-        <span className="navbar-name">Portafolio Profesional GUG</span>
-        <span className="navbar-role">Mindset & Code · Data &amp; BI Analyst</span>
+        <span className="navbar-name">Mindset & Code</span>
+        <span className="navbar-role">Data &amp; BI Analyst</span>
       </div>
 
       <button className="lang-toggle nav-lang-toggle" onClick={toggleLang}>
