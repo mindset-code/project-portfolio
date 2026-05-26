@@ -212,6 +212,39 @@ body {
   opacity: 1;
 }
 
+.nav-item-ext {
+  flex-shrink: 0;
+  opacity: 0.4;
+  transition: opacity 0.12s;
+}
+
+.nav-dropdown-item:hover .nav-item-ext {
+  opacity: 0.8;
+}
+
+.nav-dropdown-divider {
+  height: 1px;
+  background: #1e293b;
+  margin: 0.25rem 0;
+}
+
+.nav-dropdown-section-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #475569;
+  padding: 0.55rem 1.1rem 0.2rem;
+}
+
+.nav-dropdown-item--external {
+  opacity: 0.85;
+}
+
+.nav-dropdown-item--external:hover {
+  opacity: 1;
+}
+
 @media (max-width: 640px) {
   .navbar { padding: 0 1rem; }
   .navbar-brand { display: none; }
