@@ -759,6 +759,7 @@ footer a:hover,
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   margin-top: 0.4rem;
+  align-items: stretch;
 }
 
 .home-career-card {
@@ -770,6 +771,8 @@ footer a:hover,
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
+  height: 100%;
+  box-sizing: border-box;
   transition: background 0.15s, transform 0.15s;
 }
 .home-career-card:hover {
@@ -863,6 +866,7 @@ footer a:hover,
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+  align-items: stretch;
 }
 
 .home-project-card {
@@ -875,6 +879,8 @@ footer a:hover,
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+  height: 100%;
+  box-sizing: border-box;
   transition: background 0.15s, transform 0.15s;
 }
 .home-project-card:hover {
@@ -950,6 +956,7 @@ footer a:hover,
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+  align-items: stretch;
 }
 
 .home-skill-group {
@@ -957,6 +964,8 @@ footer a:hover,
   border: 1px solid #334155;
   border-radius: 10px;
   padding: 1rem 1.1rem;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .home-skill-cat {
@@ -1061,8 +1070,8 @@ footer a:hover,
 
 /* Responsive — home */
 @media (max-width: 900px) {
+  /* Skills: 9 categorías → 3 cols = 3×3 perfecto. No cambiar a 2 cols. */
   .home-projects-grid { grid-template-columns: repeat(2, 1fr); }
-  .home-skills-grid   { grid-template-columns: repeat(2, 1fr); }
   .home-about-grid    { grid-template-columns: 1fr; }
 }
 
@@ -1076,7 +1085,7 @@ footer a:hover,
   .home-stat-box:nth-child(4),
   .home-stat-box:nth-child(5) { border-top: 1px solid #1e293b; }
   .home-projects-grid { grid-template-columns: 1fr; }
-  .home-skills-grid   { grid-template-columns: 1fr 1fr; }
+  .home-skills-grid   { grid-template-columns: 1fr; }
   .home-career-grid   { grid-template-columns: 1fr; }
 }
 
@@ -1085,8 +1094,7 @@ footer a:hover,
 }
 
 @media (max-width: 400px) {
-  .home-stats-row     { grid-template-columns: repeat(2, 1fr); }
-  .home-skills-grid   { grid-template-columns: 1fr; }
+  .home-stats-row { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ══════════════════════════════════════════════════════════════════════════════
@@ -1376,6 +1384,7 @@ footer a:hover,
   grid-template-columns: 1fr 1fr;
   gap: 0.6rem;
   margin-top: 0.5rem;
+  align-items: stretch;
 }
 
 .home-cert-card {
@@ -1383,6 +1392,8 @@ footer a:hover,
   border: 1px solid #1e293b;
   border-radius: 8px;
   padding: 0.75rem 0.9rem;
+  height: 100%;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
