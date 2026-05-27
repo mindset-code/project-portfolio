@@ -46,7 +46,7 @@ const T = {
         color: '#a78bfa',
         title: 'Stack IA como rutina diaria',
         body: 'Herramientas que uso todos los días para diseñar, construir y operar soluciones.',
-        stack: ['Claude Code', 'Antigravity', 'Claude Cowork', 'OpenClaw', 'n8n', 'Linear', 'Power BI (DAX, RLS)', 'SQL', 'Python (Pandas, Scikit-learn, XGBoost)', 'React', 'Firebase', 'ETL', 'APIs REST', 'Agentic AI', 'LLM fine-tuning'],
+        stack: ['Claude Code', 'Antigravity', 'Claude Cowork', 'OpenClaw', 'n8n', 'Linear', 'Power BI (DAX, RLS)', 'SQL', 'Python (Pandas, Scikit-learn, XGBoost)', 'React', 'Firebase', 'ETL', 'REST APIs', 'Agentic AI', 'LLM fine-tuning'],
       },
     ],
     projectsTitle: 'Proyectos de portafolio',
@@ -81,6 +81,7 @@ const T = {
       'Revenue & Growth Analytics',
       'Web & Cloud',
       'IA & Automatización',
+      'AI Engineering',
       'Ciberseguridad',
       'DevOps & PM',
     ],
@@ -178,6 +179,7 @@ const T = {
       'Revenue & Growth Analytics',
       'Web & Cloud',
       'AI & Automation',
+      'AI Engineering',
       'Cybersecurity',
       'DevOps & PM',
     ],
@@ -203,15 +205,16 @@ const T = {
 /* ── Skills ────────────────────────────────────────────────────────────────── */
 const SKILL_ITEMS  = [
   ['Python', 'SQL', 'Pandas', 'NumPy', 'Scikit-learn', 'HTML / CSS / JS'],
-  ['Power BI', 'Tableau', 'Excel Avanzado', 'Dashboards Ejecutivos', 'KPIs & OKRs'],
+  ['Power BI', 'Tableau', 'Advanced Excel', 'Executive Dashboards', 'KPIs & OKRs'],
   ['Pipelines ETL', 'Data Modeling', 'JSON APIs', 'Node.js', 'Git / GitHub'],
   ['ARR / MRR', 'CAC & LTV', 'NRR & Churn', 'RevPAR / ADR', 'Pipeline & Funnel'],
   ['React', 'Vite', 'Firebase', 'Google Cloud', 'REST APIs'],
-  ['Claude (Anthropic)', 'n8n', 'Paperclip', 'Agentes IA', 'Apify'],
-  ['Linear', 'Git / GitHub', 'Firebase Hosting', 'Google Cloud', 'Claude Code'],
-  ['ISC2 CC', 'SIEM', 'OWASP Top 10', 'Palo Alto Networks', 'Google Cybersecurity'],
+  ['Claude API', 'n8n', 'Paperclip', 'Agentic AI', 'LLM Orchestration'],
+  ['LangChain', 'RAG', 'Vector DBs', 'Prompt Engineering', 'MLOps', 'Claude Code'],
+  ['ISC2 CC', 'SIEM', 'OWASP Top 10', 'Google Cybersecurity', 'Nmap'],
+  ['Linear', 'Git / GitHub', 'Firebase Hosting', 'Google Cloud', 'CI/CD'],
 ]
-const SKILL_COLORS = ['#60a5fa','#34d399','#60a5fa','#fbbf24','#34d399','#f472b6','#a78bfa','#e879f9']
+const SKILL_COLORS = ['#60a5fa','#34d399','#60a5fa','#fbbf24','#34d399','#f472b6','#e879f9','#ef4444','#a78bfa']
 
 /* ── Projects ──────────────────────────────────────────────────────────────── */
 const PROJECTS = [
@@ -239,14 +242,14 @@ const EDU = [
 
 /* ── Certifications ────────────────────────────────────────────────────────── */
 const CERTS = [
-  { org:'ISC2',                             color:'#a78bfa', name:'Certified in Cybersecurity (CC)',              date:'Sep 2024',  id:'f83ec23e' },
-  { org:'IBM',                              color:'#60a5fa', name:'Full Stack Software Developer',                date:'Aug 2024',  id:'c845625d' },
-  { org:'IBM',                              color:'#60a5fa', name:'DevOps and Software Engineering',              date:null,        id:'7Z2FU9C6' },
-  { org:'Palo Alto Networks',               color:'#fb923c', name:'Palo Alto Networks Cybersecurity',             date:'Aug 2024',  id:'B8GMFKRW' },
-  { org:'Google',                           color:'#34d399', name:'Google Cybersecurity',                         date:'Aug 2024',  id:'M0JCAKMI' },
-  { org:'Google',                           color:'#34d399', name:'Google IT Support',                            date:'Sep 2024',  id:'XYFRQ9AI' },
-  { org:'ESSEC Business School',            color:'#fbbf24', name:'Hotel Management: Revenue & Demand Management',date:'Aug 2025',  id:'TDEGVC60' },
-  { org:'Univ. of Illinois',                color:'#f472b6', name:'Digital Marketing',                            date:'Sep 2020',  id:'CQ2UHRF2' },
+  { org:'ISC2',                  color:'#a78bfa', name:'Certified in Cybersecurity (CC)',              date:'Sep 2024',  id:'f83ec23e' },
+  { org:'IBM',                   color:'#60a5fa', name:'Generative AI Engineering',                    date:'2025',      id:'IBM-GAIE'  },
+  { org:'IBM',                   color:'#60a5fa', name:'Full Stack Software Developer',                date:'Aug 2024',  id:'c845625d' },
+  { org:'IBM',                   color:'#60a5fa', name:'DevOps and Software Engineering',              date:null,        id:'7Z2FU9C6' },
+  { org:'Google',                color:'#34d399', name:'Google Cybersecurity',                         date:'Aug 2024',  id:'M0JCAKMI' },
+  { org:'Google',                color:'#34d399', name:'Google IT Support',                            date:'Sep 2024',  id:'XYFRQ9AI' },
+  { org:'ESSEC Business School', color:'#fbbf24', name:'Hotel Management: Revenue & Demand Management',date:'Aug 2025',  id:'TDEGVC60' },
+  { org:'Univ. of Illinois',     color:'#f472b6', name:'Digital Marketing',                            date:'Sep 2020',  id:'CQ2UHRF2' },
 ]
 
 /* ── Org Logo SVGs ─────────────────────────────────────────────────────────── */
@@ -281,12 +284,6 @@ function OrgLogo({ org }) {
     <svg viewBox="0 0 32 36" width="26" height="30" aria-label="ISC2">
       <path d="M16 1L3 7v12c0 7.5 5.5 14.5 13 16 7.5-1.5 13-8.5 13-16V7L16 1z" fill="#6d28d9"/>
       <text x="16" y="22.5" textAnchor="middle" fill="white" fontSize="9.5" fontWeight="800" fontFamily={ff}>ISC²</text>
-    </svg>
-  )
-  if (org === 'Palo Alto Networks') return (
-    <svg viewBox="0 0 32 32" width="28" height="28" aria-label="Palo Alto Networks">
-      <circle cx="16" cy="16" r="15" fill="#FF6720"/>
-      <text x="16" y="20" textAnchor="middle" fill="white" fontSize="10" fontWeight="800" fontFamily={ff}>PAN</text>
     </svg>
   )
   if (org === 'ESSEC Business School') return (
