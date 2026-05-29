@@ -7,3 +7,6 @@ CLAUDE.local.md
 .claude/
 agents/
 skills/
+
+# Engram local memory
+.engram/

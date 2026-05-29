@@ -1,95 +1,216 @@
-# Portafolio Personal — Mindset & Code
+# Data & BI Portfolio — Mindset & Code
 
-> **Data & BI Analyst** · React 19 + Vite + Firebase Hosting · 9 proyectos interactivos
-> **Status:** Deployed to production · 2026-05
+> **Personal portfolio web app** · React 19 · Vite · Recharts · Firebase
+> **Status:** Live in production
+> The single-page app behind [proyectos-personales.web.app](https://proyectos-personales.web.app) — a bilingual showcase that aggregates 9 Data & BI projects into interactive, in-browser dashboards.
 
-[![Live](https://img.shields.io/badge/Live-proyectos--personales.web.app-60a5fa?style=for-the-badge&logo=firebase&logoColor=white)](https://proyectos-personales.web.app)
-[![Stack](https://img.shields.io/badge/Stack-React%2019%20+%20Vite-61dafb?style=for-the-badge&logo=react&logoColor=white)](.)
-[![Domain](https://img.shields.io/badge/Domain-Data%20%26%20BI-34d399?style=for-the-badge)](.)
+> 🇬🇧 **English version first.** · 🇪🇸 **La versión en español está más abajo** → [ir a Español](#-español).
 
----
-
-## Project Status
-
-| Phase | Status |
-|---|---|
-| Portafolio base (9 proyectos) | Done |
-| Soporte bilingüe ES/EN | Done |
-| Dashboards interactivos con Recharts | Done |
-| Deploy Firebase Hosting | Done |
+[![Live Site](https://img.shields.io/badge/Live-proyectos--personales.web.app-a78bfa?style=for-the-badge&logo=firebase&logoColor=white)](https://proyectos-personales.web.app)
+[![Stack](https://img.shields.io/badge/Stack-React%2019%20%C2%B7%20Vite%20%C2%B7%20Recharts-61dafb?style=for-the-badge&logo=react&logoColor=black)](.)
+[![Hosting](https://img.shields.io/badge/Hosting-Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](.)
+[![i18n](https://img.shields.io/badge/i18n-EN%20%7C%20ES-0a66c2?style=for-the-badge)](.)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 
 ---
 
-## Project Overview
+## What this is
 
-Sitio de portafolio personal con dashboards interactivos para cada proyecto de Data & BI. Construido en React 19 + Vite con soporte bilingüe (ES/EN), datos pre-agregados en JSON estático y despliegue en Firebase Hosting.
+A recruiter rarely clones a repo — they click a link. This project is that link: a fast, bilingual single-page app that turns a set of standalone data projects into **interactive dashboards anyone can explore in the browser**, with no setup. It is both a portfolio *and* a front-end engineering piece in its own right.
 
-Los datos del dashboard ETL son generados por el pipeline [project-sales-weather-etl](https://github.com/mindset-code/project-sales-weather-etl) y se incluyen como assets estáticos.
-
----
-
-## Proyectos incluidos
-
-| Ruta | Proyecto | Dominio |
-|------|----------|---------|
-| `/etl` | Sales & Weather ETL | Data Engineering |
-| `/executive` | Executive Dashboard 360° | BI & RevOps |
-| `/churn` | Churn Analysis | Data Science |
-| `/hotel` | Hotel Pricing Engine | Revenue Management |
-| `/ia-digox` | Consultoría Tech | AI Automation |
-| `/automations` | Automatizaciones n8n | Workflow Automation |
-| `/dashboards` | Power BI / Tableau | BI Embed |
+**▶ Live: [proyectos-personales.web.app](https://proyectos-personales.web.app)**
 
 ---
 
-## Tech Stack
+## Key features
+
+- **9 projects, one app** — each rendered as a live, interactive dashboard with real charts (Recharts), not screenshots.
+- **Bilingual (EN/ES)** — a custom `LangContext` toggles language across the whole app.
+- **SPA routing** — clean per-project routes (React Router).
+- **Static-data architecture** — pre-aggregated JSON (built by the ETL pipeline) is served directly; no backend, no cost, instant loads on Firebase Spark.
+
+---
+
+## Project routes
+
+| Route | Dashboard |
+|-------|-----------|
+| `/` | Home — hero + project grid |
+| `/etl` | Sales & Weather ETL |
+| `/executive` | Executive Dashboard 360° |
+| `/churn` | Predictive Churn Analysis |
+| `/hotel` | Hotel Dynamic Pricing |
+| `/automations` | n8n Automations |
+| `/dashboards` | Power BI / Tableau embeds |
+
+---
+
+## Architecture
+
+```mermaid
+flowchart LR
+    A["Data projects<br/>(Python / SQL)"] -->|"pre-aggregated JSON"| B["public/data/"]
+    B --> C["React components<br/>(Recharts)"]
+    C --> D["Firebase Hosting<br/>proyectos-personales.web.app"]
+```
+
+Each upstream project (churn, executive, hotel, ETL) exports JSON into `public/data/`; the matching React page reads it and renders the charts. The data pipeline lives in [`project-sales-weather-etl`](https://github.com/mindset-code/project-sales-weather-etl).
+
+---
+
+## Tech stack
 
 | Layer | Technology |
-|---|---|
-| Frontend | React 19, React Router |
-| Build | Vite |
+|-------|-----------|
+| Framework | React 19 · Vite |
+| Routing | React Router |
 | Charts | Recharts |
-| i18n | LangContext propio (ES/EN) |
-| Hosting | Firebase Hosting (Spark) |
+| i18n | Custom `LangContext` (EN/ES) |
+| Hosting | Firebase Hosting (Spark plan) |
 
 ---
 
-## Repository Structure
-
-```
-project-portfolio/
-├── public/data/     # JSONs estáticos pre-agregados (assets del portafolio)
-├── src/
-│   ├── components/  # Gráficos Recharts por proyecto
-│   ├── contexts/    # LangContext (ES/EN)
-│   └── pages/       # Una página por proyecto
-├── firebase.json
-└── .firebaserc
-```
-
----
-
-## How to Run
+## Getting started
 
 ```bash
 git clone https://github.com/mindset-code/project-portfolio.git
 cd project-portfolio
 npm install
-npm run dev          # localhost:5173
-```
-
-### Deploy
-
-```bash
-npm run build
-firebase deploy --only hosting:portfolio --token "$FIREBASE_TOKEN"
+npm run dev        # dev server at localhost:5173
+npm run build      # production build → dist/
 ```
 
 ---
 
-## Links
+## Repository structure
 
-- **Portfolio:** [proyectos-personales.web.app](https://proyectos-personales.web.app)
+```
+project-portfolio/
+├── src/
+│   ├── App.jsx              # SPA routes
+│   ├── contexts/LangContext.jsx   # EN/ES i18n
+│   ├── pages/              # one page per project dashboard
+│   └── components/         # charts grouped by project
+├── public/data/           # static JSON consumed by the dashboards
+├── firebase.json          # hosting target + SPA rewrite
+├── LICENSE                # MIT
+└── README.md
+```
+
+---
+
+## License & contact
+
+Released under the **[MIT License](LICENSE)**.
+
+- **Live:** [proyectos-personales.web.app](https://proyectos-personales.web.app)
+- **LinkedIn:** [Mindset & Code](https://www.linkedin.com/company/mindset-code)
+- **Email:** contacto@mindset-code.com
+
+---
+
+# 🇪🇸 Español
+
+# Data & BI Portfolio — Mindset & Code
+
+> **App web de portafolio personal** · React 19 · Vite · Recharts · Firebase
+> **Estado:** En producción
+> La single-page app detrás de [proyectos-personales.web.app](https://proyectos-personales.web.app) — un escaparate bilingüe que reúne 9 proyectos de Data & BI en dashboards interactivos en el navegador.
+
+> 🇪🇸 Traducción al español. La versión en inglés está al inicio → [ir a English](#data--bi-portfolio--operador-mindset-code).
+
+---
+
+## Qué es
+
+Un reclutador rara vez clona un repo — hace clic en un enlace. Este proyecto es ese enlace: una single-page app rápida y bilingüe que convierte un conjunto de proyectos de datos independientes en **dashboards interactivos que cualquiera puede explorar en el navegador**, sin instalar nada. Es a la vez un portafolio *y* una pieza de ingeniería front-end por derecho propio.
+
+**▶ En vivo: [proyectos-personales.web.app](https://proyectos-personales.web.app)**
+
+---
+
+## Características clave
+
+- **9 proyectos, una app** — cada uno renderizado como dashboard interactivo con gráficos reales (Recharts), no capturas.
+- **Bilingüe (EN/ES)** — un `LangContext` propio cambia el idioma en toda la app.
+- **Routing SPA** — rutas limpias por proyecto (React Router).
+- **Arquitectura de datos estáticos** — JSON pre-agregado (generado por el pipeline ETL) servido directamente; sin backend, sin coste, cargas instantáneas en Firebase Spark.
+
+---
+
+## Rutas de proyectos
+
+| Ruta | Dashboard |
+|------|-----------|
+| `/` | Home — hero + grid de proyectos |
+| `/etl` | Sales & Weather ETL |
+| `/executive` | Executive Dashboard 360° |
+| `/churn` | Predictive Churn Analysis |
+| `/hotel` | Hotel Dynamic Pricing |
+| `/automations` | Automatizaciones n8n |
+| `/dashboards` | Embeds Power BI / Tableau |
+
+---
+
+## Arquitectura
+
+```mermaid
+flowchart LR
+    A["Proyectos de datos<br/>(Python / SQL)"] -->|"JSON pre-agregado"| B["public/data/"]
+    B --> C["Componentes React<br/>(Recharts)"]
+    C --> D["Firebase Hosting<br/>proyectos-personales.web.app"]
+```
+
+Cada proyecto upstream (churn, executive, hotel, ETL) exporta JSON a `public/data/`; la página React correspondiente lo lee y renderiza los gráficos. El pipeline de datos vive en [`project-sales-weather-etl`](https://github.com/mindset-code/project-sales-weather-etl).
+
+---
+
+## Stack técnico
+
+| Capa | Tecnología |
+|------|-----------|
+| Framework | React 19 · Vite |
+| Routing | React Router |
+| Gráficos | Recharts |
+| i18n | `LangContext` propio (EN/ES) |
+| Hosting | Firebase Hosting (plan Spark) |
+
+---
+
+## Cómo empezar
+
+```bash
+git clone https://github.com/mindset-code/project-portfolio.git
+cd project-portfolio
+npm install
+npm run dev        # dev server en localhost:5173
+npm run build      # build de producción → dist/
+```
+
+---
+
+## Estructura del repositorio
+
+```
+project-portfolio/
+├── src/
+│   ├── App.jsx              # rutas SPA
+│   ├── contexts/LangContext.jsx   # i18n EN/ES
+│   ├── pages/              # una página por dashboard de proyecto
+│   └── components/         # gráficos agrupados por proyecto
+├── public/data/           # JSON estático que consumen los dashboards
+├── firebase.json          # target de hosting + rewrite SPA
+├── LICENSE                # MIT
+└── README.md
+```
+
+---
+
+## Licencia y contacto
+
+Publicado bajo la **[Licencia MIT](LICENSE)**.
+
+- **En vivo:** [proyectos-personales.web.app](https://proyectos-personales.web.app)
 - **LinkedIn:** [Mindset & Code](https://www.linkedin.com/company/mindset-code)
 - **Email:** contacto@mindset-code.com
 
