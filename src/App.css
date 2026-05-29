@@ -596,6 +596,14 @@ footer a:hover,
   font-weight: 800;
   color: #fff;
   letter-spacing: -0.02em;
+  overflow: hidden;
+}
+
+.home-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .home-hero-body { flex: 1; min-width: 0; }
