@@ -100,6 +100,7 @@ const T = {
       'Escáner de vulnerabilidades estilo Nmap construido en Python: detección de puertos abiertos, fingerprinting de servicios y reporte Markdown automático. ISC2 CC aplicada.',
       'Este mismo portafolio: SPA React 19 + Vite desplegada en Firebase Hosting con 14 proyectos interactivos, soporte ES/EN y navegación dinámica.',
       'SaaS en desarrollo: plataforma para construir y desplegar agentes IA especializados sin código. Stack React + Firebase + n8n + Claude API.',
+      'Motor Python que automatiza la cotización de licitaciones públicas chilenas (Mercado Público): parsea la licitación, casa ítems con el catálogo y exporta un Excel/PDF con precios. Web React + Firebase. En desarrollo.',
     ],
   },
   en: {
@@ -198,6 +199,7 @@ const T = {
       'Nmap-style vulnerability scanner built in Python: open port detection, service fingerprinting and automatic Markdown report generation. ISC2 CC applied.',
       'This very portfolio: React 19 + Vite SPA deployed on Firebase Hosting with 14 interactive projects, ES/EN support and dynamic navigation.',
       'SaaS in development: platform to build and deploy specialized AI agents without code. Stack: React + Firebase + n8n + Claude API.',
+      'Python engine that automates Chilean public-tender quoting (Mercado Público): parses the tender, matches line items to a catalog and exports a priced Excel/PDF. React + Firebase web. In development.',
     ],
   },
 }
