@@ -101,7 +101,7 @@ export default function PortfolioProjectPage() {
           <div className="portfolio-right">
             {project.screenshotPath ? (
               <div className="portfolio-screenshot">
-                <img src={project.screenshotPath} alt={project.title} />
+                <img src={project.screenshotPath} alt={project.title} loading="lazy" decoding="async" />
               </div>
             ) : (
               <div className="portfolio-screenshot-placeholder" style={{ '--accent': project.accentColor }}>
