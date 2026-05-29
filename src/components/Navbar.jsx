@@ -27,10 +27,11 @@ const CATEGORIES = [
     icon: '🤖',
     color: '#f472b6',
     items: [
-      { to: '/ia-digox',    label: 'Consultoría Tech',            badge: 'AI Automation',  icon: '🤖', color: '#f472b6', ext: false },
+      { to: '/consultoria-tech',    label: 'Consultoría Tech',            badge: 'AI Automation',  icon: '🤖', color: '#f472b6', ext: false },
       { to: '/automations', label: 'Automatizaciones',            badge: 'n8n · Paperclip', icon: '⚡', color: '#8b5cf6', ext: false },
-      { to: 'https://consultoria-tech.web.app',              label: 'Consultoría Tech Corporate', badge: 'Corporate Web',  icon: '🌐', color: '#06b6d4', ext: true },
+      { to: 'https://consultoria-tech.web.app',             label: 'Consultoría Tech Corporate', badge: 'Corporate Web',  icon: '🌐', color: '#06b6d4', ext: true },
       { to: 'https://github.com/mindset-code/agentforge',   label: 'AgentForge',                 badge: 'SaaS · AI',      icon: '🏗️', color: '#6366f1', ext: true },
+      { to: 'https://github.com/mindset-code/Proyecto-Licitaciones-Publicas-automatizadas', label: 'LicitaBot', badge: 'GovTech · SaaS', icon: '📋', color: '#14b8a6', ext: true },
     ],
   },
   {

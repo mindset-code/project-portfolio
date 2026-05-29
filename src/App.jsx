@@ -50,7 +50,7 @@ export default function App() {
         <Route path="/executive" element={<ExecutiveDashboard />} />
         <Route path="/churn"     element={<ChurnDashboard />} />
         <Route path="/hotel"     element={<HotelDashboard />} />
-        <Route path="/ia-digox"     element={<IaDigoxPage />} />
+        <Route path="/consultoria-tech"     element={<IaDigoxPage />} />
         <Route path="/automations"  element={<AutomationsPage />} />
         <Route path="/dashboards"   element={<DashboardsPage />} />
         <Route path="/portfolio"    element={<PortfolioIndexPage />} />

@@ -133,7 +133,7 @@ export default function IaDigoxPage() {
         <div className="iad-hero-inner">
           <div className="iad-hero-top">
             <span className="iad-hero-badge">{t.heroBadge}</span>
-            <a href="https://github.com/mindset-code/ia-digox-services" target="_blank" rel="noreferrer" className="iad-hero-gh">
+            <a href="https://github.com/mindset-code/consultoria-tech" target="_blank" rel="noreferrer" className="iad-hero-gh">
               GitHub →
             </a>
           </div>

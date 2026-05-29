@@ -223,15 +223,16 @@ const PROJECTS = [
   { to:'/dashboards',  external:false, icon:'📈', color:'#10b981', title:'Dashboards Power BI & Tableau', category:'BI Embed',           techs:['HTML','React','Power BI','Tableau'] },
   { to:'/churn',       external:false, icon:'🔬', color:'#a78bfa', title:'Predictive Churn Analysis',     category:'Data Science',        techs:['Scikit-learn','Python','Pandas','React'] },
   { to:'/hotel',       external:false, icon:'🏨', color:'#fb923c', title:'Hotel Pricing Engine',          category:'Revenue Management', techs:['Python','NumPy','React','Recharts'] },
-  { to:'/ia-digox',    external:false, icon:'🤖', color:'#f472b6', title:'Consultoría Tech',              category:'AI Automation',      techs:['Claude','n8n','Paperclip','Firebase'] },
+  { to:'/consultoria-tech',    external:false, icon:'🤖', color:'#f472b6', title:'Consultoría Tech',              category:'AI Automation',      techs:['Claude','n8n','Paperclip','Firebase'] },
   { to:'/automations', external:false, icon:'⚡', color:'#8b5cf6', title:'Automatizaciones & Agentes IA', category:'n8n · Paperclip',    techs:['n8n','Paperclip','Claude','React'] },
-  { to:'https://consultoria-tech.web.app',                                  external:true, icon:'🌐', color:'#06b6d4', title:'Consultoría Tech Corporate', category:'Corporate Web',      techs:['React','Vite','Firebase'] },
+  { to:'https://consultoria-tech.web.app',                                 external:true, icon:'🌐', color:'#06b6d4', title:'Consultoría Tech Corporate', category:'Corporate Web',      techs:['React','Vite','Firebase'] },
   { to:'https://github.com/mindset-code/project-sales-optimization-sql',   external:true, icon:'🗄️', color:'#38bdf8', title:'Sales Optimization SQL',   category:'SQL & BI',           techs:['SQL','GROUP BY','Power BI','Tableau'] },
   { to:'https://github.com/mindset-code/project-revenue-management-web',   external:true, icon:'💡', color:'#fbbf24', title:'Revenue Management Web',   category:'Web Development',     techs:['HTML','CSS','Vanilla JS','Canvas API'] },
   { to:'https://github.com/mindset-code/project-security-log-analysis',    external:true, icon:'🛡️', color:'#ef4444', title:'Security Log Analysis + Scanner', category:'Ciberseguridad',      techs:['Python','SIEM','ISC2 CC','Nmap'] },
   { to:'https://github.com/mindset-code/project-vulnerability-scanner',    external:true, icon:'🔍', color:'#f97316', title:'Vulnerability Scanner',            category:'Ciberseguridad',      techs:['Python','Nmap','ISC2 CC','Markdown'] },
   { to:'https://github.com/mindset-code/project-portfolio',                external:true, icon:'🗂️', color:'#94a3b8', title:'Portafolio Profesional GUG',       category:'Web · React · Firebase', techs:['React','Vite','Firebase','Linear'] },
   { to:'https://github.com/mindset-code/agentforge',                       external:true, icon:'🏗️', color:'#6366f1', title:'AgentForge',                        category:'SaaS · AI Agents',       techs:['React','Firebase','n8n','Claude'] },
+  { to:'https://github.com/mindset-code/Proyecto-Licitaciones-Publicas-automatizadas', external:true, icon:'📋', color:'#14b8a6', title:'LicitaBot',                         category:'GovTech · SaaS',         techs:['Python','React','Firebase','n8n'] },
 ]
 
 /* ── Education ─────────────────────────────────────────────────────────────── */
@@ -423,7 +424,7 @@ export default function HomePage() {
           <p className="home-about-p">{t.aboutP1}</p>
           <p className="home-about-p">
             {t.aboutP2}{' '}
-            <Link to="/ia-digox" className="home-inline-link">Consultoría Tech</Link>
+            <Link to="/consultoria-tech" className="home-inline-link">Consultoría Tech</Link>
             {t.aboutP2b}
           </p>
           <div className="home-avail-box">
@@ -436,7 +437,7 @@ export default function HomePage() {
             <div className="home-iadigox-header">
               <span className="home-iadigox-icon">🤖</span>
               <div>
-                <Link to="/ia-digox" className="home-iadigox-link">Consultoría Tech</Link>
+                <Link to="/consultoria-tech" className="home-iadigox-link">Consultoría Tech</Link>
                 <span className="home-iadigox-badge">{t.iaDigoxBadge}</span>
               </div>
             </div>

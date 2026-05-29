@@ -290,7 +290,7 @@ export default function AutomationsPage() {
         <div className="auto-hero-inner">
           <div className="auto-hero-top">
             <span className="auto-hero-badge">{t.badge}</span>
-            <Link to="/ia-digox" className="auto-hero-link">Consultoría Tech →</Link>
+            <Link to="/consultoria-tech" className="auto-hero-link">Consultoría Tech →</Link>
           </div>
           <h1 className="auto-hero-title">{t.title}</h1>
           <p className="auto-hero-desc">{t.desc}</p>
