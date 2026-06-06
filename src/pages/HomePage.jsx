@@ -11,7 +11,7 @@ const T = {
     cta1: 'LinkedIn →', cta2: 'GitHub',
     stats: [
       { num: '+10',  lbl: 'Años de experiencia' },
-      { num: '14',   lbl: 'Proyectos portafolio' },
+      { num: '15',   lbl: 'Proyectos portafolio' },
       { num: '100%', lbl: 'Trabajo remoto' },
       { num: 'MBA',  lbl: '+ Business Analytics' },
       { num: 'ISC2', lbl: 'CC Certified' },
@@ -36,7 +36,7 @@ const T = {
         title: 'Reconversión técnica (4 años)',
         body: 'De líder comercial ejecutivo a AI Engineer con stack Full-Stack completo.',
         bullets: [
-          'Portafolio público con 14+ proyectos shipped',
+          'Portafolio público con 15+ proyectos shipped',
           'Data Engineering · Revenue Management algorítmico',
           'Machine Learning · Ciberseguridad · Desarrollo web',
         ],
@@ -50,7 +50,7 @@ const T = {
       },
     ],
     projectsTitle: 'Proyectos de portafolio',
-    projectsDesc:  'Catorce proyectos end-to-end: Data Engineering, BI, Data Science, Revenue Management, Web Development, Ciberseguridad, AI Automation y un sitio corporativo. Siete con dashboard live interactivo.',
+    projectsDesc:  'Quince proyectos end-to-end: Data Engineering, BI, Data Science, Revenue Management, Web Development, Ciberseguridad, AI Automation y un sitio corporativo. Siete con dashboard live interactivo.',
     viewBtn:     'Ver →',
     skillsTitle: 'Stack técnico',
     aboutTitle:  'Sobre mí',
@@ -111,7 +111,7 @@ const T = {
     cta1: 'LinkedIn →', cta2: 'GitHub',
     stats: [
       { num: '+10',  lbl: 'Years of experience' },
-      { num: '14',   lbl: 'Portfolio projects' },
+      { num: '15',   lbl: 'Portfolio projects' },
       { num: '100%', lbl: 'Remote work' },
       { num: 'MBA',  lbl: '+ Business Analytics' },
       { num: 'ISC2', lbl: 'CC Certified' },
@@ -136,7 +136,7 @@ const T = {
         title: 'Technical reinvention (4 years)',
         body: 'From executive commercial leader to AI Engineer with a complete Full-Stack technical stack.',
         bullets: [
-          'Public portfolio of 14+ shipped projects',
+          'Public portfolio of 15+ shipped projects',
           'Data Engineering · Algorithmic Revenue Management',
           'Machine Learning · Cybersecurity · Web development',
         ],
@@ -150,7 +150,7 @@ const T = {
       },
     ],
     projectsTitle: 'Portfolio Projects',
-    projectsDesc:  'Fourteen end-to-end projects: Data Engineering, BI, Data Science, Revenue Management, Web Development, Cybersecurity, AI Automation and a corporate website. Seven with a live interactive dashboard.',
+    projectsDesc:  'Fifteen end-to-end projects: Data Engineering, BI, Data Science, Revenue Management, Web Development, Cybersecurity, AI Automation and a corporate website. Seven with a live interactive dashboard.',
     viewBtn:     'View →',
     skillsTitle: 'Tech Stack',
     aboutTitle:  'About me',
