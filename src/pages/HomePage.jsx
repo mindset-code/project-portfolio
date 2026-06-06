@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 import { useLang } from '../contexts/LangContext'
 import PortfolioFooter from '../components/PortfolioFooter'
 
+const L = (v, lang) => (v && typeof v === 'object' ? (v[lang] ?? v.es) : v)
+
 /* ── Translations ──────────────────────────────────────────────────────────── */
 const T = {
   es: {
@@ -229,12 +231,12 @@ const PROJECTS = [
   { to:'/churn',       external:false, icon:'🔬', color:'#a78bfa', title:'Predictive Churn Analysis',     category:'Data Science',        techs:['Scikit-learn','Python','Pandas','React'] },
   { to:'/hotel',       external:false, icon:'🏨', color:'#fb923c', title:'Hotel Pricing Engine',          category:'Revenue Management', techs:['Python','NumPy','React','Recharts'] },
   { to:'/consultoria-tech',    external:false, icon:'🤖', color:'#f472b6', title:'Consultoría Tech',              category:'AI Automation',      techs:['Claude','n8n','Paperclip','Firebase'] },
-  { to:'/automations', external:false, icon:'⚡', color:'#8b5cf6', title:'Automatizaciones & Agentes IA', category:'n8n · Paperclip',    techs:['n8n','Paperclip','Claude','React'] },
+  { to:'/automations', external:false, icon:'⚡', color:'#8b5cf6', title:{es:'Automatizaciones & Agentes IA',en:'Automations & AI Agents'}, category:'n8n · Paperclip',    techs:['n8n','Paperclip','Claude','React'] },
   { to:'https://consultoria-tech.web.app',                                 external:true, icon:'🌐', color:'#06b6d4', title:'Consultoría Tech Corporate', category:'Corporate Web',      techs:['React','Vite','Firebase'] },
   { to:'https://github.com/mindset-code/project-sales-optimization-sql',   external:true, icon:'🗄️', color:'#38bdf8', title:'Sales Optimization SQL',   category:'SQL & BI',           techs:['SQL','GROUP BY','Power BI','Tableau'] },
   { to:'https://github.com/mindset-code/project-revenue-management-web',   external:true, icon:'💡', color:'#fbbf24', title:'Revenue Management Web',   category:'Web Development',     techs:['HTML','CSS','Vanilla JS','Canvas API'] },
-  { to:'https://github.com/mindset-code/project-security-log-analysis',    external:true, icon:'🛡️', color:'#ef4444', title:'Security Log Analysis + Scanner', category:'Ciberseguridad',      techs:['Python','SIEM','ISC2 CC','Nmap'] },
-  { to:'https://github.com/mindset-code/project-vulnerability-scanner',    external:true, icon:'🔍', color:'#f97316', title:'Vulnerability Scanner',            category:'Ciberseguridad',      techs:['Python','Nmap','ISC2 CC','Markdown'] },
+  { to:'https://github.com/mindset-code/project-security-log-analysis',    external:true, icon:'🛡️', color:'#ef4444', title:'Security Log Analysis + Scanner', category:{es:'Ciberseguridad',en:'Cybersecurity'},      techs:['Python','SIEM','ISC2 CC','Nmap'] },
+  { to:'https://github.com/mindset-code/project-vulnerability-scanner',    external:true, icon:'🔍', color:'#f97316', title:'Vulnerability Scanner',            category:{es:'Ciberseguridad',en:'Cybersecurity'},      techs:['Python','Nmap','ISC2 CC','Markdown'] },
   { to:'https://github.com/mindset-code/project-portfolio',                external:true, icon:'🗂️', color:'#94a3b8', title:'Portafolio Profesional GUG',       category:'Web · React · Firebase', techs:['React','Vite','Firebase','Linear'] },
   { to:'https://github.com/mindset-code/agentforge',                       external:true, icon:'🏗️', color:'#6366f1', title:'AgentForge',                        category:'SaaS · AI Agents',       techs:['React','Firebase','n8n','Claude'] },
   { to:'https://github.com/mindset-code/Proyecto-Licitaciones-Publicas-automatizadas', external:true, icon:'📋', color:'#14b8a6', title:'LicitaBot',                         category:'GovTech · SaaS',         techs:['Python','React','Firebase','n8n'] },
@@ -388,9 +390,9 @@ export default function HomePage() {
               <>
                 <div className="home-project-top">
                   <span className="home-project-icon">{icon}</span>
-                  <span className="home-project-badge" style={{ color, background: color+'18', border:`1px solid ${color}40` }}>{category}</span>
+                  <span className="home-project-badge" style={{ color, background: color+'18', border:`1px solid ${color}40` }}>{L(category, lang)}</span>
                 </div>
-                <h3 className="home-project-title">{title}</h3>
+                <h3 className="home-project-title">{L(title, lang)}</h3>
                 <p className="home-project-desc">{t.projectDescs[i]}</p>
                 <div className="home-project-footer">
                   <div className="home-project-techs">{techs.map(tech => <span key={tech} className="home-project-tech">{tech}</span>)}</div>

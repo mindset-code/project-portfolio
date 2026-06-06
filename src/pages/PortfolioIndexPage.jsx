@@ -1,7 +1,24 @@
 import { Link } from 'react-router-dom'
-import { projects } from '../data/projects'
+import { projects, pick } from '../data/projects'
+import { useLang } from '../contexts/LangContext'
+
+const T = {
+  es: {
+    title: 'Portafolio de Proyectos',
+    desc: '8 proyectos que demuestran experiencia en pipelines ETL, ML, revenue management, seguridad defensiva y desarrollo web 3D.',
+    link: 'Ver proyecto →',
+  },
+  en: {
+    title: 'Project Portfolio',
+    desc: '8 projects showcasing expertise in ETL pipelines, ML, revenue management, defensive security and 3D web development.',
+    link: 'View project →',
+  },
+}
 
 export default function PortfolioIndexPage() {
+  const { lang } = useLang()
+  const t = T[lang]
+
   const getStackColor = (tech) => {
     if (tech.includes('Python') || tech.includes('SQL') || tech.includes('Pandas') || tech.includes('NumPy')) return '#3b82f6'
     if (tech.includes('React') || tech.includes('HTML5') || tech.includes('CSS3') || tech.includes('JavaScript')) return '#f97316'
@@ -14,10 +31,8 @@ export default function PortfolioIndexPage() {
   return (
     <div className="portfolio-index-page">
       <div className="portfolio-index-hero">
-        <h1 className="portfolio-index-title">Portafolio de Proyectos</h1>
-        <p className="portfolio-index-desc">
-          8 proyectos que demuestran expertise en pipeline ETL, ML, revenue management, seguridad defensiva y desarrollo web 3D.
-        </p>
+        <h1 className="portfolio-index-title">{t.title}</h1>
+        <p className="portfolio-index-desc">{t.desc}</p>
       </div>
 
       <div className="portfolio-index-grid">
@@ -37,12 +52,12 @@ export default function PortfolioIndexPage() {
 
             <div className="portfolio-index-card-metrics">
               <div className="portfolio-index-metric">
-                <span className="portfolio-index-metric-label">{project.metrics[0].label}</span>
-                <span className="portfolio-index-metric-value">{project.metrics[0].value}</span>
+                <span className="portfolio-index-metric-label">{pick(project.metrics[0].label, lang)}</span>
+                <span className="portfolio-index-metric-value">{pick(project.metrics[0].value, lang)}</span>
               </div>
               <div className="portfolio-index-metric">
-                <span className="portfolio-index-metric-label">{project.metrics[1].label}</span>
-                <span className="portfolio-index-metric-value">{project.metrics[1].value}</span>
+                <span className="portfolio-index-metric-label">{pick(project.metrics[1].label, lang)}</span>
+                <span className="portfolio-index-metric-value">{pick(project.metrics[1].value, lang)}</span>
               </div>
             </div>
 
@@ -62,7 +77,7 @@ export default function PortfolioIndexPage() {
             </div>
 
             <div className="portfolio-index-card-footer">
-              <span className="portfolio-index-card-link">Ver Portfolio →</span>
+              <span className="portfolio-index-card-link">{t.link}</span>
             </div>
           </Link>
         ))}

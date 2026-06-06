@@ -1,22 +1,39 @@
+// Campos localizables en { es, en }. Helper pick() en los componentes consumidores.
 export const projects = [
   {
     id: 'burger-house-3d',
-    title: 'Burger House — Web 3D',
+    title: 'Burger House — 3D Web',
     category: 'Creative Web · 3D · Frontend',
-    description: 'Sitio web inmersivo para restaurante de hamburguesas con modelos 3D reales (GLB) interactivos, animaciones GSAP ScrollTrigger y hero cinematográfico.',
-    problem: 'Las webs de restaurante genéricas no transmiten la calidad del producto ni captan la atención del visitante.',
-    solution: 'Experiencia 3D de nivel agencia: cada hamburguesa es un modelo 3D real que el usuario explora, con animaciones de scroll y un tema visual cálido propio.',
+    description: {
+      es: 'Sitio web inmersivo para restaurante de hamburguesas con modelos 3D reales (GLB) interactivos, animaciones GSAP ScrollTrigger y hero cinematográfico.',
+      en: 'Immersive website for a burger restaurant featuring real interactive 3D models (GLB), GSAP ScrollTrigger animations and a cinematic hero.',
+    },
+    problem: {
+      es: 'Las webs de restaurante genéricas no transmiten la calidad del producto ni captan la atención del visitante.',
+      en: 'Generic restaurant websites fail to convey product quality or capture the visitor’s attention.',
+    },
+    solution: {
+      es: 'Experiencia 3D de nivel agencia: cada hamburguesa es un modelo 3D real que el usuario explora, con animaciones de scroll y un tema visual cálido propio.',
+      en: 'Agency-grade 3D experience: each burger is a real 3D model the user can explore, with scroll-driven animations and a distinctive warm visual theme.',
+    },
     metrics: [
-      { label: 'Modelos 3D', value: '3 GLB' },
-      { label: 'Secciones', value: '4' },
-      { label: 'FPS objetivo', value: '60' },
-      { label: 'Estado', value: 'Live' },
+      { label: { es: 'Modelos 3D', en: '3D models' }, value: '3 GLB' },
+      { label: { es: 'Secciones', en: 'Sections' }, value: '4' },
+      { label: { es: 'FPS objetivo', en: 'Target FPS' }, value: '60' },
+      { label: { es: 'Estado', en: 'Status' }, value: 'Live' },
     ],
-    keyFindings: [
-      'Modelos GLB clonados por instancia (useGLTF comparte la caché)',
-      'Tamaño normalizado con THREE.Box3 para consistencia visual',
-      'Animaciones GSAP ScrollTrigger + tilt 3D en las tarjetas',
-    ],
+    keyFindings: {
+      es: [
+        'Modelos GLB clonados por instancia (useGLTF comparte la caché)',
+        'Tamaño normalizado con THREE.Box3 para consistencia visual',
+        'Animaciones GSAP ScrollTrigger + tilt 3D en las tarjetas',
+      ],
+      en: [
+        'GLB models cloned per instance (useGLTF shares a cached instance)',
+        'Size normalized with THREE.Box3 for visual consistency',
+        'GSAP ScrollTrigger animations + 3D tilt on the cards',
+      ],
+    },
     stack: ['React 19', 'Three.js', 'React Three Fiber', 'drei', 'GSAP', 'Tailwind v4', 'Firebase Hosting'],
     demoUrl: 'https://burger-house-3d.web.app',
     githubUrl: 'https://github.com/mindset-code/burger-house-3d',
@@ -28,20 +45,36 @@ export const projects = [
     id: 'executive-dashboard',
     title: 'Executive Dashboard 360°',
     category: 'Business Intelligence · Revenue Operations',
-    description: 'Dashboard ejecutivo en vivo con 24 KPIs estratégicos. Cubre Finance, RevOps y Marketing en una sola vista con 5 tablas analíticas × 36 meses.',
-    problem: 'Los líderes toman decisiones sin visibilidad unificada de sus métricas de Finance, Sales y Marketing.',
-    solution: 'Dashboard 360° con los 24 KPIs más críticos para dirección, generando una fuente única de verdad.',
+    description: {
+      es: 'Dashboard ejecutivo en vivo con 24 KPIs estratégicos. Cubre Finance, RevOps y Marketing en una sola vista con 5 tablas analíticas × 36 meses.',
+      en: 'Live executive dashboard with 24 strategic KPIs. Covers Finance, RevOps and Marketing in a single view across 5 analytical tables × 36 months.',
+    },
+    problem: {
+      es: 'Los líderes toman decisiones sin visibilidad unificada de sus métricas de Finance, Sales y Marketing.',
+      en: 'Leaders make decisions without unified visibility into their Finance, Sales and Marketing metrics.',
+    },
+    solution: {
+      es: 'Dashboard 360° con los 24 KPIs más críticos para dirección, generando una fuente única de verdad.',
+      en: 'A 360° dashboard with the 24 most critical leadership KPIs, creating a single source of truth.',
+    },
     metrics: [
-      { label: 'KPIs', value: '24' },
-      { label: 'Meses de datos', value: '36' },
-      { label: 'Tablas analíticas', value: '5' },
-      { label: 'Estado', value: 'Live' },
+      { label: { es: 'KPIs', en: 'KPIs' }, value: '24' },
+      { label: { es: 'Meses de datos', en: 'Months of data' }, value: '36' },
+      { label: { es: 'Tablas analíticas', en: 'Analytical tables' }, value: '5' },
+      { label: { es: 'Estado', en: 'Status' }, value: 'Live' },
     ],
-    keyFindings: [
-      'Revenue, MRR/ARR, Churn, CAC, LTV en una vista',
-      'Win Rate, Pipeline Coverage, ROAS integrados',
-      'Listo para Power BI / Tableau (star schema)',
-    ],
+    keyFindings: {
+      es: [
+        'Revenue, MRR/ARR, Churn, CAC, LTV en una vista',
+        'Win Rate, Pipeline Coverage, ROAS integrados',
+        'Listo para Power BI / Tableau (star schema)',
+      ],
+      en: [
+        'Revenue, MRR/ARR, Churn, CAC and LTV in a single view',
+        'Win Rate, Pipeline Coverage and ROAS integrated',
+        'Ready for Power BI / Tableau (star schema)',
+      ],
+    },
     stack: ['Python 3.12', 'Pandas 2.2', 'React 19', 'Recharts', 'Firebase Hosting'],
     demoUrl: 'https://proyectos-personales.web.app/executive',
     githubUrl: 'https://github.com/mindset-code/project-executive-dashboard-data',
@@ -53,20 +86,36 @@ export const projects = [
     id: 'churn-analysis',
     title: 'Predictive Churn Analysis',
     category: 'Data Science · Machine Learning · Revenue Operations',
-    description: 'Modelo de ML que predice abandono de clientes con 81.4% accuracy y AUC-ROC 0.881. Identifica 3 de cada 4 clientes en riesgo.',
-    problem: 'Las empresas pierden clientes sin señales de alerta tempranas que permitan intervención preventiva.',
-    solution: 'Modelo Logistic Regression que anticipa el churn 30-60 días antes, con los top predictores identificados.',
+    description: {
+      es: 'Modelo de ML que predice abandono de clientes con 81.4% accuracy y AUC-ROC 0.881. Identifica 3 de cada 4 clientes en riesgo.',
+      en: 'ML model that predicts customer churn with 81.4% accuracy and 0.881 AUC-ROC. Flags 3 out of 4 at-risk customers.',
+    },
+    problem: {
+      es: 'Las empresas pierden clientes sin señales de alerta tempranas que permitan intervención preventiva.',
+      en: 'Companies lose customers without early warning signals that would enable proactive intervention.',
+    },
+    solution: {
+      es: 'Modelo Logistic Regression que anticipa el churn 30-60 días antes, con los top predictores identificados.',
+      en: 'A Logistic Regression model that anticipates churn 30–60 days in advance, with the top predictors identified.',
+    },
     metrics: [
-      { label: 'Accuracy', value: '81.4%' },
-      { label: 'AUC-ROC', value: '0.881' },
-      { label: 'Precision', value: '~78%' },
-      { label: 'Recall', value: '~76%' },
+      { label: { es: 'Accuracy', en: 'Accuracy' }, value: '81.4%' },
+      { label: { es: 'AUC-ROC', en: 'AUC-ROC' }, value: '0.881' },
+      { label: { es: 'Precision', en: 'Precision' }, value: '~78%' },
+      { label: { es: 'Recall', en: 'Recall' }, value: '~76%' },
     ],
-    keyFindings: [
-      'Contratos mensuales tienen 3× más churn que anuales',
-      'Alto volumen de tickets predice cancelación inminente',
-      'Baja interacción con el producto precede al churn en 30-60 días',
-    ],
+    keyFindings: {
+      es: [
+        'Contratos mensuales tienen 3× más churn que anuales',
+        'Alto volumen de tickets predice cancelación inminente',
+        'Baja interacción con el producto precede al churn en 30-60 días',
+      ],
+      en: [
+        'Month-to-month contracts churn 3× more than annual ones',
+        'High support-ticket volume predicts imminent cancellation',
+        'Low product engagement precedes churn by 30–60 days',
+      ],
+    },
     stack: ['Python 3.12', 'Scikit-learn', 'Pandas', 'Matplotlib', 'React 19', 'Firebase'],
     demoUrl: 'https://proyectos-personales.web.app/churn',
     githubUrl: 'https://github.com/mindset-code/project-churn-analysis',
@@ -78,20 +127,36 @@ export const projects = [
     id: 'hotel-pricing',
     title: 'Hotel Dynamic Pricing Engine',
     category: 'Revenue Management · Data Engineering',
-    description: 'Motor de pricing dinámico con 6 factores reales. Modela ADR, RevPAR y ocupación para 3 tipos de habitación con forecast a 60 días.',
-    problem: 'Los hoteles fijan precios estáticos perdiendo revenue en alta demanda y ocupación en temporada baja.',
-    solution: 'Algoritmo con 6 factores (estacionalidad, eventos, ocupación, lead-time) que optimiza precio por tipo de habitación.',
+    description: {
+      es: 'Motor de pricing dinámico con 6 factores reales. Modela ADR, RevPAR y ocupación para 3 tipos de habitación con forecast a 60 días.',
+      en: 'Dynamic pricing engine driven by 6 real-world factors. Models ADR, RevPAR and occupancy for 3 room types with a 60-day forecast.',
+    },
+    problem: {
+      es: 'Los hoteles fijan precios estáticos perdiendo revenue en alta demanda y ocupación en temporada baja.',
+      en: 'Hotels set static rates, leaving revenue on the table during peak demand and occupancy during low season.',
+    },
+    solution: {
+      es: 'Algoritmo con 6 factores (estacionalidad, eventos, ocupación, lead-time) que optimiza precio por tipo de habitación.',
+      en: 'A 6-factor algorithm (seasonality, events, occupancy, lead time) that optimizes the rate per room type.',
+    },
     metrics: [
-      { label: 'Factores de precio', value: '6' },
-      { label: 'Forecast', value: '60 días' },
-      { label: 'Tipos habitación', value: '3' },
-      { label: 'Historial', value: '2 años' },
+      { label: { es: 'Factores de precio', en: 'Pricing factors' }, value: '6' },
+      { label: { es: 'Forecast', en: 'Forecast' }, value: { es: '60 días', en: '60 days' } },
+      { label: { es: 'Tipos habitación', en: 'Room types' }, value: '3' },
+      { label: { es: 'Historial', en: 'History' }, value: { es: '2 años', en: '2 years' } },
     ],
-    keyFindings: [
-      'Standard $120, Deluxe $185, Suite $320 base price',
-      'Eventos locales generan premium de hasta 1.55×',
-      'Precio clippeado entre 70% y 220% del base price',
-    ],
+    keyFindings: {
+      es: [
+        'Standard $120, Deluxe $185, Suite $320 base price',
+        'Eventos locales generan premium de hasta 1.55×',
+        'Precio clippeado entre 70% y 220% del base price',
+      ],
+      en: [
+        'Base prices: Standard $120, Deluxe $185, Suite $320',
+        'Local events drive a premium of up to 1.55×',
+        'Rate clamped between 70% and 220% of base price',
+      ],
+    },
     stack: ['Python 3.12', 'Pandas', 'NumPy', 'React 19', 'Recharts', 'Firebase'],
     demoUrl: 'https://proyectos-personales.web.app/hotel',
     githubUrl: 'https://github.com/mindset-code/project-hotel-pricing-engine',
@@ -103,20 +168,36 @@ export const projects = [
     id: 'sales-weather-etl',
     title: 'Sales & Weather ETL Pipeline',
     category: 'Data Engineering · Analytics',
-    description: 'Pipeline ETL production-ready que integra 9.800 transacciones Superstore con 2.9M registros de temperatura en un solo dataset analítico.',
-    problem: 'Datos de ventas y clima dispersos en fuentes heterogéneas sin integración que permita análisis cruzado.',
-    solution: 'Pipeline Extract → Transform → Load con feature engineering y 6 visualizaciones de correlación ventas-clima.',
+    description: {
+      es: 'Pipeline ETL production-ready que integra 9.800 transacciones Superstore con 2.9M registros de temperatura en un solo dataset analítico.',
+      en: 'Production-ready ETL pipeline that integrates 9,800 Superstore transactions with 2.9M temperature records into a single analytical dataset.',
+    },
+    problem: {
+      es: 'Datos de ventas y clima dispersos en fuentes heterogéneas sin integración que permita análisis cruzado.',
+      en: 'Sales and weather data scattered across disparate sources, with no integration to enable cross-analysis.',
+    },
+    solution: {
+      es: 'Pipeline Extract → Transform → Load con feature engineering y 6 visualizaciones de correlación ventas-clima.',
+      en: 'An Extract → Transform → Load pipeline with feature engineering and 6 sales-vs-weather correlation visualizations.',
+    },
     metrics: [
-      { label: 'Registros procesados', value: '2.9M' },
-      { label: 'Fuentes integradas', value: '2' },
-      { label: 'KPIs en dashboard', value: '5' },
-      { label: 'Charts', value: '7' },
+      { label: { es: 'Registros procesados', en: 'Records processed' }, value: '2.9M' },
+      { label: { es: 'Fuentes integradas', en: 'Sources integrated' }, value: '2' },
+      { label: { es: 'KPIs en dashboard', en: 'Dashboard KPIs' }, value: '5' },
+      { label: { es: 'Charts', en: 'Charts' }, value: '7' },
     ],
-    keyFindings: [
-      'Join de ventas y clima en ciudad + fecha',
-      'Temperature buckets, sales tiers, weekend flags',
-      'Dashboard React desplegado en Firebase',
-    ],
+    keyFindings: {
+      es: [
+        'Join de ventas y clima en ciudad + fecha',
+        'Temperature buckets, sales tiers, weekend flags',
+        'Dashboard React desplegado en Firebase',
+      ],
+      en: [
+        'Sales and weather joined on city + date',
+        'Temperature buckets, sales tiers and weekend flags',
+        'React dashboard deployed on Firebase',
+      ],
+    },
     stack: ['Python 3.12', 'Pandas 2.2', 'NumPy', 'React 19', 'Recharts', 'Firebase'],
     demoUrl: 'https://proyectos-personales.web.app/etl',
     githubUrl: 'https://github.com/mindset-code/project-sales-weather-etl',
@@ -128,20 +209,36 @@ export const projects = [
     id: 'revenue-management',
     title: 'Revenue Management Dashboard',
     category: 'Web Development · Revenue Operations',
-    description: 'Web app interactiva con simulador de pricing en tiempo real. Ajusta 5 parámetros y ve el impacto inmediato en ADR, RevPAR y Revenue.',
-    problem: 'Revenue managers necesitan modelar escenarios de precio-ocupación sin herramientas propietarias costosas.',
-    solution: 'Simulador web con Canvas API, 5 sliders de parámetros y proyección de 7 días sin librerías externas.',
+    description: {
+      es: 'Web app interactiva con simulador de pricing en tiempo real. Ajusta 5 parámetros y ve el impacto inmediato en ADR, RevPAR y Revenue.',
+      en: 'Interactive web app with a real-time pricing simulator. Adjust 5 parameters and see the immediate impact on ADR, RevPAR and Revenue.',
+    },
+    problem: {
+      es: 'Revenue managers necesitan modelar escenarios de precio-ocupación sin herramientas propietarias costosas.',
+      en: 'Revenue managers need to model price-vs-occupancy scenarios without expensive proprietary tools.',
+    },
+    solution: {
+      es: 'Simulador web con Canvas API, 5 sliders de parámetros y proyección de 7 días sin librerías externas.',
+      en: 'A web simulator built with the Canvas API: 5 parameter sliders and a 7-day projection, with no external libraries.',
+    },
     metrics: [
-      { label: 'Parámetros', value: '5' },
-      { label: 'KPIs en vivo', value: '4' },
-      { label: 'Proyección', value: '7 días' },
-      { label: 'Dependencias externas', value: '0' },
+      { label: { es: 'Parámetros', en: 'Parameters' }, value: '5' },
+      { label: { es: 'KPIs en vivo', en: 'Live KPIs' }, value: '4' },
+      { label: { es: 'Proyección', en: 'Projection' }, value: { es: '7 días', en: '7 days' } },
+      { label: { es: 'Dependencias externas', en: 'External dependencies' }, value: '0' },
     ],
-    keyFindings: [
-      'ADR, Occupancy, RevPAR, Total Revenue en tiempo real',
-      'Fórmula: Effective Price = Base × (1-Discount) × Demand',
-      'Canvas API puro sin Chart.js ni Recharts',
-    ],
+    keyFindings: {
+      es: [
+        'ADR, Occupancy, RevPAR, Total Revenue en tiempo real',
+        'Fórmula: Effective Price = Base × (1-Discount) × Demand',
+        'Canvas API puro sin Chart.js ni Recharts',
+      ],
+      en: [
+        'ADR, Occupancy, RevPAR and Total Revenue in real time',
+        'Formula: Effective Price = Base × (1 − Discount) × Demand',
+        'Pure Canvas API, no Chart.js or Recharts',
+      ],
+    },
     stack: ['HTML5', 'CSS3 (Flexbox + Grid)', 'JavaScript ES6+', 'Canvas API'],
     demoUrl: null,
     githubUrl: 'https://github.com/mindset-code/project-revenue-management-web',
@@ -153,20 +250,36 @@ export const projects = [
     id: 'sql-optimization',
     title: 'Sales Optimization SQL',
     category: 'Business Intelligence · SQL Analytics',
-    description: '5 queries SQL avanzadas sobre 10.000 registros de ventas. Análisis de rentabilidad por región, vendedor, estacionalidad y márgenes.',
-    problem: 'Equipos de ventas sin visibilidad analítica de qué regiones, vendedores y productos son más rentables.',
-    solution: '5 queries SQL listas para conectar a Power BI o Tableau, con star schema y hallazgos de negocio documentados.',
+    description: {
+      es: '5 queries SQL avanzadas sobre 10.000 registros de ventas. Análisis de rentabilidad por región, vendedor, estacionalidad y márgenes.',
+      en: '5 advanced SQL queries over 10,000 sales records. Profitability analysis by region, sales rep, seasonality and margin.',
+    },
+    problem: {
+      es: 'Equipos de ventas sin visibilidad analítica de qué regiones, vendedores y productos son más rentables.',
+      en: 'Sales teams lacking analytical visibility into which regions, reps and products are the most profitable.',
+    },
+    solution: {
+      es: '5 queries SQL listas para conectar a Power BI o Tableau, con star schema y hallazgos de negocio documentados.',
+      en: '5 SQL queries ready to connect to Power BI or Tableau, with a star schema and documented business findings.',
+    },
     metrics: [
-      { label: 'Registros', value: '10.000' },
-      { label: 'Queries SQL', value: '5' },
-      { label: 'BI-ready', value: '✓' },
-      { label: 'DBs soportadas', value: '3' },
+      { label: { es: 'Registros', en: 'Records' }, value: '10,000' },
+      { label: { es: 'Queries SQL', en: 'SQL queries' }, value: '5' },
+      { label: { es: 'BI-ready', en: 'BI-ready' }, value: '✓' },
+      { label: { es: 'DBs soportadas', en: 'Databases supported' }, value: '3' },
     ],
-    keyFindings: [
-      'Regiones más rentables con margen de beneficio',
-      'Vendedores de alto rendimiento identificados',
-      'Patrones de estacionalidad en ventas anuales',
-    ],
+    keyFindings: {
+      es: [
+        'Regiones más rentables con margen de beneficio',
+        'Vendedores de alto rendimiento identificados',
+        'Patrones de estacionalidad en ventas anuales',
+      ],
+      en: [
+        'Most profitable regions ranked by profit margin',
+        'Top-performing sales reps identified',
+        'Seasonality patterns across annual sales',
+      ],
+    },
     stack: ['SQL (SQLite · PostgreSQL · MySQL)', 'Python 3.12', 'Pandas', 'Power BI', 'Tableau'],
     demoUrl: null,
     githubUrl: 'https://github.com/mindset-code/project-sales-optimization-sql',
@@ -178,20 +291,36 @@ export const projects = [
     id: 'siem-security',
     title: 'Security Log Analysis · SIEM',
     category: 'Cybersecurity · ISC2 CC · Threat Detection',
-    description: 'Simulación de SIEM que analiza 5.000 líneas de logs para detectar brute-force, escaneo de puertos y anomalías. ISC2 CC aplicado.',
-    problem: 'Equipos de seguridad sin herramientas para correlacionar eventos y detectar patrones de ataque en logs.',
-    solution: 'SIEM en Python con regex y correlación de eventos que genera reporte estructurado de incidentes con IPs para blocklist.',
+    description: {
+      es: 'Simulación de SIEM que analiza 5.000 líneas de logs para detectar brute-force, escaneo de puertos y anomalías. ISC2 CC aplicado.',
+      en: 'SIEM simulation that analyzes 5,000 log lines to detect brute-force attacks, port scans and anomalies. ISC2 CC applied.',
+    },
+    problem: {
+      es: 'Equipos de seguridad sin herramientas para correlacionar eventos y detectar patrones de ataque en logs.',
+      en: 'Security teams without tooling to correlate events and detect attack patterns across logs.',
+    },
+    solution: {
+      es: 'SIEM en Python con regex y correlación de eventos que genera reporte estructurado de incidentes con IPs para blocklist.',
+      en: 'A Python SIEM using regex and event correlation that produces a structured incident report with IPs to block.',
+    },
     metrics: [
-      { label: 'Logs analizados', value: '5.000' },
-      { label: 'Top IPs sospechosas', value: '5' },
-      { label: 'Tipos de evento', value: '6' },
-      { label: 'Certificación', value: 'ISC2 CC' },
+      { label: { es: 'Logs analizados', en: 'Logs analyzed' }, value: '5,000' },
+      { label: { es: 'Top IPs sospechosas', en: 'Top suspicious IPs' }, value: '5' },
+      { label: { es: 'Tipos de evento', en: 'Event types' }, value: '6' },
+      { label: { es: 'Certificación', en: 'Certification' }, value: 'ISC2 CC' },
     ],
-    keyFindings: [
-      'Brute-force detectado por patrón de IPs',
-      'LOGIN_SUCCESS, ACCESS_DENIED, PORT_SCAN correlacionados',
-      'Reporte de incidentes listo para blocklist inmediata',
-    ],
+    keyFindings: {
+      es: [
+        'Brute-force detectado por patrón de IPs',
+        'LOGIN_SUCCESS, ACCESS_DENIED, PORT_SCAN correlacionados',
+        'Reporte de incidentes listo para blocklist inmediata',
+      ],
+      en: [
+        'Brute-force detected via IP patterns',
+        'LOGIN_SUCCESS, ACCESS_DENIED and PORT_SCAN correlated',
+        'Incident report ready for immediate blocklisting',
+      ],
+    },
     stack: ['Python 3.12', 're (regex)', 'collections', 'Markdown report'],
     demoUrl: null,
     githubUrl: 'https://github.com/mindset-code/project-security-log-analysis',
@@ -202,3 +331,6 @@ export const projects = [
 ]
 
 export const projectById = (id) => projects.find(p => p.id === id)
+
+// Devuelve el valor en el idioma dado; acepta strings simples o { es, en }.
+export const pick = (v, lang) => (v && typeof v === 'object' && !Array.isArray(v) ? (v[lang] ?? v.es) : v)
