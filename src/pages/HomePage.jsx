@@ -86,6 +86,7 @@ const T = {
       'DevOps & PM',
     ],
     projectDescs: [
+      'Web inmersiva 3D para restaurante de hamburguesas: modelos GLB reales interactivos, animaciones GSAP ScrollTrigger y hero cinematográfico. React + Three.js (R3F).',
       'Pipeline ETL que integra 9.800 transacciones de ventas con datos climáticos de ciudades US. Feature engineering y visualización en producción.',
       '24 KPIs ejecutivos en 36 meses: ARR, CAC, LTV, NRR, pipeline de ventas y funnel de marketing para liderazgo financiero.',
       'Tres dashboards HTML profesionales (Finance, Marketing, Retail Analytics) listos para embeber en Power BI (HTML Viewer) y Tableau (Web Page).',
@@ -185,6 +186,7 @@ const T = {
       'DevOps & PM',
     ],
     projectDescs: [
+      'Immersive 3D website for a burger restaurant: real interactive GLB models, GSAP ScrollTrigger animations and a cinematic hero. Built with React + Three.js (R3F).',
       'ETL pipeline integrating 9,800 sales transactions with daily temperature data from US cities. Feature engineering and production-ready visualization.',
       '24 executive KPIs over 36 months: ARR, CAC, LTV, NRR, sales pipeline and marketing funnel for financial leadership.',
       'Three professional HTML dashboards (Finance, Marketing, Retail Analytics) ready to embed in Power BI (HTML Viewer) and Tableau (Web Page).',
