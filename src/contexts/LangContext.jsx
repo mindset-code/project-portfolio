@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useState, useEffect } from 'react'
 
 const LangContext = createContext({ lang: 'es', toggleLang: () => {} })
 
@@ -6,6 +6,13 @@ export function LangProvider({ children }) {
   const [lang, setLang] = useState(() => {
     try { return localStorage.getItem('portfolio_lang') || 'es' } catch { return 'es' }
   })
+
+  // Mantener <html lang> sincronizado con el idioma activo:
+  // evita que el navegador auto-traduzca (literal) cuando el lang declarado
+  // no coincide con el contenido realmente mostrado.
+  useEffect(() => {
+    document.documentElement.lang = lang
+  }, [lang])
 
   function toggleLang() {
     const next = lang === 'es' ? 'en' : 'es'
