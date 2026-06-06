@@ -16,7 +16,7 @@ export default function PortfolioIndexPage() {
       <div className="portfolio-index-hero">
         <h1 className="portfolio-index-title">Portafolio de Proyectos</h1>
         <p className="portfolio-index-desc">
-          7 proyectos de Data & BI que demuestran expertise en pipeline ETL, ML, revenue management y seguridad defensiva.
+          8 proyectos que demuestran expertise en pipeline ETL, ML, revenue management, seguridad defensiva y desarrollo web 3D.
         </p>
       </div>
 

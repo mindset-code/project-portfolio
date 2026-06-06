@@ -1,5 +1,30 @@
 export const projects = [
   {
+    id: 'burger-house-3d',
+    title: 'Burger House — Web 3D',
+    category: 'Creative Web · 3D · Frontend',
+    description: 'Sitio web inmersivo para restaurante de hamburguesas con modelos 3D reales (GLB) interactivos, animaciones GSAP ScrollTrigger y hero cinematográfico.',
+    problem: 'Las webs de restaurante genéricas no transmiten la calidad del producto ni captan la atención del visitante.',
+    solution: 'Experiencia 3D de nivel agencia: cada hamburguesa es un modelo 3D real que el usuario explora, con animaciones de scroll y un tema visual cálido propio.',
+    metrics: [
+      { label: 'Modelos 3D', value: '3 GLB' },
+      { label: 'Secciones', value: '4' },
+      { label: 'FPS objetivo', value: '60' },
+      { label: 'Estado', value: 'Live' },
+    ],
+    keyFindings: [
+      'Modelos GLB clonados por instancia (useGLTF comparte la caché)',
+      'Tamaño normalizado con THREE.Box3 para consistencia visual',
+      'Animaciones GSAP ScrollTrigger + tilt 3D en las tarjetas',
+    ],
+    stack: ['React 19', 'Three.js', 'React Three Fiber', 'drei', 'GSAP', 'Tailwind v4', 'Firebase Hosting'],
+    demoUrl: 'https://burger-house-3d.web.app',
+    githubUrl: 'https://github.com/mindset-code/burger-house-3d',
+    screenshotPath: null,
+    icon: '🍔',
+    accentColor: '#f59e0b',
+  },
+  {
     id: 'executive-dashboard',
     title: 'Executive Dashboard 360°',
     category: 'Business Intelligence · Revenue Operations',

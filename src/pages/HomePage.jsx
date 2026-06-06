@@ -98,7 +98,7 @@ const T = {
       'Web app vanilla JS con KPIs en tiempo real (ADR, RevPAR, Occupancy) + simulador de pricing interactivo con 5 parámetros. Canvas API, sin frameworks.',
       'Stack defensivo de ciberseguridad aplicada (ISC2 CC): SIEM simulado que detecta fuerza bruta sobre 5.000 logs + escáner de vulnerabilidades estilo Nmap con reporte Markdown.',
       'Escáner de vulnerabilidades estilo Nmap construido en Python: detección de puertos abiertos, fingerprinting de servicios y reporte Markdown automático. ISC2 CC aplicada.',
-      'Este mismo portafolio: SPA React 19 + Vite desplegada en Firebase Hosting con 14 proyectos interactivos, soporte ES/EN y navegación dinámica.',
+      'Este mismo portafolio: SPA React 19 + Vite desplegada en Firebase Hosting con 15 proyectos interactivos, soporte ES/EN y navegación dinámica.',
       'SaaS en desarrollo: plataforma para construir y desplegar agentes IA especializados sin código. Stack React + Firebase + n8n + Claude API.',
       'Motor Python que automatiza la cotización de licitaciones públicas chilenas (Mercado Público): parsea la licitación, casa ítems con el catálogo y exporta un Excel/PDF con precios. Web React + Firebase. En desarrollo.',
     ],
@@ -197,7 +197,7 @@ const T = {
       'Vanilla JS web app with real-time KPIs (ADR, RevPAR, Occupancy) + interactive pricing simulator with 5 parameters. Canvas API, no frameworks.',
       'Defensive cybersecurity stack applied (ISC2 CC): simulated SIEM detecting brute-force attacks over 5,000 logs + Nmap-style vulnerability scanner with Markdown report.',
       'Nmap-style vulnerability scanner built in Python: open port detection, service fingerprinting and automatic Markdown report generation. ISC2 CC applied.',
-      'This very portfolio: React 19 + Vite SPA deployed on Firebase Hosting with 14 interactive projects, ES/EN support and dynamic navigation.',
+      'This very portfolio: React 19 + Vite SPA deployed on Firebase Hosting with 15 interactive projects, ES/EN support and dynamic navigation.',
       'SaaS in development: platform to build and deploy specialized AI agents without code. Stack: React + Firebase + n8n + Claude API.',
       'Python engine that automates Chilean public-tender quoting (Mercado Público): parses the tender, matches line items to a catalog and exports a priced Excel/PDF. React + Firebase web. In development.',
     ],
@@ -210,7 +210,7 @@ const SKILL_ITEMS  = [
   ['Power BI', 'Tableau', 'Advanced Excel', 'Executive Dashboards', 'KPIs & OKRs'],
   ['Pipelines ETL', 'Data Modeling', 'JSON APIs', 'Node.js', 'Git / GitHub'],
   ['ARR / MRR', 'CAC & LTV', 'NRR & Churn', 'RevPAR / ADR', 'Pipeline & Funnel'],
-  ['React', 'Vite', 'Firebase', 'Google Cloud', 'REST APIs'],
+  ['React', 'Vite', 'Firebase', 'Three.js / R3F', 'GSAP', 'WebGL'],
   ['Claude API', 'n8n', 'Paperclip', 'Agentic AI', 'LLM Orchestration'],
   ['LangChain', 'RAG', 'Vector DBs', 'Prompt Engineering', 'MLOps', 'Claude Code'],
   ['ISC2 CC', 'SIEM', 'OWASP Top 10', 'Google Cybersecurity', 'Nmap'],
@@ -220,6 +220,7 @@ const SKILL_COLORS = ['#60a5fa','#34d399','#60a5fa','#fbbf24','#34d399','#f472b6
 
 /* ── Projects ──────────────────────────────────────────────────────────────── */
 const PROJECTS = [
+  { to:'https://burger-house-3d.web.app', external:true, icon:'🍔', color:'#f59e0b', title:'Burger House — Web 3D', category:'Creative Web · 3D', techs:['Three.js','R3F','GSAP','React'] },
   { to:'/etl',         external:false, icon:'⚙️', color:'#60a5fa', title:'Sales & Weather ETL',           category:'Data Engineering',   techs:['Python','Pandas','React','Firebase'] },
   { to:'/executive',   external:false, icon:'📊', color:'#34d399', title:'Executive Dashboard 360°',      category:'BI & RevOps',         techs:['Python','Pandas','React','Recharts'] },
   { to:'/dashboards',  external:false, icon:'📈', color:'#10b981', title:'Dashboards Power BI & Tableau', category:'BI Embed',           techs:['HTML','React','Power BI','Tableau'] },
