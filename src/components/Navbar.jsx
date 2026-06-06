@@ -39,6 +39,7 @@ const CATEGORIES = [
     icon: '💻',
     color: '#fbbf24',
     items: [
+      { to: 'https://burger-house-3d.web.app',                          label: 'Burger House — Web 3D',    badge: 'Creative Web · 3D', icon: '🍔', color: '#f59e0b', ext: true },
       { to: 'https://github.com/mindset-code/project-sales-optimization-sql',  label: 'Sales Optimization SQL',   badge: 'SQL & BI',        icon: '🗄️', color: '#38bdf8', ext: true },
       { to: 'https://github.com/mindset-code/project-revenue-management-web',  label: 'Revenue Management Web',   badge: 'Web Development', icon: '💡', color: '#fbbf24', ext: true },
       { to: 'https://github.com/mindset-code/project-portfolio',               label: 'Portafolio Profesional',   badge: 'React · Firebase', icon: '🗂️', color: '#94a3b8', ext: true },
