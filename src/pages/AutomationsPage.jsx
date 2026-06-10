@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import PortfolioFooter from '../components/PortfolioFooter'
+import Icon from '../components/icons'
 import { useLang } from '../contexts/LangContext'
 
 /* ── Translations ── */
@@ -10,8 +11,8 @@ const T = {
     title: 'Automatizaciones & Agentes IA',
     desc: 'Vista de solo lectura de los workflows de n8n y los agentes de Paperclip que operan Consultoría Tech. Haz clic en los nodos para explorar la configuración de cada paso.',
     heroStats: ['Workflows n8n', 'Activos 24/7', 'Agentes Claude', 'Nodos totales'],
-    tabWorkflows: '⚡ Workflows n8n',
-    tabAgents:    '🤖 Agentes Paperclip',
+    tabWorkflows: 'Workflows n8n',
+    tabAgents:    'Agentes Paperclip',
     workflowsDesc: 'Workflows reales extraídos de n8n vía API. Haz clic en una tarjeta para ver el flujo completo y la configuración de cada nodo.',
     agentsDesc: 'Cinco agentes especializados operados por Claude (Anthropic) y orquestados desde Paperclip, el sistema nervioso central de Consultoría Tech.',
     loading: 'Cargando workflows…',
@@ -29,8 +30,8 @@ const T = {
     title: 'Automations & AI Agents',
     desc: 'Read-only view of the n8n workflows and Paperclip agents that operate Consultoría Tech. Click on nodes to explore the configuration of each step.',
     heroStats: ['n8n Workflows', 'Active 24/7', 'Claude Agents', 'Total nodes'],
-    tabWorkflows: '⚡ n8n Workflows',
-    tabAgents:    '🤖 Paperclip Agents',
+    tabWorkflows: 'n8n Workflows',
+    tabAgents:    'Paperclip Agents',
     workflowsDesc: 'Real workflows fetched from n8n via API. Click a card to see the full flow and each node\'s configuration.',
     agentsDesc: 'Five specialized agents operated by Claude (Anthropic) and orchestrated from Paperclip, the central nervous system of Consultoría Tech.',
     loading: 'Loading workflows…',
@@ -49,7 +50,7 @@ const T = {
 const AGENTS = {
   es: [
     {
-      icon: '👔', color: '#34d399', role: 'CEO',
+      icon: 'briefcase', color: '#34d399', role: 'CEO',
       name: 'Agente Estratégico',
       desc: 'Visión de negocio, toma de decisiones estratégicas y coordinación general de la empresa.',
       responsibilities: [
@@ -60,7 +61,7 @@ const AGENTS = {
       ],
     },
     {
-      icon: '⚙️', color: '#60a5fa', role: 'CTO',
+      icon: 'cog', color: '#60a5fa', role: 'CTO',
       name: 'Agente Técnico',
       desc: 'Arquitectura de sistemas, code reviews automáticos vía GitHub y decisiones de stack tecnológico.',
       responsibilities: [
@@ -71,7 +72,7 @@ const AGENTS = {
       ],
     },
     {
-      icon: '📣', color: '#f472b6', role: 'CMO',
+      icon: 'megaphone', color: '#f472b6', role: 'CMO',
       name: 'Agente de Marketing',
       desc: 'Estrategia de contenido, prospección de clientes y gestión del mensaje de marca.',
       responsibilities: [
@@ -82,7 +83,7 @@ const AGENTS = {
       ],
     },
     {
-      icon: '🔧', color: '#fbbf24', role: 'Ops',
+      icon: 'wrench', color: '#fbbf24', role: 'Ops',
       name: 'Agente de Operaciones',
       desc: 'Gestión de proyectos activos, seguimiento de tareas e issues y coordinación de entregas.',
       responsibilities: [
@@ -93,7 +94,7 @@ const AGENTS = {
       ],
     },
     {
-      icon: '📋', color: '#a78bfa', role: 'PM',
+      icon: 'clipboard', color: '#a78bfa', role: 'PM',
       name: 'Agente de Proyectos',
       desc: 'Planning de sprints, priorización del backlog y comunicación entre agentes y clientes.',
       responsibilities: [
@@ -106,7 +107,7 @@ const AGENTS = {
   ],
   en: [
     {
-      icon: '👔', color: '#34d399', role: 'CEO',
+      icon: 'briefcase', color: '#34d399', role: 'CEO',
       name: 'Strategic Agent',
       desc: 'Business vision, strategic decision-making and general coordination of the company.',
       responsibilities: [
@@ -117,7 +118,7 @@ const AGENTS = {
       ],
     },
     {
-      icon: '⚙️', color: '#60a5fa', role: 'CTO',
+      icon: 'cog', color: '#60a5fa', role: 'CTO',
       name: 'Technical Agent',
       desc: 'Systems architecture, automatic code reviews via GitHub and tech stack decisions.',
       responsibilities: [
@@ -128,7 +129,7 @@ const AGENTS = {
       ],
     },
     {
-      icon: '📣', color: '#f472b6', role: 'CMO',
+      icon: 'megaphone', color: '#f472b6', role: 'CMO',
       name: 'Marketing Agent',
       desc: 'Content strategy, customer prospecting and brand message management.',
       responsibilities: [
@@ -139,7 +140,7 @@ const AGENTS = {
       ],
     },
     {
-      icon: '🔧', color: '#fbbf24', role: 'Ops',
+      icon: 'wrench', color: '#fbbf24', role: 'Ops',
       name: 'Operations Agent',
       desc: 'Active project management, task and issue tracking and delivery coordination.',
       responsibilities: [
@@ -150,7 +151,7 @@ const AGENTS = {
       ],
     },
     {
-      icon: '📋', color: '#a78bfa', role: 'PM',
+      icon: 'clipboard', color: '#a78bfa', role: 'PM',
       name: 'Projects Agent',
       desc: 'Sprint planning, backlog prioritization and communication between agents and clients.',
       responsibilities: [
@@ -191,7 +192,7 @@ function WorkflowFlow({ nodes, selectedNode, onSelectNode }) {
             style={{ '--node-color': node.typeColor }}
             onClick={() => onSelectNode(selectedNode?.id === node.id ? null : node)}
           >
-            <span className="auto-node-icon">{node.icon}</span>
+            <span className="auto-node-icon"><Icon name={node.icon} /></span>
             <div className="auto-node-body">
               <span className="auto-node-type" style={{ color: node.typeColor }}>{node.typeLabel}</span>
               <span className="auto-node-name">{node.name}</span>
@@ -212,7 +213,7 @@ function NodeDetail({ node, lang, onClose }) {
   return (
     <div className="auto-node-detail" style={{ '--node-color': node.typeColor }}>
       <div className="auto-node-detail-header">
-        <span className="auto-node-detail-icon">{node.icon}</span>
+        <span className="auto-node-detail-icon"><Icon name={node.icon} /></span>
         <div>
           <span className="auto-node-detail-type" style={{ color: node.typeColor }}>{node.typeLabel}</span>
           <p className="auto-node-detail-name">{node.name}</p>
@@ -314,10 +315,10 @@ export default function AutomationsPage() {
       <div className="auto-tabs-bar">
         <div className="auto-tabs">
           <button className={`auto-tab ${tab === 'workflows' ? 'auto-tab--active' : ''}`} onClick={() => setTab('workflows')}>
-            {t.tabWorkflows}
+            <Icon name="zap" /> {t.tabWorkflows}
           </button>
           <button className={`auto-tab ${tab === 'agents' ? 'auto-tab--active' : ''}`} onClick={() => setTab('agents')}>
-            {t.tabAgents}
+            <Icon name="bot" /> {t.tabAgents}
           </button>
         </div>
       </div>
@@ -345,7 +346,7 @@ export default function AutomationsPage() {
               </div>
             )}
             <div className="auto-notice">
-              <span>🔒</span>
+              <span><Icon name="lock" /></span>
               <p>{t.noticeWorkflows}</p>
             </div>
           </div>
@@ -358,7 +359,7 @@ export default function AutomationsPage() {
               {agents.map(agent => (
                 <div key={agent.role} className="auto-agent-card" style={{ '--agent-color': agent.color }}>
                   <div className="auto-agent-header">
-                    <span className="auto-agent-icon">{agent.icon}</span>
+                    <span className="auto-agent-icon"><Icon name={agent.icon} /></span>
                     <div>
                       <span className="auto-agent-role" style={{ color: agent.color }}>{agent.role}</span>
                       <p className="auto-agent-name">{agent.name}</p>
@@ -377,7 +378,7 @@ export default function AutomationsPage() {
               ))}
             </div>
             <div className="auto-notice">
-              <span>🔒</span>
+              <span><Icon name="lock" /></span>
               <p>{t.noticeAgents}</p>
             </div>
           </div>

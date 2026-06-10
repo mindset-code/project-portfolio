@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useLang } from '../contexts/LangContext'
 import PortfolioFooter from '../components/PortfolioFooter'
+import Icon from '../components/icons'
 
 const L = (v, lang) => (v && typeof v === 'object' ? (v[lang] ?? v.es) : v)
 
@@ -22,7 +23,7 @@ const T = {
     careerDesc:  'De liderazgo comercial B2B a AI Engineer Full-Stack — una reconversión técnica profunda en 4 años.',
     careerCards: [
       {
-        icon: '📈',
+        icon: 'trending-up',
         color: '#34d399',
         title: 'Liderazgo comercial (10+ años)',
         body: 'Sales Operations, Revenue Operations y estrategia comercial en B2B de alta complejidad.',
@@ -33,7 +34,7 @@ const T = {
         ],
       },
       {
-        icon: '🔧',
+        icon: 'wrench',
         color: '#60a5fa',
         title: 'Reconversión técnica (4 años)',
         body: 'De líder comercial ejecutivo a AI Engineer con stack Full-Stack completo.',
@@ -44,7 +45,7 @@ const T = {
         ],
       },
       {
-        icon: '🤖',
+        icon: 'bot',
         color: '#a78bfa',
         title: 'Stack IA como rutina diaria',
         body: 'Herramientas que uso todos los días para diseñar, construir y operar soluciones.',
@@ -122,7 +123,7 @@ const T = {
     careerDesc:  'From B2B commercial leadership to Full-Stack AI Engineer — a deep technical reinvention over 4 years.',
     careerCards: [
       {
-        icon: '📈',
+        icon: 'trending-up',
         color: '#34d399',
         title: 'Commercial leadership (10+ years)',
         body: 'Sales Operations, Revenue Operations and commercial strategy in high-complexity B2B environments.',
@@ -133,7 +134,7 @@ const T = {
         ],
       },
       {
-        icon: '🔧',
+        icon: 'wrench',
         color: '#60a5fa',
         title: 'Technical reinvention (4 years)',
         body: 'From executive commercial leader to AI Engineer with a complete Full-Stack technical stack.',
@@ -144,7 +145,7 @@ const T = {
         ],
       },
       {
-        icon: '🤖',
+        icon: 'bot',
         color: '#a78bfa',
         title: 'AI stack as daily routine',
         body: 'Tools I use every day to design, build and operate solutions.',
@@ -224,22 +225,22 @@ const SKILL_COLORS = ['#60a5fa','#34d399','#60a5fa','#fbbf24','#34d399','#f472b6
 
 /* ── Projects ──────────────────────────────────────────────────────────────── */
 const PROJECTS = [
-  { to:'https://burger-house-3d.web.app', external:true, icon:'🍔', color:'#f59e0b', title:'Burger House — Web 3D', category:'Creative Web · 3D', techs:['Three.js','R3F','GSAP','React'] },
-  { to:'/etl',         external:false, icon:'⚙️', color:'#60a5fa', title:'Sales & Weather ETL',           category:'Data Engineering',   techs:['Python','Pandas','React','Firebase'] },
-  { to:'/executive',   external:false, icon:'📊', color:'#34d399', title:'Executive Dashboard 360°',      category:'BI & RevOps',         techs:['Python','Pandas','React','Recharts'] },
-  { to:'/dashboards',  external:false, icon:'📈', color:'#10b981', title:'Dashboards Power BI & Tableau', category:'BI Embed',           techs:['HTML','React','Power BI','Tableau'] },
-  { to:'/churn',       external:false, icon:'🔬', color:'#a78bfa', title:'Predictive Churn Analysis',     category:'Data Science',        techs:['Scikit-learn','Python','Pandas','React'] },
-  { to:'/hotel',       external:false, icon:'🏨', color:'#fb923c', title:'Hotel Pricing Engine',          category:'Revenue Management', techs:['Python','NumPy','React','Recharts'] },
-  { to:'/consultoria-tech',    external:false, icon:'🤖', color:'#f472b6', title:'Consultoría Tech',              category:'AI Automation',      techs:['Claude','n8n','Paperclip','Firebase'] },
-  { to:'/automations', external:false, icon:'⚡', color:'#8b5cf6', title:{es:'Automatizaciones & Agentes IA',en:'Automations & AI Agents'}, category:'n8n · Paperclip',    techs:['n8n','Paperclip','Claude','React'] },
-  { to:'https://consultoria-tech.web.app',                                 external:true, icon:'🌐', color:'#06b6d4', title:'Consultoría Tech Corporate', category:'Corporate Web',      techs:['React','Vite','Firebase'] },
-  { to:'https://github.com/mindset-code/project-sales-optimization-sql',   external:true, icon:'🗄️', color:'#38bdf8', title:'Sales Optimization SQL',   category:'SQL & BI',           techs:['SQL','GROUP BY','Power BI','Tableau'] },
-  { to:'https://github.com/mindset-code/project-revenue-management-web',   external:true, icon:'💡', color:'#fbbf24', title:'Revenue Management Web',   category:'Web Development',     techs:['HTML','CSS','Vanilla JS','Canvas API'] },
-  { to:'https://github.com/mindset-code/project-security-log-analysis',    external:true, icon:'🛡️', color:'#ef4444', title:'Security Log Analysis + Scanner', category:{es:'Ciberseguridad',en:'Cybersecurity'},      techs:['Python','SIEM','ISC2 CC','Nmap'] },
-  { to:'https://github.com/mindset-code/project-vulnerability-scanner',    external:true, icon:'🔍', color:'#f97316', title:'Vulnerability Scanner',            category:{es:'Ciberseguridad',en:'Cybersecurity'},      techs:['Python','Nmap','ISC2 CC','Markdown'] },
-  { to:'https://github.com/mindset-code/project-portfolio',                external:true, icon:'🗂️', color:'#94a3b8', title:{es:'Portafolio Profesional GUG',en:'Professional Portfolio (GUG)'},       category:'Web · React · Firebase', techs:['React','Vite','Firebase','Linear'] },
-  { to:'https://github.com/mindset-code/agentforge',                       external:true, icon:'🏗️', color:'#6366f1', title:'AgentForge',                        category:'SaaS · AI Agents',       techs:['React','Firebase','n8n','Claude'] },
-  { to:'https://github.com/mindset-code/Proyecto-Licitaciones-Publicas-automatizadas', external:true, icon:'📋', color:'#14b8a6', title:'LicitaBot',                         category:'GovTech · SaaS',         techs:['Python','React','Firebase','n8n'] },
+  { to:'https://burger-house-3d.web.app', external:true, icon:'burger', color:'#f59e0b', title:'Burger House — Web 3D', category:'Creative Web · 3D', techs:['Three.js','R3F','GSAP','React'] },
+  { to:'/etl',         external:false, icon:'cog', color:'#60a5fa', title:'Sales & Weather ETL',           category:'Data Engineering',   techs:['Python','Pandas','React','Firebase'] },
+  { to:'/executive',   external:false, icon:'chart-bar', color:'#34d399', title:'Executive Dashboard 360°',      category:'BI & RevOps',         techs:['Python','Pandas','React','Recharts'] },
+  { to:'/dashboards',  external:false, icon:'trending-up', color:'#10b981', title:'Dashboards Power BI & Tableau', category:'BI Embed',           techs:['HTML','React','Power BI','Tableau'] },
+  { to:'/churn',       external:false, icon:'flask', color:'#a78bfa', title:'Predictive Churn Analysis',     category:'Data Science',        techs:['Scikit-learn','Python','Pandas','React'] },
+  { to:'/hotel',       external:false, icon:'building', color:'#fb923c', title:'Hotel Pricing Engine',          category:'Revenue Management', techs:['Python','NumPy','React','Recharts'] },
+  { to:'/consultoria-tech',    external:false, icon:'bot', color:'#f472b6', title:'Consultoría Tech',              category:'AI Automation',      techs:['Claude','n8n','Paperclip','Firebase'] },
+  { to:'/automations', external:false, icon:'zap', color:'#8b5cf6', title:{es:'Automatizaciones & Agentes IA',en:'Automations & AI Agents'}, category:'n8n · Paperclip',    techs:['n8n','Paperclip','Claude','React'] },
+  { to:'https://consultoria-tech.web.app',                                 external:true, icon:'globe', color:'#06b6d4', title:'Consultoría Tech Corporate', category:'Corporate Web',      techs:['React','Vite','Firebase'] },
+  { to:'https://github.com/mindset-code/project-sales-optimization-sql',   external:true, icon:'database', color:'#38bdf8', title:'Sales Optimization SQL',   category:'SQL & BI',           techs:['SQL','GROUP BY','Power BI','Tableau'] },
+  { to:'https://github.com/mindset-code/project-revenue-management-web',   external:true, icon:'lightbulb', color:'#fbbf24', title:'Revenue Management Web',   category:'Web Development',     techs:['HTML','CSS','Vanilla JS','Canvas API'] },
+  { to:'https://github.com/mindset-code/project-security-log-analysis',    external:true, icon:'shield', color:'#ef4444', title:'Security Log Analysis + Scanner', category:{es:'Ciberseguridad',en:'Cybersecurity'},      techs:['Python','SIEM','ISC2 CC','Nmap'] },
+  { to:'https://github.com/mindset-code/project-vulnerability-scanner',    external:true, icon:'search', color:'#f97316', title:'Vulnerability Scanner',            category:{es:'Ciberseguridad',en:'Cybersecurity'},      techs:['Python','Nmap','ISC2 CC','Markdown'] },
+  { to:'https://github.com/mindset-code/project-portfolio',                external:true, icon:'folder', color:'#94a3b8', title:{es:'Portafolio Profesional GUG',en:'Professional Portfolio (GUG)'},       category:'Web · React · Firebase', techs:['React','Vite','Firebase','Linear'] },
+  { to:'https://github.com/mindset-code/agentforge',                       external:true, icon:'building-2', color:'#6366f1', title:'AgentForge',                        category:'SaaS · AI Agents',       techs:['React','Firebase','n8n','Claude'] },
+  { to:'https://github.com/mindset-code/Proyecto-Licitaciones-Publicas-automatizadas', external:true, icon:'clipboard', color:'#14b8a6', title:'LicitaBot',                         category:'GovTech · SaaS',         techs:['Python','React','Firebase','n8n'] },
 ]
 
 /* ── Education ─────────────────────────────────────────────────────────────── */
@@ -361,7 +362,7 @@ export default function HomePage() {
           {t.careerCards.map(card => (
             <div key={card.title} className="home-career-card" style={{ '--card-color': card.color }}>
               <div className="home-career-head">
-                <span className="home-career-icon">{card.icon}</span>
+                <span className="home-career-icon"><Icon name={card.icon} /></span>
                 <h3 className="home-career-title">{card.title}</h3>
               </div>
               <p className="home-career-body">{card.body}</p>
@@ -389,7 +390,7 @@ export default function HomePage() {
             const cardBody = (
               <>
                 <div className="home-project-top">
-                  <span className="home-project-icon">{icon}</span>
+                  <span className="home-project-icon"><Icon name={icon} /></span>
                   <span className="home-project-badge" style={{ color, background: color+'18', border:`1px solid ${color}40` }}>{L(category, lang)}</span>
                 </div>
                 <h3 className="home-project-title">{L(title, lang)}</h3>
@@ -442,7 +443,7 @@ export default function HomePage() {
           {/* IA Digox project card */}
           <div className="home-iadigox-card">
             <div className="home-iadigox-header">
-              <span className="home-iadigox-icon">🤖</span>
+              <span className="home-iadigox-icon"><Icon name="bot" /></span>
               <div>
                 <Link to="/consultoria-tech" className="home-iadigox-link">Consultoría Tech</Link>
                 <span className="home-iadigox-badge">{t.iaDigoxBadge}</span>

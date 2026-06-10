@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { projectById, pick } from '../data/projects'
 import { useLang } from '../contexts/LangContext'
+import Icon from '../components/icons'
 
 const T = {
   es: {
@@ -12,7 +13,7 @@ const T = {
     findings: 'Hallazgos clave',
     stack: 'Stack técnico',
     github: '→ Ver en GitHub',
-    export: '⬇ Exportar PDF',
+    export: 'Exportar PDF',
   },
   en: {
     notFoundTitle: 'Project not found',
@@ -23,7 +24,7 @@ const T = {
     findings: 'Key findings',
     stack: 'Tech stack',
     github: '→ View on GitHub',
-    export: '⬇ Export PDF',
+    export: 'Export PDF',
   },
 }
 
@@ -123,7 +124,7 @@ export default function PortfolioProjectPage() {
                 {t.github}
               </a>
               <button className="portfolio-cta export" onClick={() => window.print()}>
-                {t.export}
+                <Icon name="download" /> {t.export}
               </button>
             </div>
           </div>
@@ -135,7 +136,7 @@ export default function PortfolioProjectPage() {
               </div>
             ) : (
               <div className="portfolio-screenshot-placeholder" style={{ '--accent': project.accentColor }}>
-                <div className="portfolio-placeholder-icon">{project.icon}</div>
+                <div className="portfolio-placeholder-icon"><Icon name={project.icon} /></div>
                 <p>{project.title}</p>
               </div>
             )}

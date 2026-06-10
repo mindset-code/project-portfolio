@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom'
 import PortfolioFooter from '../components/PortfolioFooter'
 import { useLang } from '../contexts/LangContext'
+import Icon from '../components/icons'
 
 /* ── Translations ── */
 const T = {
@@ -18,7 +18,7 @@ const T = {
       { label: 'n8n',              sub: 'Trigger & routing automático' },
       { label: 'Paperclip',        sub: 'Company OS central' },
     ],
-    archOutputs: [['💻','Código & PRs'],['📊','Reportes & KPIs'],['📧','Outreach & Leads'],['📋','Issues & Tasks']],
+    archOutputs: [['code','Código & PRs'],['chart-bar','Reportes & KPIs'],['mail','Outreach & Leads'],['clipboard','Issues & Tasks']],
     agentsTitle: 'Agentes de IA',
     agentsDesc:  'Cinco agentes especializados, cada uno con rol y responsabilidades definidas',
     workflowsTitle: 'Workflows de automatización (n8n)',
@@ -43,7 +43,7 @@ const T = {
       { label: 'n8n',             sub: 'Automatic trigger & routing' },
       { label: 'Paperclip',       sub: 'Central Company OS' },
     ],
-    archOutputs: [['💻','Code & PRs'],['📊','Reports & KPIs'],['📧','Outreach & Leads'],['📋','Issues & Tasks']],
+    archOutputs: [['code','Code & PRs'],['chart-bar','Reports & KPIs'],['mail','Outreach & Leads'],['clipboard','Issues & Tasks']],
     agentsTitle: 'AI Agents',
     agentsDesc:  'Five specialized agents, each with a defined role and responsibilities',
     workflowsTitle: 'Automation Workflows (n8n)',
@@ -59,46 +59,46 @@ const T = {
 /* ── Data arrays (bilingual) ── */
 const SERVICES = {
   es: [
-    { icon:'🧠', color:'#f472b6', title:'Consultoría de IA',         desc:'Diseño e implementación de estrategias de IA para empresas: automatización de procesos, agentes autónomos y modelos de decisión.' },
-    { icon:'💻', color:'#60a5fa', title:'Desarrollo Full Stack',      desc:'Aplicaciones web completas con React, Node.js y Firebase. Desde landing pages hasta plataformas SaaS con autenticación y base de datos.' },
-    { icon:'⚡', color:'#fbbf24', title:'Automatización de Procesos', desc:'Flujos de trabajo automáticos con n8n: integración de APIs, webhooks, notificaciones y pipelines de datos sin intervención humana.' },
+    { icon:'brain', color:'#f472b6', title:'Consultoría de IA',         desc:'Diseño e implementación de estrategias de IA para empresas: automatización de procesos, agentes autónomos y modelos de decisión.' },
+    { icon:'code', color:'#60a5fa', title:'Desarrollo Full Stack',      desc:'Aplicaciones web completas con React, Node.js y Firebase. Desde landing pages hasta plataformas SaaS con autenticación y base de datos.' },
+    { icon:'zap', color:'#fbbf24', title:'Automatización de Procesos', desc:'Flujos de trabajo automáticos con n8n: integración de APIs, webhooks, notificaciones y pipelines de datos sin intervención humana.' },
   ],
   en: [
-    { icon:'🧠', color:'#f472b6', title:'AI Consulting',         desc:'Design and implementation of AI strategies for businesses: process automation, autonomous agents and decision models.' },
-    { icon:'💻', color:'#60a5fa', title:'Full Stack Development', desc:'Complete web applications with React, Node.js and Firebase. From landing pages to SaaS platforms with authentication and database.' },
-    { icon:'⚡', color:'#fbbf24', title:'Process Automation',    desc:'Automated workflows with n8n: API integration, webhooks, notifications and data pipelines without human intervention.' },
+    { icon:'brain', color:'#f472b6', title:'AI Consulting',         desc:'Design and implementation of AI strategies for businesses: process automation, autonomous agents and decision models.' },
+    { icon:'code', color:'#60a5fa', title:'Full Stack Development', desc:'Complete web applications with React, Node.js and Firebase. From landing pages to SaaS platforms with authentication and database.' },
+    { icon:'zap', color:'#fbbf24', title:'Process Automation',    desc:'Automated workflows with n8n: API integration, webhooks, notifications and data pipelines without human intervention.' },
   ],
 }
 
 const AGENTS = {
   es: [
-    { icon:'👔', color:'#34d399', role:'CEO', name:'Agente Estratégico',    desc:'Visión de negocio, toma de decisiones estratégicas y coordinación general de la empresa.' },
-    { icon:'⚙️', color:'#60a5fa', role:'CTO', name:'Agente Técnico',        desc:'Arquitectura de sistemas, code reviews automáticos vía GitHub y decisiones de stack tecnológico.' },
-    { icon:'📣', color:'#f472b6', role:'CMO', name:'Agente de Marketing',   desc:'Estrategia de contenido, prospección de clientes y gestión del mensaje de marca.' },
-    { icon:'🔧', color:'#fbbf24', role:'Ops', name:'Agente de Operaciones', desc:'Gestión de proyectos activos, seguimiento de tareas e issues y coordinación de entregas.' },
-    { icon:'📋', color:'#a78bfa', role:'PM',  name:'Agente de Proyectos',   desc:'Planning de sprints, priorización del backlog y comunicación entre agentes y clientes.' },
+    { icon:'briefcase', color:'#34d399', role:'CEO', name:'Agente Estratégico',    desc:'Visión de negocio, toma de decisiones estratégicas y coordinación general de la empresa.' },
+    { icon:'cog', color:'#60a5fa', role:'CTO', name:'Agente Técnico',        desc:'Arquitectura de sistemas, code reviews automáticos vía GitHub y decisiones de stack tecnológico.' },
+    { icon:'megaphone', color:'#f472b6', role:'CMO', name:'Agente de Marketing',   desc:'Estrategia de contenido, prospección de clientes y gestión del mensaje de marca.' },
+    { icon:'wrench', color:'#fbbf24', role:'Ops', name:'Agente de Operaciones', desc:'Gestión de proyectos activos, seguimiento de tareas e issues y coordinación de entregas.' },
+    { icon:'clipboard', color:'#a78bfa', role:'PM',  name:'Agente de Proyectos',   desc:'Planning de sprints, priorización del backlog y comunicación entre agentes y clientes.' },
   ],
   en: [
-    { icon:'👔', color:'#34d399', role:'CEO', name:'Strategic Agent',    desc:'Business vision, strategic decision-making and general coordination of the company.' },
-    { icon:'⚙️', color:'#60a5fa', role:'CTO', name:'Technical Agent',    desc:'Systems architecture, automatic code reviews via GitHub and tech stack decisions.' },
-    { icon:'📣', color:'#f472b6', role:'CMO', name:'Marketing Agent',    desc:'Content strategy, customer prospecting and brand message management.' },
-    { icon:'🔧', color:'#fbbf24', role:'Ops', name:'Operations Agent',   desc:'Active project management, task and issue tracking and delivery coordination.' },
-    { icon:'📋', color:'#a78bfa', role:'PM',  name:'Projects Agent',     desc:'Sprint planning, backlog prioritization and communication between agents and clients.' },
+    { icon:'briefcase', color:'#34d399', role:'CEO', name:'Strategic Agent',    desc:'Business vision, strategic decision-making and general coordination of the company.' },
+    { icon:'cog', color:'#60a5fa', role:'CTO', name:'Technical Agent',    desc:'Systems architecture, automatic code reviews via GitHub and tech stack decisions.' },
+    { icon:'megaphone', color:'#f472b6', role:'CMO', name:'Marketing Agent',    desc:'Content strategy, customer prospecting and brand message management.' },
+    { icon:'wrench', color:'#fbbf24', role:'Ops', name:'Operations Agent',   desc:'Active project management, task and issue tracking and delivery coordination.' },
+    { icon:'clipboard', color:'#a78bfa', role:'PM',  name:'Projects Agent',     desc:'Sprint planning, backlog prioritization and communication between agents and clients.' },
   ],
 }
 
 const WORKFLOWS = {
   es: [
-    { icon:'🔍', color:'#60a5fa', status:'development', name:'Prospecting Semanal',       desc:'Apify extrae leads → filtro ICP con IA → agente SDR genera outreach personalizado.',                              tech:'Apify · Claude · n8n' },
-    { icon:'🔬', color:'#34d399', status:'active',      name:'GitHub Push → Code Review', desc:'Cada push activa un code review automático por el agente CTO con análisis de seguridad y calidad.',             tech:'GitHub Webhooks · Claude · n8n' },
-    { icon:'📌', color:'#fbbf24', status:'active',      name:'GitHub → Paperclip Issues', desc:'Los commits se convierten automáticamente en issues de Paperclip para trazabilidad completa.',                   tech:'GitHub · Paperclip · n8n' },
-    { icon:'🔄', color:'#a78bfa', status:'development', name:'GitHub → Consultoría Tech Board', desc:'Sincronización bidireccional entre GitHub y el tablero principal de Consultoría Tech en Paperclip.',              tech:'GitHub · Paperclip API · n8n' },
+    { icon:'search', color:'#60a5fa', status:'development', name:'Prospecting Semanal',       desc:'Apify extrae leads → filtro ICP con IA → agente SDR genera outreach personalizado.',                              tech:'Apify · Claude · n8n' },
+    { icon:'flask', color:'#34d399', status:'active',      name:'GitHub Push → Code Review', desc:'Cada push activa un code review automático por el agente CTO con análisis de seguridad y calidad.',             tech:'GitHub Webhooks · Claude · n8n' },
+    { icon:'pin', color:'#fbbf24', status:'active',      name:'GitHub → Paperclip Issues', desc:'Los commits se convierten automáticamente en issues de Paperclip para trazabilidad completa.',                   tech:'GitHub · Paperclip · n8n' },
+    { icon:'refresh', color:'#a78bfa', status:'development', name:'GitHub → Consultoría Tech Board', desc:'Sincronización bidireccional entre GitHub y el tablero principal de Consultoría Tech en Paperclip.',              tech:'GitHub · Paperclip API · n8n' },
   ],
   en: [
-    { icon:'🔍', color:'#60a5fa', status:'development', name:'Weekly Prospecting',        desc:'Apify extracts leads → AI ICP filter → SDR agent generates personalized outreach.',                              tech:'Apify · Claude · n8n' },
-    { icon:'🔬', color:'#34d399', status:'active',      name:'GitHub Push → Code Review', desc:'Every push triggers an automatic code review by the CTO agent with security and quality analysis.',             tech:'GitHub Webhooks · Claude · n8n' },
-    { icon:'📌', color:'#fbbf24', status:'active',      name:'GitHub → Paperclip Issues', desc:'Commits are automatically converted into Paperclip issues for full traceability.',                              tech:'GitHub · Paperclip · n8n' },
-    { icon:'🔄', color:'#a78bfa', status:'development', name:'GitHub → Consultoría Tech Board', desc:'Bidirectional sync between GitHub and the main Consultoría Tech board in Paperclip.',                            tech:'GitHub · Paperclip API · n8n' },
+    { icon:'search', color:'#60a5fa', status:'development', name:'Weekly Prospecting',        desc:'Apify extracts leads → AI ICP filter → SDR agent generates personalized outreach.',                              tech:'Apify · Claude · n8n' },
+    { icon:'flask', color:'#34d399', status:'active',      name:'GitHub Push → Code Review', desc:'Every push triggers an automatic code review by the CTO agent with security and quality analysis.',             tech:'GitHub Webhooks · Claude · n8n' },
+    { icon:'pin', color:'#fbbf24', status:'active',      name:'GitHub → Paperclip Issues', desc:'Commits are automatically converted into Paperclip issues for full traceability.',                              tech:'GitHub · Paperclip · n8n' },
+    { icon:'refresh', color:'#a78bfa', status:'development', name:'GitHub → Consultoría Tech Board', desc:'Bidirectional sync between GitHub and the main Consultoría Tech board in Paperclip.',                            tech:'GitHub · Paperclip API · n8n' },
   ],
 }
 
@@ -176,7 +176,7 @@ export default function IaDigoxPage() {
               <div className="iad-services-grid">
                 {services.map(({ icon, color, title, desc }) => (
                   <div key={title} className="iad-service-card" style={{ '--svc-color': color }}>
-                    <span className="iad-service-icon">{icon}</span>
+                    <span className="iad-service-icon"><Icon name={icon} /></span>
                     <h3 className="iad-service-title">{title}</h3>
                     <p className="iad-service-desc">{desc}</p>
                   </div>
@@ -196,11 +196,11 @@ export default function IaDigoxPage() {
                   {t.archFlow.map(({ label, sub }, i) => {
                     const bgs = ['#1a2744','#2a1f0a','#1a1a3a']
                     const borders = ['#60a5fa','#fbbf24','#a78bfa']
-                    const icons = ['📥','⚡','🧠']
+                    const icons = ['inbox','zap','brain']
                     return (
                       <div key={label} style={{ display:'flex', alignItems:'center', gap:'0.5rem' }}>
                         <div className="iad-arch-box" style={{ background: bgs[i], borderColor: borders[i] }}>
-                          <span>{icons[i]}</span>
+                          <span style={{ color: borders[i] }}><Icon name={icons[i]} /></span>
                           <strong>{label}</strong>
                           <small>{sub}</small>
                         </div>
@@ -215,7 +215,7 @@ export default function IaDigoxPage() {
                 <div className="iad-arch-row">
                   {agents.map(({ icon, role, color }) => (
                     <div key={role} className="iad-arch-box iad-arch-agent" style={{ borderColor: color+'60' }}>
-                      <span>{icon}</span>
+                      <span style={{ color }}><Icon name={icon} /></span>
                       <strong style={{ color }}>{lang === 'es' ? `Agente ${role}` : `${role} Agent`}</strong>
                       <small>Claude-powered</small>
                     </div>
@@ -227,7 +227,7 @@ export default function IaDigoxPage() {
                 <div className="iad-arch-row">
                   {t.archOutputs.map(([icon, label]) => (
                     <div key={label} className="iad-arch-box iad-arch-output">
-                      <span>{icon}</span>
+                      <span><Icon name={icon} /></span>
                       <small>{label}</small>
                     </div>
                   ))}
@@ -245,7 +245,7 @@ export default function IaDigoxPage() {
                 {agents.map(({ icon, color, role, name, desc }) => (
                   <div key={role} className="iad-agent-card">
                     <div className="iad-agent-header">
-                      <span className="iad-agent-icon">{icon}</span>
+                      <span className="iad-agent-icon" style={{ color }}><Icon name={icon} /></span>
                       <div>
                         <span className="iad-agent-role" style={{ color }}>{role}</span>
                         <p className="iad-agent-name">{name}</p>
@@ -267,7 +267,7 @@ export default function IaDigoxPage() {
                 {workflows.map(({ icon, color, status, name, desc, tech }) => (
                   <div key={name} className="iad-workflow-card" style={{ borderColor: color+'40' }}>
                     <div className="iad-workflow-header">
-                      <span className="iad-workflow-icon" style={{ background: color+'20', color }}>{icon}</span>
+                      <span className="iad-workflow-icon" style={{ background: color+'20', color }}><Icon name={icon} /></span>
                       <StatusBadge status={status} t={t} />
                     </div>
                     <h3 className="iad-workflow-name">{name}</h3>

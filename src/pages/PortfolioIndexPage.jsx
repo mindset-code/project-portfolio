@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { projects, pick } from '../data/projects'
 import { useLang } from '../contexts/LangContext'
+import Icon from '../components/icons'
 
 const T = {
   es: {
@@ -44,7 +45,7 @@ export default function PortfolioIndexPage() {
             style={{ '--card-accent': project.accentColor }}
           >
             <div className="portfolio-index-card-header">
-              <div className="portfolio-index-card-icon">{project.icon}</div>
+              <div className="portfolio-index-card-icon"><Icon name={project.icon} /></div>
               <h3 className="portfolio-index-card-title">{project.title}</h3>
             </div>
 

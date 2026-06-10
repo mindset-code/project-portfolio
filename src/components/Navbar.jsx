@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useLang } from '../contexts/LangContext'
+import Icon from './icons'
 
 // Helper bilingüe: si el valor es objeto {es,en} devuelve el del idioma, si no, el string tal cual
 const L = (v, lang) => (v && typeof v === 'object' ? (v[lang] ?? v.es) : v)
@@ -8,53 +9,53 @@ const L = (v, lang) => (v && typeof v === 'object' ? (v[lang] ?? v.es) : v)
 const CATEGORIES = [
   {
     label: 'Data & BI',
-    icon: '📊',
+    icon: 'chart-bar',
     color: '#60a5fa',
     items: [
-      { to: '/etl',        label: 'Sales & Weather ETL',           badge: 'Data Engineering', icon: '⚙️', color: '#60a5fa', ext: false },
-      { to: '/executive',  label: 'Executive Dashboard 360°',      badge: 'BI & RevOps',      icon: '📊', color: '#34d399', ext: false },
-      { to: '/dashboards', label: 'Dashboards Power BI / Tableau', badge: 'BI Embed',         icon: '📈', color: '#10b981', ext: false },
+      { to: '/etl',        label: 'Sales & Weather ETL',           badge: 'Data Engineering', icon: 'cog', color: '#60a5fa', ext: false },
+      { to: '/executive',  label: 'Executive Dashboard 360°',      badge: 'BI & RevOps',      icon: 'chart-bar', color: '#34d399', ext: false },
+      { to: '/dashboards', label: 'Dashboards Power BI / Tableau', badge: 'BI Embed',         icon: 'trending-up', color: '#10b981', ext: false },
     ],
   },
   {
     label: 'Data Science & Revenue',
-    icon: '🔬',
+    icon: 'flask',
     color: '#a78bfa',
     items: [
-      { to: '/churn', label: 'Churn Analysis',       badge: 'Data Science',       icon: '🔬', color: '#a78bfa', ext: false },
-      { to: '/hotel', label: 'Hotel Pricing Engine', badge: 'Revenue Management', icon: '🏨', color: '#fb923c', ext: false },
+      { to: '/churn', label: 'Churn Analysis',       badge: 'Data Science',       icon: 'flask', color: '#a78bfa', ext: false },
+      { to: '/hotel', label: 'Hotel Pricing Engine', badge: 'Revenue Management', icon: 'building', color: '#fb923c', ext: false },
     ],
   },
   {
     label: { es: 'AI & Automatización', en: 'AI & Automation' },
-    icon: '🤖',
+    icon: 'bot',
     color: '#f472b6',
     items: [
-      { to: '/consultoria-tech',    label: 'Consultoría Tech',            badge: 'AI Automation',  icon: '🤖', color: '#f472b6', ext: false },
-      { to: '/automations', label: { es: 'Automatizaciones', en: 'Automations' },            badge: 'n8n · Paperclip', icon: '⚡', color: '#8b5cf6', ext: false },
-      { to: 'https://consultoria-tech.web.app',             label: 'Consultoría Tech Corporate', badge: 'Corporate Web',  icon: '🌐', color: '#06b6d4', ext: true },
-      { to: 'https://github.com/mindset-code/agentforge',   label: 'AgentForge',                 badge: 'SaaS · AI',      icon: '🏗️', color: '#6366f1', ext: true },
-      { to: 'https://github.com/mindset-code/Proyecto-Licitaciones-Publicas-automatizadas', label: 'LicitaBot', badge: 'GovTech · SaaS', icon: '📋', color: '#14b8a6', ext: true },
+      { to: '/consultoria-tech',    label: 'Consultoría Tech',            badge: 'AI Automation',  icon: 'bot', color: '#f472b6', ext: false },
+      { to: '/automations', label: { es: 'Automatizaciones', en: 'Automations' },            badge: 'n8n · Paperclip', icon: 'zap', color: '#8b5cf6', ext: false },
+      { to: 'https://consultoria-tech.web.app',             label: 'Consultoría Tech Corporate', badge: 'Corporate Web',  icon: 'globe', color: '#06b6d4', ext: true },
+      { to: 'https://github.com/mindset-code/agentforge',   label: 'AgentForge',                 badge: 'SaaS · AI',      icon: 'building-2', color: '#6366f1', ext: true },
+      { to: 'https://github.com/mindset-code/Proyecto-Licitaciones-Publicas-automatizadas', label: 'LicitaBot', badge: 'GovTech · SaaS', icon: 'clipboard', color: '#14b8a6', ext: true },
     ],
   },
   {
     label: 'Web & SQL',
-    icon: '💻',
+    icon: 'code',
     color: '#fbbf24',
     items: [
-      { to: 'https://burger-house-3d.web.app',                          label: 'Burger House — Web 3D',    badge: 'Creative Web · 3D', icon: '🍔', color: '#f59e0b', ext: true },
-      { to: 'https://github.com/mindset-code/project-sales-optimization-sql',  label: 'Sales Optimization SQL',   badge: 'SQL & BI',        icon: '🗄️', color: '#38bdf8', ext: true },
-      { to: 'https://github.com/mindset-code/project-revenue-management-web',  label: 'Revenue Management Web',   badge: 'Web Development', icon: '💡', color: '#fbbf24', ext: true },
-      { to: 'https://github.com/mindset-code/project-portfolio',               label: { es: 'Portafolio Profesional', en: 'Professional Portfolio' },   badge: 'React · Firebase', icon: '🗂️', color: '#94a3b8', ext: true },
+      { to: 'https://burger-house-3d.web.app',                          label: 'Burger House — Web 3D',    badge: 'Creative Web · 3D', icon: 'burger', color: '#f59e0b', ext: true },
+      { to: 'https://github.com/mindset-code/project-sales-optimization-sql',  label: 'Sales Optimization SQL',   badge: 'SQL & BI',        icon: 'database', color: '#38bdf8', ext: true },
+      { to: 'https://github.com/mindset-code/project-revenue-management-web',  label: 'Revenue Management Web',   badge: 'Web Development', icon: 'lightbulb', color: '#fbbf24', ext: true },
+      { to: 'https://github.com/mindset-code/project-portfolio',               label: { es: 'Portafolio Profesional', en: 'Professional Portfolio' },   badge: 'React · Firebase', icon: 'folder', color: '#94a3b8', ext: true },
     ],
   },
   {
     label: { es: 'Ciberseguridad', en: 'Cybersecurity' },
-    icon: '🛡️',
+    icon: 'shield',
     color: '#ef4444',
     items: [
-      { to: 'https://github.com/mindset-code/project-security-log-analysis',  label: 'Security Log Analysis', badge: { es: 'Ciberseguridad', en: 'Cybersecurity' }, icon: '🛡️', color: '#ef4444', ext: true },
-      { to: 'https://github.com/mindset-code/project-vulnerability-scanner',  label: 'Vulnerability Scanner', badge: { es: 'Ciberseguridad', en: 'Cybersecurity' }, icon: '🔍', color: '#f97316', ext: true },
+      { to: 'https://github.com/mindset-code/project-security-log-analysis',  label: 'Security Log Analysis', badge: { es: 'Ciberseguridad', en: 'Cybersecurity' }, icon: 'shield', color: '#ef4444', ext: true },
+      { to: 'https://github.com/mindset-code/project-vulnerability-scanner',  label: 'Vulnerability Scanner', badge: { es: 'Ciberseguridad', en: 'Cybersecurity' }, icon: 'search', color: '#f97316', ext: true },
     ],
   },
 ]
@@ -117,7 +118,7 @@ export default function Navbar() {
         </button>
 
         <button className="lang-toggle nav-lang-toggle" onClick={toggleLang}>
-          {lang === 'es' ? '🇬🇧 EN' : '🇪🇸 ES'}
+          <Icon name="globe" /> {lang === 'es' ? 'EN' : 'ES'}
         </button>
       </div>
 
@@ -132,7 +133,7 @@ export default function Navbar() {
                   style={{ '--cat-color': cat.color }}
                   onClick={() => toggleCat(i)}
                 >
-                  <span className="nav-cat-icon">{cat.icon}</span>
+                  <span className="nav-cat-icon"><Icon name={cat.icon} /></span>
                   <span className="nav-cat-label">{L(cat.label, lang)}</span>
                   <span className="nav-cat-count">{cat.items.length}</span>
                   <svg className="nav-cat-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -153,7 +154,7 @@ export default function Navbar() {
                           style={{ '--item-color': color }}
                           onClick={() => setOpen(false)}
                         >
-                          <span className="nav-subitem-icon">{icon}</span>
+                          <span className="nav-subitem-icon"><Icon name={icon} /></span>
                           <div className="nav-subitem-text">
                             <span className="nav-subitem-label">{L(label, lang)}</span>
                             <span className="nav-subitem-badge" style={{ color }}>{L(badge, lang)}</span>
@@ -168,7 +169,7 @@ export default function Navbar() {
                           style={({ isActive }) => isActive ? { '--item-color': color } : { '--item-color': color }}
                           onClick={() => setOpen(false)}
                         >
-                          <span className="nav-subitem-icon">{icon}</span>
+                          <span className="nav-subitem-icon"><Icon name={icon} /></span>
                           <div className="nav-subitem-text">
                             <span className="nav-subitem-label">{L(label, lang)}</span>
                             <span className="nav-subitem-badge" style={{ color }}>{L(badge, lang)}</span>

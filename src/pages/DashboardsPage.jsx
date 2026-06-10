@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { useLang } from '../contexts/LangContext'
 import PortfolioFooter from '../components/PortfolioFooter'
+import Icon from '../components/icons'
 
 const SITE = 'https://proyectos-personales.web.app'
 
 const DASHBOARDS = [
   {
     id: 'finance',
-    icon: '💰',
+    icon: 'dollar',
     color: '#10b981',
     title: { es: 'Finance Dashboard', en: 'Finance Dashboard' },
     subtitle: { es: 'P&L ejecutivo · ARR · EBITDA · LTV:CAC · 36 meses', en: 'Executive P&L · ARR · EBITDA · LTV:CAC · 36 months' },
@@ -19,7 +20,7 @@ const DASHBOARDS = [
   },
   {
     id: 'marketing',
-    icon: '📣',
+    icon: 'megaphone',
     color: '#a78bfa',
     title: { es: 'Marketing Dashboard', en: 'Marketing Dashboard' },
     subtitle: { es: 'Performance Marketing · CPL · CAC · ROAS · Funnel', en: 'Performance Marketing · CPL · CAC · ROAS · Funnel' },
@@ -31,7 +32,7 @@ const DASHBOARDS = [
   },
   {
     id: 'analytics',
-    icon: '📈',
+    icon: 'trending-up',
     color: '#60a5fa',
     title: { es: 'Data Analytics Dashboard', en: 'Data Analytics Dashboard' },
     subtitle: { es: 'Retail Analytics · 9.800 transacciones · Clima · Categoría · Región', en: 'Retail Analytics · 9,800 transactions · Weather · Category · Region' },
@@ -134,7 +135,7 @@ export default function DashboardsPage() {
             <div className="dash-section-head">
               <div>
                 <h2 className="dash-section-title">
-                  <span className="dash-section-icon">{d.icon}</span>
+                  <span className="dash-section-icon" style={{ color: d.color }}><Icon name={d.icon} /></span>
                   {d.title[lang]}
                 </h2>
                 <p className="dash-section-sub">{d.subtitle[lang]}</p>

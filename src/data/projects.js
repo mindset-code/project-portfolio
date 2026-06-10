@@ -38,7 +38,7 @@ export const projects = [
     demoUrl: 'https://burger-house-3d.web.app',
     githubUrl: 'https://github.com/mindset-code/burger-house-3d',
     screenshotPath: null,
-    icon: '🍔',
+    icon: 'burger',
     accentColor: '#f59e0b',
   },
   {
@@ -79,7 +79,7 @@ export const projects = [
     demoUrl: 'https://proyectos-personales.web.app/executive',
     githubUrl: 'https://github.com/mindset-code/project-executive-dashboard-data',
     screenshotPath: '/screenshots/01_executive.png',
-    icon: '📊',
+    icon: 'chart-bar',
     accentColor: '#34d399',
   },
   {
@@ -120,7 +120,7 @@ export const projects = [
     demoUrl: 'https://proyectos-personales.web.app/churn',
     githubUrl: 'https://github.com/mindset-code/project-churn-analysis',
     screenshotPath: '/screenshots/02_churn.png',
-    icon: '🔬',
+    icon: 'flask',
     accentColor: '#a78bfa',
   },
   {
@@ -161,7 +161,7 @@ export const projects = [
     demoUrl: 'https://proyectos-personales.web.app/hotel',
     githubUrl: 'https://github.com/mindset-code/project-hotel-pricing-engine',
     screenshotPath: '/screenshots/03_hotel.png',
-    icon: '🏨',
+    icon: 'building',
     accentColor: '#fb923c',
   },
   {
@@ -202,7 +202,7 @@ export const projects = [
     demoUrl: 'https://proyectos-personales.web.app/etl',
     githubUrl: 'https://github.com/mindset-code/project-sales-weather-etl',
     screenshotPath: '/screenshots/04_etl.png',
-    icon: '⚙️',
+    icon: 'cog',
     accentColor: '#60a5fa',
   },
   {
@@ -243,7 +243,7 @@ export const projects = [
     demoUrl: null,
     githubUrl: 'https://github.com/mindset-code/project-revenue-management-web',
     screenshotPath: '/screenshots/05_revenue_web.png',
-    icon: '📈',
+    icon: 'trending-up',
     accentColor: '#f472b6',
   },
   {
@@ -284,7 +284,7 @@ export const projects = [
     demoUrl: null,
     githubUrl: 'https://github.com/mindset-code/project-sales-optimization-sql',
     screenshotPath: '/screenshots/06_sql.png',
-    icon: '📋',
+    icon: 'clipboard',
     accentColor: '#10b981',
   },
   {
@@ -325,7 +325,7 @@ export const projects = [
     demoUrl: null,
     githubUrl: 'https://github.com/mindset-code/project-security-log-analysis',
     screenshotPath: '/screenshots/07_siem.png',
-    icon: '🛡️',
+    icon: 'shield',
     accentColor: '#f87171',
   },
 ]

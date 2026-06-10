@@ -2892,3 +2892,27 @@ footer a:hover,
     color: #666;
   }
 }
+
+/* ── Iconos SVG (reemplazo de emojis) ─────────────────────────────────────── */
+.nav-cat-icon, .nav-subitem-icon, .home-career-icon, .home-project-icon,
+.home-iadigox-icon, .iad-service-icon, .iad-agent-icon, .iad-workflow-icon,
+.auto-node-icon, .auto-node-detail-icon, .auto-agent-icon, .dash-section-icon,
+.portfolio-placeholder-icon, .portfolio-index-card-icon, .auto-notice span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-cat-icon            { color: var(--cat-color, #60a5fa); }
+.nav-subitem-icon        { color: var(--item-color, #60a5fa); }
+.home-career-icon        { color: var(--card-color, #60a5fa); }
+.home-project-icon       { color: var(--card-color, #60a5fa); }
+.home-iadigox-icon       { color: #f472b6; }
+.iad-service-icon        { color: var(--svc-color, #60a5fa); }
+.auto-node-icon,
+.auto-node-detail-icon   { color: var(--node-color, #60a5fa); }
+.auto-agent-icon         { color: var(--agent-color, #60a5fa); }
+.portfolio-index-card-icon    { color: var(--card-accent, #60a5fa); }
+.portfolio-placeholder-icon   { color: var(--accent, #60a5fa); }
+.auto-tab svg            { vertical-align: -0.15em; margin-right: 0.4em; }
+.portfolio-cta.export svg { vertical-align: -0.15em; margin-right: 0.3em; }
+.lang-toggle svg { vertical-align: -0.15em; margin-right: 0.3em; }
