@@ -2,7 +2,7 @@
 
 > **Personal portfolio web app** · React 19 · Vite · Recharts · Firebase
 > **Status:** Live in production
-> The single-page app behind [proyectos-personales.web.app](https://proyectos-personales.web.app) — a bilingual showcase that aggregates 9 Data & BI projects into interactive, in-browser dashboards.
+> The single-page app behind [proyectos-personales.web.app](https://proyectos-personales.web.app) — a bilingual showcase that aggregates 15 projects (Data & BI, AI automation, cybersecurity and web) into interactive, in-browser dashboards.
 
 > 🇬🇧 **English version first.** · 🇪🇸 **La versión en español está más abajo** → [ir a Español](#-español).
 
@@ -24,7 +24,8 @@ A recruiter rarely clones a repo — they click a link. This project is that lin
 
 ## Key features
 
-- **9 projects, one app** — each rendered as a live, interactive dashboard with real charts (Recharts), not screenshots.
+- **15 projects, one app** — seven rendered as live, interactive dashboards with real charts (Recharts), not screenshots.
+- **Emoji-free SVG icon system** — a single `Icon` component with ~30 inline lucide-style icons that inherit each card's accent color and render identically across OS/browsers.
 - **Bilingual (EN/ES)** — a custom `LangContext` toggles language across the whole app.
 - **SPA routing** — clean per-project routes (React Router).
 - **Static-data architecture** — pre-aggregated JSON (built by the ETL pipeline) is served directly; no backend, no cost, instant loads on Firebase Spark.
@@ -115,7 +116,7 @@ Released under the **[MIT License](LICENSE)**.
 
 > **App web de portafolio personal** · React 19 · Vite · Recharts · Firebase
 > **Estado:** En producción
-> La single-page app detrás de [proyectos-personales.web.app](https://proyectos-personales.web.app) — un escaparate bilingüe que reúne 9 proyectos de Data & BI en dashboards interactivos en el navegador.
+> La single-page app detrás de [proyectos-personales.web.app](https://proyectos-personales.web.app) — un escaparate bilingüe que reúne 15 proyectos (Data & BI, automatización IA, ciberseguridad y web) con dashboards interactivos en el navegador.
 
 > 🇪🇸 Traducción al español. La versión en inglés está al inicio → [ir a English](#data--bi-portfolio--operador-mindset-code).
 
@@ -131,7 +132,8 @@ Un reclutador rara vez clona un repo — hace clic en un enlace. Este proyecto e
 
 ## Características clave
 
-- **9 proyectos, una app** — cada uno renderizado como dashboard interactivo con gráficos reales (Recharts), no capturas.
+- **15 proyectos, una app** — siete renderizados como dashboards interactivos con gráficos reales (Recharts), no capturas.
+- **Sistema de iconos SVG sin emojis** — un componente `Icon` único con ~30 iconos inline estilo lucide que heredan el color de acento de cada tarjeta y se ven idénticos en cualquier SO/navegador.
 - **Bilingüe (EN/ES)** — un `LangContext` propio cambia el idioma en toda la app.
 - **Routing SPA** — rutas limpias por proyecto (React Router).
 - **Arquitectura de datos estáticos** — JSON pre-agregado (generado por el pipeline ETL) servido directamente; sin backend, sin coste, cargas instantáneas en Firebase Spark.
