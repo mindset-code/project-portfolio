@@ -239,7 +239,8 @@ function NodeDetail({ node, lang, onClose }) {
 /* ── WorkflowCard ── */
 function WorkflowCard({ workflow, expanded, onToggle, t, lang }) {
   const [selectedNode, setSelectedNode] = useState(null)
-  useEffect(() => { if (!expanded) setSelectedNode(null) }, [expanded])
+  // Ajuste de estado durante render (patrón recomendado por React) en vez de useEffect
+  if (!expanded && selectedNode !== null) setSelectedNode(null)
 
   return (
     <div className={`auto-workflow-card ${expanded ? 'auto-workflow-card--expanded' : ''}`}

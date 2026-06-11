@@ -17,7 +17,7 @@ export function LangProvider({ children }) {
   function toggleLang() {
     const next = lang === 'es' ? 'en' : 'es'
     setLang(next)
-    try { localStorage.setItem('portfolio_lang', next) } catch {}
+    try { localStorage.setItem('portfolio_lang', next) } catch { /* almacenamiento no disponible (modo privado) */ }
   }
 
   return (
@@ -27,6 +27,7 @@ export function LangProvider({ children }) {
   )
 }
 
+// eslint-disable-next-line react-refresh/only-export-components -- patrón estándar de Context: Provider + hook en el mismo módulo
 export function useLang() {
   return useContext(LangContext)
 }

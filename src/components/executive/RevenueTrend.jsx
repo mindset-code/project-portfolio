@@ -8,7 +8,6 @@ const fmt = (v) =>
 
 export default function RevenueTrend({ data }) {
   if (!data) return null
-  const display = data.filter((_, i) => i % 2 === 0 || i === data.length - 1)
 
   return (
     <div className="card">

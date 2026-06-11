@@ -17,7 +17,7 @@ function SegmentBar({ data, colorMap, title, desc }) {
           <XAxis dataKey="segment" tick={{ fill: '#94a3b8', fontSize: 12 }} />
           <YAxis tickFormatter={fmtPct} domain={[0, 0.6]} tick={{ fill: '#94a3b8', fontSize: 11 }} />
           <Tooltip
-            formatter={(v, name) => [fmtPct(v), 'Churn Rate']}
+            formatter={(v) => [fmtPct(v), 'Churn Rate']}
             contentStyle={{ background: '#0f172a', border: '1px solid #334155', borderRadius: 8 }}
             labelStyle={{ color: '#cbd5e1' }}
           />

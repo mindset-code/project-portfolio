@@ -6,8 +6,6 @@ import {
 export default function PriceForecast({ data }) {
   if (!data) return null
 
-  // Show every 3rd date label
-  const tickDates = new Set(data.filter((_, i) => i % 7 === 0 || i === data.length - 1).map(d => d.date))
   const shortDate = (s) => s.slice(5) // MM-DD
 
   return (

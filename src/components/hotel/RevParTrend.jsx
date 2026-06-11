@@ -7,8 +7,6 @@ const fmtD = (v) => `$${v.toFixed(0)}`
 
 export default function RevParTrend({ data }) {
   if (!data) return null
-  // Show every other month label to avoid clutter
-  const display = data.filter((_, i) => i % 2 === 0 || i === data.length - 1)
 
   return (
     <div className="card">

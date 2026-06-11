@@ -7,7 +7,6 @@ const fmt = (v) => new Intl.NumberFormat('en-US', { style: 'currency', currency:
 
 export default function RevenueByRoomType({ data }) {
   if (!data) return null
-  const total = data.reduce((s, r) => s + r.total_revenue, 0)
 
   return (
     <div className="card">

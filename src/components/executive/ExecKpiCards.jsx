@@ -1,7 +1,6 @@
 const fmtUSD = (v) =>
   new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(v)
 const fmtPct = (v) => `${(v * 100).toFixed(1)}%`
-const fmtNum = (v) => new Intl.NumberFormat('en-US').format(v)
 const fmtX   = (v) => `${v.toFixed(1)}x`
 
 function KpiCard({ label, value, sub, color, trend }) {

@@ -3,9 +3,6 @@ import {
   Tooltip, Legend, ResponsiveContainer, LineChart, Line,
 } from 'recharts'
 
-const fmtUSD = (v) =>
-  new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(v)
-const fmtPct = (v) => `${(v * 100).toFixed(1)}%`
 
 export default function MarketingFunnel({ data }) {
   if (!data) return null
