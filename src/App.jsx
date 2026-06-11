@@ -11,7 +11,7 @@ const EtlDashboard         = lazy(() => import('./pages/EtlDashboard'))
 const ExecutiveDashboard   = lazy(() => import('./pages/ExecutiveDashboard'))
 const ChurnDashboard       = lazy(() => import('./pages/ChurnDashboard'))
 const HotelDashboard       = lazy(() => import('./pages/HotelDashboard'))
-const IaDigoxPage          = lazy(() => import('./pages/IaDigoxPage'))
+const ConsultoriaTechPage          = lazy(() => import('./pages/ConsultoriaTechPage'))
 const AutomationsPage      = lazy(() => import('./pages/AutomationsPage'))
 const DashboardsPage       = lazy(() => import('./pages/DashboardsPage'))
 const PortfolioIndexPage   = lazy(() => import('./pages/PortfolioIndexPage'))
@@ -54,7 +54,7 @@ export default function App() {
         <Route path="/executive" element={<ExecutiveDashboard />} />
         <Route path="/churn"     element={<ChurnDashboard />} />
         <Route path="/hotel"     element={<HotelDashboard />} />
-        <Route path="/consultoria-tech"     element={<IaDigoxPage />} />
+        <Route path="/consultoria-tech"     element={<ConsultoriaTechPage />} />
         <Route path="/automations"  element={<AutomationsPage />} />
         <Route path="/dashboards"   element={<DashboardsPage />} />
         <Route path="/portfolio"    element={<PortfolioIndexPage />} />

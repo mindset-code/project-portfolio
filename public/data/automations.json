@@ -421,7 +421,7 @@
     },
     {
       "id": "raZQieUzm95zJUIP",
-      "name": "GitHub → Paperclip (IA Digox)",
+      "name": "GitHub → Paperclip (Consultoría Tech)",
       "active": false,
       "color": "#a78bfa",
       "status": "development",
@@ -446,7 +446,7 @@
         },
         {
           "id": "n3",
-          "name": "Sync IA Digox Board",
+          "name": "Sync Consultoría Tech Board",
           "type": "httpRequest",
           "icon": "🌐",
           "typeLabel": "HTTP",

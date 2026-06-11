@@ -115,11 +115,11 @@ const TECHS = [
 
 function StatusBadge({ status, t }) {
   return status === 'active'
-    ? <span className="iad-status iad-status--active">{t.active}</span>
-    : <span className="iad-status iad-status--dev">{t.dev}</span>
+    ? <span className="ctech-status ctech-status--active">{t.active}</span>
+    : <span className="ctech-status ctech-status--dev">{t.dev}</span>
 }
 
-export default function IaDigoxPage() {
+export default function ConsultoriaTechPage() {
   const { lang } = useLang()
   const t = T[lang]
   const services  = SERVICES[lang]
@@ -129,34 +129,34 @@ export default function IaDigoxPage() {
   return (
     <div>
       {/* ── Hero ── */}
-      <div className="iad-hero">
-        <div className="iad-hero-inner">
-          <div className="iad-hero-top">
-            <span className="iad-hero-badge">{t.heroBadge}</span>
-            <a href="https://github.com/mindset-code/consultoria-tech" target="_blank" rel="noreferrer" className="iad-hero-gh">
+      <div className="ctech-hero">
+        <div className="ctech-hero-inner">
+          <div className="ctech-hero-top">
+            <span className="ctech-hero-badge">{t.heroBadge}</span>
+            <a href="https://github.com/mindset-code/consultoria-tech" target="_blank" rel="noreferrer" className="ctech-hero-gh">
               GitHub →
             </a>
           </div>
 
-          <h1 className="iad-hero-title">Consultoría Tech</h1>
+          <h1 className="ctech-hero-title">Consultoría Tech</h1>
 
-          <p className="iad-hero-desc">{t.heroDesc}</p>
+          <p className="ctech-hero-desc">{t.heroDesc}</p>
 
-          <div className="iad-hero-stats">
+          <div className="ctech-hero-stats">
             {[
               { num: '5',    lbl: t.heroStats[0] },
               { num: '4',    lbl: t.heroStats[1] },
               { num: '3',    lbl: t.heroStats[2] },
               { num: '24/7', lbl: t.heroStats[3] },
             ].map(({ num, lbl }) => (
-              <div key={lbl} className="iad-hero-stat">
-                <span className="iad-hero-stat-num">{num}</span>
-                <span className="iad-hero-stat-lbl">{lbl}</span>
+              <div key={lbl} className="ctech-hero-stat">
+                <span className="ctech-hero-stat-num">{num}</span>
+                <span className="ctech-hero-stat-lbl">{lbl}</span>
               </div>
             ))}
           </div>
 
-          <div className="iad-hero-techs">
+          <div className="ctech-hero-techs">
             {t.heroTechs.map(tech => (
               <span key={tech} className="hero-tech">{tech}</span>
             ))}
@@ -173,12 +173,12 @@ export default function IaDigoxPage() {
             <div className="card">
               <h2>{t.servicesTitle}</h2>
               <p className="card-desc">{t.servicesDesc}</p>
-              <div className="iad-services-grid">
+              <div className="ctech-services-grid">
                 {services.map(({ icon, color, title, desc }) => (
-                  <div key={title} className="iad-service-card" style={{ '--svc-color': color }}>
-                    <span className="iad-service-icon"><Icon name={icon} /></span>
-                    <h3 className="iad-service-title">{title}</h3>
-                    <p className="iad-service-desc">{desc}</p>
+                  <div key={title} className="ctech-service-card" style={{ '--svc-color': color }}>
+                    <span className="ctech-service-icon"><Icon name={icon} /></span>
+                    <h3 className="ctech-service-title">{title}</h3>
+                    <p className="ctech-service-desc">{desc}</p>
                   </div>
                 ))}
               </div>
@@ -191,30 +191,30 @@ export default function IaDigoxPage() {
               <h2>{t.archTitle}</h2>
               <p className="card-desc">{t.archDesc}</p>
 
-              <div className="iad-arch">
-                <div className="iad-arch-row">
+              <div className="ctech-arch">
+                <div className="ctech-arch-row">
                   {t.archFlow.map(({ label, sub }, i) => {
                     const bgs = ['#1a2744','#2a1f0a','#1a1a3a']
                     const borders = ['#60a5fa','#fbbf24','#a78bfa']
                     const icons = ['inbox','zap','brain']
                     return (
                       <div key={label} style={{ display:'flex', alignItems:'center', gap:'0.5rem' }}>
-                        <div className="iad-arch-box" style={{ background: bgs[i], borderColor: borders[i] }}>
+                        <div className="ctech-arch-box" style={{ background: bgs[i], borderColor: borders[i] }}>
                           <span style={{ color: borders[i] }}><Icon name={icons[i]} /></span>
                           <strong>{label}</strong>
                           <small>{sub}</small>
                         </div>
-                        {i < t.archFlow.length - 1 && <span className="iad-arch-arrow">→</span>}
+                        {i < t.archFlow.length - 1 && <span className="ctech-arch-arrow">→</span>}
                       </div>
                     )
                   })}
                 </div>
 
-                <div className="iad-arch-down">↓</div>
+                <div className="ctech-arch-down">↓</div>
 
-                <div className="iad-arch-row">
+                <div className="ctech-arch-row">
                   {agents.map(({ icon, role, color }) => (
-                    <div key={role} className="iad-arch-box iad-arch-agent" style={{ borderColor: color+'60' }}>
+                    <div key={role} className="ctech-arch-box ctech-arch-agent" style={{ borderColor: color+'60' }}>
                       <span style={{ color }}><Icon name={icon} /></span>
                       <strong style={{ color }}>{lang === 'es' ? `Agente ${role}` : `${role} Agent`}</strong>
                       <small>Claude-powered</small>
@@ -222,11 +222,11 @@ export default function IaDigoxPage() {
                   ))}
                 </div>
 
-                <div className="iad-arch-down">↓</div>
+                <div className="ctech-arch-down">↓</div>
 
-                <div className="iad-arch-row">
+                <div className="ctech-arch-row">
                   {t.archOutputs.map(([icon, label]) => (
-                    <div key={label} className="iad-arch-box iad-arch-output">
+                    <div key={label} className="ctech-arch-box ctech-arch-output">
                       <span><Icon name={icon} /></span>
                       <small>{label}</small>
                     </div>
@@ -241,17 +241,17 @@ export default function IaDigoxPage() {
             <div className="card">
               <h2>{t.agentsTitle}</h2>
               <p className="card-desc">{t.agentsDesc}</p>
-              <div className="iad-agents-grid">
+              <div className="ctech-agents-grid">
                 {agents.map(({ icon, color, role, name, desc }) => (
-                  <div key={role} className="iad-agent-card">
-                    <div className="iad-agent-header">
-                      <span className="iad-agent-icon" style={{ color }}><Icon name={icon} /></span>
+                  <div key={role} className="ctech-agent-card">
+                    <div className="ctech-agent-header">
+                      <span className="ctech-agent-icon" style={{ color }}><Icon name={icon} /></span>
                       <div>
-                        <span className="iad-agent-role" style={{ color }}>{role}</span>
-                        <p className="iad-agent-name">{name}</p>
+                        <span className="ctech-agent-role" style={{ color }}>{role}</span>
+                        <p className="ctech-agent-name">{name}</p>
                       </div>
                     </div>
-                    <p className="iad-agent-desc">{desc}</p>
+                    <p className="ctech-agent-desc">{desc}</p>
                   </div>
                 ))}
               </div>
@@ -263,16 +263,16 @@ export default function IaDigoxPage() {
             <div className="card">
               <h2>{t.workflowsTitle}</h2>
               <p className="card-desc">{t.workflowsDesc}</p>
-              <div className="iad-workflows-grid">
+              <div className="ctech-workflows-grid">
                 {workflows.map(({ icon, color, status, name, desc, tech }) => (
-                  <div key={name} className="iad-workflow-card" style={{ borderColor: color+'40' }}>
-                    <div className="iad-workflow-header">
-                      <span className="iad-workflow-icon" style={{ background: color+'20', color }}><Icon name={icon} /></span>
+                  <div key={name} className="ctech-workflow-card" style={{ borderColor: color+'40' }}>
+                    <div className="ctech-workflow-header">
+                      <span className="ctech-workflow-icon" style={{ background: color+'20', color }}><Icon name={icon} /></span>
                       <StatusBadge status={status} t={t} />
                     </div>
-                    <h3 className="iad-workflow-name">{name}</h3>
-                    <p className="iad-workflow-desc">{desc}</p>
-                    <p className="iad-workflow-tech">{tech}</p>
+                    <h3 className="ctech-workflow-name">{name}</h3>
+                    <p className="ctech-workflow-desc">{desc}</p>
+                    <p className="ctech-workflow-tech">{tech}</p>
                   </div>
                 ))}
               </div>
@@ -284,11 +284,11 @@ export default function IaDigoxPage() {
             <div className="card">
               <h2>{t.stackTitle}</h2>
               <p className="card-desc">{t.stackDesc}</p>
-              <div className="iad-tech-grid">
+              <div className="ctech-tech-grid">
                 {TECHS.map(({ name, color, desc }) => (
-                  <div key={name} className="iad-tech-card">
-                    <span className="iad-tech-name" style={{ color }}>{name}</span>
-                    <span className="iad-tech-desc">{desc[lang]}</span>
+                  <div key={name} className="ctech-tech-card">
+                    <span className="ctech-tech-name" style={{ color }}>{name}</span>
+                    <span className="ctech-tech-desc">{desc[lang]}</span>
                   </div>
                 ))}
               </div>

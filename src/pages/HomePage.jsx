@@ -70,9 +70,9 @@ const T = {
     eduTitle:  'Formación',
     certTitle: 'Licencias y Certificaciones',
     currentProjectTitle: 'Proyecto en desarrollo',
-    iaDigoxDesc: 'Consultoría Tech: consultoría IA operada de forma autónoma con agentes Claude especializados que gestionan ventas, desarrollo, marketing y operaciones. Orquestación con n8n y Paperclip como sistema nervioso central.',
-    iaDigoxBadge: 'AI Automation · En marcha',
-    iaDigoxStats: [
+    consultoriaTechDesc: 'Consultoría Tech: consultoría IA operada de forma autónoma con agentes Claude especializados que gestionan ventas, desarrollo, marketing y operaciones. Orquestación con n8n y Paperclip como sistema nervioso central.',
+    consultoriaTechBadge: 'AI Automation · En marcha',
+    consultoriaTechStats: [
       { num: '5',    lbl: 'Agentes IA' },
       { num: '4',    lbl: 'Workflows n8n' },
       { num: '24/7', lbl: 'Operación autónoma' },
@@ -170,9 +170,9 @@ const T = {
     eduTitle:  'Education',
     certTitle: 'Licenses & Certifications',
     currentProjectTitle: 'Current project',
-    iaDigoxDesc: 'Consultoría Tech: autonomous AI consultancy with specialized Claude agents managing sales, development, marketing and operations. Orchestrated with n8n and Paperclip as the central nervous system.',
-    iaDigoxBadge: 'AI Automation · In progress',
-    iaDigoxStats: [
+    consultoriaTechDesc: 'Consultoría Tech: autonomous AI consultancy with specialized Claude agents managing sales, development, marketing and operations. Orchestrated with n8n and Paperclip as the central nervous system.',
+    consultoriaTechBadge: 'AI Automation · In progress',
+    consultoriaTechStats: [
       { num: '5',    lbl: 'AI Agents' },
       { num: '4',    lbl: 'n8n Workflows' },
       { num: '24/7', lbl: 'Autonomous op.' },
@@ -440,27 +440,27 @@ export default function HomePage() {
             {t.availItems.map(item => <p key={item} className="home-avail-item">{item}</p>)}
           </div>
 
-          {/* IA Digox project card */}
-          <div className="home-iadigox-card">
-            <div className="home-iadigox-header">
-              <span className="home-iadigox-icon"><Icon name="bot" /></span>
+          {/* Consultoría Tech project card */}
+          <div className="home-ctech-card">
+            <div className="home-ctech-header">
+              <span className="home-ctech-icon"><Icon name="bot" /></span>
               <div>
-                <Link to="/consultoria-tech" className="home-iadigox-link">Consultoría Tech</Link>
-                <span className="home-iadigox-badge">{t.iaDigoxBadge}</span>
+                <Link to="/consultoria-tech" className="home-ctech-link">Consultoría Tech</Link>
+                <span className="home-ctech-badge">{t.consultoriaTechBadge}</span>
               </div>
             </div>
-            <p className="home-iadigox-desc">{t.iaDigoxDesc}</p>
-            <div className="home-iadigox-stats">
-              {t.iaDigoxStats.map(({ num, lbl }) => (
-                <div key={lbl} className="home-iadigox-stat">
-                  <span className="home-iadigox-stat-num">{num}</span>
-                  <span className="home-iadigox-stat-lbl">{lbl}</span>
+            <p className="home-ctech-desc">{t.consultoriaTechDesc}</p>
+            <div className="home-ctech-stats">
+              {t.consultoriaTechStats.map(({ num, lbl }) => (
+                <div key={lbl} className="home-ctech-stat">
+                  <span className="home-ctech-stat-num">{num}</span>
+                  <span className="home-ctech-stat-lbl">{lbl}</span>
                 </div>
               ))}
             </div>
-            <div className="home-iadigox-techs">
+            <div className="home-ctech-techs">
               {['Claude', 'n8n', 'Paperclip', 'Firebase', 'React'].map(tech => (
-                <span key={tech} className="home-iadigox-tech">{tech}</span>
+                <span key={tech} className="home-ctech-tech">{tech}</span>
               ))}
             </div>
           </div>

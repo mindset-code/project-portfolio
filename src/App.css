@@ -1106,18 +1106,18 @@ footer a:hover,
 }
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   IA DIGOX PAGE
+   CONSULTORÍA TECH PAGE
    ══════════════════════════════════════════════════════════════════════════════ */
 
 /* Services */
-.iad-services-grid {
+.ctech-services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   margin-top: 0.25rem;
 }
 
-.iad-service-card {
+.ctech-service-card {
   background: #0f172a;
   border: 1px solid #1e293b;
   border-top: 3px solid var(--svc-color, #60a5fa);
@@ -1128,12 +1128,12 @@ footer a:hover,
   gap: 0.5rem;
 }
 
-.iad-service-icon { font-size: 1.5rem; line-height: 1; }
-.iad-service-title { font-size: 0.88rem; font-weight: 700; color: #f1f5f9; }
-.iad-service-desc  { font-size: 0.78rem; color: #64748b; line-height: 1.55; }
+.ctech-service-icon { font-size: 1.5rem; line-height: 1; }
+.ctech-service-title { font-size: 0.88rem; font-weight: 700; color: #f1f5f9; }
+.ctech-service-desc  { font-size: 0.78rem; color: #64748b; line-height: 1.55; }
 
 /* Architecture */
-.iad-arch {
+.ctech-arch {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1141,7 +1141,7 @@ footer a:hover,
   padding: 0.5rem 0;
 }
 
-.iad-arch-row {
+.ctech-arch-row {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1149,9 +1149,9 @@ footer a:hover,
   flex-wrap: wrap;
 }
 
-.iad-arch-agents-row { gap: 0.5rem; }
+.ctech-arch-agents-row { gap: 0.5rem; }
 
-.iad-arch-box {
+.ctech-arch-box {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1162,28 +1162,28 @@ footer a:hover,
   text-align: center;
   min-width: 100px;
 }
-.iad-arch-box span { font-size: 1.1rem; }
-.iad-arch-box strong { font-size: 0.78rem; color: #f1f5f9; }
-.iad-arch-box small  { font-size: 0.65rem; color: #475569; }
+.ctech-arch-box span { font-size: 1.1rem; }
+.ctech-arch-box strong { font-size: 0.78rem; color: #f1f5f9; }
+.ctech-arch-box small  { font-size: 0.65rem; color: #475569; }
 
-.iad-arch-input    { background: #1a2744; border-color: #60a5fa44; }
-.iad-arch-n8n      { background: #2a1f0a; border-color: #fbbf2444; }
-.iad-arch-paperclip{ background: #1a1a3a; border-color: #a78bfa44; }
-.iad-arch-agent    { background: #1e1e1e; border-color: #f472b844; min-width: 80px; padding: 0.5rem 0.7rem; }
-.iad-arch-output   { background: #1a2a1a; border-color: #34d39944; min-width: 85px; }
+.ctech-arch-input    { background: #1a2744; border-color: #60a5fa44; }
+.ctech-arch-n8n      { background: #2a1f0a; border-color: #fbbf2444; }
+.ctech-arch-paperclip{ background: #1a1a3a; border-color: #a78bfa44; }
+.ctech-arch-agent    { background: #1e1e1e; border-color: #f472b844; min-width: 80px; padding: 0.5rem 0.7rem; }
+.ctech-arch-output   { background: #1a2a1a; border-color: #34d39944; min-width: 85px; }
 
-.iad-arch-arrow { color: #334155; font-size: 1.1rem; font-weight: 300; }
-.iad-arch-down  { color: #334155; font-size: 1.1rem; }
+.ctech-arch-arrow { color: #334155; font-size: 1.1rem; font-weight: 300; }
+.ctech-arch-down  { color: #334155; font-size: 1.1rem; }
 
 /* Agents grid */
-.iad-agents-grid {
+.ctech-agents-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 0.75rem;
   margin-top: 0.25rem;
 }
 
-.iad-agent-card {
+.ctech-agent-card {
   background: #0f172a;
   border: 1px solid #1e293b;
   border-radius: 10px;
@@ -1193,21 +1193,21 @@ footer a:hover,
   gap: 0.5rem;
 }
 
-.iad-agent-header { display: flex; align-items: center; gap: 0.6rem; }
-.iad-agent-icon   { font-size: 1.3rem; line-height: 1; }
-.iad-agent-role   { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; display: block; }
-.iad-agent-name   { font-size: 0.72rem; color: #475569; margin: 0; }
-.iad-agent-desc   { font-size: 0.75rem; color: #64748b; line-height: 1.5; }
+.ctech-agent-header { display: flex; align-items: center; gap: 0.6rem; }
+.ctech-agent-icon   { font-size: 1.3rem; line-height: 1; }
+.ctech-agent-role   { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; display: block; }
+.ctech-agent-name   { font-size: 0.72rem; color: #475569; margin: 0; }
+.ctech-agent-desc   { font-size: 0.75rem; color: #64748b; line-height: 1.5; }
 
 /* Workflows grid */
-.iad-workflows-grid {
+.ctech-workflows-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.75rem;
   margin-top: 0.25rem;
 }
 
-.iad-workflow-card {
+.ctech-workflow-card {
   background: #0f172a;
   border: 1px solid;
   border-radius: 10px;
@@ -1217,31 +1217,31 @@ footer a:hover,
   gap: 0.4rem;
 }
 
-.iad-workflow-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.25rem; }
-.iad-workflow-icon   { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
-.iad-workflow-name   { font-size: 0.85rem; font-weight: 700; color: #f1f5f9; }
-.iad-workflow-desc   { font-size: 0.78rem; color: #64748b; line-height: 1.5; }
-.iad-workflow-tech   { font-size: 0.68rem; color: #334155; font-weight: 600; letter-spacing: 0.03em; }
+.ctech-workflow-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.25rem; }
+.ctech-workflow-icon   { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+.ctech-workflow-name   { font-size: 0.85rem; font-weight: 700; color: #f1f5f9; }
+.ctech-workflow-desc   { font-size: 0.78rem; color: #64748b; line-height: 1.5; }
+.ctech-workflow-tech   { font-size: 0.68rem; color: #334155; font-weight: 600; letter-spacing: 0.03em; }
 
-.iad-status {
+.ctech-status {
   font-size: 0.65rem;
   font-weight: 700;
   padding: 0.15rem 0.55rem;
   border-radius: 99px;
   letter-spacing: 0.04em;
 }
-.iad-status--active { background: #0f3d22; color: #34d399; border: 1px solid #166534; }
-.iad-status--dev    { background: #1c1f2e; color: #64748b;  border: 1px solid #334155; }
+.ctech-status--active { background: #0f3d22; color: #34d399; border: 1px solid #166534; }
+.ctech-status--dev    { background: #1c1f2e; color: #64748b;  border: 1px solid #334155; }
 
 /* Tech grid */
-.iad-tech-grid {
+.ctech-tech-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.6rem;
   margin-top: 0.25rem;
 }
 
-.iad-tech-card {
+.ctech-tech-card {
   background: #0f172a;
   border: 1px solid #1e293b;
   border-radius: 8px;
@@ -1250,46 +1250,46 @@ footer a:hover,
   flex-direction: column;
   gap: 0.2rem;
 }
-.iad-tech-name { font-size: 0.8rem; font-weight: 700; }
-.iad-tech-desc { font-size: 0.72rem; color: #475569; }
+.ctech-tech-name { font-size: 0.8rem; font-weight: 700; }
+.ctech-tech-desc { font-size: 0.72rem; color: #475569; }
 
-/* Responsive — IA Digox */
+/* Responsive — Consultoría Tech */
 @media (max-width: 900px) {
-  .iad-agents-grid  { grid-template-columns: repeat(3, 1fr); }
-  .iad-tech-grid    { grid-template-columns: repeat(3, 1fr); }
+  .ctech-agents-grid  { grid-template-columns: repeat(3, 1fr); }
+  .ctech-tech-grid    { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 768px) {
-  .iad-services-grid { grid-template-columns: 1fr; }
-  .iad-agents-grid   { grid-template-columns: repeat(2, 1fr); }
-  .iad-tech-grid     { grid-template-columns: repeat(2, 1fr); }
-  .iad-arch-row      { gap: 0.3rem; }
-  .iad-arch-box      { min-width: 70px; padding: 0.5rem 0.6rem; }
+  .ctech-services-grid { grid-template-columns: 1fr; }
+  .ctech-agents-grid   { grid-template-columns: repeat(2, 1fr); }
+  .ctech-tech-grid     { grid-template-columns: repeat(2, 1fr); }
+  .ctech-arch-row      { gap: 0.3rem; }
+  .ctech-arch-box      { min-width: 70px; padding: 0.5rem 0.6rem; }
 }
 
 @media (max-width: 480px) {
-  .iad-workflows-grid { grid-template-columns: 1fr; }
-  .iad-agents-grid    { grid-template-columns: repeat(2, 1fr); }
-  .iad-tech-grid      { grid-template-columns: repeat(2, 1fr); }
+  .ctech-workflows-grid { grid-template-columns: 1fr; }
+  .ctech-agents-grid    { grid-template-columns: repeat(2, 1fr); }
+  .ctech-tech-grid      { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   IA DIGOX — Hero centrado
+   CONSULTORÍA TECH — Hero centrado
    ══════════════════════════════════════════════════════════════════════════════ */
 
-.iad-hero {
+.ctech-hero {
   background: #0a1120;
   border-bottom: 1px solid #1e293b;
   padding: 3rem 1.5rem 2.5rem;
   text-align: center;
 }
 
-.iad-hero-inner {
+.ctech-hero-inner {
   max-width: 760px;
   margin: 0 auto;
 }
 
-.iad-hero-top {
+.ctech-hero-top {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1297,7 +1297,7 @@ footer a:hover,
   margin-bottom: 1rem;
 }
 
-.iad-hero-badge {
+.ctech-hero-badge {
   display: inline-block;
   background: color-mix(in srgb, #f472b6 15%, transparent);
   color: #f472b6;
@@ -1310,7 +1310,7 @@ footer a:hover,
   padding: 0.22rem 0.8rem;
 }
 
-.iad-hero-gh {
+.ctech-hero-gh {
   font-size: 0.78rem;
   color: #60a5fa;
   text-decoration: none;
@@ -1320,9 +1320,9 @@ footer a:hover,
   background: #0f1f3d;
   transition: background 0.15s;
 }
-.iad-hero-gh:hover { background: #1e3a5f; }
+.ctech-hero-gh:hover { background: #1e3a5f; }
 
-.iad-hero-title {
+.ctech-hero-title {
   font-size: 2.2rem;
   font-weight: 800;
   color: #f8fafc;
@@ -1331,15 +1331,15 @@ footer a:hover,
   margin-bottom: 1rem;
 }
 
-.iad-hero-desc {
+.ctech-hero-desc {
   font-size: 0.92rem;
   color: #64748b;
   line-height: 1.7;
   margin-bottom: 1.75rem;
 }
-.iad-hero-desc strong { color: #94a3b8; }
+.ctech-hero-desc strong { color: #94a3b8; }
 
-.iad-hero-stats {
+.ctech-hero-stats {
   display: flex;
   justify-content: center;
   gap: 2.5rem;
@@ -1347,13 +1347,13 @@ footer a:hover,
   flex-wrap: wrap;
 }
 
-.iad-hero-stat {
+.ctech-hero-stat {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.iad-hero-stat-num {
+.ctech-hero-stat-num {
   font-size: 1.5rem;
   font-weight: 800;
   color: #f1f5f9;
@@ -1361,7 +1361,7 @@ footer a:hover,
   letter-spacing: -0.02em;
 }
 
-.iad-hero-stat-lbl {
+.ctech-hero-stat-lbl {
   font-size: 0.65rem;
   color: #475569;
   text-transform: uppercase;
@@ -1369,7 +1369,7 @@ footer a:hover,
   margin-top: 0.3rem;
 }
 
-.iad-hero-techs {
+.ctech-hero-techs {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -1377,10 +1377,10 @@ footer a:hover,
 }
 
 @media (max-width: 640px) {
-  .iad-hero          { padding: 2rem 1rem 1.75rem; }
-  .iad-hero-title    { font-size: 1.6rem; }
-  .iad-hero-desc     { font-size: 0.85rem; }
-  .iad-hero-stats    { gap: 1.5rem; }
+  .ctech-hero          { padding: 2rem 1rem 1.75rem; }
+  .ctech-hero-title    { font-size: 1.6rem; }
+  .ctech-hero-desc     { font-size: 0.85rem; }
+  .ctech-hero-stats    { gap: 1.5rem; }
 }
 
 /* ══════════════════════════════════════════════════════════════════════════════
@@ -1439,8 +1439,8 @@ footer a:hover,
   .home-certs-grid { grid-template-columns: 1fr; }
 }
 
-/* ── IA Digox feature card (about column) ───────────────────────────────────── */
-.home-iadigox-card {
+/* ── Consultoría Tech feature card (about column) ───────────────────────────────────── */
+.home-ctech-card {
   background: linear-gradient(135deg, #1c1435 0%, #111e38 100%);
   border: 1px solid #f472b640;
   border-radius: 10px;
@@ -1450,20 +1450,20 @@ footer a:hover,
   gap: 0.75rem;
 }
 
-.home-iadigox-header {
+.home-ctech-header {
   display: flex;
   align-items: flex-start;
   gap: 0.65rem;
 }
 
-.home-iadigox-icon {
+.home-ctech-icon {
   font-size: 1.25rem;
   line-height: 1;
   flex-shrink: 0;
   margin-top: 0.1rem;
 }
 
-.home-iadigox-link {
+.home-ctech-link {
   font-size: 0.92rem;
   font-weight: 700;
   color: #f472b6;
@@ -1471,9 +1471,9 @@ footer a:hover,
   display: block;
   line-height: 1.2;
 }
-.home-iadigox-link:hover { text-decoration: underline; }
+.home-ctech-link:hover { text-decoration: underline; }
 
-.home-iadigox-badge {
+.home-ctech-badge {
   font-size: 0.63rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -1483,19 +1483,19 @@ footer a:hover,
   display: block;
 }
 
-.home-iadigox-desc {
+.home-ctech-desc {
   font-size: 0.81rem;
   color: #64748b;
   line-height: 1.6;
   text-align: left;
 }
 
-.home-iadigox-stats {
+.home-ctech-stats {
   display: flex;
   gap: 0.5rem;
 }
 
-.home-iadigox-stat {
+.home-ctech-stat {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -1505,14 +1505,14 @@ footer a:hover,
   padding: 0.45rem 0.4rem;
 }
 
-.home-iadigox-stat-num {
+.home-ctech-stat-num {
   font-size: 0.95rem;
   font-weight: 800;
   color: #f1f5f9;
   line-height: 1;
 }
 
-.home-iadigox-stat-lbl {
+.home-ctech-stat-lbl {
   font-size: 0.57rem;
   color: #475569;
   text-transform: uppercase;
@@ -1522,13 +1522,13 @@ footer a:hover,
   line-height: 1.25;
 }
 
-.home-iadigox-techs {
+.home-ctech-techs {
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
 }
 
-.home-iadigox-tech {
+.home-ctech-tech {
   font-size: 0.68rem;
   font-weight: 600;
   color: #a78bfa;
@@ -2895,7 +2895,7 @@ footer a:hover,
 
 /* ── Iconos SVG (reemplazo de emojis) ─────────────────────────────────────── */
 .nav-cat-icon, .nav-subitem-icon, .home-career-icon, .home-project-icon,
-.home-iadigox-icon, .iad-service-icon, .iad-agent-icon, .iad-workflow-icon,
+.home-ctech-icon, .ctech-service-icon, .ctech-agent-icon, .ctech-workflow-icon,
 .auto-node-icon, .auto-node-detail-icon, .auto-agent-icon, .dash-section-icon,
 .portfolio-placeholder-icon, .portfolio-index-card-icon, .auto-notice span {
   display: inline-flex;
@@ -2906,8 +2906,8 @@ footer a:hover,
 .nav-subitem-icon        { color: var(--item-color, #60a5fa); }
 .home-career-icon        { color: var(--card-color, #60a5fa); }
 .home-project-icon       { color: var(--card-color, #60a5fa); }
-.home-iadigox-icon       { color: #f472b6; }
-.iad-service-icon        { color: var(--svc-color, #60a5fa); }
+.home-ctech-icon       { color: #f472b6; }
+.ctech-service-icon        { color: var(--svc-color, #60a5fa); }
 .auto-node-icon,
 .auto-node-detail-icon   { color: var(--node-color, #60a5fa); }
 .auto-agent-icon         { color: var(--agent-color, #60a5fa); }
