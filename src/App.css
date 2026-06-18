@@ -11,6 +11,12 @@ body {
   min-height: 100vh;
 }
 
+/* Headings en Space Grotesk (display técnico); cuerpo en Inter */
+h1, h2, h3, h4 {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  letter-spacing: -0.02em;
+}
+
 /* ── Navbar ─────────────────────────────────────────────────────────────────── */
 
 .navbar {
@@ -71,8 +77,8 @@ body {
 }
 
 .nav-home-link--active {
-  color: #60a5fa;
-  background: #131f35;
+  color: #c084fc;
+  background: #1e1838;
 }
 
 /* Proyectos dropdown trigger */
@@ -95,8 +101,8 @@ body {
 }
 
 .nav-trigger--open {
-  border-color: #60a5fa;
-  box-shadow: 0 0 0 1px #60a5fa;
+  border-color: #c084fc;
+  box-shadow: 0 0 0 1px #c084fc;
 }
 
 .nav-trigger-label {
@@ -665,7 +671,7 @@ footer a:hover,
 
 .home-hero-role {
   font-size: 0.9rem;
-  color: #60a5fa;
+  color: #c084fc;
   font-weight: 600;
   margin-bottom: 0.75rem;
 }
@@ -685,7 +691,7 @@ footer a:hover,
 
 .home-cta-primary {
   display: inline-block;
-  background: #1d4ed8;
+  background: #7c3aed;
   color: #fff;
   text-decoration: none;
   font-size: 0.82rem;
@@ -694,7 +700,7 @@ footer a:hover,
   border-radius: 8px;
   transition: background 0.15s;
 }
-.home-cta-primary:hover { background: #2563eb; }
+.home-cta-primary:hover { background: #8b5cf6; }
 
 .home-cta-secondary {
   display: inline-block;
