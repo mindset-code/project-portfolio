@@ -5,9 +5,6 @@
   "targets": {
     "sales-weather-etl": {
       "hosting": {
-        "personal": [
-          "proyectos-personales"
-        ],
         "marca": [
           "proyectos-mindset-code"
         ]
