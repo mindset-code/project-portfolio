@@ -2,11 +2,11 @@
 
 > **Personal portfolio web app** · React 19 · Vite · Recharts · Firebase
 > **Status:** Live in production
-> The single-page app behind [proyectos-personales.web.app](https://proyectos-personales.web.app) — a bilingual showcase that aggregates 15 projects (Data & BI, AI automation, cybersecurity and web) into interactive, in-browser dashboards.
+> The single-page app behind [proyectos.personales.mindset-code.com](https://proyectos.personales.mindset-code.com) — a bilingual showcase that aggregates 15 projects (Data & BI, AI automation, cybersecurity and web) into interactive, in-browser dashboards.
 
 > 🇬🇧 **English version first.** · 🇪🇸 **La versión en español está más abajo** → [ir a Español](#-español).
 
-[![Live Site](https://img.shields.io/badge/Live-proyectos--personales.web.app-a78bfa?style=for-the-badge&logo=firebase&logoColor=white)](https://proyectos-personales.web.app)
+[![Live Site](https://img.shields.io/badge/Live-proyectos.personales.mindset--code.com-2c4a6e?style=for-the-badge&logo=firebase&logoColor=white)](https://proyectos.personales.mindset-code.com)
 [![Stack](https://img.shields.io/badge/Stack-React%2019%20%C2%B7%20Vite%20%C2%B7%20Recharts-61dafb?style=for-the-badge&logo=react&logoColor=black)](.)
 [![Hosting](https://img.shields.io/badge/Hosting-Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](.)
 [![i18n](https://img.shields.io/badge/i18n-EN%20%7C%20ES-0a66c2?style=for-the-badge)](.)
@@ -18,7 +18,7 @@
 
 A recruiter rarely clones a repo — they click a link. This project is that link: a fast, bilingual single-page app that turns a set of standalone data projects into **interactive dashboards anyone can explore in the browser**, with no setup. It is both a portfolio *and* a front-end engineering piece in its own right.
 
-**▶ Live: [proyectos-personales.web.app](https://proyectos-personales.web.app)**
+**▶ Live: [proyectos.personales.mindset-code.com](https://proyectos.personales.mindset-code.com)**
 
 ---
 
@@ -52,7 +52,7 @@ A recruiter rarely clones a repo — they click a link. This project is that lin
 flowchart LR
     A["Data projects<br/>(Python / SQL)"] -->|"pre-aggregated JSON"| B["public/data/"]
     B --> C["React components<br/>(Recharts)"]
-    C --> D["Firebase Hosting<br/>proyectos-personales.web.app"]
+    C --> D["Firebase Hosting<br/>proyectos.personales.mindset-code.com"]
 ```
 
 Each upstream project (churn, executive, hotel, ETL) exports JSON into `public/data/`; the matching React page reads it and renders the charts. The data pipeline lives in [`project-sales-weather-etl`](https://github.com/mindset-code/project-sales-weather-etl).
@@ -104,7 +104,7 @@ project-portfolio/
 
 Released under the **[MIT License](LICENSE)**.
 
-- **Live:** [proyectos-personales.web.app](https://proyectos-personales.web.app)
+- **Live:** [proyectos.personales.mindset-code.com](https://proyectos.personales.mindset-code.com)
 - **LinkedIn:** [Mindset & Code](https://www.linkedin.com/company/mindset-code)
 - **Email:** contacto@mindset-code.com
 
@@ -116,7 +116,7 @@ Released under the **[MIT License](LICENSE)**.
 
 > **App web de portafolio personal** · React 19 · Vite · Recharts · Firebase
 > **Estado:** En producción
-> La single-page app detrás de [proyectos-personales.web.app](https://proyectos-personales.web.app) — un escaparate bilingüe que reúne 15 proyectos (Data & BI, automatización IA, ciberseguridad y web) con dashboards interactivos en el navegador.
+> La single-page app detrás de [proyectos.personales.mindset-code.com](https://proyectos.personales.mindset-code.com) — un escaparate bilingüe que reúne 15 proyectos (Data & BI, automatización IA, ciberseguridad y web) con dashboards interactivos en el navegador.
 
 > 🇪🇸 Traducción al español. La versión en inglés está al inicio → [ir a English](#data--bi-portfolio--operador-mindset-code).
 
@@ -126,7 +126,7 @@ Released under the **[MIT License](LICENSE)**.
 
 Un reclutador rara vez clona un repo — hace clic en un enlace. Este proyecto es ese enlace: una single-page app rápida y bilingüe que convierte un conjunto de proyectos de datos independientes en **dashboards interactivos que cualquiera puede explorar en el navegador**, sin instalar nada. Es a la vez un portafolio *y* una pieza de ingeniería front-end por derecho propio.
 
-**▶ En vivo: [proyectos-personales.web.app](https://proyectos-personales.web.app)**
+**▶ En vivo: [proyectos.personales.mindset-code.com](https://proyectos.personales.mindset-code.com)**
 
 ---
 
@@ -160,7 +160,7 @@ Un reclutador rara vez clona un repo — hace clic en un enlace. Este proyecto e
 flowchart LR
     A["Proyectos de datos<br/>(Python / SQL)"] -->|"JSON pre-agregado"| B["public/data/"]
     B --> C["Componentes React<br/>(Recharts)"]
-    C --> D["Firebase Hosting<br/>proyectos-personales.web.app"]
+    C --> D["Firebase Hosting<br/>proyectos.personales.mindset-code.com"]
 ```
 
 Cada proyecto upstream (churn, executive, hotel, ETL) exporta JSON a `public/data/`; la página React correspondiente lo lee y renderiza los gráficos. El pipeline de datos vive en [`project-sales-weather-etl`](https://github.com/mindset-code/project-sales-weather-etl).
@@ -212,7 +212,7 @@ project-portfolio/
 
 Publicado bajo la **[Licencia MIT](LICENSE)**.
 
-- **En vivo:** [proyectos-personales.web.app](https://proyectos-personales.web.app)
+- **En vivo:** [proyectos.personales.mindset-code.com](https://proyectos.personales.mindset-code.com)
 - **LinkedIn:** [Mindset & Code](https://www.linkedin.com/company/mindset-code)
 - **Email:** contacto@mindset-code.com
 
