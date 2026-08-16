@@ -32,7 +32,7 @@ const CATEGORIES = [
     color: '#c2a98b',
     items: [
       { to: '/consultoria-tech',    label: 'Consultoría Tech',            badge: 'AI Automation',  icon: 'bot', color: '#c2a98b', ext: false },
-      { to: '/automations', label: { es: 'Automatizaciones', en: 'Automations' },            badge: 'n8n · Paperclip', icon: 'zap', color: '#8b5cf6', ext: false },
+      { to: '/automations', label: { es: 'Automatizaciones', en: 'Automations' },            badge: 'n8n · Paperclip', icon: 'zap', color: '#4f7fae', ext: false },
       { to: 'https://consultoria-tech.web.app',             label: 'Consultoría Tech Corporate', badge: 'Corporate Web',  icon: 'globe', color: '#06b6d4', ext: true },
       { to: 'https://github.com/mindset-code/agentforge',   label: 'AgentForge',                 badge: 'SaaS · AI',      icon: 'building-2', color: '#6366f1', ext: true },
       { to: 'https://github.com/mindset-code/Proyecto-Licitaciones-Publicas-automatizadas', label: 'LicitaBot', badge: 'GovTech · SaaS', icon: 'clipboard', color: '#14b8a6', ext: true },

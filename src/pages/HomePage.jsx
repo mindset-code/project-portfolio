@@ -235,7 +235,7 @@ const PROJECTS = [
   { to:'/churn',       external:false, icon:'flask', color:'#9aa9c8', title:'Predictive Churn Analysis',     category:'Data Science',        techs:['Scikit-learn','Python','Pandas','React'] },
   { to:'/hotel',       external:false, icon:'building', color:'#c98a5c', title:'Hotel Pricing Engine',          category:'Revenue Management', techs:['Python','NumPy','React','Recharts'] },
   { to:'/consultoria-tech',    external:false, icon:'bot', color:'#c2a98b', title:'Consultoría Tech',              category:'AI Automation',      techs:['Claude','n8n','Paperclip','Firebase'] },
-  { to:'/automations', external:false, icon:'zap', color:'#8b5cf6', title:{es:'Automatizaciones & Agentes IA',en:'Automations & AI Agents'}, category:'n8n · Paperclip',    techs:['n8n','Paperclip','Claude','React'] },
+  { to:'/automations', external:false, icon:'zap', color:'#4f7fae', title:{es:'Automatizaciones & Agentes IA',en:'Automations & AI Agents'}, category:'n8n · Paperclip',    techs:['n8n','Paperclip','Claude','React'] },
   { to:'https://consultoria-tech.web.app',                                 external:true, icon:'globe', color:'#06b6d4', title:'Consultoría Tech Corporate', category:'Corporate Web',      techs:['React','Vite','Firebase'] },
   { to:'https://github.com/mindset-code/project-sales-optimization-sql',   external:true, icon:'database', color:'#38bdf8', title:'Sales Optimization SQL',   category:'SQL & BI',           techs:['SQL','GROUP BY','Power BI','Tableau'] },
   { to:'https://github.com/mindset-code/project-revenue-management-web',   external:true, icon:'lightbulb', color:'#d0a458', title:'Revenue Management Web',   category:'Web Development',     techs:['HTML','CSS','Vanilla JS','Canvas API'] },

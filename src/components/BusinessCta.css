@@ -1,104 +1,119 @@
-/* Banda de conversión — paleta corporativa de Mindset & Code sobre el tema oscuro del sitio */
+/* Cierre comercial — NO es una tarjeta flotante: es una sección más de la página.
+   Comparte ancho, filetes y ritmo con el resto del sitio para que no parezca pegada. */
 .bcta {
-  margin: 3.5rem 0 0;
-  padding: 0 1.25rem 2.5rem;
+  /* rompe el padding lateral del contenedor (1.5rem en .home-page, .dashboard,
+     .portfolio-*) para que la banda ocupe el ancho de la columna y no parezca
+     una tarjeta pegada encima de la página */
+  margin: 0 -1.5rem;
+  padding: 3rem 2.5rem 3.25rem;
+  text-align: left;
+  border-top: 1px solid var(--mc-borde, rgba(196, 209, 227, 0.16));
+  background:
+    radial-gradient(90% 120% at 8% 0%, rgba(44, 74, 110, 0.28) 0%, rgba(16, 23, 34, 0) 62%),
+    #131b27;
 }
 
 .bcta-inner {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 2.25rem 2rem 2rem;
-  text-align: left;
-  border: 1px solid rgba(196, 209, 227, 0.22);
-  border-radius: 16px;
-  background:
-    radial-gradient(120% 140% at 100% 0%, rgba(59, 98, 144, 0.35) 0%, rgba(44, 74, 110, 0) 60%),
-    linear-gradient(180deg, #223956 0%, #1a2b41 100%);
-  box-shadow: 0 24px 60px -30px rgba(0, 0, 0, 0.7);
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .bcta-head {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1.15rem;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
 }
 
-.bcta-mark { flex-shrink: 0; border-radius: 7px; }
+.bcta-mark {
+  flex-shrink: 0;
+  border-radius: 6px;
+  width: 28px;
+  height: 28px;
+}
 
 .bcta-kicker {
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  color: #c4d1e3;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: #a9b6c5;
 }
 
 .bcta-title {
-  margin: 0 0 0.65rem;
-  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
-  line-height: 1.2;
-  font-weight: 600;
-  color: #f5f1ea;
-  letter-spacing: -0.01em;
+  margin: 0 0 0.6rem;
+  font-size: clamp(1.3rem, 2.1vw, 1.75rem);
+  line-height: 1.22;
+  color: var(--mc-crema, #f5f1ea);
 }
 
 .bcta-body {
-  margin: 0 0 1.5rem;
-  max-width: 62ch;
-  font-size: 0.98rem;
-  line-height: 1.6;
-  color: #c4d1e3;
+  margin: 0 0 1.6rem;
+  max-width: 64ch;
+  font-size: 0.95rem;
+  line-height: 1.62;
+  color: #a9b6c5;
 }
 
 .bcta-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
+  gap: 0.55rem;
 }
 
 .bcta-btn {
   display: inline-flex;
   align-items: center;
-  padding: 0.62rem 1.05rem;
-  border-radius: 9px;
-  font-size: 0.9rem;
+  padding: 0.58rem 1rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
   font-weight: 500;
   line-height: 1.2;
   text-decoration: none;
-  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  transition: background 0.15s ease, border-color 0.15s ease;
 }
 
-.bcta-btn:hover { transform: translateY(-1px); }
-
 .bcta-btn--primary {
-  background: #f5f1ea;
-  color: #1a2b41;
-  border: 1px solid #f5f1ea;
+  background: var(--mc-crema, #f5f1ea);
+  color: #16202e;
+  border: 1px solid var(--mc-crema, #f5f1ea);
 }
 
 .bcta-btn--primary:hover { background: #fff; }
 
 .bcta-btn--ghost {
-  background: rgba(245, 241, 234, 0.06);
-  color: #e8eef7;
-  border: 1px solid rgba(196, 209, 227, 0.3);
+  background: transparent;
+  color: #dde5ef;
+  border: 1px solid rgba(196, 209, 227, 0.26);
 }
 
 .bcta-btn--ghost:hover {
-  background: rgba(245, 241, 234, 0.12);
-  border-color: rgba(196, 209, 227, 0.55);
+  background: rgba(245, 241, 234, 0.07);
+  border-color: rgba(196, 209, 227, 0.5);
 }
 
 .bcta-brand {
-  margin: 1.4rem 0 0;
-  padding-top: 1.1rem;
-  border-top: 1px solid rgba(196, 209, 227, 0.16);
-  font-size: 0.78rem;
-  letter-spacing: 0.02em;
-  color: #93a7c0;
+  margin: 1.5rem 0 0;
+  font-size: 0.76rem;
+  color: #7b8a9c;
+}
+
+/* Sin hueco muerto entre la banda y el pie: el contenedor deja de reservar
+   su padding inferior cuando la banda cierra la página. */
+.home-page:has(> .bcta),
+.dashboard:has(> .bcta),
+.portfolio-page:has(.bcta),
+.portfolio-index-page:has(> .bcta) {
+  padding-bottom: 0;
+}
+
+/* el pie va pegado a la banda: sin franja oscura vacía entre ambos */
+.bcta + footer {
+  margin-top: 0;
+  padding-top: 1.75rem;
 }
 
 @media (max-width: 640px) {
-  .bcta-inner { padding: 1.75rem 1.25rem 1.5rem; }
+  .bcta { padding: 2.25rem 1.25rem 2.5rem; }
   .bcta-btn { width: 100%; justify-content: center; }
 }
