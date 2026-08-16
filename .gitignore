@@ -11,4 +11,6 @@ skills/
 
 # Engram local memory
 .engram/
-dist-personal
+dist-marca/
+dist-personal/
+.firebase/

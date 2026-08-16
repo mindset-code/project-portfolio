@@ -1,1 +1,0 @@
-var e={titular:`Mindset & Code`,cabecera:`Mindset & Code`,subtitulo:`Datos, IA y desarrollo · el taller`,firmaPie:``,rotuloLinkedIn:`LinkedIn`,rotuloGitHub:`GitHub`};export{e as t};
