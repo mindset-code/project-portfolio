@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { IDENTIDAD } from '../identidad'
 import { useLang } from '../contexts/LangContext'
 import PortfolioFooter from '../components/PortfolioFooter'
 import Icon from '../components/icons'
@@ -336,12 +337,12 @@ export default function HomePage() {
             que hay alguien detras. Lo que se va es el nombre como titular de
             la pagina —este portafolio se ensena desde mindset-code.com y ahi
             quien firma el trabajo es la marca—. */}
-        <div className="home-avatar"><img src="/operador.jpg" alt="Mindset &amp; Code" width="116" height="116" /></div>
+        <div className="home-avatar"><img src="/operador.jpg" alt={IDENTIDAD.titular} width="116" height="116" /></div>
         <div className="home-hero-body">
           <div className="home-hero-top">
             <span className="home-hero-badge">{t.badge}</span>
           </div>
-          <h1 className="home-name">Mindset &amp; Code</h1>
+          <h1 className="home-name">{IDENTIDAD.titular}</h1>
           <p className="home-hero-role">{t.role}</p>
           <p className="home-hero-tagline">{t.tagline}</p>
           <div className="home-ctas">

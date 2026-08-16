@@ -5,7 +5,12 @@
   "targets": {
     "sales-weather-etl": {
       "hosting": {
-        "portfolio": ["proyectos-personales"]
+        "personal": [
+          "proyectos-personales"
+        ],
+        "marca": [
+          "proyectos-mindset-code"
+        ]
       }
     }
   }

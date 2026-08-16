@@ -3,6 +3,7 @@ import { projectById, pick } from '../data/projects'
 import { useLang } from '../contexts/LangContext'
 import Icon from '../components/icons'
 import BusinessCta from '../components/BusinessCta'
+import { IDENTIDAD } from '../identidad'
 
 const T = {
   es: {
@@ -153,7 +154,7 @@ export default function PortfolioProjectPage() {
 
       <footer className="portfolio-footer">
         <p>
-          Mindset &amp; Code · asesoría fiscal y tecnológica ·{' '}
+          {IDENTIDAD.titular} · asesoría fiscal y tecnológica ·{' '}
           <a href="https://mindset-code.com/es" target="_blank" rel="noreferrer">mindset-code.com</a>
         </p>
       </footer>

@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import { IDENTIDAD } from '../identidad'
 import { NavLink } from 'react-router-dom'
 import { useLang } from '../contexts/LangContext'
 import Icon from './icons'
@@ -97,8 +98,8 @@ export default function Navbar() {
             del portafolio, incluidos los paneles que se ensenan desde
             mindset-code.com: era el sitio donde el nombre propio aparecia mas
             veces de todo el conjunto. */}
-        <span className="navbar-name">Mindset &amp; Code</span>
-        <span className="navbar-role">Datos, IA y desarrollo · el taller</span>
+        <span className="navbar-name">{IDENTIDAD.cabecera}</span>
+        <span className="navbar-role">{IDENTIDAD.subtitulo}</span>
       </NavLink>
 
       <div className="nav-links">
