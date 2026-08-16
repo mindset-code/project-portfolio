@@ -59,7 +59,7 @@ const T = {
     casesLink:   'Ver las ocho fichas técnicas completas →',
     skillsTitle: 'Stack técnico',
     aboutTitle:  'Quién está detrás',
-    aboutP1: 'Mindset & Code. Diez años en operaciones comerciales y de ingresos (Procter & Gamble, El Mercurio) y una segunda carrera técnica en datos, IA y desarrollo. En la mitad fiscal del negocio: colaborador social de la AEAT y operativa ante el SII de Chile, presentando y contestando en nombre del cliente.',
+    aboutP1: 'Diez años en operaciones comerciales y de ingresos (Procter & Gamble, El Mercurio) y una segunda carrera técnica en datos, IA y desarrollo. En la mitad fiscal del negocio: colaborador social de la AEAT y operativa ante el SII de Chile, presentando y contestando en nombre del cliente.',
     aboutP2: 'Este portafolio es la mitad técnica de Mindset & Code: el ciclo completo del dato, de los pipelines ETL a los cuadros de mando y los modelos predictivos. Un ejemplo de automatización de punta a punta es',
     aboutP2b: ', una operación con agentes de IA, n8n y Paperclip trabajando 24/7.',
     availTitle: 'Cómo se contrata',
@@ -160,7 +160,7 @@ const T = {
     casesLink:   'See the eight full case studies →',
     skillsTitle: 'Tech Stack',
     aboutTitle:  'Who is behind this',
-    aboutP1: 'Mindset & Code. Ten years in commercial and revenue operations (Procter & Gamble, El Mercurio) and a second technical career in data, AI and development. On the tax side: registered social collaborator with the Spanish tax agency and authorised to operate before the Chilean SII on the client\u2019s behalf.',
+    aboutP1: 'Ten years in commercial and revenue operations (Procter & Gamble, El Mercurio) and a second technical career in data, AI and development. On the tax side: registered social collaborator with the Spanish tax agency and authorised to operate before the Chilean SII on the client\u2019s behalf.',
     aboutP2: 'This portfolio is the technical half of Mindset & Code: the full data lifecycle, from ETL pipelines to executive dashboards and predictive models. One example of end-to-end automation is',
     aboutP2b: ', an operation run by AI agents, n8n and Paperclip 24/7.',
     availTitle: 'How to hire',
@@ -241,7 +241,7 @@ const PROJECTS = [
   { to:'https://github.com/mindset-code/project-revenue-management-web',   external:true, icon:'lightbulb', color:'#d0a458', title:'Revenue Management Web',   category:'Web Development',     techs:['HTML','CSS','Vanilla JS','Canvas API'] },
   { to:'https://github.com/mindset-code/project-security-log-analysis',    external:true, icon:'shield', color:'#cc6f6a', title:'Security Log Analysis + Scanner', category:{es:'Ciberseguridad',en:'Cybersecurity'},      techs:['Python','SIEM','ISC2 CC','Nmap'] },
   { to:'https://github.com/mindset-code/project-vulnerability-scanner',    external:true, icon:'search', color:'#c07a45', title:'Vulnerability Scanner',            category:{es:'Ciberseguridad',en:'Cybersecurity'},      techs:['Python','Nmap','ISC2 CC','Markdown'] },
-  { to:'https://github.com/mindset-code/project-portfolio',                external:true, icon:'folder', color:'#a9b6c5', title:{es:'Portafolio Profesional GUG',en:'Professional Portfolio (GUG)'},       category:'Web · React · Firebase', techs:['React','Vite','Firebase','Linear'] },
+  { to:'https://github.com/mindset-code/project-portfolio',                external:true, icon:'folder', color:'#a9b6c5', title:{es:'Portafolio interactivo',en:'Interactive portfolio'},       category:'Web · React · Firebase', techs:['React','Vite','Firebase','Linear'] },
   { to:'https://github.com/mindset-code/agentforge',                       external:true, icon:'building-2', color:'#6366f1', title:'AgentForge',                        category:'SaaS · AI Agents',       techs:['React','Firebase','n8n','Claude'] },
   { to:'https://github.com/mindset-code/Proyecto-Licitaciones-Publicas-automatizadas', external:true, icon:'clipboard', color:'#14b8a6', title:'LicitaBot',                         category:'GovTech · SaaS',         techs:['Python','React','Firebase','n8n'] },
 ]
@@ -332,12 +332,16 @@ export default function HomePage() {
 
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="home-hero">
-        <div className="home-avatar"><img src="/operador.jpg" alt="Mindset & Code" width="116" height="116" /></div>
+        {/* La foto se queda: quien contrata a un despacho pequeno quiere ver
+            que hay alguien detras. Lo que se va es el nombre como titular de
+            la pagina —este portafolio se ensena desde mindset-code.com y ahi
+            quien firma el trabajo es la marca—. */}
+        <div className="home-avatar"><img src="/operador.jpg" alt="Mindset &amp; Code" width="116" height="116" /></div>
         <div className="home-hero-body">
           <div className="home-hero-top">
             <span className="home-hero-badge">{t.badge}</span>
           </div>
-          <h1 className="home-name">Mindset & Code</h1>
+          <h1 className="home-name">Mindset &amp; Code</h1>
           <p className="home-hero-role">{t.role}</p>
           <p className="home-hero-tagline">{t.tagline}</p>
           <div className="home-ctas">

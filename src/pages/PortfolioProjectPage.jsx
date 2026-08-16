@@ -153,7 +153,7 @@ export default function PortfolioProjectPage() {
 
       <footer className="portfolio-footer">
         <p>
-          Mindset & Code · Mindset &amp; Code · asesoría fiscal y tecnológica ·{' '}
+          Mindset &amp; Code · asesoría fiscal y tecnológica ·{' '}
           <a href="https://mindset-code.com/es" target="_blank" rel="noreferrer">mindset-code.com</a>
         </p>
       </footer>

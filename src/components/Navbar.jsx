@@ -93,8 +93,12 @@ export default function Navbar() {
   return (
     <nav className="navbar" ref={ref}>
       <NavLink to="/" className="navbar-brand" onClick={() => setOpen(false)}>
-        <span className="navbar-name">Mindset & Code</span>
-        <span className="navbar-role">Mindset &amp; Code · datos, IA y desarrollo</span>
+        {/* La marca, no la persona. Esta cabecera sale en TODAS las paginas
+            del portafolio, incluidos los paneles que se ensenan desde
+            mindset-code.com: era el sitio donde el nombre propio aparecia mas
+            veces de todo el conjunto. */}
+        <span className="navbar-name">Mindset &amp; Code</span>
+        <span className="navbar-role">Datos, IA y desarrollo · el taller</span>
       </NavLink>
 
       <div className="nav-links">

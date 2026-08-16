@@ -11,7 +11,9 @@ export default function PortfolioFooter({ context }) {
       <div className="footer-links">
         <a href="https://linkedin.com/company/mindset-code" target="_blank" rel="noreferrer" className="footer-link">
           <svg className="footer-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          <span className="footer-link-text">linkedin.com/company/mindset-code</span>
+          {/* La direccion completa se leia como nombre propio en el pie de
+              todas las paginas. El enlace sigue llevando a donde llevaba. */}
+          <span className="footer-link-text">LinkedIn</span>
         </a>
         <span className="footer-sep">&middot;</span>
         <a href="https://github.com/mindset-code" target="_blank" rel="noreferrer" className="footer-link">
@@ -24,7 +26,7 @@ export default function PortfolioFooter({ context }) {
           <span className="footer-link-text">mindset-code.com · {HOME[lang]}</span>
         </a>
       </div>
-      <p className="footer-built">{BUILT[lang]} <a href="https://mindset-code.com/es" target="_blank" rel="noreferrer">Mindset &amp; Code</a> · Mindset & Code · El Prat de Llobregat, Barcelona</p>
+      <p className="footer-built">{BUILT[lang]} <a href="https://mindset-code.com/es" target="_blank" rel="noreferrer">Mindset &amp; Code</a> · El Prat de Llobregat, Barcelona</p>
     </footer>
   )
 }
