@@ -1,5 +1,6 @@
 import HeroSection      from '../components/HeroSection'
 import PortfolioFooter  from '../components/PortfolioFooter'
+import BusinessCta     from '../components/BusinessCta'
 import KpiCards         from '../components/KpiCards'
 import SalesByCategory  from '../components/SalesByCategory'
 import MonthlyRevenue   from '../components/MonthlyRevenue'
@@ -47,7 +48,7 @@ export default function EtlDashboard({ data }) {
     <div className="dashboard">
       <HeroSection
         badge={t.badge}
-        badgeColor="#60a5fa"
+        badgeColor="#7ea6d4"
         title={t.title}
         description={t.description}
         stats={[
@@ -83,6 +84,8 @@ export default function EtlDashboard({ data }) {
         </div>
       </main>
 
+
+      <BusinessCta service="ia-automatizacion" encargo="captura-facturas" />
       <PortfolioFooter context={context} />
     </div>
   )

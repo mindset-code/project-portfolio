@@ -28,31 +28,31 @@ export default function KpiCards({ category, monthly, weekend }) {
         label="Total Revenue"
         value={fmt(totalRevenue)}
         sub="All categories · all years"
-        color="#60a5fa"
+        color="#7ea6d4"
       />
       <KpiCard
         label="Total Orders"
         value={fmtNum(totalOrders)}
         sub="Transactions processed"
-        color="#34d399"
+        color="#6fae8c"
       />
       <KpiCard
         label="Avg Order Value"
         value={fmt(avgOrder)}
         sub="Revenue per transaction"
-        color="#f472b6"
+        color="#c2a98b"
       />
       <KpiCard
         label="Top Category"
         value={topCat?.category}
         sub={fmt(topCat?.total_sales) + ' revenue'}
-        color="#fbbf24"
+        color="#d0a458"
       />
       <KpiCard
         label="Peak Month"
         value={peakMonth?.period}
         sub={fmt(peakMonth?.total_sales) + ' revenue'}
-        color="#a78bfa"
+        color="#9aa9c8"
       />
     </div>
   )

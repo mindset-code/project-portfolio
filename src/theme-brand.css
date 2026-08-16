@@ -1,0 +1,164 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Tema de marca — Mindset & Code
+   Se carga DESPUÉS de App.css: fija tipografía, textura y tema oscuro estable.
+   Paleta tomada del sitio real (favicon.svg + assets/index-*.css de mindset-code.com):
+     azul #2c4a6e · tinta #151b26 · crema #f5f1ea · papel #faf7f1
+     azul claro #c4d1e3 · beige #d9d2c4 · verde #2f6b4f · burdeos #a33a34 · ámbar #8a6420
+   ───────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  --mc-azul: #2c4a6e;
+  --mc-azul-medio: #3b6290;
+  --mc-azul-claro: #c4d1e3;
+  --mc-crema: #f5f1ea;
+  --mc-tinta: #101722;
+  --mc-superficie: #1a2533;
+  --mc-borde: rgba(196, 209, 227, 0.16);
+
+  --sans: 'Geist', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --mono: 'Geist Mono', ui-monospace, Consolas, monospace;
+
+  /* el portafolio se ve siempre en oscuro: no dependemos del tema del sistema */
+  color-scheme: dark;
+  --text: #a9b6c5;
+  --text-h: var(--mc-crema);
+  --bg: var(--mc-tinta);
+  --border: var(--mc-borde);
+}
+
+html,
+body {
+  background: var(--mc-tinta);
+  color: var(--text);
+  font-family: var(--sans);
+}
+
+/* Retícula técnica de fondo: sutil, sin ruido visual, evoca papel milimetrado
+   y editor de código a la vez. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(196, 209, 227, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196, 209, 227, 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(120% 90% at 50% 0%, #000 0%, transparent 78%);
+  -webkit-mask-image: radial-gradient(120% 90% at 50% 0%, #000 0%, transparent 78%);
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+  border-inline-color: var(--mc-borde);
+}
+
+/* ── Tipografía ──────────────────────────────────────────────────────────── */
+h1, h2, h3,
+.home-name,
+.home-section-title,
+.portfolio-title,
+.portfolio-index-title,
+.bcta-title {
+  font-family: var(--heading);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--mc-crema);
+}
+
+.home-name { letter-spacing: -0.03em; }
+
+/* Etiquetas y metadatos en monoespaciada: el "toque tecnológico" que separa
+   la parte fiscal (serif) de la parte de ingeniería (mono). */
+.home-hero-badge,
+.home-stat-lbl,
+.home-project-badge,
+.home-skill-cat,
+.nav-subitem-badge,
+.portfolio-status-badge,
+.portfolio-metric-label,
+.home-cert-org,
+.bcta-kicker {
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+}
+
+.home-hero-badge {
+  background: rgba(44, 74, 110, 0.35) !important;
+  border: 1px solid rgba(196, 209, 227, 0.28) !important;
+  color: var(--mc-azul-claro) !important;
+}
+
+.home-stat-num,
+.portfolio-metric-value,
+.home-ctech-stat-num {
+  font-family: var(--heading);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.home-project-tech,
+.home-skill-pill,
+.portfolio-tech-pill,
+.home-career-chip,
+.home-ctech-tech {
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.01em;
+}
+
+/* ── Navegación ──────────────────────────────────────────────────────────── */
+.navbar {
+  background: rgba(16, 23, 34, 0.92) !important;
+  border-bottom: 1px solid var(--mc-borde) !important;
+  backdrop-filter: blur(8px);
+}
+
+.navbar-name { font-family: var(--heading); font-weight: 600; }
+.navbar-role { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; }
+
+/* ── Superficies ─────────────────────────────────────────────────────────── */
+.home-project-card,
+.home-career-card,
+.home-skill-group,
+.home-cert-card,
+.home-avail-box,
+.portfolio-index-card,
+.home-ctech-card {
+  background: linear-gradient(180deg, rgba(26, 37, 51, 0.9) 0%, rgba(16, 23, 34, 0.9) 100%) !important;
+  border: 1px solid var(--mc-borde) !important;
+}
+
+.home-project-card:hover,
+.portfolio-index-card:hover {
+  border-color: rgba(196, 209, 227, 0.4) !important;
+}
+
+/* ── Botones principales ─────────────────────────────────────────────────── */
+.home-cta-primary {
+  background: var(--mc-crema) !important;
+  color: #1a2b41 !important;
+  border: 1px solid var(--mc-crema) !important;
+  font-weight: 500;
+}
+
+.home-cta-secondary {
+  background: rgba(245, 241, 234, 0.06) !important;
+  color: #e8eef7 !important;
+  border: 1px solid rgba(196, 209, 227, 0.3) !important;
+}
+
+.home-inline-link,
+.footer-link,
+a { color: var(--mc-azul-claro); }
+
+/* ── Impresión de las fichas (se exportan a PDF desde la propia página) ──── */
+@media print {
+  body::before { display: none; }
+  .bcta { break-inside: avoid; }
+}

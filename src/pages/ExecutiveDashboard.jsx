@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import HeroSection      from '../components/HeroSection'
 import PortfolioFooter  from '../components/PortfolioFooter'
+import BusinessCta     from '../components/BusinessCta'
 import ExecKpiCards     from '../components/executive/ExecKpiCards'
 import RevenueTrend     from '../components/executive/RevenueTrend'
 import RevenueBySegment from '../components/executive/RevenueBySegment'
@@ -68,7 +69,7 @@ export default function ExecutiveDashboard() {
     <div className="dashboard">
       <HeroSection
         badge={t.badge}
-        badgeColor="#34d399"
+        badgeColor="#6fae8c"
         title={t.title}
         description={t.description}
         stats={[
@@ -103,6 +104,8 @@ export default function ExecutiveDashboard() {
         </div>
       </main>
 
+
+      <BusinessCta service="datos-bi" encargo="panel-tesoreria" />
       <PortfolioFooter context={context} />
     </div>
   )

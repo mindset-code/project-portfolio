@@ -2,17 +2,18 @@ import { Link } from 'react-router-dom'
 import { projects, pick } from '../data/projects'
 import { useLang } from '../contexts/LangContext'
 import Icon from '../components/icons'
+import BusinessCta from '../components/BusinessCta'
 
 const T = {
   es: {
-    title: 'Portafolio de Proyectos',
-    desc: '8 proyectos que demuestran experiencia en pipelines ETL, ML, revenue management, seguridad defensiva y desarrollo web 3D.',
-    link: 'Ver proyecto →',
+    title: 'Fichas técnicas',
+    desc: 'Ocho proyectos con el problema que resolvían, la solución aplicada, los hallazgos y el servicio con el que se contrata el equivalente para tu empresa.',
+    link: 'Ver la ficha →',
   },
   en: {
-    title: 'Project Portfolio',
-    desc: '8 projects showcasing expertise in ETL pipelines, ML, revenue management, defensive security and 3D web development.',
-    link: 'View project →',
+    title: 'Case studies',
+    desc: 'Eight projects with the problem they solved, the solution applied, the findings and the service that delivers the equivalent for your company.',
+    link: 'Open the case study →',
   },
 }
 
@@ -21,12 +22,12 @@ export default function PortfolioIndexPage() {
   const t = T[lang]
 
   const getStackColor = (tech) => {
-    if (tech.includes('Python') || tech.includes('SQL') || tech.includes('Pandas') || tech.includes('NumPy')) return '#3b82f6'
-    if (tech.includes('React') || tech.includes('HTML5') || tech.includes('CSS3') || tech.includes('JavaScript')) return '#f97316'
-    if (tech.includes('Power BI') || tech.includes('Tableau') || tech.includes('Recharts') || tech.includes('Canvas')) return '#10b981'
-    if (tech.includes('ISC2') || tech.includes('Security') || tech.includes('Cybersecurity')) return '#ef4444'
-    if (tech.includes('Firebase') || tech.includes('Cloud')) return '#fbbf24'
-    return '#64748b'
+    if (tech.includes('Python') || tech.includes('SQL') || tech.includes('Pandas') || tech.includes('NumPy')) return '#4f7fae'
+    if (tech.includes('React') || tech.includes('HTML5') || tech.includes('CSS3') || tech.includes('JavaScript')) return '#c07a45'
+    if (tech.includes('Power BI') || tech.includes('Tableau') || tech.includes('Recharts') || tech.includes('Canvas')) return '#4f9273'
+    if (tech.includes('ISC2') || tech.includes('Security') || tech.includes('Cybersecurity')) return '#cc6f6a'
+    if (tech.includes('Firebase') || tech.includes('Cloud')) return '#d0a458'
+    return '#7b8a9c'
   }
 
   return (
@@ -83,6 +84,8 @@ export default function PortfolioIndexPage() {
           </Link>
         ))}
       </div>
+
+      <BusinessCta service={null} />
     </div>
   )
 }

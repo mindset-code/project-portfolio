@@ -1,6 +1,7 @@
 import { useLang } from '../contexts/LangContext'
 
 const BUILT = { es: 'Construido por', en: 'Built by' }
+const HOME  = { es: 'Servicios y encargos', en: 'Services and engagements' }
 
 export default function PortfolioFooter({ context }) {
   const { lang } = useLang()
@@ -18,12 +19,12 @@ export default function PortfolioFooter({ context }) {
           <span className="footer-link-text">github.com/mindset-code</span>
         </a>
         <span className="footer-sep">&middot;</span>
-        <a href="https://proyectos-personales.web.app" target="_blank" rel="noreferrer" className="footer-link">
+        <a href="https://mindset-code.com/es" target="_blank" rel="noreferrer" className="footer-link">
           <svg className="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          <span className="footer-link-text">proyectos-personales.web.app</span>
+          <span className="footer-link-text">mindset-code.com · {HOME[lang]}</span>
         </a>
       </div>
-      <p className="footer-built">{BUILT[lang]} <a href="https://linkedin.com/company/mindset-code" target="_blank" rel="noreferrer">Mindset & Code</a></p>
+      <p className="footer-built">{BUILT[lang]} <a href="https://mindset-code.com/es" target="_blank" rel="noreferrer">Mindset &amp; Code</a> · Mindset & Code · El Prat de Llobregat, Barcelona</p>
     </footer>
   )
 }

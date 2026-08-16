@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import HeroSection       from '../components/HeroSection'
 import PortfolioFooter   from '../components/PortfolioFooter'
+import BusinessCta     from '../components/BusinessCta'
 import HotelKpiCards     from '../components/hotel/HotelKpiCards'
 import RevParTrend       from '../components/hotel/RevParTrend'
 import OccupancyByDow    from '../components/hotel/OccupancyByDow'
@@ -68,7 +69,7 @@ export default function HotelDashboard() {
     <div className="dashboard">
       <HeroSection
         badge={t.badge}
-        badgeColor="#fb923c"
+        badgeColor="#c98a5c"
         title={t.title}
         description={t.description}
         stats={[
@@ -99,6 +100,8 @@ export default function HotelDashboard() {
         </div>
       </main>
 
+
+      <BusinessCta service="datos-bi" />
       <PortfolioFooter context={context} />
     </div>
   )

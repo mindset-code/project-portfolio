@@ -16,12 +16,12 @@ export default function HotelKpiCards({ kpis }) {
   if (!kpis) return null
   return (
     <div className="kpi-grid kpi-grid-6">
-      <KpiCard label="Avg ADR (30d)"    value={fmtD(kpis.avg_adr)}              sub="Average Daily Rate"       color="#60a5fa" />
-      <KpiCard label="Avg RevPAR (30d)" value={fmtD(kpis.avg_revpar)}           sub="Revenue per avail. room"  color="#34d399" />
-      <KpiCard label="Avg Occupancy"    value={fmtP(kpis.avg_occupancy)}        sub="Last 30 days"             color="#fbbf24" />
-      <KpiCard label="Total Revenue"    value={fmt(kpis.total_revenue)}         sub="Last 90 days (all types)" color="#f472b6" />
-      <KpiCard label="Total Rooms"      value={kpis.total_rooms.toLocaleString()} sub="property capacity"      color="#94a3b8" />
-      <KpiCard label="Forecast"         value={`${kpis.forecast_days}d`}        sub="pricing horizon"          color="#a78bfa" />
+      <KpiCard label="Avg ADR (30d)"    value={fmtD(kpis.avg_adr)}              sub="Average Daily Rate"       color="#7ea6d4" />
+      <KpiCard label="Avg RevPAR (30d)" value={fmtD(kpis.avg_revpar)}           sub="Revenue per avail. room"  color="#6fae8c" />
+      <KpiCard label="Avg Occupancy"    value={fmtP(kpis.avg_occupancy)}        sub="Last 30 days"             color="#d0a458" />
+      <KpiCard label="Total Revenue"    value={fmt(kpis.total_revenue)}         sub="Last 90 days (all types)" color="#c2a98b" />
+      <KpiCard label="Total Rooms"      value={kpis.total_rooms.toLocaleString()} sub="property capacity"      color="#a9b6c5" />
+      <KpiCard label="Forecast"         value={`${kpis.forecast_days}d`}        sub="pricing horizon"          color="#9aa9c8" />
     </div>
   )
 }

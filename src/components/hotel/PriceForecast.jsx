@@ -16,49 +16,49 @@ export default function PriceForecast({ data }) {
         <ComposedChart data={data} margin={{ top: 8, right: 24, bottom: 8, left: 16 }}>
           <defs>
             <linearGradient id="occGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%"  stopColor="#34d399" stopOpacity={0.3} />
-              <stop offset="95%" stopColor="#34d399" stopOpacity={0} />
+              <stop offset="5%"  stopColor="#6fae8c" stopOpacity={0.3} />
+              <stop offset="95%" stopColor="#6fae8c" stopOpacity={0} />
             </linearGradient>
           </defs>
-          <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#2c3d50" />
           <XAxis
             dataKey="date"
             tickFormatter={shortDate}
-            tick={{ fill: '#94a3b8', fontSize: 9 }}
+            tick={{ fill: '#a9b6c5', fontSize: 9 }}
             interval={6}
             angle={-30}
             textAnchor="end"
             height={38}
           />
-          <YAxis yAxisId="left"  tickFormatter={(v) => `$${v}`}            tick={{ fill: '#94a3b8', fontSize: 11 }} />
+          <YAxis yAxisId="left"  tickFormatter={(v) => `$${v}`}            tick={{ fill: '#a9b6c5', fontSize: 11 }} />
           <YAxis yAxisId="right" orientation="right"
             tickFormatter={(v) => `${(v * 100).toFixed(0)}%`}
-            tick={{ fill: '#94a3b8', fontSize: 11 }}
+            tick={{ fill: '#a9b6c5', fontSize: 11 }}
             domain={[0.2, 1]}
           />
           <Tooltip
             formatter={(v, name) =>
               name === 'Occupancy %' ? [`${(v * 100).toFixed(1)}%`, name] : [`$${v.toFixed(2)}`, name]
             }
-            contentStyle={{ background: '#0f172a', border: '1px solid #334155', borderRadius: 8 }}
-            labelStyle={{ color: '#cbd5e1' }}
+            contentStyle={{ background: '#101722', border: '1px solid #2c3d50', borderRadius: 8 }}
+            labelStyle={{ color: '#c4d1e3' }}
             labelFormatter={shortDate}
           />
-          <Legend formatter={(v) => <span style={{ color: '#94a3b8', fontSize: 12 }}>{v}</span>} />
+          <Legend formatter={(v) => <span style={{ color: '#a9b6c5', fontSize: 12 }}>{v}</span>} />
           <Bar yAxisId="left" dataKey="suggested_adr" name="Suggested ADR" radius={[3, 3, 0, 0]}>
             {data.map((entry) => (
               <Cell
                 key={entry.date}
-                fill={entry.has_event ? '#f59e0b' : '#334155'}
+                fill={entry.has_event ? '#b98436' : '#2c3d50'}
               />
             ))}
           </Bar>
           <Line yAxisId="right" type="monotone" dataKey="expected_occupancy"
-            name="Occupancy %" stroke="#34d399" strokeWidth={2} dot={false}
+            name="Occupancy %" stroke="#6fae8c" strokeWidth={2} dot={false}
           />
         </ComposedChart>
       </ResponsiveContainer>
-      <p style={{ fontSize: '0.72rem', color: '#475569', marginTop: '0.5rem' }}>
+      <p style={{ fontSize: '0.72rem', color: '#4a5b6e', marginTop: '0.5rem' }}>
         Gold bars indicate event days (holidays/conferences). Lead-time premium applied for bookings within 30 days.
       </p>
     </div>

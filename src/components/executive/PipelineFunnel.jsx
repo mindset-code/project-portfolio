@@ -4,11 +4,11 @@ const fmt = (v) =>
   new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(v)
 
 const STAGE_COLORS = {
-  Prospecting:  '#60a5fa',
-  Qualified:    '#34d399',
-  Proposal:     '#fbbf24',
-  Negotiation:  '#f472b6',
-  'Closed Won': '#a78bfa',
+  Prospecting:  '#7ea6d4',
+  Qualified:    '#6fae8c',
+  Proposal:     '#d0a458',
+  Negotiation:  '#c2a98b',
+  'Closed Won': '#9aa9c8',
 }
 
 export default function PipelineFunnel({ data }) {
@@ -28,19 +28,19 @@ export default function PipelineFunnel({ data }) {
       <p className="card-desc">Latest month — {lastMonth} · {fmt(totalVal)} total · {totalDeals} deals</p>
       <ResponsiveContainer width="100%" height={240}>
         <BarChart data={snapshot} layout="vertical" margin={{ top: 8, right: 80, bottom: 8, left: 16 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#334155" horizontal={false} />
-          <XAxis type="number" tickFormatter={(v) => `$${(v/1000).toFixed(0)}k`} tick={{ fill: '#94a3b8', fontSize: 11 }} />
-          <YAxis type="category" dataKey="stage" tick={{ fill: '#94a3b8', fontSize: 12 }} width={90} />
+          <CartesianGrid strokeDasharray="3 3" stroke="#2c3d50" horizontal={false} />
+          <XAxis type="number" tickFormatter={(v) => `$${(v/1000).toFixed(0)}k`} tick={{ fill: '#a9b6c5', fontSize: 11 }} />
+          <YAxis type="category" dataKey="stage" tick={{ fill: '#a9b6c5', fontSize: 12 }} width={90} />
           <Tooltip
             formatter={(v, name, props) => [
               `${fmt(v)}  ·  ${props.payload.deals} deals`,
               'Value',
             ]}
-            contentStyle={{ background: '#0f172a', border: '1px solid #334155', borderRadius: 8 }}
-            labelStyle={{ color: '#cbd5e1' }}
+            contentStyle={{ background: '#101722', border: '1px solid #2c3d50', borderRadius: 8 }}
+            labelStyle={{ color: '#c4d1e3' }}
           />
           <Bar dataKey="value" radius={[0,4,4,0]}>
-            {snapshot.map(({ stage }) => <Cell key={stage} fill={STAGE_COLORS[stage] || '#94a3b8'} />)}
+            {snapshot.map(({ stage }) => <Cell key={stage} fill={STAGE_COLORS[stage] || '#a9b6c5'} />)}
           </Bar>
         </BarChart>
       </ResponsiveContainer>

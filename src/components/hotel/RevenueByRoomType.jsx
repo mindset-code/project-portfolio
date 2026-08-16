@@ -2,7 +2,7 @@ import {
   PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer,
 } from 'recharts'
 
-const COLORS = ['#60a5fa', '#34d399', '#fbbf24']
+const COLORS = ['#7ea6d4', '#6fae8c', '#d0a458']
 const fmt = (v) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(v)
 
 export default function RevenueByRoomType({ data }) {
@@ -30,10 +30,10 @@ export default function RevenueByRoomType({ data }) {
           </Pie>
           <Tooltip
             formatter={(v) => [fmt(v), 'Revenue']}
-            contentStyle={{ background: '#0f172a', border: '1px solid #334155', borderRadius: 8 }}
+            contentStyle={{ background: '#101722', border: '1px solid #2c3d50', borderRadius: 8 }}
           />
           <Legend
-            formatter={(v) => <span style={{ color: '#94a3b8', fontSize: 12 }}>{v}</span>}
+            formatter={(v) => <span style={{ color: '#a9b6c5', fontSize: 12 }}>{v}</span>}
           />
         </PieChart>
       </ResponsiveContainer>
@@ -42,7 +42,7 @@ export default function RevenueByRoomType({ data }) {
         {data.map((r, i) => (
           <div key={r.room_type} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem' }}>
             <span style={{ color: COLORS[i], fontWeight: 600 }}>{r.room_type}</span>
-            <span style={{ color: '#94a3b8' }}>
+            <span style={{ color: '#a9b6c5' }}>
               {fmt(r.total_revenue)} · ADR {fmt(r.avg_adr)} · {(r.avg_occupancy * 100).toFixed(1)}% occ
             </span>
           </div>

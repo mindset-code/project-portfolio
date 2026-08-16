@@ -10,28 +10,28 @@ const CATEGORIES = [
   {
     label: 'Data & BI',
     icon: 'chart-bar',
-    color: '#60a5fa',
+    color: '#7ea6d4',
     items: [
-      { to: '/etl',        label: 'Sales & Weather ETL',           badge: 'Data Engineering', icon: 'cog', color: '#60a5fa', ext: false },
-      { to: '/executive',  label: 'Executive Dashboard 360°',      badge: 'BI & RevOps',      icon: 'chart-bar', color: '#34d399', ext: false },
-      { to: '/dashboards', label: 'Dashboards Power BI / Tableau', badge: 'BI Embed',         icon: 'trending-up', color: '#10b981', ext: false },
+      { to: '/etl',        label: 'Sales & Weather ETL',           badge: 'Data Engineering', icon: 'cog', color: '#7ea6d4', ext: false },
+      { to: '/executive',  label: 'Executive Dashboard 360°',      badge: 'BI & RevOps',      icon: 'chart-bar', color: '#6fae8c', ext: false },
+      { to: '/dashboards', label: 'Dashboards Power BI / Tableau', badge: 'BI Embed',         icon: 'trending-up', color: '#4f9273', ext: false },
     ],
   },
   {
     label: 'Data Science & Revenue',
     icon: 'flask',
-    color: '#a78bfa',
+    color: '#9aa9c8',
     items: [
-      { to: '/churn', label: 'Churn Analysis',       badge: 'Data Science',       icon: 'flask', color: '#a78bfa', ext: false },
-      { to: '/hotel', label: 'Hotel Pricing Engine', badge: 'Revenue Management', icon: 'building', color: '#fb923c', ext: false },
+      { to: '/churn', label: 'Churn Analysis',       badge: 'Data Science',       icon: 'flask', color: '#9aa9c8', ext: false },
+      { to: '/hotel', label: 'Hotel Pricing Engine', badge: 'Revenue Management', icon: 'building', color: '#c98a5c', ext: false },
     ],
   },
   {
     label: { es: 'AI & Automatización', en: 'AI & Automation' },
     icon: 'bot',
-    color: '#f472b6',
+    color: '#c2a98b',
     items: [
-      { to: '/consultoria-tech',    label: 'Consultoría Tech',            badge: 'AI Automation',  icon: 'bot', color: '#f472b6', ext: false },
+      { to: '/consultoria-tech',    label: 'Consultoría Tech',            badge: 'AI Automation',  icon: 'bot', color: '#c2a98b', ext: false },
       { to: '/automations', label: { es: 'Automatizaciones', en: 'Automations' },            badge: 'n8n · Paperclip', icon: 'zap', color: '#8b5cf6', ext: false },
       { to: 'https://consultoria-tech.web.app',             label: 'Consultoría Tech Corporate', badge: 'Corporate Web',  icon: 'globe', color: '#06b6d4', ext: true },
       { to: 'https://github.com/mindset-code/agentforge',   label: 'AgentForge',                 badge: 'SaaS · AI',      icon: 'building-2', color: '#6366f1', ext: true },
@@ -41,21 +41,21 @@ const CATEGORIES = [
   {
     label: 'Web & SQL',
     icon: 'code',
-    color: '#fbbf24',
+    color: '#d0a458',
     items: [
-      { to: 'https://burger-house-3d.web.app',                          label: 'Burger House — Web 3D',    badge: 'Creative Web · 3D', icon: 'burger', color: '#f59e0b', ext: true },
+      { to: 'https://burger-house-3d.web.app',                          label: 'Burger House — Web 3D',    badge: 'Creative Web · 3D', icon: 'burger', color: '#b98436', ext: true },
       { to: 'https://github.com/mindset-code/project-sales-optimization-sql',  label: 'Sales Optimization SQL',   badge: 'SQL & BI',        icon: 'database', color: '#38bdf8', ext: true },
-      { to: 'https://github.com/mindset-code/project-revenue-management-web',  label: 'Revenue Management Web',   badge: 'Web Development', icon: 'lightbulb', color: '#fbbf24', ext: true },
-      { to: 'https://github.com/mindset-code/project-portfolio',               label: { es: 'Portafolio Profesional', en: 'Professional Portfolio' },   badge: 'React · Firebase', icon: 'folder', color: '#94a3b8', ext: true },
+      { to: 'https://github.com/mindset-code/project-revenue-management-web',  label: 'Revenue Management Web',   badge: 'Web Development', icon: 'lightbulb', color: '#d0a458', ext: true },
+      { to: 'https://github.com/mindset-code/project-portfolio',               label: { es: 'Portafolio Profesional', en: 'Professional Portfolio' },   badge: 'React · Firebase', icon: 'folder', color: '#a9b6c5', ext: true },
     ],
   },
   {
     label: { es: 'Ciberseguridad', en: 'Cybersecurity' },
     icon: 'shield',
-    color: '#ef4444',
+    color: '#cc6f6a',
     items: [
-      { to: 'https://github.com/mindset-code/project-security-log-analysis',  label: 'Security Log Analysis', badge: { es: 'Ciberseguridad', en: 'Cybersecurity' }, icon: 'shield', color: '#ef4444', ext: true },
-      { to: 'https://github.com/mindset-code/project-vulnerability-scanner',  label: 'Vulnerability Scanner', badge: { es: 'Ciberseguridad', en: 'Cybersecurity' }, icon: 'search', color: '#f97316', ext: true },
+      { to: 'https://github.com/mindset-code/project-security-log-analysis',  label: 'Security Log Analysis', badge: { es: 'Ciberseguridad', en: 'Cybersecurity' }, icon: 'shield', color: '#cc6f6a', ext: true },
+      { to: 'https://github.com/mindset-code/project-vulnerability-scanner',  label: 'Vulnerability Scanner', badge: { es: 'Ciberseguridad', en: 'Cybersecurity' }, icon: 'search', color: '#c07a45', ext: true },
     ],
   },
 ]
@@ -94,7 +94,7 @@ export default function Navbar() {
     <nav className="navbar" ref={ref}>
       <NavLink to="/" className="navbar-brand" onClick={() => setOpen(false)}>
         <span className="navbar-name">Mindset & Code</span>
-        <span className="navbar-role">Data &amp; BI Analyst</span>
+        <span className="navbar-role">Mindset &amp; Code · datos, IA y desarrollo</span>
       </NavLink>
 
       <div className="nav-links">
@@ -107,6 +107,14 @@ export default function Navbar() {
           {lang === 'es' ? 'Inicio' : 'Home'}
         </NavLink>
 
+        <NavLink
+          to="/portfolio"
+          className={({ isActive }) => `nav-home-link${isActive ? ' nav-home-link--active' : ''}`}
+          onClick={() => setOpen(false)}
+        >
+          {lang === 'es' ? 'Fichas técnicas' : 'Case studies'}
+        </NavLink>
+
         <button
           className={`nav-trigger${open ? ' nav-trigger--open' : ''}`}
           onClick={() => setOpen(o => !o)}
@@ -116,6 +124,16 @@ export default function Navbar() {
             <path d="M3 5l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
+
+        <a
+          href="https://mindset-code.com/es"
+          target="_blank"
+          rel="noreferrer"
+          className="nav-home-link"
+          style={{ background: '#2c4a6e', color: '#f5f1ea', border: '1px solid #3b6290' }}
+        >
+          {lang === 'es' ? 'Contratar ↗' : 'Hire ↗'}
+        </a>
 
         <button className="lang-toggle nav-lang-toggle" onClick={toggleLang}>
           <Icon name="globe" /> {lang === 'es' ? 'EN' : 'ES'}

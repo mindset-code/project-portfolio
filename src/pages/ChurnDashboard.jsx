@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import HeroSection    from '../components/HeroSection'
 import PortfolioFooter from '../components/PortfolioFooter'
+import BusinessCta     from '../components/BusinessCta'
 import ChurnKpiCards  from '../components/churn/ChurnKpiCards'
 import ConfusionMatrix from '../components/churn/ConfusionMatrix'
 import FeatureImportance from '../components/churn/FeatureImportance'
@@ -68,7 +69,7 @@ export default function ChurnDashboard() {
     <div className="dashboard">
       <HeroSection
         badge={t.badge}
-        badgeColor="#a78bfa"
+        badgeColor="#9aa9c8"
         title={t.title}
         description={t.description}
         stats={[
@@ -98,6 +99,8 @@ export default function ChurnDashboard() {
         </div>
       </main>
 
+
+      <BusinessCta service="datos-bi" />
       <PortfolioFooter context={context} />
     </div>
   )

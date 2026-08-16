@@ -2,29 +2,30 @@ import { Link } from 'react-router-dom'
 import { useLang } from '../contexts/LangContext'
 import PortfolioFooter from '../components/PortfolioFooter'
 import Icon from '../components/icons'
+import BusinessCta from '../components/BusinessCta'
 
 const L = (v, lang) => (v && typeof v === 'object' ? (v[lang] ?? v.es) : v)
 
 /* ── Translations ──────────────────────────────────────────────────────────── */
 const T = {
   es: {
-    badge:   'Disponible para nuevas oportunidades',
-    role:    'Independent AI & Analytics Practitioner · Commercial & Revenue Operations · Data & BI',
-    tagline: 'AI Engineer y Commercial Strategy Builder disponible para roles 100% remotos a nivel global. La intuición sin IA+datos es apuesta; la IA sin dirección comercial es un juguete caro. Mi trabajo es integrar las tres.',
-    cta1: 'LinkedIn →', cta2: 'GitHub',
+    badge:   'La mitad técnica de Mindset & Code',
+    role:    'Datos y BI · IA y automatización · Desarrollo a medida · España y Chile',
+    tagline: 'Este es el taller. Cada proyecto de aquí abajo está publicado con su código y sus datos, y respalda un servicio que se contrata en mindset-code.com. Si algo de esto te sirve, se monta con los datos de tu empresa.',
+    cta1: 'Ver servicios →', cta2: 'Encargos con precio cerrado', cta3: 'GitHub',
     stats: [
-      { num: '+10',  lbl: 'Años de experiencia' },
-      { num: '15',   lbl: 'Proyectos portafolio' },
-      { num: '100%', lbl: 'Trabajo remoto' },
-      { num: 'MBA',  lbl: '+ Business Analytics' },
-      { num: 'ISC2', lbl: 'CC Certified' },
+      { num: '16',   lbl: 'Proyectos publicados' },
+      { num: '14',   lbl: 'Repos públicos' },
+      { num: '7',    lbl: 'Demos en vivo' },
+      { num: '24 h', lbl: 'Respuesta laborable' },
+      { num: '2',    lbl: 'España y Chile' },
     ],
-    careerTitle: 'Trayectoria',
-    careerDesc:  'De liderazgo comercial B2B a AI Engineer Full-Stack — una reconversión técnica profunda en 4 años.',
+    careerTitle: 'De dónde sale el criterio',
+    careerDesc:  'Diez años dirigiendo operaciones comerciales y una segunda carrera técnica construyendo el software que las sostiene. Las dos mitades de un negocio, en la misma mesa.',
     careerCards: [
       {
         icon: 'trending-up',
-        color: '#34d399',
+        color: '#6fae8c',
         title: 'Liderazgo comercial (10+ años)',
         body: 'Sales Operations, Revenue Operations y estrategia comercial en B2B de alta complejidad.',
         bullets: [
@@ -35,37 +36,38 @@ const T = {
       },
       {
         icon: 'wrench',
-        color: '#60a5fa',
-        title: 'Reconversión técnica (4 años)',
-        body: 'De líder comercial ejecutivo a AI Engineer con stack Full-Stack completo.',
+        color: '#7ea6d4',
+        title: 'Ingeniería de datos y producto',
+        body: 'El software que hoy se contrata como servicio: construido, desplegado y publicado.',
         bullets: [
-          'Portafolio público con 15+ proyectos shipped',
+          'Portafolio público con 16 proyectos desplegados',
           'Data Engineering · Revenue Management algorítmico',
           'Machine Learning · Ciberseguridad · Desarrollo web',
         ],
       },
       {
         icon: 'bot',
-        color: '#a78bfa',
+        color: '#9aa9c8',
         title: 'Stack IA como rutina diaria',
         body: 'Herramientas que uso todos los días para diseñar, construir y operar soluciones.',
         stack: ['Claude Code', 'Antigravity', 'Claude Cowork', 'OpenClaw', 'n8n', 'Linear', 'Power BI (DAX, RLS)', 'SQL', 'Python (Pandas, Scikit-learn, XGBoost)', 'React', 'Firebase', 'ETL', 'REST APIs', 'Agentic AI', 'LLM fine-tuning'],
       },
     ],
-    projectsTitle: 'Proyectos de portafolio',
-    projectsDesc:  'Quince proyectos end-to-end: Data Engineering, BI, Data Science, Revenue Management, Web Development, Ciberseguridad, AI Automation y un sitio corporativo. Siete con dashboard live interactivo.',
+    projectsTitle: 'Lo que ya está construido',
+    projectsDesc:  'Dieciséis proyectos end-to-end con el código publicado: datos y BI, machine learning, revenue management, web, ciberseguridad y automatización con IA. Siete con demo en vivo, y cada uno enlaza el servicio con el que se contrata.',
     viewBtn:     'Ver →',
+    casesLink:   'Ver las ocho fichas técnicas completas →',
     skillsTitle: 'Stack técnico',
-    aboutTitle:  'Sobre mí',
-    aboutP1: 'Soy un profesional de datos con más de 10 años combinando análisis cuantitativo con visión estratégica de negocio. Mi background en Revenue Operations y Sales Operations me permite no solo construir modelos, sino traducirlos en decisiones accionables para equipos directivos.',
-    aboutP2: 'Manejo el ciclo completo del dato: desde pipelines ETL hasta dashboards ejecutivos y modelos predictivos de churn, LTV y CAC. Actualmente también construyo',
-    aboutP2b: ', una empresa de consultoría de IA autónoma con agentes Claude, n8n y Paperclip.',
-    availTitle: 'Disponibilidad',
+    aboutTitle:  'Quién está detrás',
+    aboutP1: 'Mindset & Code. Diez años en operaciones comerciales y de ingresos (Procter & Gamble, El Mercurio) y una segunda carrera técnica en datos, IA y desarrollo. En la mitad fiscal del negocio: colaborador social de la AEAT y operativa ante el SII de Chile, presentando y contestando en nombre del cliente.',
+    aboutP2: 'Este portafolio es la mitad técnica de Mindset & Code: el ciclo completo del dato, de los pipelines ETL a los cuadros de mando y los modelos predictivos. Un ejemplo de automatización de punta a punta es',
+    aboutP2b: ', una operación con agentes de IA, n8n y Paperclip trabajando 24/7.',
+    availTitle: 'Cómo se contrata',
     availItems: [
-      '✓  Trabajo 100% remoto (4+ años de experiencia)',
-      '✓  Disponible para equipos en EMEA y Américas',
-      '✓  Tiempo completo o consultoría',
-      '✓  Inglés profesional (documentación y reuniones)',
+      '✓  Encargos con alcance, precio y plazo cerrados por escrito',
+      '✓  Primera llamada de 60 minutos, sin coste y sin comercial de por medio',
+      '✓  Respuesta en menos de 24 h laborables, siempre por escrito',
+      '✓  España y Chile, con el mismo interlocutor',
     ],
     eduTitle:  'Formación',
     certTitle: 'Licencias y Certificaciones',
@@ -108,23 +110,23 @@ const T = {
     ],
   },
   en: {
-    badge:   'Open to new opportunities',
-    role:    'Independent AI & Analytics Practitioner · Commercial & Revenue Operations · Data & BI',
-    tagline: 'AI Engineer and Commercial Strategy Builder, open to 100% remote roles worldwide. Intuition without AI+data is a bet; AI without commercial direction is an expensive toy. My job is to integrate the three.',
-    cta1: 'LinkedIn →', cta2: 'GitHub',
+    badge:   'The technical half of Mindset & Code',
+    role:    'Data & BI · AI & automation · Custom development · Spain and Chile',
+    tagline: 'This is the workshop. Every project below is published with its code and its data, and backs a service you can hire at mindset-code.com. If any of it is useful to you, it gets built on your own data.',
+    cta1: 'See services →', cta2: 'Fixed-price engagements', cta3: 'GitHub',
     stats: [
-      { num: '+10',  lbl: 'Years of experience' },
-      { num: '15',   lbl: 'Portfolio projects' },
-      { num: '100%', lbl: 'Remote work' },
-      { num: 'MBA',  lbl: '+ Business Analytics' },
-      { num: 'ISC2', lbl: 'CC Certified' },
+      { num: '16',   lbl: 'Published projects' },
+      { num: '14',   lbl: 'Public repos' },
+      { num: '7',    lbl: 'Live demos' },
+      { num: '24 h', lbl: 'Business-day reply' },
+      { num: '2',    lbl: 'Spain and Chile' },
     ],
-    careerTitle: 'Background',
-    careerDesc:  'From B2B commercial leadership to Full-Stack AI Engineer — a deep technical reinvention over 4 years.',
+    careerTitle: 'Where the judgement comes from',
+    careerDesc:  'Ten years running commercial operations and a second, technical career building the software that supports them. Both halves of a business, at the same table.',
     careerCards: [
       {
         icon: 'trending-up',
-        color: '#34d399',
+        color: '#6fae8c',
         title: 'Commercial leadership (10+ years)',
         body: 'Sales Operations, Revenue Operations and commercial strategy in high-complexity B2B environments.',
         bullets: [
@@ -135,37 +137,38 @@ const T = {
       },
       {
         icon: 'wrench',
-        color: '#60a5fa',
-        title: 'Technical reinvention (4 years)',
-        body: 'From executive commercial leader to AI Engineer with a complete Full-Stack technical stack.',
+        color: '#7ea6d4',
+        title: 'Data engineering and product',
+        body: 'The software now sold as a service: built, deployed and published.',
         bullets: [
-          'Public portfolio of 15+ shipped projects',
+          'Public portfolio with 16 deployed projects',
           'Data Engineering · Algorithmic Revenue Management',
           'Machine Learning · Cybersecurity · Web development',
         ],
       },
       {
         icon: 'bot',
-        color: '#a78bfa',
+        color: '#9aa9c8',
         title: 'AI stack as daily routine',
         body: 'Tools I use every day to design, build and operate solutions.',
         stack: ['Claude Code', 'Antigravity', 'Claude Cowork', 'OpenClaw', 'n8n', 'Linear', 'Power BI (DAX, RLS)', 'SQL', 'Python (Pandas, Scikit-learn, XGBoost)', 'React', 'Firebase', 'ETL', 'REST APIs', 'Agentic AI', 'LLM fine-tuning'],
       },
     ],
-    projectsTitle: 'Portfolio Projects',
-    projectsDesc:  'Fifteen end-to-end projects: Data Engineering, BI, Data Science, Revenue Management, Web Development, Cybersecurity, AI Automation and a corporate website. Seven with a live interactive dashboard.',
+    projectsTitle: 'What is already built',
+    projectsDesc:  'Sixteen end-to-end projects with published code: data and BI, machine learning, revenue management, web, cybersecurity and AI automation. Seven with a live demo, and each one links to the service that delivers it.',
     viewBtn:     'View →',
+    casesLink:   'See the eight full case studies →',
     skillsTitle: 'Tech Stack',
-    aboutTitle:  'About me',
-    aboutP1: 'I am a data professional with more than 10 years combining quantitative analysis with strategic business vision. My background in Revenue Operations and Sales Operations allows me not only to build models, but to translate them into actionable decisions for executive teams.',
-    aboutP2: 'I manage the full data lifecycle: from ETL pipelines to executive dashboards and predictive models for churn, LTV and CAC. I am also building',
-    aboutP2b: ', an autonomous AI consulting company powered by Claude agents, n8n and Paperclip.',
-    availTitle: 'Availability',
+    aboutTitle:  'Who is behind this',
+    aboutP1: 'Mindset & Code. Ten years in commercial and revenue operations (Procter & Gamble, El Mercurio) and a second technical career in data, AI and development. On the tax side: registered social collaborator with the Spanish tax agency and authorised to operate before the Chilean SII on the client\u2019s behalf.',
+    aboutP2: 'This portfolio is the technical half of Mindset & Code: the full data lifecycle, from ETL pipelines to executive dashboards and predictive models. One example of end-to-end automation is',
+    aboutP2b: ', an operation run by AI agents, n8n and Paperclip 24/7.',
+    availTitle: 'How to hire',
     availItems: [
-      '✓  100% remote work (4+ years experience)',
-      '✓  Available for EMEA and Americas teams',
-      '✓  Full-time or consulting',
-      '✓  Professional English (docs and meetings)',
+      '✓  Engagements with scope, price and deadline agreed in writing',
+      '✓  First 60-minute call, free and with no salesperson involved',
+      '✓  Reply in under 24 business hours, always in writing',
+      '✓  Spain and Chile, with the same person throughout',
     ],
     eduTitle:  'Education',
     certTitle: 'Licenses & Certifications',
@@ -221,24 +224,24 @@ const SKILL_ITEMS  = [
   ['ISC2 CC', 'SIEM', 'OWASP Top 10', 'Google Cybersecurity', 'Nmap'],
   ['Linear', 'Git / GitHub', 'Firebase Hosting', 'Google Cloud', 'CI/CD'],
 ]
-const SKILL_COLORS = ['#60a5fa','#34d399','#60a5fa','#fbbf24','#34d399','#f472b6','#e879f9','#ef4444','#a78bfa']
+const SKILL_COLORS = ['#7ea6d4','#6fae8c','#7ea6d4','#d0a458','#6fae8c','#c2a98b','#e879f9','#cc6f6a','#9aa9c8']
 
 /* ── Projects ──────────────────────────────────────────────────────────────── */
 const PROJECTS = [
-  { to:'https://burger-house-3d.web.app', external:true, icon:'burger', color:'#f59e0b', title:'Burger House — Web 3D', category:'Creative Web · 3D', techs:['Three.js','R3F','GSAP','React'] },
-  { to:'/etl',         external:false, icon:'cog', color:'#60a5fa', title:'Sales & Weather ETL',           category:'Data Engineering',   techs:['Python','Pandas','React','Firebase'] },
-  { to:'/executive',   external:false, icon:'chart-bar', color:'#34d399', title:'Executive Dashboard 360°',      category:'BI & RevOps',         techs:['Python','Pandas','React','Recharts'] },
-  { to:'/dashboards',  external:false, icon:'trending-up', color:'#10b981', title:'Dashboards Power BI & Tableau', category:'BI Embed',           techs:['HTML','React','Power BI','Tableau'] },
-  { to:'/churn',       external:false, icon:'flask', color:'#a78bfa', title:'Predictive Churn Analysis',     category:'Data Science',        techs:['Scikit-learn','Python','Pandas','React'] },
-  { to:'/hotel',       external:false, icon:'building', color:'#fb923c', title:'Hotel Pricing Engine',          category:'Revenue Management', techs:['Python','NumPy','React','Recharts'] },
-  { to:'/consultoria-tech',    external:false, icon:'bot', color:'#f472b6', title:'Consultoría Tech',              category:'AI Automation',      techs:['Claude','n8n','Paperclip','Firebase'] },
+  { to:'https://burger-house-3d.web.app', external:true, icon:'burger', color:'#b98436', title:'Burger House — Web 3D', category:'Creative Web · 3D', techs:['Three.js','R3F','GSAP','React'] },
+  { to:'/etl',         external:false, icon:'cog', color:'#7ea6d4', title:'Sales & Weather ETL',           category:'Data Engineering',   techs:['Python','Pandas','React','Firebase'] },
+  { to:'/executive',   external:false, icon:'chart-bar', color:'#6fae8c', title:'Executive Dashboard 360°',      category:'BI & RevOps',         techs:['Python','Pandas','React','Recharts'] },
+  { to:'/dashboards',  external:false, icon:'trending-up', color:'#4f9273', title:'Dashboards Power BI & Tableau', category:'BI Embed',           techs:['HTML','React','Power BI','Tableau'] },
+  { to:'/churn',       external:false, icon:'flask', color:'#9aa9c8', title:'Predictive Churn Analysis',     category:'Data Science',        techs:['Scikit-learn','Python','Pandas','React'] },
+  { to:'/hotel',       external:false, icon:'building', color:'#c98a5c', title:'Hotel Pricing Engine',          category:'Revenue Management', techs:['Python','NumPy','React','Recharts'] },
+  { to:'/consultoria-tech',    external:false, icon:'bot', color:'#c2a98b', title:'Consultoría Tech',              category:'AI Automation',      techs:['Claude','n8n','Paperclip','Firebase'] },
   { to:'/automations', external:false, icon:'zap', color:'#8b5cf6', title:{es:'Automatizaciones & Agentes IA',en:'Automations & AI Agents'}, category:'n8n · Paperclip',    techs:['n8n','Paperclip','Claude','React'] },
   { to:'https://consultoria-tech.web.app',                                 external:true, icon:'globe', color:'#06b6d4', title:'Consultoría Tech Corporate', category:'Corporate Web',      techs:['React','Vite','Firebase'] },
   { to:'https://github.com/mindset-code/project-sales-optimization-sql',   external:true, icon:'database', color:'#38bdf8', title:'Sales Optimization SQL',   category:'SQL & BI',           techs:['SQL','GROUP BY','Power BI','Tableau'] },
-  { to:'https://github.com/mindset-code/project-revenue-management-web',   external:true, icon:'lightbulb', color:'#fbbf24', title:'Revenue Management Web',   category:'Web Development',     techs:['HTML','CSS','Vanilla JS','Canvas API'] },
-  { to:'https://github.com/mindset-code/project-security-log-analysis',    external:true, icon:'shield', color:'#ef4444', title:'Security Log Analysis + Scanner', category:{es:'Ciberseguridad',en:'Cybersecurity'},      techs:['Python','SIEM','ISC2 CC','Nmap'] },
-  { to:'https://github.com/mindset-code/project-vulnerability-scanner',    external:true, icon:'search', color:'#f97316', title:'Vulnerability Scanner',            category:{es:'Ciberseguridad',en:'Cybersecurity'},      techs:['Python','Nmap','ISC2 CC','Markdown'] },
-  { to:'https://github.com/mindset-code/project-portfolio',                external:true, icon:'folder', color:'#94a3b8', title:{es:'Portafolio Profesional GUG',en:'Professional Portfolio (GUG)'},       category:'Web · React · Firebase', techs:['React','Vite','Firebase','Linear'] },
+  { to:'https://github.com/mindset-code/project-revenue-management-web',   external:true, icon:'lightbulb', color:'#d0a458', title:'Revenue Management Web',   category:'Web Development',     techs:['HTML','CSS','Vanilla JS','Canvas API'] },
+  { to:'https://github.com/mindset-code/project-security-log-analysis',    external:true, icon:'shield', color:'#cc6f6a', title:'Security Log Analysis + Scanner', category:{es:'Ciberseguridad',en:'Cybersecurity'},      techs:['Python','SIEM','ISC2 CC','Nmap'] },
+  { to:'https://github.com/mindset-code/project-vulnerability-scanner',    external:true, icon:'search', color:'#c07a45', title:'Vulnerability Scanner',            category:{es:'Ciberseguridad',en:'Cybersecurity'},      techs:['Python','Nmap','ISC2 CC','Markdown'] },
+  { to:'https://github.com/mindset-code/project-portfolio',                external:true, icon:'folder', color:'#a9b6c5', title:{es:'Portafolio Profesional GUG',en:'Professional Portfolio (GUG)'},       category:'Web · React · Firebase', techs:['React','Vite','Firebase','Linear'] },
   { to:'https://github.com/mindset-code/agentforge',                       external:true, icon:'building-2', color:'#6366f1', title:'AgentForge',                        category:'SaaS · AI Agents',       techs:['React','Firebase','n8n','Claude'] },
   { to:'https://github.com/mindset-code/Proyecto-Licitaciones-Publicas-automatizadas', external:true, icon:'clipboard', color:'#14b8a6', title:'LicitaBot',                         category:'GovTech · SaaS',         techs:['Python','React','Firebase','n8n'] },
 ]
@@ -251,14 +254,14 @@ const EDU = [
 
 /* ── Certifications ────────────────────────────────────────────────────────── */
 const CERTS = [
-  { org:'ISC2',                  color:'#a78bfa', name:'Certified in Cybersecurity (CC)',              date:'Sep 2024',  id:'f83ec23e' },
-  { org:'IBM',                   color:'#60a5fa', name:'Generative AI Engineering',                    date:'2025',      id:'IBM-GAIE'  },
-  { org:'IBM',                   color:'#60a5fa', name:'Full Stack Software Developer',                date:'Aug 2024',  id:'c845625d' },
-  { org:'IBM',                   color:'#60a5fa', name:'DevOps and Software Engineering',              date:null,        id:'7Z2FU9C6' },
-  { org:'Google',                color:'#34d399', name:'Google Cybersecurity',                         date:'Aug 2024',  id:'M0JCAKMI' },
-  { org:'Google',                color:'#34d399', name:'Google IT Support',                            date:'Sep 2024',  id:'XYFRQ9AI' },
-  { org:'ESSEC Business School', color:'#fbbf24', name:'Hotel Management: Revenue & Demand Management',date:'Aug 2025',  id:'TDEGVC60' },
-  { org:'Univ. of Illinois',     color:'#f472b6', name:'Digital Marketing',                            date:'Sep 2020',  id:'CQ2UHRF2' },
+  { org:'ISC2',                  color:'#9aa9c8', name:'Certified in Cybersecurity (CC)',              date:'Sep 2024',  id:'f83ec23e' },
+  { org:'IBM',                   color:'#7ea6d4', name:'Generative AI Engineering',                    date:'2025',      id:'IBM-GAIE'  },
+  { org:'IBM',                   color:'#7ea6d4', name:'Full Stack Software Developer',                date:'Aug 2024',  id:'c845625d' },
+  { org:'IBM',                   color:'#7ea6d4', name:'DevOps and Software Engineering',              date:null,        id:'7Z2FU9C6' },
+  { org:'Google',                color:'#6fae8c', name:'Google Cybersecurity',                         date:'Aug 2024',  id:'M0JCAKMI' },
+  { org:'Google',                color:'#6fae8c', name:'Google IT Support',                            date:'Sep 2024',  id:'XYFRQ9AI' },
+  { org:'ESSEC Business School', color:'#d0a458', name:'Hotel Management: Revenue & Demand Management',date:'Aug 2025',  id:'TDEGVC60' },
+  { org:'Univ. of Illinois',     color:'#c2a98b', name:'Digital Marketing',                            date:'Sep 2020',  id:'CQ2UHRF2' },
 ]
 
 /* ── Org Logo SVGs ─────────────────────────────────────────────────────────── */
@@ -274,24 +277,24 @@ function OrgLogo({ org }) {
   )
   if (org === 'IBM') return (
     <svg viewBox="0 0 50 21" width="46" height="20" aria-label="IBM">
-      {/* IBM classic 8-stripe logo — I, B, M in #1F70C1 */}
+      {/* IBM classic 8-stripe logo — I, B, M in #3b6290 */}
       {/* Stripe Y positions: 0, 2.7, 5.4, 8.1, 10.8, 13.5, 16.2, 18.9 */}
       {/* --- I (x:0, w:7) --- */}
-      {[0,2.7,5.4,8.1,10.8,13.5,16.2,18.9].map((y,i)=><rect key={`i${i}`} x="0"  y={y} width="7"  height="1.5" fill="#1F70C1"/>)}
+      {[0,2.7,5.4,8.1,10.8,13.5,16.2,18.9].map((y,i)=><rect key={`i${i}`} x="0"  y={y} width="7"  height="1.5" fill="#3b6290"/>)}
       {/* --- B full rows 0,1,3,4,6,7 (x:9, w:16); short rows 2,5 (w:12) --- */}
-      {[0,2.7,8.1,10.8,16.2,18.9].map((y,i)=><rect key={`bf${i}`} x="9"  y={y} width="16" height="1.5" fill="#1F70C1"/>)}
-      {[5.4,13.5].map((y,i)=>                 <rect key={`bs${i}`} x="9"  y={y} width="12" height="1.5" fill="#1F70C1"/>)}
+      {[0,2.7,8.1,10.8,16.2,18.9].map((y,i)=><rect key={`bf${i}`} x="9"  y={y} width="16" height="1.5" fill="#3b6290"/>)}
+      {[5.4,13.5].map((y,i)=>                 <rect key={`bs${i}`} x="9"  y={y} width="12" height="1.5" fill="#3b6290"/>)}
       {/* --- M left leg (x:27, w:6) all rows --- */}
-      {[0,2.7,5.4,8.1,10.8,13.5,16.2,18.9].map((y,i)=><rect key={`ml${i}`} x="27" y={y} width="6"  height="1.5" fill="#1F70C1"/>)}
+      {[0,2.7,5.4,8.1,10.8,13.5,16.2,18.9].map((y,i)=><rect key={`ml${i}`} x="27" y={y} width="6"  height="1.5" fill="#3b6290"/>)}
       {/* --- M top connector (x:33, w:11) rows 0,1 only --- */}
-      {[0,2.7].map((y,i)=>                             <rect key={`mc${i}`} x="33" y={y} width="11" height="1.5" fill="#1F70C1"/>)}
+      {[0,2.7].map((y,i)=>                             <rect key={`mc${i}`} x="33" y={y} width="11" height="1.5" fill="#3b6290"/>)}
       {/* --- M right leg (x:44, w:6) all rows --- */}
-      {[0,2.7,5.4,8.1,10.8,13.5,16.2,18.9].map((y,i)=><rect key={`mr${i}`} x="44" y={y} width="6"  height="1.5" fill="#1F70C1"/>)}
+      {[0,2.7,5.4,8.1,10.8,13.5,16.2,18.9].map((y,i)=><rect key={`mr${i}`} x="44" y={y} width="6"  height="1.5" fill="#3b6290"/>)}
     </svg>
   )
   if (org === 'ISC2') return (
     <svg viewBox="0 0 32 36" width="26" height="30" aria-label="ISC2">
-      <path d="M16 1L3 7v12c0 7.5 5.5 14.5 13 16 7.5-1.5 13-8.5 13-16V7L16 1z" fill="#6d28d9"/>
+      <path d="M16 1L3 7v12c0 7.5 5.5 14.5 13 16 7.5-1.5 13-8.5 13-16V7L16 1z" fill="#3b6290"/>
       <text x="16" y="22.5" textAnchor="middle" fill="white" fontSize="9.5" fontWeight="800" fontFamily={ff}>ISC²</text>
     </svg>
   )
@@ -338,8 +341,9 @@ export default function HomePage() {
           <p className="home-hero-role">{t.role}</p>
           <p className="home-hero-tagline">{t.tagline}</p>
           <div className="home-ctas">
-            <a href="https://linkedin.com/company/mindset-code" target="_blank" rel="noreferrer" className="home-cta-primary">{t.cta1}</a>
-            <a href="https://github.com/mindset-code" target="_blank" rel="noreferrer" className="home-cta-secondary">{t.cta2}</a>
+            <a href="https://mindset-code.com/es" target="_blank" rel="noreferrer" className="home-cta-primary">{t.cta1}</a>
+            <a href="https://mindset-code.com/es/express" target="_blank" rel="noreferrer" className="home-cta-secondary">{t.cta2}</a>
+            <a href="https://github.com/mindset-code" target="_blank" rel="noreferrer" className="home-cta-secondary">{t.cta3}</a>
           </div>
         </div>
       </section>
@@ -406,6 +410,9 @@ export default function HomePage() {
               : <Link key={to} to={to} className="home-project-card" style={{ '--card-color': color }}>{cardBody}</Link>
           })}
         </div>
+        <p className="home-section-desc" style={{ marginTop: '1.75rem' }}>
+          <Link to="/portfolio" className="home-inline-link">{t.casesLink}</Link>
+        </p>
       </section>
 
       {/* ── Skills ───────────────────────────────────────────────────────── */}
@@ -495,6 +502,18 @@ export default function HomePage() {
         </div>
 
       </section>
+
+      <BusinessCta
+        service={null}
+        title={{
+          es: '¿Quieres esta mitad funcionando en tu empresa?',
+          en: 'Want this half running in your company?',
+        }}
+        body={{
+          es: 'Todo lo de arriba está publicado y se puede leer entero. Lo que se contrata es el equivalente con tus datos, con alcance, precio y plazo cerrados por escrito.',
+          en: 'Everything above is published and can be read in full. What you hire is the equivalent built on your data, with scope, price and deadline agreed in writing.',
+        }}
+      />
 
       <PortfolioFooter />
     </div>

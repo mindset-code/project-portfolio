@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom'
 import { projectById, pick } from '../data/projects'
 import { useLang } from '../contexts/LangContext'
 import Icon from '../components/icons'
+import BusinessCta from '../components/BusinessCta'
 
 const T = {
   es: {
@@ -44,12 +45,12 @@ export default function PortfolioProjectPage() {
   }
 
   const getStackColor = (tech) => {
-    if (tech.includes('Python') || tech.includes('SQL') || tech.includes('Pandas') || tech.includes('NumPy')) return '#3b82f6'
-    if (tech.includes('React') || tech.includes('HTML5') || tech.includes('CSS3') || tech.includes('JavaScript')) return '#f97316'
-    if (tech.includes('Power BI') || tech.includes('Tableau') || tech.includes('Recharts') || tech.includes('Canvas')) return '#10b981'
-    if (tech.includes('ISC2') || tech.includes('Security') || tech.includes('Cybersecurity')) return '#ef4444'
-    if (tech.includes('Firebase') || tech.includes('Cloud')) return '#fbbf24'
-    return '#64748b'
+    if (tech.includes('Python') || tech.includes('SQL') || tech.includes('Pandas') || tech.includes('NumPy')) return '#4f7fae'
+    if (tech.includes('React') || tech.includes('HTML5') || tech.includes('CSS3') || tech.includes('JavaScript')) return '#c07a45'
+    if (tech.includes('Power BI') || tech.includes('Tableau') || tech.includes('Recharts') || tech.includes('Canvas')) return '#4f9273'
+    if (tech.includes('ISC2') || tech.includes('Security') || tech.includes('Cybersecurity')) return '#cc6f6a'
+    if (tech.includes('Firebase') || tech.includes('Cloud')) return '#d0a458'
+    return '#7b8a9c'
   }
 
   const findings = pick(project.keyFindings, lang)
@@ -144,8 +145,17 @@ export default function PortfolioProjectPage() {
         </div>
       </div>
 
+      <BusinessCta
+        service={project.service}
+        encargo={project.encargo}
+        body={project.business}
+      />
+
       <footer className="portfolio-footer">
-        <p>Mindset & Code · Data &amp; BI Analyst · MBA · ISC2 CC · proyectos-personales.web.app</p>
+        <p>
+          Mindset & Code · Mindset &amp; Code · asesoría fiscal y tecnológica ·{' '}
+          <a href="https://mindset-code.com/es" target="_blank" rel="noreferrer">mindset-code.com</a>
+        </p>
       </footer>
     </div>
   )

@@ -19,7 +19,7 @@ export default function FeatureImportance({ data }) {
   const display = sorted.map(d => ({
     ...d,
     name: LABELS[d.feature] || d.feature,
-    color: d.coefficient > 0 ? '#f87171' : '#34d399',
+    color: d.coefficient > 0 ? '#d18a86' : '#6fae8c',
   }))
 
   return (
@@ -28,15 +28,15 @@ export default function FeatureImportance({ data }) {
       <p className="card-desc">Logistic regression coefficients — positive = increases churn risk, negative = reduces it</p>
       <ResponsiveContainer width="100%" height={300}>
         <BarChart data={display} layout="vertical" margin={{ top: 8, right: 40, bottom: 8, left: 8 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#334155" horizontal={false} />
-          <XAxis type="number" tick={{ fill: '#94a3b8', fontSize: 11 }}
+          <CartesianGrid strokeDasharray="3 3" stroke="#2c3d50" horizontal={false} />
+          <XAxis type="number" tick={{ fill: '#a9b6c5', fontSize: 11 }}
             tickFormatter={v => v.toFixed(1)} domain={['dataMin - 0.1', 'dataMax + 0.1']} />
-          <YAxis type="category" dataKey="name" tick={{ fill: '#94a3b8', fontSize: 12 }} width={130} />
-          <ReferenceLine x={0} stroke="#475569" strokeWidth={1.5} />
+          <YAxis type="category" dataKey="name" tick={{ fill: '#a9b6c5', fontSize: 12 }} width={130} />
+          <ReferenceLine x={0} stroke="#4a5b6e" strokeWidth={1.5} />
           <Tooltip
             formatter={(v) => [`${v > 0 ? '+' : ''}${v.toFixed(4)}`, 'Coefficient']}
-            contentStyle={{ background: '#0f172a', border: '1px solid #334155', borderRadius: 8 }}
-            labelStyle={{ color: '#cbd5e1' }}
+            contentStyle={{ background: '#101722', border: '1px solid #2c3d50', borderRadius: 8 }}
+            labelStyle={{ color: '#c4d1e3' }}
           />
           <Bar dataKey="coefficient" radius={[0, 4, 4, 0]}>
             {display.map((d, i) => <Cell key={i} fill={d.color} />)}

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useLang } from '../contexts/LangContext'
 import PortfolioFooter from '../components/PortfolioFooter'
+import BusinessCta     from '../components/BusinessCta'
 import Icon from '../components/icons'
 
 const SITE = 'https://proyectos-personales.web.app'
@@ -9,7 +10,7 @@ const DASHBOARDS = [
   {
     id: 'finance',
     icon: 'dollar',
-    color: '#10b981',
+    color: '#4f9273',
     title: { es: 'Finance Dashboard', en: 'Finance Dashboard' },
     subtitle: { es: 'P&L ejecutivo · ARR · EBITDA · LTV:CAC · 36 meses', en: 'Executive P&L · ARR · EBITDA · LTV:CAC · 36 months' },
     kpis: ['ARR', 'Revenue', 'Gross Margin', 'EBITDA Margin', 'NRR', 'LTV:CAC'],
@@ -21,7 +22,7 @@ const DASHBOARDS = [
   {
     id: 'marketing',
     icon: 'megaphone',
-    color: '#a78bfa',
+    color: '#9aa9c8',
     title: { es: 'Marketing Dashboard', en: 'Marketing Dashboard' },
     subtitle: { es: 'Performance Marketing · CPL · CAC · ROAS · Funnel', en: 'Performance Marketing · CPL · CAC · ROAS · Funnel' },
     kpis: ['Spend', 'MQLs', 'SQLs', 'Nuevos clientes', 'CPL', 'ROAS'],
@@ -33,7 +34,7 @@ const DASHBOARDS = [
   {
     id: 'analytics',
     icon: 'trending-up',
-    color: '#60a5fa',
+    color: '#7ea6d4',
     title: { es: 'Data Analytics Dashboard', en: 'Data Analytics Dashboard' },
     subtitle: { es: 'Retail Analytics · 9.800 transacciones · Clima · Categoría · Región', en: 'Retail Analytics · 9,800 transactions · Weather · Category · Region' },
     kpis: ['Sales', 'Orders', 'AOV', 'Top category', 'Top region'],
@@ -109,7 +110,7 @@ function CopyBtn({ url, label, copiedLabel }) {
         setTimeout(() => setCopied(false), 1500)
       }}
       className="dash-copy-btn"
-      style={{ background: copied ? '#10b981' : '#1e293b' }}
+      style={{ background: copied ? '#4f9273' : '#1a2533' }}
     >
       {copied ? copiedLabel : `${label} ↗`}
     </button>
@@ -193,6 +194,8 @@ export default function DashboardsPage() {
         <p className="dash-how-note"><strong>{t.noteLbl}:</strong> {t.noteTxt}</p>
       </section>
 
+
+      <BusinessCta service="datos-bi" encargo="panel-tesoreria" />
       <PortfolioFooter />
     </div>
   )

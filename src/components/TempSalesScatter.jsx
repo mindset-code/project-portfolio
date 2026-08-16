@@ -3,7 +3,7 @@ import {
   ResponsiveContainer, ZAxis,
 } from 'recharts'
 
-const COLORS = { 'Furniture': '#60a5fa', 'Office Supplies': '#34d399', 'Technology': '#f472b6' }
+const COLORS = { 'Furniture': '#7ea6d4', 'Office Supplies': '#6fae8c', 'Technology': '#c2a98b' }
 
 const fmt = (v) =>
   new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(v)
@@ -19,13 +19,13 @@ export default function TempSalesScatter({ data }) {
       <p className="card-desc">Correlation between daily temperature (°C) and order value — city-matched orders</p>
       <ResponsiveContainer width="100%" height={280}>
         <ScatterChart margin={{ top: 8, right: 24, bottom: 8, left: 16 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#2c3d50" />
           <XAxis
             dataKey="avg_temp_c"
             type="number"
             name="Temp (°C)"
-            tick={{ fill: '#94a3b8', fontSize: 11 }}
-            label={{ value: 'Temperature (°C)', position: 'insideBottom', offset: -2, fill: '#475569', fontSize: 11 }}
+            tick={{ fill: '#a9b6c5', fontSize: 11 }}
+            label={{ value: 'Temperature (°C)', position: 'insideBottom', offset: -2, fill: '#4a5b6e', fontSize: 11 }}
             height={36}
           />
           <YAxis
@@ -33,21 +33,21 @@ export default function TempSalesScatter({ data }) {
             type="number"
             name="Sales"
             tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`}
-            tick={{ fill: '#94a3b8', fontSize: 11 }}
+            tick={{ fill: '#a9b6c5', fontSize: 11 }}
           />
           <ZAxis range={[20, 20]} />
           <Tooltip
-            cursor={{ strokeDasharray: '3 3', stroke: '#475569' }}
+            cursor={{ strokeDasharray: '3 3', stroke: '#4a5b6e' }}
             formatter={(v, name) => [name === 'Sales' ? fmt(v) : `${v}°C`, name]}
-            contentStyle={{ background: '#0f172a', border: '1px solid #334155', borderRadius: 8 }}
-            labelStyle={{ color: '#cbd5e1' }}
+            contentStyle={{ background: '#101722', border: '1px solid #2c3d50', borderRadius: 8 }}
+            labelStyle={{ color: '#c4d1e3' }}
           />
           {categories.map((cat) => (
             <Scatter
               key={cat}
               name={cat}
               data={data.filter((d) => d.category === cat)}
-              fill={COLORS[cat] || '#94a3b8'}
+              fill={COLORS[cat] || '#a9b6c5'}
               opacity={0.7}
             />
           ))}
@@ -56,8 +56,8 @@ export default function TempSalesScatter({ data }) {
       <div style={{ display: 'flex', gap: '1rem', marginTop: '0.75rem', flexWrap: 'wrap' }}>
         {categories.map((cat) => (
           <div key={cat} style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-            <div style={{ width: 10, height: 10, borderRadius: '50%', background: COLORS[cat] || '#94a3b8' }} />
-            <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{cat}</span>
+            <div style={{ width: 10, height: 10, borderRadius: '50%', background: COLORS[cat] || '#a9b6c5' }} />
+            <span style={{ fontSize: '0.75rem', color: '#a9b6c5' }}>{cat}</span>
           </div>
         ))}
       </div>

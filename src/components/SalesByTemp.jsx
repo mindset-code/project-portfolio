@@ -3,10 +3,10 @@ import {
 } from 'recharts'
 
 const TEMP_COLORS = {
-  'Cold (<10°C)':  '#93c5fd',
-  'Mild (10-20°C)': '#34d399',
-  'Warm (20-30°C)': '#fbbf24',
-  'Hot (>30°C)':   '#f87171',
+  'Cold (<10°C)':  '#c4d1e3',
+  'Mild (10-20°C)': '#6fae8c',
+  'Warm (20-30°C)': '#d0a458',
+  'Hot (>30°C)':   '#d18a86',
 }
 
 const fmt = (v) =>
@@ -26,17 +26,17 @@ export default function SalesByTemp({ data }) {
       <p className="card-desc">Weather impact on total revenue — city-matched orders only</p>
       <ResponsiveContainer width="100%" height={260}>
         <BarChart data={sorted} margin={{ top: 8, right: 16, bottom: 0, left: 16 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#334155" />
-          <XAxis dataKey="temp_category" tick={{ fill: '#94a3b8', fontSize: 11 }} />
-          <YAxis tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`} tick={{ fill: '#94a3b8', fontSize: 11 }} />
+          <CartesianGrid strokeDasharray="3 3" stroke="#2c3d50" />
+          <XAxis dataKey="temp_category" tick={{ fill: '#a9b6c5', fontSize: 11 }} />
+          <YAxis tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`} tick={{ fill: '#a9b6c5', fontSize: 11 }} />
           <Tooltip
             formatter={(v, name) => [fmt(v), name === 'total_sales' ? 'Total Revenue' : 'Avg Order']}
-            contentStyle={{ background: '#0f172a', border: '1px solid #334155', borderRadius: 8 }}
-            labelStyle={{ color: '#cbd5e1' }}
+            contentStyle={{ background: '#101722', border: '1px solid #2c3d50', borderRadius: 8 }}
+            labelStyle={{ color: '#c4d1e3' }}
           />
           <Bar dataKey="total_sales" radius={[4, 4, 0, 0]}>
             {sorted.map((entry) => (
-              <Cell key={entry.temp_category} fill={TEMP_COLORS[entry.temp_category] || '#94a3b8'} />
+              <Cell key={entry.temp_category} fill={TEMP_COLORS[entry.temp_category] || '#a9b6c5'} />
             ))}
           </Bar>
         </BarChart>

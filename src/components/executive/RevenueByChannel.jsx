@@ -3,7 +3,7 @@ import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from 'recha
 const fmt = (v) =>
   new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(v)
 
-const COLORS = { Inbound: '#60a5fa', Outbound: '#f472b6', Partners: '#34d399', Direct: '#fbbf24' }
+const COLORS = { Inbound: '#7ea6d4', Outbound: '#c2a98b', Partners: '#6fae8c', Direct: '#d0a458' }
 
 export default function RevenueByChannel({ data }) {
   if (!data) return null
@@ -24,14 +24,14 @@ export default function RevenueByChannel({ data }) {
         <PieChart>
           <Pie data={rows} dataKey="revenue" nameKey="channel" cx="50%" cy="50%"
             outerRadius={95} innerRadius={48} paddingAngle={3}>
-            {rows.map(({ channel }) => <Cell key={channel} fill={COLORS[channel] || '#94a3b8'} />)}
+            {rows.map(({ channel }) => <Cell key={channel} fill={COLORS[channel] || '#a9b6c5'} />)}
           </Pie>
           <Tooltip
             formatter={(v) => [fmt(v), 'Revenue']}
-            contentStyle={{ background: '#0f172a', border: '1px solid #334155', borderRadius: 8 }}
-            labelStyle={{ color: '#cbd5e1' }}
+            contentStyle={{ background: '#101722', border: '1px solid #2c3d50', borderRadius: 8 }}
+            labelStyle={{ color: '#c4d1e3' }}
           />
-          <Legend formatter={(v) => <span style={{ color: '#94a3b8', fontSize: 12 }}>{v}</span>} />
+          <Legend formatter={(v) => <span style={{ color: '#a9b6c5', fontSize: 12 }}>{v}</span>} />
         </PieChart>
       </ResponsiveContainer>
     </div>

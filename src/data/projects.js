@@ -2,6 +2,11 @@
 export const projects = [
   {
     id: 'burger-house-3d',
+    service: 'web',
+    business: {
+      es: 'Una tienda o una carta que se recorre en 3D vende lo que una galería de fotos no puede. Lo mismo se monta para tu producto, tu local o tu catálogo.',
+      en: 'A shop or a menu you can explore in 3D sells what a photo gallery cannot. The same can be built for your product, venue or catalogue.',
+    },
     title: 'Burger House — 3D Web',
     category: 'Creative Web · 3D · Frontend',
     description: {
@@ -39,10 +44,16 @@ export const projects = [
     githubUrl: 'https://github.com/mindset-code/burger-house-3d',
     screenshotPath: null,
     icon: 'burger',
-    accentColor: '#f59e0b',
+    accentColor: '#b98436',
   },
   {
     id: 'executive-dashboard',
+    service: 'datos-bi',
+    encargo: 'panel-tesoreria',
+    business: {
+      es: 'El mismo cuadro de mando, pero con tus ventas, tus costes y tu tesorería: una pantalla que se actualiza sola y te dice si el mes va bien antes de que acabe.',
+      en: 'The same dashboard, but with your sales, costs and cash: one screen that updates itself and tells you how the month is going before it ends.',
+    },
     title: 'Executive Dashboard 360°',
     category: 'Business Intelligence · Revenue Operations',
     description: {
@@ -80,10 +91,15 @@ export const projects = [
     githubUrl: 'https://github.com/mindset-code/project-executive-dashboard-data',
     screenshotPath: '/screenshots/01_executive.png',
     icon: 'chart-bar',
-    accentColor: '#34d399',
+    accentColor: '#6fae8c',
   },
   {
     id: 'churn-analysis',
+    service: 'datos-bi',
+    business: {
+      es: 'Saber qué clientes están a punto de irse, y por qué, antes de que se vayan. Se entrena con tu histórico de facturación y bajas.',
+      en: 'Knowing which customers are about to leave, and why, before they do. Trained on your own billing and churn history.',
+    },
     title: 'Predictive Churn Analysis',
     category: 'Data Science · Machine Learning · Revenue Operations',
     description: {
@@ -121,10 +137,15 @@ export const projects = [
     githubUrl: 'https://github.com/mindset-code/project-churn-analysis',
     screenshotPath: '/screenshots/02_churn.png',
     icon: 'flask',
-    accentColor: '#a78bfa',
+    accentColor: '#9aa9c8',
   },
   {
     id: 'hotel-pricing',
+    service: 'datos-bi',
+    business: {
+      es: 'Poner precio con criterio en vez de por costumbre: estacionalidad, ocupación y eventos aplicados a tu tarifa. Vale para hoteles, alquileres y servicios con demanda variable.',
+      en: 'Pricing with a method instead of out of habit: seasonality, occupancy and events applied to your rates. Works for hotels, rentals and any service with variable demand.',
+    },
     title: 'Hotel Dynamic Pricing Engine',
     category: 'Revenue Management · Data Engineering',
     description: {
@@ -162,10 +183,16 @@ export const projects = [
     githubUrl: 'https://github.com/mindset-code/project-hotel-pricing-engine',
     screenshotPath: '/screenshots/03_hotel.png',
     icon: 'building',
-    accentColor: '#fb923c',
+    accentColor: '#c98a5c',
   },
   {
     id: 'sales-weather-etl',
+    service: 'ia-automatizacion',
+    encargo: 'captura-facturas',
+    business: {
+      es: 'Tus datos viven en sitios distintos y nadie los cruza. Esto los recoge, los limpia y los deja en una sola tabla cada día, sin que nadie abra un Excel.',
+      en: 'Your data lives in separate places and nobody joins it. This collects it, cleans it and lands it in a single table every day, with no spreadsheets involved.',
+    },
     title: 'Sales & Weather ETL Pipeline',
     category: 'Data Engineering · Analytics',
     description: {
@@ -203,10 +230,15 @@ export const projects = [
     githubUrl: 'https://github.com/mindset-code/project-sales-weather-etl',
     screenshotPath: '/screenshots/04_etl.png',
     icon: 'cog',
-    accentColor: '#60a5fa',
+    accentColor: '#7ea6d4',
   },
   {
     id: 'revenue-management',
+    service: 'desarrollo',
+    business: {
+      es: 'Un simulador para decidir con números: cambias un parámetro y ves el efecto en ingresos antes de tocar nada en el negocio.',
+      en: 'A simulator to decide with numbers: change one parameter and see the revenue impact before touching anything in the business.',
+    },
     title: 'Revenue Management Dashboard',
     category: 'Web Development · Revenue Operations',
     description: {
@@ -244,10 +276,15 @@ export const projects = [
     githubUrl: 'https://github.com/mindset-code/project-revenue-management-web',
     screenshotPath: '/screenshots/05_revenue_web.png',
     icon: 'trending-up',
-    accentColor: '#f472b6',
+    accentColor: '#c2a98b',
   },
   {
     id: 'sql-optimization',
+    service: 'datos-bi',
+    business: {
+      es: 'Qué productos, zonas y clientes dejan margen de verdad. Las mismas consultas sobre tu ERP o tu facturación, servidas en Power BI.',
+      en: 'Which products, regions and customers actually leave margin. The same queries over your ERP or invoicing, served in Power BI.',
+    },
     title: 'Sales Optimization SQL',
     category: 'Business Intelligence · SQL Analytics',
     description: {
@@ -285,10 +322,16 @@ export const projects = [
     githubUrl: 'https://github.com/mindset-code/project-sales-optimization-sql',
     screenshotPath: '/screenshots/06_sql.png',
     icon: 'clipboard',
-    accentColor: '#10b981',
+    accentColor: '#4f9273',
   },
   {
     id: 'siem-security',
+    service: 'seguridad',
+    encargo: 'auditoria-ia',
+    business: {
+      es: 'Revisar qué tienes expuesto y quién lo está intentando, con un informe de mitigación priorizado que se entiende sin ser técnico.',
+      en: 'Reviewing what you have exposed and who is trying it, with a prioritised mitigation report you can read without being technical.',
+    },
     title: 'Security Log Analysis · SIEM',
     category: 'Cybersecurity · ISC2 CC · Threat Detection',
     description: {
@@ -326,7 +369,7 @@ export const projects = [
     githubUrl: 'https://github.com/mindset-code/project-security-log-analysis',
     screenshotPath: '/screenshots/07_siem.png',
     icon: 'shield',
-    accentColor: '#f87171',
+    accentColor: '#d18a86',
   },
 ]
 

@@ -10,7 +10,7 @@ export default function WeekendVsWeekday({ data }) {
 
   const enriched = data.map((d, i) => ({
     ...d,
-    fill: i === 0 ? '#34d399' : '#60a5fa',
+    fill: i === 0 ? '#6fae8c' : '#7ea6d4',
   }))
 
   return (
@@ -28,24 +28,24 @@ export default function WeekendVsWeekday({ data }) {
           startAngle={180}
           endAngle={0}
         >
-          <RadialBar dataKey="avg_sales" background={{ fill: '#1e293b' }} cornerRadius={4} />
+          <RadialBar dataKey="avg_sales" background={{ fill: '#1a2533' }} cornerRadius={4} />
           <Tooltip
             formatter={(v) => [fmt(v), 'Avg Order Value']}
-            contentStyle={{ background: '#0f172a', border: '1px solid #334155', borderRadius: 8 }}
-            labelStyle={{ color: '#cbd5e1' }}
+            contentStyle={{ background: '#101722', border: '1px solid #2c3d50', borderRadius: 8 }}
+            labelStyle={{ color: '#c4d1e3' }}
           />
           <Legend
-            formatter={(value) => <span style={{ color: '#94a3b8', fontSize: 12 }}>{value}</span>}
+            formatter={(value) => <span style={{ color: '#a9b6c5', fontSize: 12 }}>{value}</span>}
           />
         </RadialBarChart>
       </ResponsiveContainer>
 
       <div style={{ display: 'flex', gap: '1rem', marginTop: '0.5rem' }}>
         {enriched.map((d) => (
-          <div key={d.day_type} style={{ flex: 1, background: '#0f172a', borderRadius: 8, padding: '0.75rem' }}>
-            <div style={{ fontSize: '0.75rem', color: '#64748b', marginBottom: 4 }}>{d.day_type}</div>
+          <div key={d.day_type} style={{ flex: 1, background: '#101722', borderRadius: 8, padding: '0.75rem' }}>
+            <div style={{ fontSize: '0.75rem', color: '#7b8a9c', marginBottom: 4 }}>{d.day_type}</div>
             <div style={{ fontSize: '1.1rem', fontWeight: 600, color: d.fill }}>{fmt(d.avg_sales)}</div>
-            <div style={{ fontSize: '0.75rem', color: '#475569' }}>{d.num_orders} orders</div>
+            <div style={{ fontSize: '0.75rem', color: '#4a5b6e' }}>{d.num_orders} orders</div>
           </div>
         ))}
       </div>

@@ -1,0 +1,104 @@
+/* Banda de conversión — paleta corporativa de Mindset & Code sobre el tema oscuro del sitio */
+.bcta {
+  margin: 3.5rem 0 0;
+  padding: 0 1.25rem 2.5rem;
+}
+
+.bcta-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.25rem 2rem 2rem;
+  text-align: left;
+  border: 1px solid rgba(196, 209, 227, 0.22);
+  border-radius: 16px;
+  background:
+    radial-gradient(120% 140% at 100% 0%, rgba(59, 98, 144, 0.35) 0%, rgba(44, 74, 110, 0) 60%),
+    linear-gradient(180deg, #223956 0%, #1a2b41 100%);
+  box-shadow: 0 24px 60px -30px rgba(0, 0, 0, 0.7);
+}
+
+.bcta-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.15rem;
+}
+
+.bcta-mark { flex-shrink: 0; border-radius: 7px; }
+
+.bcta-kicker {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: #c4d1e3;
+}
+
+.bcta-title {
+  margin: 0 0 0.65rem;
+  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+  line-height: 1.2;
+  font-weight: 600;
+  color: #f5f1ea;
+  letter-spacing: -0.01em;
+}
+
+.bcta-body {
+  margin: 0 0 1.5rem;
+  max-width: 62ch;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #c4d1e3;
+}
+
+.bcta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.bcta-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.62rem 1.05rem;
+  border-radius: 9px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.bcta-btn:hover { transform: translateY(-1px); }
+
+.bcta-btn--primary {
+  background: #f5f1ea;
+  color: #1a2b41;
+  border: 1px solid #f5f1ea;
+}
+
+.bcta-btn--primary:hover { background: #fff; }
+
+.bcta-btn--ghost {
+  background: rgba(245, 241, 234, 0.06);
+  color: #e8eef7;
+  border: 1px solid rgba(196, 209, 227, 0.3);
+}
+
+.bcta-btn--ghost:hover {
+  background: rgba(245, 241, 234, 0.12);
+  border-color: rgba(196, 209, 227, 0.55);
+}
+
+.bcta-brand {
+  margin: 1.4rem 0 0;
+  padding-top: 1.1rem;
+  border-top: 1px solid rgba(196, 209, 227, 0.16);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: #93a7c0;
+}
+
+@media (max-width: 640px) {
+  .bcta-inner { padding: 1.75rem 1.25rem 1.5rem; }
+  .bcta-btn { width: 100%; justify-content: center; }
+}

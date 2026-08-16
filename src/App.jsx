@@ -4,6 +4,7 @@ import { LangProvider }   from './contexts/LangContext'
 import Navbar             from './components/Navbar'
 import HomePage           from './pages/HomePage'
 import './App.css'
+import './theme-brand.css'
 
 // Heavy routes (Recharts, dashboards) are code-split so they don't bloat the
 // initial bundle — each loads only when its route is visited.

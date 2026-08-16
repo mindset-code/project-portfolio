@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import PortfolioFooter from '../components/PortfolioFooter'
+import BusinessCta     from '../components/BusinessCta'
 import Icon from '../components/icons'
 import { useLang } from '../contexts/LangContext'
 
@@ -50,7 +51,7 @@ const T = {
 const AGENTS = {
   es: [
     {
-      icon: 'briefcase', color: '#34d399', role: 'CEO',
+      icon: 'briefcase', color: '#6fae8c', role: 'CEO',
       name: 'Agente Estratégico',
       desc: 'Visión de negocio, toma de decisiones estratégicas y coordinación general de la empresa.',
       responsibilities: [
@@ -61,7 +62,7 @@ const AGENTS = {
       ],
     },
     {
-      icon: 'cog', color: '#60a5fa', role: 'CTO',
+      icon: 'cog', color: '#7ea6d4', role: 'CTO',
       name: 'Agente Técnico',
       desc: 'Arquitectura de sistemas, code reviews automáticos vía GitHub y decisiones de stack tecnológico.',
       responsibilities: [
@@ -72,7 +73,7 @@ const AGENTS = {
       ],
     },
     {
-      icon: 'megaphone', color: '#f472b6', role: 'CMO',
+      icon: 'megaphone', color: '#c2a98b', role: 'CMO',
       name: 'Agente de Marketing',
       desc: 'Estrategia de contenido, prospección de clientes y gestión del mensaje de marca.',
       responsibilities: [
@@ -83,7 +84,7 @@ const AGENTS = {
       ],
     },
     {
-      icon: 'wrench', color: '#fbbf24', role: 'Ops',
+      icon: 'wrench', color: '#d0a458', role: 'Ops',
       name: 'Agente de Operaciones',
       desc: 'Gestión de proyectos activos, seguimiento de tareas e issues y coordinación de entregas.',
       responsibilities: [
@@ -94,7 +95,7 @@ const AGENTS = {
       ],
     },
     {
-      icon: 'clipboard', color: '#a78bfa', role: 'PM',
+      icon: 'clipboard', color: '#9aa9c8', role: 'PM',
       name: 'Agente de Proyectos',
       desc: 'Planning de sprints, priorización del backlog y comunicación entre agentes y clientes.',
       responsibilities: [
@@ -107,7 +108,7 @@ const AGENTS = {
   ],
   en: [
     {
-      icon: 'briefcase', color: '#34d399', role: 'CEO',
+      icon: 'briefcase', color: '#6fae8c', role: 'CEO',
       name: 'Strategic Agent',
       desc: 'Business vision, strategic decision-making and general coordination of the company.',
       responsibilities: [
@@ -118,7 +119,7 @@ const AGENTS = {
       ],
     },
     {
-      icon: 'cog', color: '#60a5fa', role: 'CTO',
+      icon: 'cog', color: '#7ea6d4', role: 'CTO',
       name: 'Technical Agent',
       desc: 'Systems architecture, automatic code reviews via GitHub and tech stack decisions.',
       responsibilities: [
@@ -129,7 +130,7 @@ const AGENTS = {
       ],
     },
     {
-      icon: 'megaphone', color: '#f472b6', role: 'CMO',
+      icon: 'megaphone', color: '#c2a98b', role: 'CMO',
       name: 'Marketing Agent',
       desc: 'Content strategy, customer prospecting and brand message management.',
       responsibilities: [
@@ -140,7 +141,7 @@ const AGENTS = {
       ],
     },
     {
-      icon: 'wrench', color: '#fbbf24', role: 'Ops',
+      icon: 'wrench', color: '#d0a458', role: 'Ops',
       name: 'Operations Agent',
       desc: 'Active project management, task and issue tracking and delivery coordination.',
       responsibilities: [
@@ -151,7 +152,7 @@ const AGENTS = {
       ],
     },
     {
-      icon: 'clipboard', color: '#a78bfa', role: 'PM',
+      icon: 'clipboard', color: '#9aa9c8', role: 'PM',
       name: 'Projects Agent',
       desc: 'Sprint planning, backlog prioritization and communication between agents and clients.',
       responsibilities: [
@@ -387,6 +388,8 @@ export default function AutomationsPage() {
 
       </div>
 
+
+      <BusinessCta service="ia-automatizacion" encargo="radar-plazos" />
       <PortfolioFooter context={t.footerCtx} />
     </div>
   )
