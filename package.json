@@ -6,11 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:personal": "vite build --mode personal --outDir dist-personal --emptyOutDir",
     "lint": "eslint .",
     "preview": "vite preview",
-    "build:marca": "VITE_MARCA=1 vite build --outDir dist-marca --emptyOutDir",
-    "deploy:personal": "npm run build && firebase deploy --only hosting:personal",
-    "deploy:marca": "npm run build:marca && firebase deploy --only hosting:marca"
+    "deploy:marca": "npm run build && firebase deploy --only hosting:marca",
+    "deploy:personal": "npm run build:personal && firebase deploy --only hosting:personal"
   },
   "dependencies": {
     "react": "^19.2.4",

@@ -4,7 +4,7 @@ import PortfolioFooter from '../components/PortfolioFooter'
 import BusinessCta     from '../components/BusinessCta'
 import Icon from '../components/icons'
 
-const SITE = 'https://proyectos.personales.mindset-code.com'
+const SITE = 'https://proyectos-mindset-code.web.app'
 
 const DASHBOARDS = [
   {

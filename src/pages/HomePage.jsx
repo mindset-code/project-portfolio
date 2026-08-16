@@ -337,7 +337,7 @@ export default function HomePage() {
             que hay alguien detras. Lo que se va es el nombre como titular de
             la pagina —este portafolio se ensena desde mindset-code.com y ahi
             quien firma el trabajo es la marca—. */}
-        <div className="home-avatar"><img src="/operador.jpg" alt={IDENTIDAD.titular} width="116" height="116" /></div>
+        <div className="home-avatar"><img src={IDENTIDAD.retrato} alt={IDENTIDAD.titular} width="116" height="116" /></div>
         <div className="home-hero-body">
           <div className="home-hero-top">
             <span className="home-hero-badge">{t.badge}</span>

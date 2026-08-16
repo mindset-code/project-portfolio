@@ -134,7 +134,7 @@ export default function ConsultoriaTechPage() {
         <div className="ctech-hero-inner">
           <div className="ctech-hero-top">
             <span className="ctech-hero-badge">{t.heroBadge}</span>
-            <a href="https://github.com/mindset-code/consultoria-tech" target="_blank" rel="noreferrer" className="ctech-hero-gh">
+            <a href="https://mindset-code.com/es" target="_blank" rel="noreferrer" className="ctech-hero-gh">
               GitHub →
             </a>
           </div>

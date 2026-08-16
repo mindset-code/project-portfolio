@@ -2,7 +2,7 @@
   "hosting": [
     {
       "target": "personal",
-      "public": "dist",
+      "public": "dist-personal",
       "ignore": [
         "firebase.json",
         "**/.*",
@@ -17,7 +17,7 @@
     },
     {
       "target": "marca",
-      "public": "dist-marca",
+      "public": "dist",
       "ignore": [
         "firebase.json",
         "**/.*",
