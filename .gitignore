@@ -16,6 +16,8 @@ dist-personal/
 .firebase/
 firebase.personal.json
 
-# La fotografia del titular: solo en la maquina que compila la
-# variante personal, nunca en el repositorio (ver src/identidad.js).
-public/retrato.jpg
+# Lo que solo existe en la maquina que compila la variante firmada. La
+# fotografia del titular vive AQUI y no en public/: Vite copia public/
+# entera a la salida, asi que ahi se publicaria tambien en la variante de
+# marca, que es justo la que no debe llevar cara (ver src/identidad.js).
+personal/

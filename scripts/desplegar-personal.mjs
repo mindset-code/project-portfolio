@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process'
-import { readFileSync, writeFileSync, unlinkSync } from 'node:fs'
+import { copyFileSync, existsSync, readFileSync, unlinkSync, writeFileSync } from 'node:fs'
 
 /**
  * Publica la variante firmada del portafolio.
@@ -43,6 +43,19 @@ writeFileSync(
     2,
   ),
 )
+
+/**
+ * La fotografia no esta en `public/`. Si estuviera, la compilacion de marca
+ * —que copia `public/` entera— la publicaria tambien, y esa es la variante
+ * que no debe llevar cara. Vive en `personal/`, ignorada por git, y solo
+ * llega a la salida de esta variante.
+ */
+const FOTO = 'personal/retrato.jpg'
+if (existsSync(FOTO)) {
+  copyFileSync(FOTO, 'dist-personal/retrato.jpg')
+} else {
+  console.warn(`Aviso: no existe ${FOTO}; la portada saldra con el logotipo.`)
+}
 
 try {
   execFileSync('firebase', ['deploy', '--only', 'hosting', '--config', CONFIG], {
