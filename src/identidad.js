@@ -44,7 +44,7 @@ export const IDENTIDAD = {
   firmaPie: env.VITE_TITULAR ? ` · ${env.VITE_TITULAR}` : '',
 
   /** Retrato de la portada. El nombre del fichero tampoco firma. */
-  retrato: env.VITE_RETRATO || '/retrato.jpg',
+  retrato: env.VITE_RETRATO || '/marca.png',
 
   /** Los enlaces del pie. En la version de marca no salen del dominio de la
    *  empresa; en la personal apuntan a los perfiles de la persona. */
