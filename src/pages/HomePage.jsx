@@ -4,8 +4,41 @@ import { useLang } from '../contexts/LangContext'
 import PortfolioFooter from '../components/PortfolioFooter'
 import Icon from '../components/icons'
 import BusinessCta from '../components/BusinessCta'
+import { projects } from '../data/projects'
 
 const L = (v, lang) => (v && typeof v === 'object' ? (v[lang] ?? v.es) : v)
+
+/* ── Projects ──────────────────────────────────────────────────────────────── */
+const PROJECTS = [
+  { to:'https://burger-house-3d.web.app', external:true, icon:'burger', color:'#b98436', title:'Burger House — Web 3D', category:'Creative Web · 3D', techs:['Three.js','R3F','GSAP','React'] },
+  { to:'/etl',         external:false, icon:'cog', color:'#7ea6d4', title:'Sales & Weather ETL',           category:'Data Engineering',   techs:['Python','Pandas','React','Firebase'] },
+  { to:'/executive',   external:false, icon:'chart-bar', color:'#6fae8c', title:'Executive Dashboard 360°',      category:'BI & RevOps',         techs:['Python','Pandas','React','Recharts'] },
+  { to:'/dashboards',  external:false, icon:'trending-up', color:'#4f9273', title:'Dashboards Power BI & Tableau', category:'BI Embed',           techs:['HTML','React','Power BI','Tableau'] },
+  { to:'/churn',       external:false, icon:'flask', color:'#9aa9c8', title:'Predictive Churn Analysis',     category:'Data Science',        techs:['Scikit-learn','Python','Pandas','React'] },
+  { to:'/hotel',       external:false, icon:'building', color:'#c98a5c', title:'Hotel Pricing Engine',          category:'Revenue Management', techs:['Python','NumPy','React','Recharts'] },
+  { to:'/consultoria-tech',    external:false, icon:'bot', color:'#c2a98b', title:'Consultoría Tech',              category:'AI Automation',      techs:['Claude','n8n','Paperclip','Firebase'] },
+  { to:'/automations', external:false, icon:'zap', color:'#4f7fae', title:{es:'Automatizaciones & Agentes IA',en:'Automations & AI Agents'}, category:'n8n · Paperclip',    techs:['n8n','Paperclip','Claude','React'] },
+  { to:'https://consultoria-tech.web.app',                                 external:true, icon:'globe', color:'#06b6d4', title:'Consultoría Tech Corporate', category:'Corporate Web',      techs:['React','Vite','Firebase'] },
+  { to:'/sql',   external:false, icon:'database', color:'#38bdf8', title:'Sales Optimization SQL',   category:'SQL & BI',           techs:['SQL','GROUP BY','Power BI','Tableau'] },
+  { to:'/revenue',   external:false, icon:'lightbulb', color:'#d0a458', title:'Revenue Management Web',   category:'Web Development',     techs:['HTML','CSS','Vanilla JS','Canvas API'] },
+  { to:'/logs',    external:false, icon:'shield', color:'#cc6f6a', title:'Security Log Analysis + Scanner', category:{es:'Ciberseguridad',en:'Cybersecurity'},      techs:['Python','SIEM','ISC2 CC','Nmap'] },
+  { to:'/scanner',    external:false, icon:'search', color:'#c07a45', title:'Vulnerability Scanner',            category:{es:'Ciberseguridad',en:'Cybersecurity'},      techs:['Python','Nmap','ISC2 CC','Markdown'] },
+  { to:'https://github.com/mindset-code/project-portfolio',                external:true, icon:'folder', color:'#a9b6c5', title:{es:'Portafolio interactivo',en:'Interactive portfolio'},       category:'Web · React · Firebase', techs:['React','Vite','Firebase','Linear'] },
+  { to:'/agentforge',                       external:false, icon:'building-2', color:'#6366f1', title:'AgentForge',                        category:'SaaS · AI Agents',       techs:['React','Firebase','n8n','Claude'] },
+  { to:'https://github.com/mindset-code/Proyecto-Licitaciones-Publicas-automatizadas', external:true, icon:'clipboard', color:'#14b8a6', title:'LicitaBot',                         category:'GovTech · SaaS',         techs:['Python','React','Firebase','n8n'] },
+]
+
+// Las cifras de la portada se cuentan aqui y no se escriben abajo a mano.
+// El 18/08/2026 la portada anunciaba «7 demos en vivo» cuando ya eran
+// catorce: cinco proyectos habian pasado de enlazar GitHub a tener panel
+// propio y nadie actualizo el numero. Contando, eso no puede volver a pasar.
+const N_PROYECTOS = PROJECTS.length
+// Demo en vivo = tarjeta que abre algo que se puede usar. Un enlace a
+// GitHub es codigo para leer, no una demo, y por eso queda fuera.
+const N_DEMOS = PROJECTS.filter(p => !String(p.to).includes('github.com')).length
+// Las fichas tecnicas completas son las entradas de data/projects.js, que es
+// lo que pinta /portfolio. Contarlas evita prometer ocho y ensennar otras.
+const N_FICHAS = projects.length
 
 /* ── Translations ──────────────────────────────────────────────────────────── */
 const T = {
@@ -15,9 +48,12 @@ const T = {
     tagline: 'Este es el taller. Cada proyecto de aquí abajo está publicado con su código y sus datos, y respalda un servicio que se contrata en mindset-code.com. Si algo de esto te sirve, se monta con los datos de tu empresa.',
     cta1: 'Ver servicios →', cta2: 'Encargos con precio cerrado', cta3: 'GitHub',
     stats: [
-      { num: '16',   lbl: 'Proyectos publicados' },
+      { num: String(N_PROYECTOS), lbl: 'Proyectos publicados' },
+      // Comprobado el 18/08/2026 contra la API de GitHub: la organizacion
+      // mindset-code tiene 14 repositorios publicos. No se puede contar
+      // desde aqui, asi que va con fecha.
       { num: '14',   lbl: 'Repos públicos' },
-      { num: '7',    lbl: 'Demos en vivo' },
+      { num: String(N_DEMOS), lbl: 'Demos en vivo' },
       { num: '24 h', lbl: 'Respuesta laborable' },
       { num: '2',    lbl: 'España y Chile' },
     ],
@@ -41,7 +77,7 @@ const T = {
         title: 'Ingeniería de datos y producto',
         body: 'El software que hoy se contrata como servicio: construido, desplegado y publicado.',
         bullets: [
-          'Portafolio público con 16 proyectos desplegados',
+          `Portafolio público con ${N_PROYECTOS} proyectos desplegados`,
           'Data Engineering · Revenue Management algorítmico',
           'Machine Learning · Ciberseguridad · Desarrollo web',
         ],
@@ -55,9 +91,9 @@ const T = {
       },
     ],
     projectsTitle: 'Lo que ya está construido',
-    projectsDesc:  'Dieciséis proyectos end-to-end con el código publicado: datos y BI, machine learning, revenue management, web, ciberseguridad y automatización con IA. Siete con demo en vivo, y cada uno enlaza el servicio con el que se contrata.',
+    projectsDesc:  `${N_PROYECTOS} proyectos end-to-end con el código publicado: datos y BI, machine learning, revenue management, web, ciberseguridad y automatización con IA. ${N_DEMOS} con demo en vivo, y cada uno enlaza el servicio con el que se contrata.`,
     viewBtn:     'Ver →',
-    casesLink:   'Ver las ocho fichas técnicas completas →',
+    casesLink:   `Ver las ${N_FICHAS} fichas técnicas completas →`,
     skillsTitle: 'Stack técnico',
     aboutTitle:  'Quién está detrás',
     aboutP1: 'Diez años en operaciones comerciales y de ingresos (Procter & Gamble, El Mercurio) y una segunda carrera técnica en datos, IA y desarrollo. En la mitad fiscal del negocio: colaborador social de la AEAT y operativa ante el SII de Chile, presentando y contestando en nombre del cliente.',
@@ -105,7 +141,7 @@ const T = {
       'Web app vanilla JS con KPIs en tiempo real (ADR, RevPAR, Occupancy) + simulador de pricing interactivo con 5 parámetros. Canvas API, sin frameworks.',
       'Stack defensivo de ciberseguridad aplicada (ISC2 CC): SIEM simulado que detecta fuerza bruta sobre 5.000 logs + escáner de vulnerabilidades estilo Nmap con reporte Markdown.',
       'Escáner de vulnerabilidades estilo Nmap construido en Python: detección de puertos abiertos, fingerprinting de servicios y reporte Markdown automático. ISC2 CC aplicada.',
-      'Este mismo portafolio: SPA React 19 + Vite desplegada en Firebase Hosting con 15 proyectos interactivos, soporte ES/EN y navegación dinámica.',
+      `Este mismo portafolio: SPA React 19 + Vite desplegada en Firebase Hosting con ${N_PROYECTOS} proyectos interactivos, soporte ES/EN y navegación dinámica.`,
       'SaaS en desarrollo: plataforma para construir y desplegar agentes IA especializados sin código. Stack React + Firebase + n8n + Claude API.',
       'Motor Python que automatiza la cotización de licitaciones públicas chilenas (Mercado Público): parsea la licitación, casa ítems con el catálogo y exporta un Excel/PDF con precios. Web React + Firebase. En desarrollo.',
     ],
@@ -116,9 +152,9 @@ const T = {
     tagline: 'This is the workshop. Every project below is published with its code and its data, and backs a service you can hire at mindset-code.com. If any of it is useful to you, it gets built on your own data.',
     cta1: 'See services →', cta2: 'Fixed-price engagements', cta3: 'GitHub',
     stats: [
-      { num: '16',   lbl: 'Published projects' },
+      { num: String(N_PROYECTOS), lbl: 'Published projects' },
       { num: '14',   lbl: 'Public repos' },
-      { num: '7',    lbl: 'Live demos' },
+      { num: String(N_DEMOS), lbl: 'Live demos' },
       { num: '24 h', lbl: 'Business-day reply' },
       { num: '2',    lbl: 'Spain and Chile' },
     ],
@@ -142,7 +178,7 @@ const T = {
         title: 'Data engineering and product',
         body: 'The software now sold as a service: built, deployed and published.',
         bullets: [
-          'Public portfolio with 16 deployed projects',
+          `Public portfolio with ${N_PROYECTOS} deployed projects`,
           'Data Engineering · Algorithmic Revenue Management',
           'Machine Learning · Cybersecurity · Web development',
         ],
@@ -156,9 +192,9 @@ const T = {
       },
     ],
     projectsTitle: 'What is already built',
-    projectsDesc:  'Sixteen end-to-end projects with published code: data and BI, machine learning, revenue management, web, cybersecurity and AI automation. Seven with a live demo, and each one links to the service that delivers it.',
+    projectsDesc:  `${N_PROYECTOS} end-to-end projects with published code: data and BI, machine learning, revenue management, web, cybersecurity and AI automation. ${N_DEMOS} with a live demo, and each one links to the service that delivers it.`,
     viewBtn:     'View →',
-    casesLink:   'See the eight full case studies →',
+    casesLink:   `See the ${N_FICHAS} full case studies →`,
     skillsTitle: 'Tech Stack',
     aboutTitle:  'Who is behind this',
     aboutP1: 'Ten years in commercial and revenue operations (Procter & Gamble, El Mercurio) and a second technical career in data, AI and development. On the tax side: registered social collaborator with the Spanish tax agency and authorised to operate before the Chilean SII on the client\u2019s behalf.',
@@ -206,7 +242,7 @@ const T = {
       'Vanilla JS web app with real-time KPIs (ADR, RevPAR, Occupancy) + interactive pricing simulator with 5 parameters. Canvas API, no frameworks.',
       'Defensive cybersecurity stack applied (ISC2 CC): simulated SIEM detecting brute-force attacks over 5,000 logs + Nmap-style vulnerability scanner with Markdown report.',
       'Nmap-style vulnerability scanner built in Python: open port detection, service fingerprinting and automatic Markdown report generation. ISC2 CC applied.',
-      'This very portfolio: React 19 + Vite SPA deployed on Firebase Hosting with 15 interactive projects, ES/EN support and dynamic navigation.',
+      `This very portfolio: React 19 + Vite SPA deployed on Firebase Hosting with ${N_PROYECTOS} interactive projects, ES/EN support and dynamic navigation.`,
       'SaaS in development: platform to build and deploy specialized AI agents without code. Stack: React + Firebase + n8n + Claude API.',
       'Python engine that automates Chilean public-tender quoting (Mercado Público): parses the tender, matches line items to a catalog and exports a priced Excel/PDF. React + Firebase web. In development.',
     ],
@@ -227,25 +263,6 @@ const SKILL_ITEMS  = [
 ]
 const SKILL_COLORS = ['#7ea6d4','#6fae8c','#7ea6d4','#d0a458','#6fae8c','#c2a98b','#e879f9','#cc6f6a','#9aa9c8']
 
-/* ── Projects ──────────────────────────────────────────────────────────────── */
-const PROJECTS = [
-  { to:'https://burger-house-3d.web.app', external:true, icon:'burger', color:'#b98436', title:'Burger House — Web 3D', category:'Creative Web · 3D', techs:['Three.js','R3F','GSAP','React'] },
-  { to:'/etl',         external:false, icon:'cog', color:'#7ea6d4', title:'Sales & Weather ETL',           category:'Data Engineering',   techs:['Python','Pandas','React','Firebase'] },
-  { to:'/executive',   external:false, icon:'chart-bar', color:'#6fae8c', title:'Executive Dashboard 360°',      category:'BI & RevOps',         techs:['Python','Pandas','React','Recharts'] },
-  { to:'/dashboards',  external:false, icon:'trending-up', color:'#4f9273', title:'Dashboards Power BI & Tableau', category:'BI Embed',           techs:['HTML','React','Power BI','Tableau'] },
-  { to:'/churn',       external:false, icon:'flask', color:'#9aa9c8', title:'Predictive Churn Analysis',     category:'Data Science',        techs:['Scikit-learn','Python','Pandas','React'] },
-  { to:'/hotel',       external:false, icon:'building', color:'#c98a5c', title:'Hotel Pricing Engine',          category:'Revenue Management', techs:['Python','NumPy','React','Recharts'] },
-  { to:'/consultoria-tech',    external:false, icon:'bot', color:'#c2a98b', title:'Consultoría Tech',              category:'AI Automation',      techs:['Claude','n8n','Paperclip','Firebase'] },
-  { to:'/automations', external:false, icon:'zap', color:'#4f7fae', title:{es:'Automatizaciones & Agentes IA',en:'Automations & AI Agents'}, category:'n8n · Paperclip',    techs:['n8n','Paperclip','Claude','React'] },
-  { to:'https://consultoria-tech.web.app',                                 external:true, icon:'globe', color:'#06b6d4', title:'Consultoría Tech Corporate', category:'Corporate Web',      techs:['React','Vite','Firebase'] },
-  { to:'https://github.com/mindset-code/project-sales-optimization-sql',   external:true, icon:'database', color:'#38bdf8', title:'Sales Optimization SQL',   category:'SQL & BI',           techs:['SQL','GROUP BY','Power BI','Tableau'] },
-  { to:'https://github.com/mindset-code/project-revenue-management-web',   external:true, icon:'lightbulb', color:'#d0a458', title:'Revenue Management Web',   category:'Web Development',     techs:['HTML','CSS','Vanilla JS','Canvas API'] },
-  { to:'https://github.com/mindset-code/project-security-log-analysis',    external:true, icon:'shield', color:'#cc6f6a', title:'Security Log Analysis + Scanner', category:{es:'Ciberseguridad',en:'Cybersecurity'},      techs:['Python','SIEM','ISC2 CC','Nmap'] },
-  { to:'https://github.com/mindset-code/project-vulnerability-scanner',    external:true, icon:'search', color:'#c07a45', title:'Vulnerability Scanner',            category:{es:'Ciberseguridad',en:'Cybersecurity'},      techs:['Python','Nmap','ISC2 CC','Markdown'] },
-  { to:'https://github.com/mindset-code/project-portfolio',                external:true, icon:'folder', color:'#a9b6c5', title:{es:'Portafolio interactivo',en:'Interactive portfolio'},       category:'Web · React · Firebase', techs:['React','Vite','Firebase','Linear'] },
-  { to:'https://github.com/mindset-code/agentforge',                       external:true, icon:'building-2', color:'#6366f1', title:'AgentForge',                        category:'SaaS · AI Agents',       techs:['React','Firebase','n8n','Claude'] },
-  { to:'https://github.com/mindset-code/Proyecto-Licitaciones-Publicas-automatizadas', external:true, icon:'clipboard', color:'#14b8a6', title:'LicitaBot',                         category:'GovTech · SaaS',         techs:['Python','React','Firebase','n8n'] },
-]
 
 /* ── Education ─────────────────────────────────────────────────────────────── */
 const EDU = [
