@@ -1572,7 +1572,11 @@ footer a:hover,
 }
 
 .footer-sep {
-  color: #2c3d50;
+  /* Estaba en #2c3d50: 1,62:1 sobre el fondo del pie, o sea invisible. No es
+     texto que haya que leer —en movil se oculta— asi que no le toca el 4,5:1,
+     pero un separador que no se distingue no separa. 3.02:1, visible sin
+     competir con los enlaces de al lado. */
+  color: #496686;
   font-size: 0.78rem;
 }
 
