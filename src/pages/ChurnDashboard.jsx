@@ -14,7 +14,10 @@ const T = {
     badge: 'Ciencia de Datos',
     title: 'Análisis Predictivo de Churn',
     description: 'Modelo de Regresión Logística entrenado con 2.000 clientes sintéticos para predecir el riesgo de abandono. Identifica los drivers clave: tickets de soporte, duración del contrato y cargos mensuales.',
-    stats: ['Tasa de Churn', 'Precisión', 'AUC-ROC', 'Variables'],
+    // «Exactitud», no «Precisión»: este dato es el accuracy, y la precision es
+    // otra métrica distinta que sale en las tarjetas de abajo. Con un 64 % y un
+    // 20,5 % una al lado de la otra, llamarlas igual se lee como un error.
+    stats: ['Tasa de Churn', 'Exactitud', 'AUC-ROC', 'Variables'],
     loading: 'Cargando modelo de churn…',
     footerCtx: 'Modelo: Logistic Regression with StandardScaler · Stratified train/test split ·',
   },

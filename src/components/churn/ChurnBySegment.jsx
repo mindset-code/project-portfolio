@@ -1,5 +1,7 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, LabelList } from 'recharts'
 
+import { techoDelDato } from './escala'
+
 const fmtPct = (v) => `${(v * 100).toFixed(1)}%`
 
 const SUB_COLORS   = { Basic: '#7ea6d4', Standard: '#d0a458', Premium: '#6fae8c' }
@@ -15,7 +17,7 @@ function SegmentBar({ data, colorMap, title, desc }) {
         <BarChart data={data} margin={{ top: 16, right: 24, bottom: 8, left: 8 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#2c3d50" />
           <XAxis dataKey="segment" tick={{ fill: '#a9b6c5', fontSize: 12 }} />
-          <YAxis tickFormatter={fmtPct} domain={[0, 0.6]} tick={{ fill: '#a9b6c5', fontSize: 11 }} />
+          <YAxis tickFormatter={fmtPct} domain={[0, techoDelDato]} tick={{ fill: '#a9b6c5', fontSize: 11 }} />
           <Tooltip
             formatter={(v) => [fmtPct(v), 'Churn Rate']}
             contentStyle={{ background: '#101722', border: '1px solid #2c3d50', borderRadius: 8 }}

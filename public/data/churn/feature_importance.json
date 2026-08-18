@@ -1,38 +1,38 @@
 [
   {
     "feature": "ContractDuration_Months",
-    "coefficient": -0.7834
+    "coefficient": -0.7835
   },
   {
     "feature": "TenureMonths",
-    "coefficient": -0.5621
-  },
-  {
-    "feature": "SubscriptionType_Premium",
-    "coefficient": -0.4102
-  },
-  {
-    "feature": "NumProducts",
-    "coefficient": -0.3287
+    "coefficient": -0.3917
   },
   {
     "feature": "SubscriptionType_Standard",
-    "coefficient": -0.1543
+    "coefficient": -0.3103
   },
   {
-    "feature": "TotalUsageHours",
-    "coefficient": -0.1298
+    "feature": "SubscriptionType_Premium",
+    "coefficient": -0.2732
+  },
+  {
+    "feature": "NumProducts",
+    "coefficient": -0.1228
   },
   {
     "feature": "Age",
-    "coefficient": -0.0621
+    "coefficient": -0.1152
+  },
+  {
+    "feature": "TotalUsageHours",
+    "coefficient": -0.1029
   },
   {
     "feature": "MonthlyCharges",
-    "coefficient": 0.3845
+    "coefficient": 0.3806
   },
   {
     "feature": "SupportTickets",
-    "coefficient": 0.8923
+    "coefficient": 0.4391
   }
 ]
