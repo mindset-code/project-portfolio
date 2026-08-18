@@ -1,0 +1,22 @@
+[
+ {
+  "evento": "LOGIN_SUCCESS",
+  "conteo": 3249
+ },
+ {
+  "evento": "LOGIN_FAILED",
+  "conteo": 930
+ },
+ {
+  "evento": "BRUTE_FORCE_ATTEMPT",
+  "conteo": 301
+ },
+ {
+  "evento": "ACCESS_DENIED",
+  "conteo": 277
+ },
+ {
+  "evento": "PORT_SCAN_DETECTED",
+  "conteo": 243
+ }
+]

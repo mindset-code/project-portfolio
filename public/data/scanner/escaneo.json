@@ -1,0 +1,117 @@
+{
+ "target_ip": "192.168.1.100",
+ "scanned_at": "2026-08-18 12:57:09",
+ "ports": [
+  {
+   "port": 21,
+   "service": "FTP (File Transfer Protocol)",
+   "open": true
+  },
+  {
+   "port": 22,
+   "service": "SSH (Secure Shell)",
+   "open": false
+  },
+  {
+   "port": 23,
+   "service": "Telnet",
+   "open": true
+  },
+  {
+   "port": 25,
+   "service": "SMTP (Simple Mail Transfer Protocol)",
+   "open": true
+  },
+  {
+   "port": 80,
+   "service": "HTTP (Web Server)",
+   "open": true
+  },
+  {
+   "port": 443,
+   "service": "HTTPS (Secure Web Server)",
+   "open": false
+  },
+  {
+   "port": 3389,
+   "service": "RDP (Remote Desktop Protocol)",
+   "open": true
+  },
+  {
+   "port": 8080,
+   "service": "HTTP Proxy/Alternative Web Server",
+   "open": true
+  }
+ ],
+ "open_ports": {
+  "21": "FTP (File Transfer Protocol)",
+  "23": "Telnet",
+  "25": "SMTP (Simple Mail Transfer Protocol)",
+  "80": "HTTP (Web Server)",
+  "3389": "RDP (Remote Desktop Protocol)",
+  "8080": "HTTP Proxy/Alternative Web Server"
+ },
+ "vulnerabilities": [
+  {
+   "port": 23,
+   "service": "Telnet",
+   "severity": "Critical",
+   "description": "Telnet transmits data in plaintext, including passwords. MUST be disabled and replaced with SSH (Port 22).",
+   "description_es": "Telnet transmite los datos en claro, contraseñas incluidas. Debe deshabilitarse y sustituirse por SSH (puerto 22).",
+   "fix": "Disable the Telnet service and move remote administration to SSH on port 22.",
+   "fix_es": "Deshabilitar el servicio Telnet y mover la administración remota a SSH en el puerto 22."
+  },
+  {
+   "port": 3389,
+   "service": "RDP",
+   "severity": "High",
+   "description": "Remote Desktop reachable from the network is the most common entry point for ransomware. Exposed RDP is brute-forced continuously.",
+   "description_es": "Un Escritorio Remoto accesible desde la red es la vía de entrada más común del ransomware. El RDP expuesto recibe ataques de fuerza bruta de forma continua.",
+   "fix": "Put RDP behind a VPN or a bastion host, enforce network-level authentication and lock out repeated failures.",
+   "fix_es": "Poner el RDP detrás de una VPN o de un host bastión, exigir autenticación a nivel de red y bloquear los intentos repetidos."
+  },
+  {
+   "port": 21,
+   "service": "FTP",
+   "severity": "High",
+   "description": "FTP is often unencrypted, risking credential exposure. Consider disabling or securing with SFTP/FTPS.",
+   "description_es": "FTP suele ir sin cifrar, con el riesgo de exponer las credenciales. Conviene deshabilitarlo o asegurarlo con SFTP o FTPS.",
+   "fix": "Replace FTP with SFTP over SSH, or enable FTPS and restrict access to trusted addresses.",
+   "fix_es": "Sustituir FTP por SFTP sobre SSH, o habilitar FTPS y restringir el acceso a direcciones de confianza."
+  },
+  {
+   "port": 80,
+   "service": "HTTP",
+   "severity": "Medium",
+   "description": "Web server running without HTTPS. All traffic is unencrypted. Implement SSL/TLS.",
+   "description_es": "Servidor web sirviendo sin HTTPS: todo el tráfico viaja sin cifrar. Hay que implantar SSL/TLS.",
+   "fix": "Issue a certificate, serve the site over 443 and redirect every request on 80 to HTTPS.",
+   "fix_es": "Emitir un certificado, servir el sitio por el 443 y redirigir al HTTPS toda petición que entre por el 80."
+  },
+  {
+   "port": 25,
+   "service": "SMTP",
+   "severity": "Medium",
+   "description": "An SMTP service reachable from outside can be abused as an open relay to send mail in your name.",
+   "description_es": "Un servicio SMTP accesible desde fuera puede usarse como relay abierto para enviar correo en tu nombre.",
+   "fix": "Require authentication for relaying, restrict the listening interface and publish SPF and DKIM records.",
+   "fix_es": "Exigir autenticación para retransmitir, restringir la interfaz de escucha y publicar registros SPF y DKIM."
+  },
+  {
+   "port": 8080,
+   "service": "HTTP Proxy",
+   "severity": "Low",
+   "description": "Non-standard port 8080 is open. Ensure the service is properly configured and access is restricted.",
+   "description_es": "El puerto 8080, que no es estándar, está abierto. Hay que confirmar que el servicio está bien configurado y el acceso restringido.",
+   "fix": "Confirm what is listening on 8080 and firewall it off unless it has to be reachable.",
+   "fix_es": "Comprobar qué escucha en el 8080 y cerrarlo en el cortafuegos salvo que tenga que ser accesible."
+  }
+ ],
+ "counts": {
+  "Critical": 1,
+  "High": 2,
+  "Medium": 2,
+  "Low": 1
+ },
+ "checked": 8
+}

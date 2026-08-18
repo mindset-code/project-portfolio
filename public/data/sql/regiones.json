@@ -1,0 +1,26 @@
+[
+ {
+  "Region": "North America",
+  "Total_Revenue": 9176885.92,
+  "Total_Profit": 5569443.04,
+  "Profit_Margin_Percentage": 60.69
+ },
+ {
+  "Region": "Europe",
+  "Total_Revenue": 7728074.08,
+  "Total_Profit": 4596612.65,
+  "Profit_Margin_Percentage": 59.48
+ },
+ {
+  "Region": "Asia",
+  "Total_Revenue": 4848981.93,
+  "Total_Profit": 2838809.07,
+  "Profit_Margin_Percentage": 58.54
+ },
+ {
+  "Region": "LATAM",
+  "Total_Revenue": 3748527.24,
+  "Total_Profit": 2272693.14,
+  "Profit_Margin_Percentage": 60.63
+ }
+]

@@ -1,0 +1,47 @@
+[
+ {
+  "ProductCategory": "Hardware",
+  "CustomerType": "SMB",
+  "Number_of_Sales": 1213
+ },
+ {
+  "ProductCategory": "Hardware",
+  "CustomerType": "Enterprise",
+  "Number_of_Sales": 918
+ },
+ {
+  "ProductCategory": "Hardware",
+  "CustomerType": "Individual",
+  "Number_of_Sales": 900
+ },
+ {
+  "ProductCategory": "Service",
+  "CustomerType": "SMB",
+  "Number_of_Sales": 798
+ },
+ {
+  "ProductCategory": "Service",
+  "CustomerType": "Individual",
+  "Number_of_Sales": 632
+ },
+ {
+  "ProductCategory": "Service",
+  "CustomerType": "Enterprise",
+  "Number_of_Sales": 603
+ },
+ {
+  "ProductCategory": "Software",
+  "CustomerType": "SMB",
+  "Number_of_Sales": 1935
+ },
+ {
+  "ProductCategory": "Software",
+  "CustomerType": "Enterprise",
+  "Number_of_Sales": 1536
+ },
+ {
+  "ProductCategory": "Software",
+  "CustomerType": "Individual",
+  "Number_of_Sales": 1465
+ }
+]

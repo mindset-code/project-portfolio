@@ -1,0 +1,9 @@
+{
+ "ventas": 10000,
+ "ingreso": 25502469.17,
+ "beneficio": 15277557.9,
+ "margen": 59.91,
+ "vendedores": 20,
+ "desde": "2024-01-01",
+ "hasta": "2024-12-30"
+}

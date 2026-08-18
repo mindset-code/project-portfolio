@@ -1,0 +1,26 @@
+{
+ "umbral": 1000,
+ "categorias": [
+  {
+   "ProductCategory": "Software",
+   "Avg_Revenue": 2577.78,
+   "Avg_Cost": 1034.36,
+   "Avg_Profit": 1543.42,
+   "Ventas": 4936
+  },
+  {
+   "ProductCategory": "Hardware",
+   "Avg_Revenue": 2545.49,
+   "Avg_Cost": 1004.51,
+   "Avg_Profit": 1540.99,
+   "Ventas": 3031
+  },
+  {
+   "ProductCategory": "Service",
+   "Avg_Revenue": 2490.48,
+   "Avg_Cost": 1020.48,
+   "Avg_Profit": 1470.0,
+   "Ventas": 2033
+  }
+ ]
+}

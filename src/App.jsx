@@ -12,6 +12,10 @@ const EtlDashboard         = lazy(() => import('./pages/EtlDashboard'))
 const ExecutiveDashboard   = lazy(() => import('./pages/ExecutiveDashboard'))
 const ChurnDashboard       = lazy(() => import('./pages/ChurnDashboard'))
 const HotelDashboard       = lazy(() => import('./pages/HotelDashboard'))
+const AgentForgePage       = lazy(() => import('./pages/AgentForgePage'))
+const ScannerPage          = lazy(() => import('./pages/ScannerPage'))
+const LogsDashboard        = lazy(() => import('./pages/LogsDashboard'))
+const SqlDashboard         = lazy(() => import('./pages/SqlDashboard'))
 const RevenueSimulator     = lazy(() => import('./pages/RevenueSimulator'))
 const ConsultoriaTechPage          = lazy(() => import('./pages/ConsultoriaTechPage'))
 const AutomationsPage      = lazy(() => import('./pages/AutomationsPage'))
@@ -56,6 +60,10 @@ export default function App() {
         <Route path="/executive" element={<ExecutiveDashboard />} />
         <Route path="/churn"     element={<ChurnDashboard />} />
         <Route path="/hotel"     element={<HotelDashboard />} />
+        <Route path="/agentforge"  element={<AgentForgePage />} />
+        <Route path="/scanner"   element={<ScannerPage />} />
+        <Route path="/logs"      element={<LogsDashboard />} />
+        <Route path="/sql"       element={<SqlDashboard />} />
         <Route path="/revenue"   element={<RevenueSimulator />} />
         <Route path="/consultoria-tech"     element={<ConsultoriaTechPage />} />
         <Route path="/automations"  element={<AutomationsPage />} />
