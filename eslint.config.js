@@ -5,7 +5,12 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  // dist-* son salida de compilacion. public/demos/ son copias literales de
+  // otros repositorios —el simulador de ingresos, sin ir mas lejos— que se
+  // publican tal cual: no se editan aqui, asi que sus avisos no son deuda
+  // propia y solo servian para enterrar los errores que si lo son. Con ellos
+  // dentro, el lint daba 460 errores y no habia quien lo leyera.
+  globalIgnores(['dist', 'dist-marca', 'dist-personal', 'public/demos']),
   {
     files: ['**/*.{js,jsx}'],
     extends: [

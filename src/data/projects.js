@@ -103,33 +103,33 @@ export const projects = [
     title: 'Predictive Churn Analysis',
     category: 'Data Science · Machine Learning · Revenue Operations',
     description: {
-      es: 'Modelo de ML que predice abandono de clientes con 81.4% accuracy y AUC-ROC 0.881. Identifica 3 de cada 4 clientes en riesgo.',
-      en: 'ML model that predicts customer churn with 81.4% accuracy and 0.881 AUC-ROC. Flags 3 out of 4 at-risk customers.',
+      es: 'Regresión logística sobre 2.000 clientes sintéticos: AUC-ROC 0,703 y 61,5 % de las fugas detectadas, a cambio de marcar también a muchos que se quedan.',
+      en: 'Logistic regression over 2,000 synthetic customers: 0.703 AUC-ROC and 61.5% of churners caught, at the cost of flagging many who stay.',
     },
     problem: {
       es: 'Las empresas pierden clientes sin señales de alerta tempranas que permitan intervención preventiva.',
       en: 'Companies lose customers without early warning signals that would enable proactive intervention.',
     },
     solution: {
-      es: 'Modelo Logistic Regression que anticipa el churn 30-60 días antes, con los top predictores identificados.',
-      en: 'A Logistic Regression model that anticipates churn 30–60 days in advance, with the top predictors identified.',
+      es: 'Regresión logística con pesos balanceados: prefiere equivocarse marcando de más antes que dejar escapar a quien se va, y sus coeficientes se leen como causas de negocio.',
+      en: 'Logistic regression with balanced class weights: it would rather over-flag than miss someone who leaves, and its coefficients read directly as business drivers.',
     },
     metrics: [
-      { label: { es: 'Accuracy', en: 'Accuracy' }, value: '81.4%' },
-      { label: { es: 'AUC-ROC', en: 'AUC-ROC' }, value: '0.881' },
-      { label: { es: 'Precision', en: 'Precision' }, value: '~78%' },
-      { label: { es: 'Recall', en: 'Recall' }, value: '~76%' },
+      { label: { es: 'Accuracy', en: 'Accuracy' }, value: '64.0%' },
+      { label: { es: 'AUC-ROC', en: 'AUC-ROC' }, value: '0.703' },
+      { label: { es: 'Precision', en: 'Precision' }, value: '20.5%' },
+      { label: { es: 'Recall', en: 'Recall' }, value: '61.5%' },
     ],
     keyFindings: {
       es: [
-        'Contratos mensuales tienen 3× más churn que anuales',
-        'Alto volumen de tickets predice cancelación inminente',
-        'Baja interacción con el producto precede al churn en 30-60 días',
+        'El contrato manda: mensual se va al 20,9 %, dos años al 4,8 %',
+        'Las incidencias no cuentan hasta la quinta: de un 11 % salta al 37,5 %',
+        'Quien más paga es quien más se va: 21,2 % por encima de 120 $ al mes',
       ],
       en: [
-        'Month-to-month contracts churn 3× more than annual ones',
-        'High support-ticket volume predicts imminent cancellation',
-        'Low product engagement precedes churn by 30–60 days',
+        'The contract rules it: monthly churns at 20.9%, two-year at 4.8%',
+        'Tickets do not count until the fifth: 11% jumps to 37.5%',
+        'The ones who pay most leave most: 21.2% above $120 a month',
       ],
     },
     stack: ['Python 3.12', 'Scikit-learn', 'Pandas', 'Matplotlib', 'React 19', 'Firebase'],
@@ -211,7 +211,7 @@ export const projects = [
       { label: { es: 'Registros procesados', en: 'Records processed' }, value: '2.9M' },
       { label: { es: 'Fuentes integradas', en: 'Sources integrated' }, value: '2' },
       { label: { es: 'KPIs en dashboard', en: 'Dashboard KPIs' }, value: '5' },
-      { label: { es: 'Charts', en: 'Charts' }, value: '7' },
+      { label: { es: 'Gráficos', en: 'Charts' }, value: '6' },
     ],
     keyFindings: {
       es: [
@@ -250,13 +250,13 @@ export const projects = [
       en: 'Revenue managers need to model price-vs-occupancy scenarios without expensive proprietary tools.',
     },
     solution: {
-      es: 'Simulador web con Canvas API, 5 sliders de parámetros y proyección de 7 días sin librerías externas.',
-      en: 'A web simulator built with the Canvas API: 5 parameter sliders and a 7-day projection, with no external libraries.',
+      es: 'Simulador web con Canvas API, 5 sliders de parámetros y una semana tipo de 7 días, sin librerías externas.',
+      en: 'A web simulator built with the Canvas API: 5 parameter sliders and a fixed 7-day week shape, with no external libraries.',
     },
     metrics: [
       { label: { es: 'Parámetros', en: 'Parameters' }, value: '5' },
       { label: { es: 'KPIs en vivo', en: 'Live KPIs' }, value: '4' },
-      { label: { es: 'Proyección', en: 'Projection' }, value: { es: '7 días', en: '7 days' } },
+      { label: { es: 'Semana tipo', en: 'Week shape' }, value: { es: '7 días', en: '7 days' } },
       { label: { es: 'Dependencias externas', en: 'External dependencies' }, value: '0' },
     ],
     keyFindings: {
