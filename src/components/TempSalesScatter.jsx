@@ -16,7 +16,7 @@ export default function TempSalesScatter({ data }) {
   return (
     <div className="card">
       <h2>Temperature vs Sales</h2>
-      <p className="card-desc">Correlation between daily temperature (°C) and order value — city-matched orders</p>
+      <p className="card-desc">Temperature (°C) against order value — 500 city-matched points, Pearson r = 0.04: no relationship</p>
       <ResponsiveContainer width="100%" height={280}>
         <ScatterChart margin={{ top: 8, right: 24, bottom: 8, left: 16 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#2c3d50" />

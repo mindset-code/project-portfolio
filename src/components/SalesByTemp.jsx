@@ -23,7 +23,7 @@ export default function SalesByTemp({ data }) {
   return (
     <div className="card">
       <h2>Sales by Temperature</h2>
-      <p className="card-desc">Weather impact on total revenue — city-matched orders only</p>
+      <p className="card-desc">Revenue by temperature band — the gaps follow how many orders fall in each band, not the weather</p>
       <ResponsiveContainer width="100%" height={260}>
         <BarChart data={sorted} margin={{ top: 8, right: 16, bottom: 0, left: 16 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#2c3d50" />

@@ -42,7 +42,7 @@ export function ChurnBySubscription({ data }) {
       data={data}
       colorMap={SUB_COLORS}
       title="Churn by Plan Type"
-      desc="Basic customers churn most — Premium retention is significantly higher"
+      desc="Premium churns most at 16.3% — Basic and Standard sit together around 12%"
     />
   )
 }
@@ -54,7 +54,7 @@ export function ChurnByContract({ data }) {
       data={display}
       colorMap={CONT_COLORS}
       title="Churn by Contract Length"
-      desc="Month-to-month contracts show 3–4× higher churn than annual or 2-year"
+      desc="Month-to-month churns at 20.9% — 2.8× the annual rate and 4.4× the two-year"
     />
   )
 }

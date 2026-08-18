@@ -204,8 +204,8 @@ export const projects = [
       en: 'Sales and weather data scattered across disparate sources, with no integration to enable cross-analysis.',
     },
     solution: {
-      es: 'Pipeline Extract → Transform → Load con feature engineering y 6 visualizaciones de correlación ventas-clima.',
-      en: 'An Extract → Transform → Load pipeline with feature engineering and 6 sales-vs-weather correlation visualizations.',
+      es: 'Pipeline Extract → Transform → Load con feature engineering y 6 visualizaciones del cruce ventas-clima.',
+      en: 'An Extract → Transform → Load pipeline with feature engineering and 6 sales-vs-weather visualizations.',
     },
     metrics: [
       { label: { es: 'Registros procesados', en: 'Records processed' }, value: '2.9M' },

@@ -8,7 +8,7 @@ export function ChurnByTickets({ data }) {
   return (
     <div className="card">
       <h2>Support Tickets Impact</h2>
-      <p className="card-desc">Churn rate by number of support tickets — strongest single predictor</p>
+      <p className="card-desc">Churn rate by number of support tickets — flat up to four, then it more than triples</p>
       <ResponsiveContainer width="100%" height={240}>
         <BarChart data={data} margin={{ top: 16, right: 24, bottom: 8, left: 8 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#2c3d50" />
@@ -35,7 +35,7 @@ export function ChurnByCharges({ data }) {
   return (
     <div className="card">
       <h2>Monthly Charges vs Churn</h2>
-      <p className="card-desc">Higher monthly spend correlates with increased churn risk</p>
+      <p className="card-desc">Churn stays near 12% at every price point until $120 a month, where it jumps to 21.2%</p>
       <ResponsiveContainer width="100%" height={240}>
         <BarChart data={data} margin={{ top: 16, right: 24, bottom: 8, left: 8 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#2c3d50" />
