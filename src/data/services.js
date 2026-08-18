@@ -4,7 +4,15 @@
 
 export const SITE = 'https://mindset-code.com/es'
 export const EXPRESS_URL = `${SITE}/express`
-export const CONTACT_URL = `${SITE}#contact`
+/** «Agendar llamada» va a la AGENDA, no al formulario de contacto.
+ *
+ *  Apuntaba a `#contact`, que es el formulario: escribes, esperas respuesta y
+ *  en algún momento acordáis una hora por correo. Desde que mindset-code.com
+ *  tiene agenda pública, el botón puede hacer lo que su texto promete —elegir
+ *  hora y cerrarla en el momento—. Se usa `/cita`, que es una página propia,
+ *  y no el ancla de la portada: así el salto no depende de que la portada
+ *  haya terminado de montar sus secciones. */
+export const CONTACT_URL = `${SITE}/cita`
 export const SERVICES_URL = `${SITE}#services`
 
 export const services = {
