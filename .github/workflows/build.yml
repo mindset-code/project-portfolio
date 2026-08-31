@@ -24,6 +24,12 @@ jobs:
       - name: Instalar exactamente lo que fija el lockfile
         run: npm ci
 
+      - name: Pruebas
+        # Vigilan el texto publicado (credenciales sin respaldo). Van antes
+        # del build a proposito: si una afirmacion falsa entra, el flujo debe
+        # parar sin llegar a producir un dist desplegable.
+        run: npm test
+
       - name: Lint
         run: npm run lint
 

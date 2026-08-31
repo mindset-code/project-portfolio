@@ -21,8 +21,8 @@ const PROJECTS = [
   { to:'https://consultoria-tech.web.app',                                 external:true, icon:'globe', color:'#06b6d4', title:'Consultoría Tech Corporate', category:'Corporate Web',      techs:['React','Vite','Firebase'] },
   { to:'/sql',   external:false, icon:'database', color:'#38bdf8', title:'Sales Optimization SQL',   category:'SQL & BI',           techs:['SQL','GROUP BY','Power BI','Tableau'] },
   { to:'/revenue',   external:false, icon:'lightbulb', color:'#d0a458', title:'Revenue Management Web',   category:'Web Development',     techs:['HTML','CSS','Vanilla JS','Canvas API'] },
-  { to:'/logs',    external:false, icon:'shield', color:'#cc6f6a', title:'Security Log Analysis + Scanner', category:{es:'Ciberseguridad',en:'Cybersecurity'},      techs:['Python','SIEM','ISC2 CC','Nmap'] },
-  { to:'/scanner',    external:false, icon:'search', color:'#c07a45', title:'Vulnerability Scanner',            category:{es:'Ciberseguridad',en:'Cybersecurity'},      techs:['Python','Nmap','ISC2 CC','Markdown'] },
+  { to:'/logs',    external:false, icon:'shield', color:'#cc6f6a', title:'Security Log Analysis + Scanner', category:{es:'Ciberseguridad',en:'Cybersecurity'},      techs:['Python','SIEM','Regex','Nmap'] },
+  { to:'/scanner',    external:false, icon:'search', color:'#c07a45', title:'Vulnerability Scanner',            category:{es:'Ciberseguridad',en:'Cybersecurity'},      techs:['Python','Nmap','CVE','Markdown'] },
   { to:'https://github.com/mindset-code/project-portfolio',                external:true, icon:'folder', color:'#a9b6c5', title:{es:'Portafolio interactivo',en:'Interactive portfolio'},       category:'Web · React · Firebase', techs:['React','Vite','Firebase','Linear'] },
   { to:'/agentforge',                       external:false, icon:'building-2', color:'#6366f1', title:'AgentForge',                        category:'SaaS · AI Agents',       techs:['React','Firebase','n8n','Claude'] },
   { to:'https://github.com/mindset-code/Proyecto-Licitaciones-Publicas-automatizadas', external:true, icon:'clipboard', color:'#14b8a6', title:'LicitaBot',                         category:'GovTech · SaaS',         techs:['Python','React','Firebase','n8n'] },
@@ -139,8 +139,8 @@ const T = {
       'Sitio corporativo bilingüe de Consultoría Tech desplegado en Firebase: landing + tres líneas de servicio (AI Strategy, Digital Build, Smart Automation) con captación de leads. React + Vite.',
       '5 queries analíticas SQL sobre 10.000 registros: regiones más rentables, vendedores top, estacionalidades y productos con bajo margen. Listo para Power BI/Tableau.',
       'Web app vanilla JS con KPIs en tiempo real (ADR, RevPAR, Occupancy) + simulador de pricing interactivo con 5 parámetros. Canvas API, sin frameworks.',
-      'Stack defensivo de ciberseguridad aplicada (ISC2 CC): SIEM simulado que detecta fuerza bruta sobre 5.000 logs + escáner de vulnerabilidades estilo Nmap con reporte Markdown.',
-      'Escáner de vulnerabilidades estilo Nmap construido en Python: detección de puertos abiertos, fingerprinting de servicios y reporte Markdown automático. ISC2 CC aplicada.',
+      'Stack defensivo de ciberseguridad aplicada: SIEM simulado que detecta fuerza bruta sobre 5.000 logs + escáner de vulnerabilidades estilo Nmap con reporte Markdown.',
+      'Escáner de vulnerabilidades estilo Nmap construido en Python: detección de puertos abiertos, fingerprinting de servicios y reporte Markdown automático.',
       `Este mismo portafolio: SPA React 19 + Vite desplegada en Firebase Hosting con ${N_PROYECTOS} proyectos interactivos, soporte ES/EN y navegación dinámica.`,
       'SaaS en desarrollo: plataforma para construir y desplegar agentes IA especializados sin código. Stack React + Firebase + n8n + Claude API.',
       'Motor Python que automatiza la cotización de licitaciones públicas chilenas (Mercado Público): parsea la licitación, casa ítems con el catálogo y exporta un Excel/PDF con precios. Web React + Firebase. En desarrollo.',
@@ -240,8 +240,8 @@ const T = {
       'Bilingual corporate website for Consultoría Tech deployed on Firebase: landing + three service lines (AI Strategy, Digital Build, Smart Automation) with lead capture. React + Vite.',
       '5 analytical SQL queries on 10,000 records: most profitable regions, top sellers, seasonality and low-margin products. Power BI/Tableau-ready.',
       'Vanilla JS web app with real-time KPIs (ADR, RevPAR, Occupancy) + interactive pricing simulator with 5 parameters. Canvas API, no frameworks.',
-      'Defensive cybersecurity stack applied (ISC2 CC): simulated SIEM detecting brute-force attacks over 5,000 logs + Nmap-style vulnerability scanner with Markdown report.',
-      'Nmap-style vulnerability scanner built in Python: open port detection, service fingerprinting and automatic Markdown report generation. ISC2 CC applied.',
+      'Defensive cybersecurity stack applied: simulated SIEM detecting brute-force attacks over 5,000 logs + Nmap-style vulnerability scanner with Markdown report.',
+      'Nmap-style vulnerability scanner built in Python: open port detection, service fingerprinting and automatic Markdown report generation.',
       `This very portfolio: React 19 + Vite SPA deployed on Firebase Hosting with ${N_PROYECTOS} interactive projects, ES/EN support and dynamic navigation.`,
       'SaaS in development: platform to build and deploy specialized AI agents without code. Stack: React + Firebase + n8n + Claude API.',
       'Python engine that automates Chilean public-tender quoting (Mercado Público): parses the tender, matches line items to a catalog and exports a priced Excel/PDF. React + Firebase web. In development.',
@@ -258,7 +258,7 @@ const SKILL_ITEMS  = [
   ['React', 'Vite', 'Firebase', 'Three.js / R3F', 'GSAP', 'WebGL'],
   ['Claude API', 'n8n', 'Paperclip', 'Agentic AI', 'LLM Orchestration'],
   ['LangChain', 'RAG', 'Vector DBs', 'Prompt Engineering', 'MLOps', 'Claude Code'],
-  ['ISC2 CC', 'SIEM', 'OWASP Top 10', 'Google Cybersecurity', 'Nmap'],
+  ['SIEM', 'OWASP Top 10', 'Google Cybersecurity', 'Nmap', 'Hardening'],
   ['Linear', 'Git / GitHub', 'Firebase Hosting', 'Google Cloud', 'CI/CD'],
 ]
 const SKILL_COLORS = ['#7ea6d4','#6fae8c','#7ea6d4','#d0a458','#6fae8c','#c2a98b','#e879f9','#cc6f6a','#9aa9c8']
@@ -272,7 +272,6 @@ const EDU = [
 
 /* ── Certifications ────────────────────────────────────────────────────────── */
 const CERTS = [
-  { org:'ISC2',                  color:'#9aa9c8', name:'Certified in Cybersecurity (CC)',              date:'Sep 2024',  id:'f83ec23e' },
   { org:'IBM',                   color:'#7ea6d4', name:'Generative AI Engineering',                    date:'2025',      id:'IBM-GAIE'  },
   { org:'IBM',                   color:'#7ea6d4', name:'Full Stack Software Developer',                date:'Aug 2024',  id:'c845625d' },
   { org:'IBM',                   color:'#7ea6d4', name:'DevOps and Software Engineering',              date:null,        id:'7Z2FU9C6' },
@@ -308,12 +307,6 @@ function OrgLogo({ org }) {
       {[0,2.7].map((y,i)=>                             <rect key={`mc${i}`} x="33" y={y} width="11" height="1.5" fill="#3b6290"/>)}
       {/* --- M right leg (x:44, w:6) all rows --- */}
       {[0,2.7,5.4,8.1,10.8,13.5,16.2,18.9].map((y,i)=><rect key={`mr${i}`} x="44" y={y} width="6"  height="1.5" fill="#3b6290"/>)}
-    </svg>
-  )
-  if (org === 'ISC2') return (
-    <svg viewBox="0 0 32 36" width="26" height="30" aria-label="ISC2">
-      <path d="M16 1L3 7v12c0 7.5 5.5 14.5 13 16 7.5-1.5 13-8.5 13-16V7L16 1z" fill="#3b6290"/>
-      <text x="16" y="22.5" textAnchor="middle" fill="white" fontSize="9.5" fontWeight="800" fontFamily={ff}>ISC²</text>
     </svg>
   )
   if (org === 'ESSEC Business School') return (

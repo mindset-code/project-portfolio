@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "deploy:marca": "npm run build && firebase deploy --only hosting:marca",
-    "deploy:personal": "npm run build:personal && node scripts/desplegar-personal.mjs"
+    "deploy:personal": "npm run build:personal && node scripts/desplegar-personal.mjs",
+    "test": "node --test"
   },
   "dependencies": {
     "react": "^19.2.4",

@@ -333,10 +333,10 @@ export const projects = [
       en: 'Reviewing what you have exposed and who is trying it, with a prioritised mitigation report you can read without being technical.',
     },
     title: 'Security Log Analysis · SIEM',
-    category: 'Cybersecurity · ISC2 CC · Threat Detection',
+    category: 'Cybersecurity · SIEM · Threat Detection',
     description: {
-      es: 'Simulación de SIEM que analiza 5.000 líneas de logs para detectar brute-force, escaneo de puertos y anomalías. ISC2 CC aplicado.',
-      en: 'SIEM simulation that analyzes 5,000 log lines to detect brute-force attacks, port scans and anomalies. ISC2 CC applied.',
+      es: 'Simulación de SIEM que analiza 5.000 líneas de logs para detectar brute-force, escaneo de puertos y anomalías.',
+      en: 'SIEM simulation that analyzes 5,000 log lines to detect brute-force attacks, port scans and anomalies.',
     },
     problem: {
       es: 'Equipos de seguridad sin herramientas para correlacionar eventos y detectar patrones de ataque en logs.',
@@ -350,7 +350,6 @@ export const projects = [
       { label: { es: 'Logs analizados', en: 'Logs analyzed' }, value: '5,000' },
       { label: { es: 'Top IPs sospechosas', en: 'Top suspicious IPs' }, value: '5' },
       { label: { es: 'Tipos de evento', en: 'Event types' }, value: '6' },
-      { label: { es: 'Certificación', en: 'Certification' }, value: 'ISC2 CC' },
     ],
     keyFindings: {
       es: [

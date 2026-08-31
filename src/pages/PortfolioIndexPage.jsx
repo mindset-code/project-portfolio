@@ -25,7 +25,7 @@ export default function PortfolioIndexPage() {
     if (tech.includes('Python') || tech.includes('SQL') || tech.includes('Pandas') || tech.includes('NumPy')) return '#4f7fae'
     if (tech.includes('React') || tech.includes('HTML5') || tech.includes('CSS3') || tech.includes('JavaScript')) return '#c07a45'
     if (tech.includes('Power BI') || tech.includes('Tableau') || tech.includes('Recharts') || tech.includes('Canvas')) return '#4f9273'
-    if (tech.includes('ISC2') || tech.includes('Security') || tech.includes('Cybersecurity')) return '#cc6f6a'
+    if (tech.includes('Security') || tech.includes('Cybersecurity')) return '#cc6f6a'
     if (tech.includes('Firebase') || tech.includes('Cloud')) return '#d0a458'
     return '#7b8a9c'
   }
