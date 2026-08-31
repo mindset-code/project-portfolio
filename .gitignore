@@ -21,3 +21,4 @@ firebase.personal.json
 # entera a la salida, asi que ahi se publicaria tambien en la variante de
 # marca, que es justo la que no debe llevar cara (ver src/identidad.js).
 personal/
+firebase-debug.log
