@@ -1,0 +1,35 @@
+name: Credenciales en las wikis
+
+# Las pruebas de credenciales recorren el texto DEL REPOSITORIO. Una wiki de
+# GitHub es otro repositorio git, asi que ninguna la veia: la credencial
+# reaparecio ahi despues de siete limpiezas en otros sitios. Esto la mira.
+#
+# No necesita token: las wikis de repositorios publicos se clonan sin
+# autenticacion.
+
+on:
+  schedule:
+    # Lunes a las 07:13 UTC. Minuto impar a proposito: a las en punto se
+    # amontonan los trabajos programados de medio mundo.
+    - cron: '13 7 * * 1'
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/credenciales_wikis.py'
+      - '.github/workflows/credenciales-wikis.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  revisar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Revisar las wikis
+        run: python scripts/credenciales_wikis.py
