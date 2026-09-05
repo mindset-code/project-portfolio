@@ -6,7 +6,7 @@
 
 > 🇬🇧 **English version first.** · 🇪🇸 **La versión en español está más abajo** → [ir a Español](#-español).
 
-[![Ficha del proyecto](https://img.shields.io/badge/Ficha%20del%20proyecto-mindset--code.com-2c4a6e?style=for-the-badge&logo=firefoxbrowser&logoColor=white)](https://mindset-code.com/es/codigo)
+[![Ficha del proyecto](https://img.shields.io/badge/Ficha%20del%20proyecto-mindset--code.com-2c4a6e?style=for-the-badge&logo=firefoxbrowser&logoColor=white)](https://mindset-code.com/codigo)
 [![Stack](https://img.shields.io/badge/Stack-React%2019%20%C2%B7%20Vite%20%C2%B7%20Recharts-61dafb?style=for-the-badge&logo=react&logoColor=black)](.)
 [![Hosting](https://img.shields.io/badge/Hosting-Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](.)
 [![i18n](https://img.shields.io/badge/i18n-EN%20%7C%20ES-0a66c2?style=for-the-badge)](.)
@@ -105,7 +105,7 @@ project-portfolio/
 Released under the **[MIT License](LICENSE)**.
 
 - **Live:** [proyectos-mindset-code.web.app](https://proyectos-mindset-code.web.app)
-- **Web:** [mindset-code.com](https://mindset-code.com/es)
+- **Web:** [mindset-code.com](https://mindset-code.com)
 - **Email:** contacto@mindset-code.com
 
 ---
@@ -213,9 +213,9 @@ project-portfolio/
 Publicado bajo la **[Licencia MIT](LICENSE)**.
 
 - **En vivo:** [proyectos-mindset-code.web.app](https://proyectos-mindset-code.web.app)
-- **Web:** [mindset-code.com](https://mindset-code.com/es)
+- **Web:** [mindset-code.com](https://mindset-code.com)
 - **Email:** contacto@mindset-code.com
 
 ---
 
-*Mindset & Code · asesoría fiscal y tecnológica · [mindset-code.com](https://mindset-code.com/es)*
+*Mindset & Code · asesoría fiscal y tecnológica · [mindset-code.com](https://mindset-code.com)*
