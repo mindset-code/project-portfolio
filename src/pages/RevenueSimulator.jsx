@@ -36,7 +36,7 @@ const T = {
       { value: '< 1 ms', label: 'Recálculo' },
     ],
     idioma:
-      'El simulador está en inglés: se publicó así en su repositorio y se embebe tal cual, sin una segunda copia que mantener.',
+      'Interfaz del simulador en inglés.',
     abrir: 'Abrir en ventana completa',
     footerCtx:
       'Sin datos de ningún cliente: el cálculo es paramétrico y se ejecuta entero en tu navegador · HTML5, CSS3 y JavaScript sin librerías · gráfico en Canvas 2D ·',
