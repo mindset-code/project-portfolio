@@ -1,20 +1,22 @@
-/* Cierre comercial — NO es una tarjeta flotante: es una sección más de la página.
-   Comparte ancho, filetes y ritmo con el resto del sitio para que no parezca pegada. */
+/* Cierre comercial — la tarjeta azul del prototipo G («Empieza por tu web»):
+   una superficie azul dentro de la página clara, separada del resto por el
+   cambio de tono y no por filetes. Texto blanco y suave; botones en blanco
+   (principal) o en un azul un paso más claro (secundarios), sin contorno. */
+/* Fuera de un contenedor con margen (la ficha técnica, Automatizaciones) la
+   tarjeta se limita sola al ancho de contenido; dentro de uno, lo ocupa. */
 .bcta {
-  /* rompe el padding lateral del contenedor (1.5rem en .home-page, .dashboard,
-     .portfolio-*) para que la banda ocupe el ancho de la columna y no parezca
-     una tarjeta pegada encima de la página */
-  margin: 0 -1.5rem;
-  padding: 3rem 2.5rem 3.25rem;
+  width: min(calc(100% - 2 * var(--g-m, 16px)), var(--g-ancho, 1200px));
+  margin: clamp(48px, 6vw, 80px) auto 0;
+  padding: clamp(28px, 5vw, 56px);
+  border: 0;
+  border-radius: 24px;
+  background: var(--g-azul-2, #3b6290);
+  color: var(--g-blanco, #fff);
   text-align: left;
-  border-top: 1px solid var(--mc-borde, rgba(196, 209, 227, 0.16));
-  background:
-    radial-gradient(90% 120% at 8% 0%, rgba(44, 74, 110, 0.28) 0%, rgba(16, 23, 34, 0) 62%),
-    #131b27;
 }
 
 .bcta-inner {
-  max-width: 100%;
+  max-width: 72ch;
   margin: 0;
   padding: 0;
 }
@@ -22,98 +24,99 @@
 .bcta-head {
   display: flex;
   align-items: center;
-  gap: 0.7rem;
-  margin-bottom: 1rem;
+  gap: 10px;
+  margin-bottom: 18px;
 }
 
 .bcta-mark {
   flex-shrink: 0;
-  border-radius: 6px;
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
 }
 
 .bcta-kicker {
-  font-size: 0.7rem;
+  color: var(--g-suave, #dde5ef);
+  font-size: 0.9375rem;
   font-weight: 500;
-  letter-spacing: 0.14em;
-  color: #a9b6c5;
+  letter-spacing: -0.005em;
 }
 
 .bcta-title {
-  margin: 0 0 0.6rem;
-  font-size: clamp(1.3rem, 2.1vw, 1.75rem);
-  line-height: 1.22;
-  color: var(--mc-crema, #f5f1ea);
+  margin: 0 0 14px;
+  color: var(--g-blanco, #fff);
+  font-size: clamp(1.75rem, 1.2rem + 2vw, 2.75rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
 }
 
 .bcta-body {
-  margin: 0 0 1.6rem;
-  max-width: 64ch;
-  font-size: 0.95rem;
-  line-height: 1.62;
-  color: #a9b6c5;
+  margin: 0 0 28px;
+  max-width: 60ch;
+  color: var(--g-suave, #dde5ef);
+  font-size: var(--g-t-lead, 1.125rem);
+  line-height: 1.5;
 }
 
 .bcta-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.55rem;
+  gap: 10px;
 }
 
 .bcta-btn {
   display: inline-flex;
   align-items: center;
-  padding: 0.58rem 1rem;
-  border-radius: 8px;
-  font-size: 0.88rem;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: var(--g-r, 10px);
+  font-size: 0.9375rem;
   font-weight: 500;
   line-height: 1.2;
   text-decoration: none;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition: background-color 0.2s, transform 0.2s var(--g-ease, ease);
 }
+
+.bcta-btn:active { transform: scale(0.97); }
 
 .bcta-btn--primary {
-  background: var(--mc-crema, #f5f1ea);
-  color: #16202e;
-  border: 1px solid var(--mc-crema, #f5f1ea);
+  background: var(--g-blanco, #fff);
+  color: var(--g-azul, #2c4a6e);
 }
 
-.bcta-btn--primary:hover { background: #fff; }
+.bcta-btn--primary:hover { background: var(--g-banda, #e7eef7); }
 
 .bcta-btn--ghost {
-  background: transparent;
-  color: #dde5ef;
-  border: 1px solid rgba(196, 209, 227, 0.26);
+  background: #33557f;
+  color: var(--g-blanco, #fff);
 }
 
-.bcta-btn--ghost:hover {
-  background: rgba(245, 241, 234, 0.07);
-  border-color: rgba(196, 209, 227, 0.5);
-}
+.bcta-btn--ghost:hover { background: var(--g-azul, #2c4a6e); }
 
 .bcta-brand {
-  margin: 1.5rem 0 0;
-  font-size: 0.76rem;
-  color: #7b8a9c;
+  margin: 28px 0 0;
+  color: var(--g-suave, #dde5ef);
+  font-size: 0.875rem;
 }
 
-/* Sin hueco muerto entre la banda y el pie: el contenedor deja de reservar
-   su padding inferior cuando la banda cierra la página. */
-.home-page:has(> .bcta),
-.dashboard:has(> .bcta),
-.portfolio-page:has(.bcta),
-.portfolio-index-page:has(> .bcta) {
+:is(.dashboard, .home-page, .dashboards-page, .portfolio-index-page) > .bcta {
+  width: auto;
+}
+
+/* El pie azul va pegado a la tarjeta con su propio margen; el contenedor no
+   reserva hueco debajo del pie. */
+.home-page:has(> footer:last-child),
+.dashboard:has(> footer:last-child),
+.dashboards-page:has(> footer:last-child),
+.portfolio-page:has(footer:last-child),
+.portfolio-index-page:has(> footer:last-child),
+.auto-content:has(> footer:last-child) {
   padding-bottom: 0;
 }
 
-/* el pie va pegado a la banda: sin franja oscura vacía entre ambos */
-.bcta + footer {
-  margin-top: 0;
-  padding-top: 1.75rem;
-}
-
 @media (max-width: 640px) {
-  .bcta { padding: 2.25rem 1.25rem 2.5rem; }
-  .bcta-btn { width: 100%; justify-content: center; }
+  .bcta { border-radius: 18px; padding: 28px 18px; }
+  .bcta-btn { width: 100%; }
 }

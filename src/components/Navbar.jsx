@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { IDENTIDAD } from '../identidad'
+import { IDENTIDAD, DE_MARCA } from '../identidad'
 import { NavLink } from 'react-router-dom'
 import { useLang } from '../contexts/LangContext'
 import Icon from './icons'
@@ -11,52 +11,52 @@ const CATEGORIES = [
   {
     label: 'Data & BI',
     icon: 'chart-bar',
-    color: '#7ea6d4',
+    color: '#3b6290',
     items: [
-      { to: '/etl',        label: 'Sales & Weather ETL',           badge: 'Data Engineering', icon: 'cog', color: '#7ea6d4', ext: false },
-      { to: '/executive',  label: 'Executive Dashboard 360°',      badge: 'BI & RevOps',      icon: 'chart-bar', color: '#6fae8c', ext: false },
-      { to: '/dashboards', label: 'Dashboards Power BI / Tableau', badge: 'BI Embed',         icon: 'trending-up', color: '#4f9273', ext: false },
+      { to: '/etl',        label: 'Sales & Weather ETL',           badge: 'Data Engineering', icon: 'cog', color: '#3b6290', ext: false },
+      { to: '/executive',  label: 'Executive Dashboard 360°',      badge: 'BI & RevOps',      icon: 'chart-bar', color: '#3b6290', ext: false },
+      { to: '/dashboards', label: 'Dashboards Power BI / Tableau', badge: 'BI Embed',         icon: 'trending-up', color: '#3b6290', ext: false },
     ],
   },
   {
     label: 'Data Science & Revenue',
     icon: 'flask',
-    color: '#9aa9c8',
+    color: '#3b6290',
     items: [
-      { to: '/churn', label: 'Churn Analysis',       badge: 'Data Science',       icon: 'flask', color: '#9aa9c8', ext: false },
-      { to: '/hotel', label: 'Hotel Pricing Engine', badge: 'Revenue Management', icon: 'building', color: '#c98a5c', ext: false },
+      { to: '/churn', label: 'Churn Analysis',       badge: 'Data Science',       icon: 'flask', color: '#3b6290', ext: false },
+      { to: '/hotel', label: 'Hotel Pricing Engine', badge: 'Revenue Management', icon: 'building', color: '#3b6290', ext: false },
     ],
   },
   {
     label: { es: 'AI & Automatización', en: 'AI & Automation' },
     icon: 'bot',
-    color: '#c2a98b',
+    color: '#3b6290',
     items: [
-      { to: '/consultoria-tech',    label: 'Consultoría Tech',            badge: 'AI Automation',  icon: 'bot', color: '#c2a98b', ext: false },
-      { to: '/automations', label: { es: 'Automatizaciones', en: 'Automations' },            badge: 'n8n · Paperclip', icon: 'zap', color: '#4f7fae', ext: false },
-      { to: 'https://consultoria-tech.web.app',             label: 'Consultoría Tech Corporate', badge: 'Corporate Web',  icon: 'globe', color: '#06b6d4', ext: true },
-      { to: 'https://github.com/mindset-code/agentforge',   label: 'AgentForge',                 badge: 'SaaS · AI',      icon: 'building-2', color: '#6366f1', ext: true },
-      { to: 'https://mindset-code.com/es/codigo', label: 'LicitaBot', badge: 'GovTech · SaaS', icon: 'clipboard', color: '#14b8a6', ext: true },
+      { to: '/consultoria-tech',    label: 'Consultoría Tech',            badge: 'AI Automation',  icon: 'bot', color: '#3b6290', ext: false },
+      { to: '/automations', label: { es: 'Automatizaciones', en: 'Automations' },            badge: 'n8n · Paperclip', icon: 'zap', color: '#3b6290', ext: false },
+      { to: 'https://consultoria-tech.web.app',             label: 'Consultoría Tech Corporate', badge: 'Corporate Web',  icon: 'globe', color: '#3b6290', ext: true },
+      { to: 'https://github.com/mindset-code/agentforge',   label: 'AgentForge',                 badge: 'SaaS · AI',      icon: 'building-2', color: '#3b6290', ext: true },
+      { to: 'https://mindset-code.com/es/codigo', label: 'LicitaBot', badge: 'GovTech · SaaS', icon: 'clipboard', color: '#3b6290', ext: true },
     ],
   },
   {
     label: 'Web & SQL',
     icon: 'code',
-    color: '#d0a458',
+    color: '#3b6290',
     items: [
-      { to: 'https://burger-house-3d.web.app',                          label: 'Burger House — Web 3D',    badge: 'Creative Web · 3D', icon: 'burger', color: '#b98436', ext: true },
-      { to: 'https://github.com/mindset-code/project-sales-optimization-sql',  label: 'Sales Optimization SQL',   badge: 'SQL & BI',        icon: 'database', color: '#38bdf8', ext: true },
-      { to: 'https://github.com/mindset-code/project-revenue-management-web',  label: 'Revenue Management Web',   badge: 'Web Development', icon: 'lightbulb', color: '#d0a458', ext: true },
-      { to: 'https://github.com/mindset-code/project-portfolio',               label: { es: 'Portafolio Profesional', en: 'Professional Portfolio' },   badge: 'React · Firebase', icon: 'folder', color: '#a9b6c5', ext: true },
+      { to: 'https://burger-house-3d.web.app',                          label: 'Burger House — Web 3D',    badge: 'Creative Web · 3D', icon: 'burger', color: '#3b6290', ext: true },
+      { to: 'https://github.com/mindset-code/project-sales-optimization-sql',  label: 'Sales Optimization SQL',   badge: 'SQL & BI',        icon: 'database', color: '#3b6290', ext: true },
+      { to: 'https://github.com/mindset-code/project-revenue-management-web',  label: 'Revenue Management Web',   badge: 'Web Development', icon: 'lightbulb', color: '#3b6290', ext: true },
+      { to: 'https://github.com/mindset-code/project-portfolio',               label: { es: 'Portafolio Profesional', en: 'Professional Portfolio' },   badge: 'React · Firebase', icon: 'folder', color: '#3b6290', ext: true },
     ],
   },
   {
     label: { es: 'Ciberseguridad', en: 'Cybersecurity' },
     icon: 'shield',
-    color: '#cc6f6a',
+    color: '#3b6290',
     items: [
-      { to: 'https://github.com/mindset-code/project-security-log-analysis',  label: 'Security Log Analysis', badge: { es: 'Ciberseguridad', en: 'Cybersecurity' }, icon: 'shield', color: '#cc6f6a', ext: true },
-      { to: 'https://github.com/mindset-code/project-vulnerability-scanner',  label: 'Vulnerability Scanner', badge: { es: 'Ciberseguridad', en: 'Cybersecurity' }, icon: 'search', color: '#c07a45', ext: true },
+      { to: 'https://github.com/mindset-code/project-security-log-analysis',  label: 'Security Log Analysis', badge: { es: 'Ciberseguridad', en: 'Cybersecurity' }, icon: 'shield', color: '#3b6290', ext: true },
+      { to: 'https://github.com/mindset-code/project-vulnerability-scanner',  label: 'Vulnerability Scanner', badge: { es: 'Ciberseguridad', en: 'Cybersecurity' }, icon: 'search', color: '#3b6290', ext: true },
     ],
   },
 ]
@@ -75,6 +75,15 @@ export default function Navbar() {
   const ref = useRef(null)
   const { lang, toggleLang } = useLang()
 
+  // Barra blanca sobre la banda de cabecera: al bajar, una sombra suave la
+  // separa del contenido (prototipo G, .barra-nav.bajo).
+  const [bajo, setBajo] = useState(() => window.scrollY > 8)
+  useEffect(() => {
+    const mide = () => setBajo(window.scrollY > 8)
+    window.addEventListener('scroll', mide, { passive: true })
+    return () => window.removeEventListener('scroll', mide)
+  }, [])
+
   useEffect(() => {
     function handler(e) {
       if (ref.current && !ref.current.contains(e.target)) setOpen(false)
@@ -92,14 +101,24 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="navbar" ref={ref}>
+    <nav className={`navbar${bajo ? ' navbar--bajo' : ''}`} ref={ref}>
       <NavLink to="/" className="navbar-brand" onClick={() => setOpen(false)}>
         {/* La marca, no la persona. Esta cabecera sale en TODAS las paginas
             del portafolio, incluidos los paneles que se ensenan desde
             mindset-code.com: era el sitio donde el nombre propio aparecia mas
             veces de todo el conjunto. */}
+        {/* Las tres barras de la marca: el mismo dibujo que public/favicon.svg
+            y que la barra de mindset-code.com, sin el cuadrado de fondo. */}
+        <svg className="navbar-logo" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+          <rect x="2" y="2" width="5.5" height="20" rx="1.6" fill="#2c4a6e" />
+          <rect x="9.25" y="10" width="5.5" height="12" rx="1.6" fill="#9fc0e6" />
+          <rect x="16.5" y="6" width="5.5" height="16" rx="1.6" fill="#567ca8" />
+        </svg>
         <span className="navbar-name">{IDENTIDAD.cabecera}</span>
-        <span className="navbar-role">{IDENTIDAD.subtitulo}</span>
+        {/* En la version de marca el nombre ya es «Mindset & Code». En la
+            personal la cabecera es una persona, y esta linea dice de que
+            marca es el trabajo. */}
+        {!DE_MARCA && <span className="navbar-role">{IDENTIDAD.subtitulo}</span>}
       </NavLink>
 
       <div className="nav-links">
@@ -123,6 +142,7 @@ export default function Navbar() {
         <button
           className={`nav-trigger${open ? ' nav-trigger--open' : ''}`}
           onClick={() => setOpen(o => !o)}
+          aria-expanded={open}
         >
           <span className="nav-trigger-label">{lang === 'es' ? 'Proyectos' : 'Projects'}</span>
           <svg className="nav-trigger-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -134,8 +154,7 @@ export default function Navbar() {
           href="https://mindset-code.com/es"
           target="_blank"
           rel="noreferrer"
-          className="nav-home-link"
-          style={{ background: '#2c4a6e', color: '#f5f1ea', border: '1px solid #3b6290' }}
+          className="nav-home-link nav-cta"
         >
           {lang === 'es' ? 'Contratar ↗' : 'Hire ↗'}
         </a>
@@ -180,7 +199,7 @@ export default function Navbar() {
                           <span className="nav-subitem-icon"><Icon name={icon} /></span>
                           <div className="nav-subitem-text">
                             <span className="nav-subitem-label">{L(label, lang)}</span>
-                            <span className="nav-subitem-badge" style={{ color }}>{L(badge, lang)}</span>
+                            <span className="nav-subitem-badge">{L(badge, lang)}</span>
                           </div>
                           <ExtIcon color={color} />
                         </a>
@@ -195,7 +214,7 @@ export default function Navbar() {
                           <span className="nav-subitem-icon"><Icon name={icon} /></span>
                           <div className="nav-subitem-text">
                             <span className="nav-subitem-label">{L(label, lang)}</span>
-                            <span className="nav-subitem-badge" style={{ color }}>{L(badge, lang)}</span>
+                            <span className="nav-subitem-badge">{L(badge, lang)}</span>
                           </div>
                           <svg width="11" height="11" viewBox="0 0 11 11" fill="none" className="nav-subitem-check">
                             <path d="M2 5.5l2.5 2.5 4.5-5" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
