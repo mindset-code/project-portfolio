@@ -10,7 +10,7 @@ const DASHBOARDS = [
   {
     id: 'finance',
     icon: 'dollar',
-    color: '#4f9273',
+    color: '#3b6290',
     title: { es: 'Finance Dashboard', en: 'Finance Dashboard' },
     subtitle: { es: 'P&L ejecutivo · ARR · EBITDA · LTV:CAC · 36 meses', en: 'Executive P&L · ARR · EBITDA · LTV:CAC · 36 months' },
     kpis: ['ARR', 'Revenue', 'Gross Margin', 'EBITDA Margin', 'NRR', 'LTV:CAC'],
@@ -22,7 +22,7 @@ const DASHBOARDS = [
   {
     id: 'marketing',
     icon: 'megaphone',
-    color: '#9aa9c8',
+    color: '#3b6290',
     title: { es: 'Marketing Dashboard', en: 'Marketing Dashboard' },
     subtitle: { es: 'Performance Marketing · CPL · CAC · ROAS · Funnel', en: 'Performance Marketing · CPL · CAC · ROAS · Funnel' },
     kpis: ['Spend', 'MQLs', 'SQLs', 'Nuevos clientes', 'CPL', 'ROAS'],
@@ -34,7 +34,7 @@ const DASHBOARDS = [
   {
     id: 'analytics',
     icon: 'trending-up',
-    color: '#7ea6d4',
+    color: '#3b6290',
     title: { es: 'Data Analytics Dashboard', en: 'Data Analytics Dashboard' },
     subtitle: { es: 'Retail Analytics · 9.800 transacciones · Clima · Categoría · Región', en: 'Retail Analytics · 9,800 transactions · Weather · Category · Region' },
     kpis: ['Sales', 'Orders', 'AOV', 'Top category', 'Top region'],
@@ -109,8 +109,7 @@ function CopyBtn({ url, label, copiedLabel }) {
         setCopied(true)
         setTimeout(() => setCopied(false), 1500)
       }}
-      className="dash-copy-btn"
-      style={{ background: copied ? '#4f9273' : '#1a2533' }}
+      className={`dash-copy-btn${copied ? ' is-copied' : ''}`}
     >
       {copied ? copiedLabel : `${label} ↗`}
     </button>
@@ -132,17 +131,17 @@ export default function DashboardsPage() {
       {DASHBOARDS.map((d) => {
         const url = `${SITE}/dashboards/${d.id}.html`
         return (
-          <section key={d.id} className="dash-section" style={{ '--accent': d.color }}>
+          <section key={d.id} className="dash-section">
             <div className="dash-section-head">
               <div>
                 <h2 className="dash-section-title">
-                  <span className="dash-section-icon" style={{ color: d.color }}><Icon name={d.icon} /></span>
+                  <span className="dash-section-icon"><Icon name={d.icon} /></span>
                   {d.title[lang]}
                 </h2>
                 <p className="dash-section-sub">{d.subtitle[lang]}</p>
               </div>
               <div className="dash-section-actions">
-                <a href={`/dashboards/${d.id}.html`} target="_blank" rel="noreferrer" className="dash-open-btn" style={{ background: d.color }}>
+                <a href={`/dashboards/${d.id}.html`} target="_blank" rel="noreferrer" className="dash-open-btn">
                   {t.previewBtn} ↗
                 </a>
                 <CopyBtn url={url} label={t.copyBtn} copiedLabel={t.copied} />
@@ -163,7 +162,7 @@ export default function DashboardsPage() {
             <div className="dash-kpi-pills">
               <span className="dash-kpi-lbl">{t.kpisLbl}:</span>
               {d.kpis.map((k) => (
-                <span key={k} className="dash-kpi-pill" style={{ borderColor: d.color + '55', color: d.color }}>{k}</span>
+                <span key={k} className="dash-kpi-pill">{k}</span>
               ))}
             </div>
 

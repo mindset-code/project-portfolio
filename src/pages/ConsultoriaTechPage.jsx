@@ -60,58 +60,58 @@ const T = {
 /* ── Data arrays (bilingual) ── */
 const SERVICES = {
   es: [
-    { icon:'brain', color:'#c2a98b', title:'Consultoría de IA',         desc:'Diseño e implementación de estrategias de IA para empresas: automatización de procesos, agentes autónomos y modelos de decisión.' },
-    { icon:'code', color:'#7ea6d4', title:'Desarrollo Full Stack',      desc:'Aplicaciones web completas con React, Node.js y Firebase. Desde landing pages hasta plataformas SaaS con autenticación y base de datos.' },
-    { icon:'zap', color:'#d0a458', title:'Automatización de Procesos', desc:'Flujos de trabajo automáticos con n8n: integración de APIs, webhooks, notificaciones y pipelines de datos sin intervención humana.' },
+    { icon:'brain', color:'#3b6290', title:'Consultoría de IA',         desc:'Diseño e implementación de estrategias de IA para empresas: automatización de procesos, agentes autónomos y modelos de decisión.' },
+    { icon:'code', color:'#3b6290', title:'Desarrollo Full Stack',      desc:'Aplicaciones web completas con React, Node.js y Firebase. Desde landing pages hasta plataformas SaaS con autenticación y base de datos.' },
+    { icon:'zap', color:'#3b6290', title:'Automatización de Procesos', desc:'Flujos de trabajo automáticos con n8n: integración de APIs, webhooks, notificaciones y pipelines de datos sin intervención humana.' },
   ],
   en: [
-    { icon:'brain', color:'#c2a98b', title:'AI Consulting',         desc:'Design and implementation of AI strategies for businesses: process automation, autonomous agents and decision models.' },
-    { icon:'code', color:'#7ea6d4', title:'Full Stack Development', desc:'Complete web applications with React, Node.js and Firebase. From landing pages to SaaS platforms with authentication and database.' },
-    { icon:'zap', color:'#d0a458', title:'Process Automation',    desc:'Automated workflows with n8n: API integration, webhooks, notifications and data pipelines without human intervention.' },
+    { icon:'brain', color:'#3b6290', title:'AI Consulting',         desc:'Design and implementation of AI strategies for businesses: process automation, autonomous agents and decision models.' },
+    { icon:'code', color:'#3b6290', title:'Full Stack Development', desc:'Complete web applications with React, Node.js and Firebase. From landing pages to SaaS platforms with authentication and database.' },
+    { icon:'zap', color:'#3b6290', title:'Process Automation',    desc:'Automated workflows with n8n: API integration, webhooks, notifications and data pipelines without human intervention.' },
   ],
 }
 
 const AGENTS = {
   es: [
-    { icon:'briefcase', color:'#6fae8c', role:'CEO', name:'Agente Estratégico',    desc:'Visión de negocio, toma de decisiones estratégicas y coordinación general de la empresa.' },
-    { icon:'cog', color:'#7ea6d4', role:'CTO', name:'Agente Técnico',        desc:'Arquitectura de sistemas, code reviews automáticos vía GitHub y decisiones de stack tecnológico.' },
-    { icon:'megaphone', color:'#c2a98b', role:'CMO', name:'Agente de Marketing',   desc:'Estrategia de contenido, prospección de clientes y gestión del mensaje de marca.' },
-    { icon:'wrench', color:'#d0a458', role:'Ops', name:'Agente de Operaciones', desc:'Gestión de proyectos activos, seguimiento de tareas e issues y coordinación de entregas.' },
-    { icon:'clipboard', color:'#9aa9c8', role:'PM',  name:'Agente de Proyectos',   desc:'Planning de sprints, priorización del backlog y comunicación entre agentes y clientes.' },
+    { icon:'briefcase', color:'#3b6290', role:'CEO', name:'Agente Estratégico',    desc:'Visión de negocio, toma de decisiones estratégicas y coordinación general de la empresa.' },
+    { icon:'cog', color:'#3b6290', role:'CTO', name:'Agente Técnico',        desc:'Arquitectura de sistemas, code reviews automáticos vía GitHub y decisiones de stack tecnológico.' },
+    { icon:'megaphone', color:'#3b6290', role:'CMO', name:'Agente de Marketing',   desc:'Estrategia de contenido, prospección de clientes y gestión del mensaje de marca.' },
+    { icon:'wrench', color:'#3b6290', role:'Ops', name:'Agente de Operaciones', desc:'Gestión de proyectos activos, seguimiento de tareas e issues y coordinación de entregas.' },
+    { icon:'clipboard', color:'#3b6290', role:'PM',  name:'Agente de Proyectos',   desc:'Planning de sprints, priorización del backlog y comunicación entre agentes y clientes.' },
   ],
   en: [
-    { icon:'briefcase', color:'#6fae8c', role:'CEO', name:'Strategic Agent',    desc:'Business vision, strategic decision-making and general coordination of the company.' },
-    { icon:'cog', color:'#7ea6d4', role:'CTO', name:'Technical Agent',    desc:'Systems architecture, automatic code reviews via GitHub and tech stack decisions.' },
-    { icon:'megaphone', color:'#c2a98b', role:'CMO', name:'Marketing Agent',    desc:'Content strategy, customer prospecting and brand message management.' },
-    { icon:'wrench', color:'#d0a458', role:'Ops', name:'Operations Agent',   desc:'Active project management, task and issue tracking and delivery coordination.' },
-    { icon:'clipboard', color:'#9aa9c8', role:'PM',  name:'Projects Agent',     desc:'Sprint planning, backlog prioritization and communication between agents and clients.' },
+    { icon:'briefcase', color:'#3b6290', role:'CEO', name:'Strategic Agent',    desc:'Business vision, strategic decision-making and general coordination of the company.' },
+    { icon:'cog', color:'#3b6290', role:'CTO', name:'Technical Agent',    desc:'Systems architecture, automatic code reviews via GitHub and tech stack decisions.' },
+    { icon:'megaphone', color:'#3b6290', role:'CMO', name:'Marketing Agent',    desc:'Content strategy, customer prospecting and brand message management.' },
+    { icon:'wrench', color:'#3b6290', role:'Ops', name:'Operations Agent',   desc:'Active project management, task and issue tracking and delivery coordination.' },
+    { icon:'clipboard', color:'#3b6290', role:'PM',  name:'Projects Agent',     desc:'Sprint planning, backlog prioritization and communication between agents and clients.' },
   ],
 }
 
 const WORKFLOWS = {
   es: [
-    { icon:'search', color:'#7ea6d4', status:'development', name:'Prospecting Semanal',       desc:'Apify extrae leads → filtro ICP con IA → agente SDR genera outreach personalizado.',                              tech:'Apify · Claude · n8n' },
-    { icon:'flask', color:'#6fae8c', status:'active',      name:'GitHub Push → Code Review', desc:'Cada push activa un code review automático por el agente CTO con análisis de seguridad y calidad.',             tech:'GitHub Webhooks · Claude · n8n' },
-    { icon:'pin', color:'#d0a458', status:'active',      name:'GitHub → Paperclip Issues', desc:'Los commits se convierten automáticamente en issues de Paperclip para trazabilidad completa.',                   tech:'GitHub · Paperclip · n8n' },
-    { icon:'refresh', color:'#9aa9c8', status:'development', name:'GitHub → Consultoría Tech Board', desc:'Sincronización bidireccional entre GitHub y el tablero principal de Consultoría Tech en Paperclip.',              tech:'GitHub · Paperclip API · n8n' },
+    { icon:'search', color:'#3b6290', status:'development', name:'Prospecting Semanal',       desc:'Apify extrae leads → filtro ICP con IA → agente SDR genera outreach personalizado.',                              tech:'Apify · Claude · n8n' },
+    { icon:'flask', color:'#3b6290', status:'active',      name:'GitHub Push → Code Review', desc:'Cada push activa un code review automático por el agente CTO con análisis de seguridad y calidad.',             tech:'GitHub Webhooks · Claude · n8n' },
+    { icon:'pin', color:'#3b6290', status:'active',      name:'GitHub → Paperclip Issues', desc:'Los commits se convierten automáticamente en issues de Paperclip para trazabilidad completa.',                   tech:'GitHub · Paperclip · n8n' },
+    { icon:'refresh', color:'#3b6290', status:'development', name:'GitHub → Consultoría Tech Board', desc:'Sincronización bidireccional entre GitHub y el tablero principal de Consultoría Tech en Paperclip.',              tech:'GitHub · Paperclip API · n8n' },
   ],
   en: [
-    { icon:'search', color:'#7ea6d4', status:'development', name:'Weekly Prospecting',        desc:'Apify extracts leads → AI ICP filter → SDR agent generates personalized outreach.',                              tech:'Apify · Claude · n8n' },
-    { icon:'flask', color:'#6fae8c', status:'active',      name:'GitHub Push → Code Review', desc:'Every push triggers an automatic code review by the CTO agent with security and quality analysis.',             tech:'GitHub Webhooks · Claude · n8n' },
-    { icon:'pin', color:'#d0a458', status:'active',      name:'GitHub → Paperclip Issues', desc:'Commits are automatically converted into Paperclip issues for full traceability.',                              tech:'GitHub · Paperclip · n8n' },
-    { icon:'refresh', color:'#9aa9c8', status:'development', name:'GitHub → Consultoría Tech Board', desc:'Bidirectional sync between GitHub and the main Consultoría Tech board in Paperclip.',                            tech:'GitHub · Paperclip API · n8n' },
+    { icon:'search', color:'#3b6290', status:'development', name:'Weekly Prospecting',        desc:'Apify extracts leads → AI ICP filter → SDR agent generates personalized outreach.',                              tech:'Apify · Claude · n8n' },
+    { icon:'flask', color:'#3b6290', status:'active',      name:'GitHub Push → Code Review', desc:'Every push triggers an automatic code review by the CTO agent with security and quality analysis.',             tech:'GitHub Webhooks · Claude · n8n' },
+    { icon:'pin', color:'#3b6290', status:'active',      name:'GitHub → Paperclip Issues', desc:'Commits are automatically converted into Paperclip issues for full traceability.',                              tech:'GitHub · Paperclip · n8n' },
+    { icon:'refresh', color:'#3b6290', status:'development', name:'GitHub → Consultoría Tech Board', desc:'Bidirectional sync between GitHub and the main Consultoría Tech board in Paperclip.',                            tech:'GitHub · Paperclip API · n8n' },
   ],
 }
 
 const TECHS = [
-  { name:'Claude (Anthropic)', color:'#c2a98b', desc:{ es:'LLM base de todos los agentes',       en:'Base LLM for all agents' } },
-  { name:'n8n',                color:'#d0a458', desc:{ es:'Orquestación de workflows',            en:'Workflow orchestration' } },
-  { name:'Paperclip',          color:'#7ea6d4', desc:{ es:'Company OS / tablero central',         en:'Company OS / central board' } },
-  { name:'GitHub',             color:'#a9b6c5', desc:{ es:'Control de versiones + webhooks',      en:'Version control + webhooks' } },
-  { name:'Firebase',           color:'#c98a5c', desc:{ es:'Hosting + Firestore',                  en:'Hosting + Firestore' } },
-  { name:'Google Cloud',       color:'#6fae8c', desc:{ es:'Infraestructura cloud',                en:'Cloud infrastructure' } },
-  { name:'Cloudflare Tunnel',  color:'#9aa9c8', desc:{ es:'Exposición segura de servicios',       en:'Secure service exposure' } },
-  { name:'React + Vite',       color:'#7ea6d4', desc:{ es:'Frontend de dashboards y clientes',    en:'Dashboard and client frontend' } },
+  { name:'Claude (Anthropic)', color:'#3b6290', desc:{ es:'LLM base de todos los agentes',       en:'Base LLM for all agents' } },
+  { name:'n8n',                color:'#3b6290', desc:{ es:'Orquestación de workflows',            en:'Workflow orchestration' } },
+  { name:'Paperclip',          color:'#3b6290', desc:{ es:'Company OS / tablero central',         en:'Company OS / central board' } },
+  { name:'GitHub',             color:'#3b6290', desc:{ es:'Control de versiones + webhooks',      en:'Version control + webhooks' } },
+  { name:'Firebase',           color:'#3b6290', desc:{ es:'Hosting + Firestore',                  en:'Hosting + Firestore' } },
+  { name:'Google Cloud',       color:'#3b6290', desc:{ es:'Infraestructura cloud',                en:'Cloud infrastructure' } },
+  { name:'Cloudflare Tunnel',  color:'#3b6290', desc:{ es:'Exposición segura de servicios',       en:'Secure service exposure' } },
+  { name:'React + Vite',       color:'#3b6290', desc:{ es:'Frontend de dashboards y clientes',    en:'Dashboard and client frontend' } },
 ]
 
 function StatusBadge({ status, t }) {
@@ -195,13 +195,11 @@ export default function ConsultoriaTechPage() {
               <div className="ctech-arch">
                 <div className="ctech-arch-row">
                   {t.archFlow.map(({ label, sub }, i) => {
-                    const bgs = ['#1c2a3c','#241d10','#1a2130']
-                    const borders = ['#7ea6d4','#d0a458','#9aa9c8']
                     const icons = ['inbox','zap','brain']
                     return (
                       <div key={label} style={{ display:'flex', alignItems:'center', gap:'0.5rem' }}>
-                        <div className="ctech-arch-box" style={{ background: bgs[i], borderColor: borders[i] }}>
-                          <span style={{ color: borders[i] }}><Icon name={icons[i]} /></span>
+                        <div className="ctech-arch-box">
+                          <span className="ctech-arch-icon"><Icon name={icons[i]} /></span>
                           <strong>{label}</strong>
                           <small>{sub}</small>
                         </div>
@@ -214,10 +212,10 @@ export default function ConsultoriaTechPage() {
                 <div className="ctech-arch-down">↓</div>
 
                 <div className="ctech-arch-row">
-                  {agents.map(({ icon, role, color }) => (
-                    <div key={role} className="ctech-arch-box ctech-arch-agent" style={{ borderColor: color+'60' }}>
-                      <span style={{ color }}><Icon name={icon} /></span>
-                      <strong style={{ color }}>{lang === 'es' ? `Agente ${role}` : `${role} Agent`}</strong>
+                  {agents.map(({ icon, role }) => (
+                    <div key={role} className="ctech-arch-box ctech-arch-agent">
+                      <span className="ctech-arch-icon"><Icon name={icon} /></span>
+                      <strong>{lang === 'es' ? `Agente ${role}` : `${role} Agent`}</strong>
                       <small>Claude-powered</small>
                     </div>
                   ))}
@@ -243,12 +241,12 @@ export default function ConsultoriaTechPage() {
               <h2>{t.agentsTitle}</h2>
               <p className="card-desc">{t.agentsDesc}</p>
               <div className="ctech-agents-grid">
-                {agents.map(({ icon, color, role, name, desc }) => (
+                {agents.map(({ icon, role, name, desc }) => (
                   <div key={role} className="ctech-agent-card">
                     <div className="ctech-agent-header">
-                      <span className="ctech-agent-icon" style={{ color }}><Icon name={icon} /></span>
+                      <span className="ctech-agent-icon"><Icon name={icon} /></span>
                       <div>
-                        <span className="ctech-agent-role" style={{ color }}>{role}</span>
+                        <span className="ctech-agent-role">{role}</span>
                         <p className="ctech-agent-name">{name}</p>
                       </div>
                     </div>
@@ -265,10 +263,10 @@ export default function ConsultoriaTechPage() {
               <h2>{t.workflowsTitle}</h2>
               <p className="card-desc">{t.workflowsDesc}</p>
               <div className="ctech-workflows-grid">
-                {workflows.map(({ icon, color, status, name, desc, tech }) => (
-                  <div key={name} className="ctech-workflow-card" style={{ borderColor: color+'40' }}>
+                {workflows.map(({ icon, status, name, desc, tech }) => (
+                  <div key={name} className="ctech-workflow-card">
                     <div className="ctech-workflow-header">
-                      <span className="ctech-workflow-icon" style={{ background: color+'20', color }}><Icon name={icon} /></span>
+                      <span className="ctech-workflow-icon"><Icon name={icon} /></span>
                       <StatusBadge status={status} t={t} />
                     </div>
                     <h3 className="ctech-workflow-name">{name}</h3>
@@ -286,9 +284,9 @@ export default function ConsultoriaTechPage() {
               <h2>{t.stackTitle}</h2>
               <p className="card-desc">{t.stackDesc}</p>
               <div className="ctech-tech-grid">
-                {TECHS.map(({ name, color, desc }) => (
+                {TECHS.map(({ name, desc }) => (
                   <div key={name} className="ctech-tech-card">
-                    <span className="ctech-tech-name" style={{ color }}>{name}</span>
+                    <span className="ctech-tech-name">{name}</span>
                     <span className="ctech-tech-desc">{desc[lang]}</span>
                   </div>
                 ))}

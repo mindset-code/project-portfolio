@@ -4,7 +4,7 @@
       "id": "8YjV6hbqFreYos4T",
       "name": "Prospecting Semanal — Apify → ICP Score → SDR",
       "active": false,
-      "color": "#f472b6",
+      "color": "#3b6290",
       "status": "development",
       "nodes": [
         {
@@ -17,7 +17,7 @@
           ],
           "icon": "⏰",
           "typeLabel": "Schedule",
-          "typeColor": "#f472b6",
+          "typeColor": "#3b6290",
           "params": {
             "rule": "{'interval': [{'field': 'weeks', 'triggerAtDay': [1], 'triggerAtHour': 9, 'triggerAtMinute': 0}]}"
           }
@@ -32,7 +32,7 @@
           ],
           "icon": "💻",
           "typeLabel": "Code",
-          "typeColor": "#fbbf24",
+          "typeColor": "#3b6290",
           "params": {
             "jsCode": "const week = Math.ceil(new Date().getDate() / 7);\nconst all = {\n  1: ['agencia marketing digital Madrid','empresa automa"
           }
@@ -47,7 +47,7 @@
           ],
           "icon": "🌐",
           "typeLabel": "HTTP",
-          "typeColor": "#34d399",
+          "typeColor": "#3b6290",
           "params": {
             "method": "POST",
             "url": "https://api.apify.com/v2/acts/compass~crawler-google-places/runs",
@@ -66,7 +66,7 @@
           ],
           "icon": "⏱️",
           "typeLabel": "Wait",
-          "typeColor": "#94a3b8",
+          "typeColor": "#3b6290",
           "params": {
             "unit": "minutes",
             "amount": "3"
@@ -82,7 +82,7 @@
           ],
           "icon": "🌐",
           "typeLabel": "HTTP",
-          "typeColor": "#34d399",
+          "typeColor": "#3b6290",
           "params": {
             "method": "GET",
             "url": "=https://api.apify.com/v2/datasets/{{ $node[\"Apify — Run Google Maps Scraper\"].json.data.defaultDatasetId }}/items?limit"
@@ -98,7 +98,7 @@
           ],
           "icon": "💻",
           "typeLabel": "Code",
-          "typeColor": "#fbbf24",
+          "typeColor": "#3b6290",
           "params": {
             "jsCode": "const results = $input.all();\nconst scored = [];\nfor (const item of results) {\n  const p = item.json;\n  let s = 0;\n  if "
           }
@@ -113,7 +113,7 @@
           ],
           "icon": "🌐",
           "typeLabel": "HTTP",
-          "typeColor": "#34d399",
+          "typeColor": "#3b6290",
           "params": {
             "method": "POST",
             "url": "http://localhost:3100/api/companies/50fb291a-e38b-4ddf-b1b0-e3028f3d352c/issues",
@@ -198,7 +198,7 @@
       "id": "CarwWM4IAKhLXST7",
       "name": "GitHub Push → Code Review → Paperclip CTO",
       "active": true,
-      "color": "#34d399",
+      "color": "#3b6290",
       "status": "active",
       "nodes": [
         {
@@ -211,7 +211,7 @@
           ],
           "icon": "📥",
           "typeLabel": "Webhook",
-          "typeColor": "#60a5fa",
+          "typeColor": "#3b6290",
           "params": {
             "httpMethod": "POST",
             "path": "github-code-review",
@@ -229,7 +229,7 @@
           ],
           "icon": "🔀",
           "typeLabel": "Condition",
-          "typeColor": "#a78bfa",
+          "typeColor": "#3b6290",
           "params": {
             "conditions": "{'options': {'caseSensitive': True, 'leftValue': '', 'typeValidation': 'strict'}, 'conditions': [{'id': 'cond1', 'leftVa"
           }
@@ -244,7 +244,7 @@
           ],
           "icon": "🌐",
           "typeLabel": "HTTP",
-          "typeColor": "#34d399",
+          "typeColor": "#3b6290",
           "params": {
             "method": "GET",
             "url": "=https://api.github.com/repos/{{ $json.body.repository.full_name }}/commits/{{ $json.body.head_commit.id }}"
@@ -260,7 +260,7 @@
           ],
           "icon": "💻",
           "typeLabel": "Code",
-          "typeColor": "#fbbf24",
+          "typeColor": "#3b6290",
           "params": {
             "jsCode": "const body = $('GitHub Push Webhook').item.json.body;\nconst diff = $input.item.json.data;\nconst commitMsg = body?.head_c"
           }
@@ -275,7 +275,7 @@
           ],
           "icon": "🌐",
           "typeLabel": "HTTP",
-          "typeColor": "#34d399",
+          "typeColor": "#3b6290",
           "params": {
             "method": "POST",
             "url": "http://localhost:3100/api/companies/50fb291a-e38b-4ddf-b1b0-e3028f3d352c/issues",
@@ -338,7 +338,7 @@
       "id": "y3coLpMUPhuh3snU",
       "name": "GitHub Webhook → Paperclip Issues",
       "active": true,
-      "color": "#fbbf24",
+      "color": "#3b6290",
       "status": "active",
       "nodes": [
         {
@@ -351,7 +351,7 @@
           ],
           "icon": "📥",
           "typeLabel": "Webhook",
-          "typeColor": "#60a5fa",
+          "typeColor": "#3b6290",
           "params": {
             "httpMethod": "POST",
             "path": "github-digox",
@@ -368,7 +368,7 @@
           ],
           "icon": "💻",
           "typeLabel": "Code",
-          "typeColor": "#fbbf24",
+          "typeColor": "#3b6290",
           "params": {
             "jsCode": "const body = $input.first().json.body || {};\nconst headers = $input.first().json.headers || {};\nconst event = headers[\"x"
           }
@@ -383,7 +383,7 @@
           ],
           "icon": "🌐",
           "typeLabel": "HTTP",
-          "typeColor": "#34d399",
+          "typeColor": "#3b6290",
           "params": {
             "method": "POST",
             "url": "http://localhost:3100/api/companies/50fb291a-e38b-4ddf-b1b0-e3028f3d352c/issues",
@@ -423,7 +423,7 @@
       "id": "raZQieUzm95zJUIP",
       "name": "GitHub → Paperclip (Consultoría Tech)",
       "active": false,
-      "color": "#a78bfa",
+      "color": "#3b6290",
       "status": "development",
       "nodes": [
         {
@@ -432,7 +432,7 @@
           "type": "webhook",
           "icon": "📥",
           "typeLabel": "Webhook",
-          "typeColor": "#60a5fa",
+          "typeColor": "#3b6290",
           "params": {}
         },
         {
@@ -441,7 +441,7 @@
           "type": "code",
           "icon": "💻",
           "typeLabel": "Code",
-          "typeColor": "#fbbf24",
+          "typeColor": "#3b6290",
           "params": {}
         },
         {
@@ -450,7 +450,7 @@
           "type": "httpRequest",
           "icon": "🌐",
           "typeLabel": "HTTP",
-          "typeColor": "#34d399",
+          "typeColor": "#3b6290",
           "params": {
             "url": "http://localhost:13100/api/..."
           }

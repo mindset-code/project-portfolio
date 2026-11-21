@@ -69,7 +69,6 @@ export default function HotelDashboard() {
     <div className="dashboard">
       <HeroSection
         badge={t.badge}
-        badgeColor="#c98a5c"
         title={t.title}
         description={t.description}
         stats={[

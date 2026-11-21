@@ -3,6 +3,7 @@ import {
   BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid,
   Tooltip, Legend, ResponsiveContainer, ReferenceLine, Cell,
 } from 'recharts'
+import { MARCA, SERIE, SEM, REJILLA, CAJA_PROPS, CURSOR_BARRA, leyenda } from '../tema/graficos'
 import HeroSection     from '../components/HeroSection'
 import PortfolioFooter from '../components/PortfolioFooter'
 import BusinessCta     from '../components/BusinessCta'
@@ -20,11 +21,11 @@ import { useLang }     from '../contexts/LangContext'
  */
 
 const REPO  = 'https://github.com/mindset-code/project-sales-optimization-sql'
-const AZUL  = '#7ea6d4'
-const VERDE = '#6fae8c'
-const ORO   = '#d0a458'
-const TENUE = '#a9b6c5'
-const REJILLA = '#22303f'
+const AZUL  = SERIE[0]
+const AZUL3 = SERIE[2]
+// El ambar solo marca el margen por debajo del umbral: es un aviso, no una serie.
+const AVISO = SEM.aviso
+const TENUE = MARCA.tenue
 
 const FICHEROS = [
   'kpis', 'regiones', 'top_vendedores',
@@ -35,8 +36,6 @@ const dinero = (v, dec = 0) =>
   new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: dec }).format(v)
 const corto = v => (Math.abs(v) >= 1e6 ? `$${(v / 1e6).toFixed(1)}M` : `$${Math.round(v / 1e3)}k`)
 
-const CAJA = { background: '#101722', border: '1px solid #2c3d50', borderRadius: 8 }
-const leyenda = v => <span style={{ color: TENUE, fontSize: 12 }}>{v}</span>
 
 const T = {
   es: {
@@ -149,7 +148,6 @@ export default function SqlDashboard() {
     <div className="dashboard">
       <HeroSection
         badge={t.badge}
-        badgeColor={AZUL}
         title={t.title}
         description={t.description}
         stats={[
@@ -169,7 +167,7 @@ export default function SqlDashboard() {
             <p className="card-desc">{t.regionesDesc}</p>
             <ResponsiveContainer width="100%" height={280}>
               <BarChart data={datos.regiones} margin={{ top: 8, right: 8, bottom: 4, left: 8 }}>
-                <CartesianGrid stroke={REJILLA} vertical={false} />
+                <CartesianGrid {...REJILLA} vertical={false} />
                 {/* interval={0}: recharts descarta los rotulos que no le
                     caben, y en movil el que se perdia era «North America»
                     —la primera barra y la region que mas beneficio deja—,
@@ -183,16 +181,16 @@ export default function SqlDashboard() {
                   tickFormatter={v => (v === 'North America' ? 'N. America' : v)}
                 />
                 <YAxis stroke={TENUE} fontSize={12} tickFormatter={corto} />
-                <Tooltip contentStyle={CAJA} formatter={v => dinero(v)} />
-                <Legend formatter={leyenda} />
+                <Tooltip cursor={CURSOR_BARRA} {...CAJA_PROPS} formatter={v => dinero(v)} />
+                <Legend formatter={leyenda(12)} />
                 <Bar dataKey="Total_Revenue" name={t.ingreso}   fill={AZUL}  radius={[3, 3, 0, 0]} />
-                <Bar dataKey="Total_Profit"  name={t.beneficio} fill={VERDE} radius={[3, 3, 0, 0]} />
+                <Bar dataKey="Total_Profit"  name={t.beneficio} fill={AZUL3} radius={[3, 3, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.9rem', marginTop: '0.6rem', fontSize: '0.8rem' }}>
               {datos.regiones.map(r => (
                 <span key={r.Region} style={{ color: TENUE }}>
-                  <strong style={{ color: VERDE }}>{r.Region}</strong>{' '}
+                  <strong style={{ color: MARCA.azul }}>{r.Region}</strong>{' '}
                   {t.margenPct} {r.Profit_Margin_Percentage.toFixed(2)} %
                 </span>
               ))}
@@ -206,10 +204,10 @@ export default function SqlDashboard() {
             <p className="card-desc">{t.mensualDesc}</p>
             <ResponsiveContainer width="100%" height={260}>
               <LineChart data={datos.tendencia_mensual} margin={{ top: 8, right: 8, bottom: 4, left: 8 }}>
-                <CartesianGrid stroke={REJILLA} vertical={false} />
+                <CartesianGrid {...REJILLA} vertical={false} />
                 <XAxis dataKey="Sales_Month" stroke={TENUE} fontSize={12} />
                 <YAxis stroke={TENUE} fontSize={12} tickFormatter={corto} />
-                <Tooltip contentStyle={CAJA} formatter={v => [dinero(v), t.ingreso]} />
+                <Tooltip {...CAJA_PROPS} formatter={v => [dinero(v), t.ingreso]} />
                 <Line type="monotone" dataKey="Monthly_Revenue" stroke={AZUL} strokeWidth={2} dot={{ r: 3 }} />
               </LineChart>
             </ResponsiveContainer>
@@ -226,7 +224,7 @@ export default function SqlDashboard() {
                 layout="vertical"
                 margin={{ top: 8, right: 16, bottom: 4, left: 8 }}
               >
-                <CartesianGrid stroke={REJILLA} horizontal={false} />
+                <CartesianGrid {...REJILLA} horizontal={false} />
                 <XAxis type="number" stroke={TENUE} fontSize={12} tickFormatter={corto} />
                 <YAxis
                   type="category"
@@ -243,8 +241,8 @@ export default function SqlDashboard() {
                   width={56}
                   tickFormatter={v => `#${v}`}
                 />
-                <Tooltip contentStyle={CAJA} formatter={v => [dinero(v), t.ingreso]} />
-                <Bar dataKey="Total_Revenue" fill={ORO} radius={[0, 3, 3, 0]} />
+                <Tooltip cursor={CURSOR_BARRA} {...CAJA_PROPS} formatter={v => [dinero(v), t.ingreso]} />
+                <Bar dataKey="Total_Revenue" fill={AZUL} radius={[0, 3, 3, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -254,13 +252,13 @@ export default function SqlDashboard() {
             <p className="card-desc">{t.carteraDesc}</p>
             <ResponsiveContainer width="100%" height={260}>
               <BarChart data={cartera} margin={{ top: 8, right: 8, bottom: 4, left: 8 }}>
-                <CartesianGrid stroke={REJILLA} vertical={false} />
+                <CartesianGrid {...REJILLA} vertical={false} />
                 <XAxis dataKey="categoria" stroke={TENUE} fontSize={12} />
                 <YAxis stroke={TENUE} fontSize={12} />
-                <Tooltip contentStyle={CAJA} formatter={(v, n) => [`${v} ${t.ventas}`, n]} />
-                <Legend formatter={leyenda} />
+                <Tooltip cursor={CURSOR_BARRA} {...CAJA_PROPS} formatter={(v, n) => [`${v} ${t.ventas}`, n]} />
+                <Legend formatter={leyenda(12)} />
                 {tipos.map((tipo, i) => (
-                  <Bar key={tipo} dataKey={tipo} stackId="a" fill={[AZUL, VERDE, ORO][i % 3]} />
+                  <Bar key={tipo} dataKey={tipo} stackId="a" fill={SERIE[i % 3]} />
                 ))}
               </BarChart>
             </ResponsiveContainer>
@@ -272,20 +270,23 @@ export default function SqlDashboard() {
             <h2>{t.margen}</h2>
             <p className="card-desc">{t.margenDesc}</p>
             <ResponsiveContainer width="100%" height={240}>
-              <BarChart data={cats} margin={{ top: 8, right: 8, bottom: 4, left: 8 }}>
-                <CartesianGrid stroke={REJILLA} vertical={false} />
-                <XAxis dataKey="ProductCategory" stroke={TENUE} fontSize={12} />
+              {/* El rotulo del umbral va a la derecha, fuera del area de las
+                  barras: dentro quedaba encima de la ultima y no se leia. */}
+              <BarChart data={cats} margin={{ top: 8, right: 104, bottom: 4, left: 8 }}>
+                <CartesianGrid {...REJILLA} vertical={false} />
+                {/* interval 0: son tres categorias y en movil Recharts ocultaba una */}
+                <XAxis dataKey="ProductCategory" stroke={TENUE} fontSize={11} interval={0} />
                 <YAxis stroke={TENUE} fontSize={12} tickFormatter={v => `$${v}`} />
-                <Tooltip contentStyle={CAJA} formatter={v => [dinero(v, 2), t.beneficio]} />
+                <Tooltip cursor={CURSOR_BARRA} {...CAJA_PROPS} formatter={v => [dinero(v, 2), t.beneficio]} />
                 <ReferenceLine
                   y={umbral}
-                  stroke={ORO}
+                  stroke={AVISO}
                   strokeDasharray="4 4"
-                  label={{ value: t.umbral, position: 'insideTopRight', fill: ORO, fontSize: 12 }}
+                  label={{ value: t.umbral, position: 'right', fill: AVISO, fontSize: 12 }}
                 />
                 <Bar dataKey="Avg_Profit" radius={[3, 3, 0, 0]}>
                   {cats.map(c => (
-                    <Cell key={c.ProductCategory} fill={c.Avg_Profit < umbral ? ORO : VERDE} />
+                    <Cell key={c.ProductCategory} fill={c.Avg_Profit < umbral ? AVISO : AZUL3} />
                   ))}
                 </Bar>
               </BarChart>
@@ -294,7 +295,7 @@ export default function SqlDashboard() {
                 margen bajo» de «el informe esta roto». Se dice cual de las dos
                 es, y con el numero delante. */}
             {datos.margen_bajo.length === 0 && (
-              <p className="card-desc" style={{ marginTop: '0.6rem', color: ORO }}>
+              <p className="card-desc" style={{ marginTop: '0.6rem', color: AVISO }}>
                 {t.vacio}
               </p>
             )}

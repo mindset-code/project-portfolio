@@ -3,6 +3,7 @@ import HeroSection     from '../components/HeroSection'
 import PortfolioFooter from '../components/PortfolioFooter'
 import BusinessCta     from '../components/BusinessCta'
 import { useLang }     from '../contexts/LangContext'
+import { MARCA, SEM, tinte } from '../tema/graficos'
 
 /*  AgentForge, la unica demo de las cinco que no puede ser el producto vivo.
  *
@@ -22,9 +23,20 @@ import { useLang }     from '../contexts/LangContext'
  */
 
 const REPO = 'https://github.com/mindset-code/agentforge'
-const TENUE = '#a9b6c5'
-const BORDE = '#2c3d50'
-const FONDO = '#101722'
+const TENUE = MARCA.tenue
+const FONDO = MARCA.blanco
+
+// El color del agente lo elige quien prueba la demo: el texto que va encima
+// se decide por luminancia, no se da por hecho que el fondo sea claro.
+function tintaSobre(hex) {
+  const n = parseInt(hex.slice(1), 16)
+  const canal = c => {
+    const v = c / 255
+    return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4
+  }
+  const L = 0.2126 * canal(n >> 16) + 0.7152 * canal((n >> 8) & 255) + 0.0722 * canal(n & 255)
+  return L > 0.4 ? MARCA.texto : MARCA.blanco
+}
 
 const HERRAMIENTAS = [
   { id: 'buscar_web',      es: 'Buscar en la web',        en: 'Web search' },
@@ -206,7 +218,7 @@ export default function AgentForgePage() {
 
   const [nombre, setNombre] = useState(lang === 'es' ? 'Asistente de Logística Prat' : 'Prat Logistics Assistant')
   const [tono, setTono] = useState('cercano')
-  const [color, setColor] = useState('#6fae8c')
+  const [color, setColor] = useState(MARCA.azul2)
   const [ventana, setVentana] = useState(10)
   const [tools, setTools] = useState(['consultar_crm', 'agendar_cita'])
   const [turno, setTurno] = useState(0)
@@ -253,7 +265,7 @@ export default function AgentForgePage() {
     setNota(despues.length < antes ? t.consolidado : t.yaConsolidada)
   }
 
-  const campo = { background: FONDO, border: `1px solid ${BORDE}`, borderRadius: 7, color: '#e6ecf3', padding: '0.45rem 0.6rem', width: '100%', fontSize: '0.86rem' }
+  const campo = { background: FONDO, border: 0, borderRadius: 8, color: MARCA.texto, padding: '0.6rem 0.7rem', width: '100%', fontSize: '0.9375rem', minHeight: 44 }
   // Solo en esta pagina: el resto de demos son titulo + grafico y ahi el
 // centrado esta bien.
 const IZQUIERDA = { textAlign: 'left' }
@@ -270,7 +282,6 @@ const etiqueta = { display: 'block', fontSize: '0.76rem', color: TENUE, marginBo
     <div className="dashboard">
       <HeroSection
         badge={t.badge}
-        badgeColor="#8b7fc7"
         title={t.title}
         description={t.description}
         stats={[
@@ -284,8 +295,8 @@ const etiqueta = { display: 'block', fontSize: '0.76rem', color: TENUE, marginBo
       />
 
       <main>
-        <div className="card" style={{ borderColor: '#d0a45866', marginBottom: '1rem' }}>
-          <p className="card-desc" style={{ margin: 0, color: '#d0a458' }}>{t.aviso}</p>
+        <div className="card" style={{ background: tinte(SEM.aviso, 12), marginBottom: '1rem' }}>
+          <p className="card-desc" style={{ margin: 0, color: SEM.aviso }}>{t.aviso}</p>
         </div>
 
         <div className="grid grid-2">
@@ -323,9 +334,10 @@ const etiqueta = { display: 'block', fontSize: '0.76rem', color: TENUE, marginBo
                   <button
                     key={h.id} type="button" onClick={() => alternar(h.id)} aria-pressed={on}
                     style={{
-                      border: `1px solid ${on ? color : BORDE}`,
-                      color: on ? color : TENUE,
-                      background: on ? color + '1f' : 'transparent',
+                      border: 0,
+                      color: on ? MARCA.hondo : MARCA.texto2,
+                      background: on ? tinte(color, 18) : MARCA.blanco,
+                      fontWeight: on ? 600 : 400,
                       borderRadius: 999, padding: '0.2rem 0.7rem', fontSize: '0.78rem', cursor: 'pointer',
                     }}
                   >
@@ -345,11 +357,11 @@ const etiqueta = { display: 'block', fontSize: '0.76rem', color: TENUE, marginBo
 
             <div
               style={{
-                border: `1px solid ${BORDE}`, borderRadius: 10, marginTop: '0.8rem',
+                borderRadius: 10, marginTop: '0.8rem',
                 overflow: 'hidden', background: FONDO,
               }}
             >
-              <div style={{ background: color, color: '#0d1520', padding: '0.5rem 0.8rem', fontWeight: 600, fontSize: '0.9rem' }}>
+              <div style={{ background: color, color: tintaSobre(color), padding: '0.5rem 0.8rem', fontWeight: 600, fontSize: '0.9rem' }}>
                 {nombre || '—'}
               </div>
               <div style={{ padding: '0.8rem', display: 'flex', flexDirection: 'column', gap: '0.55rem', minHeight: 210 }}>
@@ -358,8 +370,8 @@ const etiqueta = { display: 'block', fontSize: '0.76rem', color: TENUE, marginBo
                   <div key={i} style={{ alignSelf: m.de === 'tu' ? 'flex-end' : 'flex-start', maxWidth: '86%' }}>
                     <div
                       style={{
-                        background: m.de === 'tu' ? '#1b2635' : color + '1f',
-                        border: `1px solid ${m.de === 'tu' ? BORDE : color + '55'}`,
+                        background: m.de === 'tu' ? MARCA.banda : tinte(color, 14),
+                        color: MARCA.texto,
                         borderRadius: 10, padding: '0.45rem 0.7rem', fontSize: '0.85rem',
                       }}
                     >
@@ -380,9 +392,9 @@ const etiqueta = { display: 'block', fontSize: '0.76rem', color: TENUE, marginBo
                 <button
                   type="button" onClick={preguntar}
                   style={{
-                    border: `1px solid ${color}`, background: color + '1f', color,
-                    borderRadius: 8, padding: '0.35rem 0.8rem', fontSize: '0.82rem',
-                    cursor: 'pointer', textAlign: 'left',
+                    border: 0, background: tinte(color, 18), color: MARCA.hondo,
+                    borderRadius: 8, padding: '0.55rem 0.9rem', fontSize: '0.875rem',
+                    cursor: 'pointer', textAlign: 'left', minHeight: 44,
                   }}
                 >
                   «{guion[turno].pregunta}»
@@ -392,8 +404,8 @@ const etiqueta = { display: 'block', fontSize: '0.76rem', color: TENUE, marginBo
                 <button
                   type="button" onClick={reiniciar}
                   style={{
-                    border: `1px solid ${BORDE}`, background: 'transparent', color: TENUE,
-                    borderRadius: 8, padding: '0.35rem 0.8rem', fontSize: '0.82rem', cursor: 'pointer',
+                    border: 0, background: MARCA.blanco, color: MARCA.texto2,
+                    borderRadius: 8, padding: '0.55rem 0.9rem', fontSize: '0.875rem', cursor: 'pointer', minHeight: 44,
                   }}
                 >
                   {t.reiniciar}
@@ -423,8 +435,8 @@ const etiqueta = { display: 'block', fontSize: '0.76rem', color: TENUE, marginBo
                 <button
                   type="button" onClick={alConsolidar}
                   style={{
-                    border: `1px solid ${color}`, background: color + '1f', color,
-                    borderRadius: 8, padding: '0.35rem 0.9rem', fontSize: '0.82rem', cursor: 'pointer',
+                    border: 0, background: tinte(color, 18), color: MARCA.hondo,
+                    borderRadius: 8, padding: '0.55rem 0.9rem', fontSize: '0.875rem', cursor: 'pointer', minHeight: 44,
                   }}
                 >
                   {t.consolidar}

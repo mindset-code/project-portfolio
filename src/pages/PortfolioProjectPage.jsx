@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { projectById, pick } from '../data/projects'
 import { useLang } from '../contexts/LangContext'
@@ -35,6 +36,10 @@ export default function PortfolioProjectPage() {
   const { lang } = useLang()
   const t = T[lang]
   const project = projectById(projectId)
+  // Ruta de la captura que no ha cargado: se muestra la ficha de reserva en
+  // vez del icono de imagen rota. Guardar la ruta (y no un booleano) hace que
+  // al pasar a otro proyecto se vuelva a intentar sin reiniciar nada.
+  const [capturaRota, setCapturaRota] = useState(null)
 
   if (!project) {
     return (
@@ -43,15 +48,6 @@ export default function PortfolioProjectPage() {
         <p>{t.notFoundBody(projectId)}</p>
       </div>
     )
-  }
-
-  const getStackColor = (tech) => {
-    if (tech.includes('Python') || tech.includes('SQL') || tech.includes('Pandas') || tech.includes('NumPy')) return '#4f7fae'
-    if (tech.includes('React') || tech.includes('HTML5') || tech.includes('CSS3') || tech.includes('JavaScript')) return '#c07a45'
-    if (tech.includes('Power BI') || tech.includes('Tableau') || tech.includes('Recharts') || tech.includes('Canvas')) return '#4f9273'
-    if (tech.includes('Security') || tech.includes('Cybersecurity')) return '#cc6f6a'
-    if (tech.includes('Firebase') || tech.includes('Cloud')) return '#d0a458'
-    return '#7b8a9c'
   }
 
   const findings = pick(project.keyFindings, lang)
@@ -113,7 +109,6 @@ export default function PortfolioProjectPage() {
                   <span
                     key={idx}
                     className="portfolio-tech-pill"
-                    style={{ '--tech-color': getStackColor(tech) }}
                   >
                     {tech}
                   </span>
@@ -132,9 +127,15 @@ export default function PortfolioProjectPage() {
           </div>
 
           <div className="portfolio-right">
-            {project.screenshotPath ? (
+            {project.screenshotPath && capturaRota !== project.screenshotPath ? (
               <div className="portfolio-screenshot">
-                <img src={project.screenshotPath} alt={project.title} loading="lazy" decoding="async" />
+                <img
+                  src={project.screenshotPath}
+                  alt={project.title}
+                  loading="lazy"
+                  decoding="async"
+                  onError={() => setCapturaRota(project.screenshotPath)}
+                />
               </div>
             ) : (
               <div className="portfolio-screenshot-placeholder" style={{ '--accent': project.accentColor }}>
@@ -154,7 +155,7 @@ export default function PortfolioProjectPage() {
 
       <footer className="portfolio-footer">
         <p>
-          {IDENTIDAD.titular} · asesoría fiscal y tecnológica ·{' '}
+          {IDENTIDAD.titular} · webs, IA y datos para pymes y autónomos ·{' '}
           <a href="https://mindset-code.com/es" target="_blank" rel="noreferrer">mindset-code.com</a>
         </p>
       </footer>

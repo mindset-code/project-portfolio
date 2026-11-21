@@ -3,6 +3,7 @@ import HeroSection     from '../components/HeroSection'
 import PortfolioFooter from '../components/PortfolioFooter'
 import BusinessCta     from '../components/BusinessCta'
 import { useLang }     from '../contexts/LangContext'
+import { MARCA, SEM, tinte } from '../tema/graficos'
 
 /*  Escaner de vulnerabilidades.
  *
@@ -18,13 +19,18 @@ import { useLang }     from '../contexts/LangContext'
  */
 
 const REPO = 'https://github.com/mindset-code/project-vulnerability-scanner'
-const TENUE = '#a9b6c5'
+// Texto secundario en texto-2: sobre las tarjetas con tinte rojo el tenue
+// se quedaba en 4,3:1.
+const TENUE = MARCA.texto2
 
+// La severidad es significado, no decoracion: rojo, teja, ambar y azul, todos
+// por encima de 4,5:1 sobre blanco. El nombre de la severidad va siempre
+// escrito al lado; el color no es la unica pista.
 const SEVERIDAD = {
-  Critical: { color: '#c9756b', es: 'Crítica', en: 'Critical' },
-  High:     { color: '#d08b5c', es: 'Alta',    en: 'High' },
-  Medium:   { color: '#d0a458', es: 'Media',   en: 'Medium' },
-  Low:      { color: '#7ea6d4', es: 'Baja',    en: 'Low' },
+  Critical: { color: SEM.mal,      es: 'Crítica', en: 'Critical' },
+  High:     { color: SEM.alta,     es: 'Alta',    en: 'High' },
+  Medium:   { color: SEM.aviso,    es: 'Media',   en: 'Medium' },
+  Low:      { color: MARCA.azul2,  es: 'Baja',    en: 'Low' },
 }
 const ORDEN = ['Critical', 'High', 'Medium', 'Low']
 
@@ -108,7 +114,6 @@ export default function ScannerPage() {
     <div className="dashboard">
       <HeroSection
         badge={t.badge}
-        badgeColor={SEVERIDAD.Critical.color}
         title={t.title}
         description={t.description}
         stats={[
@@ -127,7 +132,7 @@ export default function ScannerPage() {
             pantalla que el host no existe. */}
         <div
           className="card"
-          style={{ borderColor: SEVERIDAD.Medium.color + '66', marginBottom: '1rem' }}
+          style={{ background: tinte(SEM.aviso, 12), marginBottom: '1rem' }}
         >
           <p className="card-desc" style={{ margin: 0, color: SEVERIDAD.Medium.color }}>
             {t.aviso}
@@ -136,11 +141,10 @@ export default function ScannerPage() {
             {t.objetivo}:{' '}
             <code
               style={{
-                background: '#101722',
-                border: '1px solid #2c3d50',
+                background: MARCA.blanco,
                 borderRadius: 5,
                 padding: '0.08rem 0.4rem',
-                color: TENUE,
+                color: MARCA.texto,
               }}
             >
               {d.target_ip}
@@ -165,8 +169,7 @@ export default function ScannerPage() {
                 <div
                   key={p.port}
                   style={{
-                    border: `1px solid ${p.open ? SEVERIDAD.Critical.color + '66' : '#2c3d50'}`,
-                    background: p.open ? SEVERIDAD.Critical.color + '14' : 'transparent',
+                    background: p.open ? tinte(SEVERIDAD.Critical.color, 10) : MARCA.blanco,
                     borderRadius: 8,
                     padding: '0.6rem 0.7rem',
                   }}
@@ -198,8 +201,9 @@ export default function ScannerPage() {
                 <span
                   key={s}
                   style={{
-                    border: `1px solid ${SEVERIDAD[s].color}`,
+                    background: MARCA.blanco,
                     color: SEVERIDAD[s].color,
+                    fontWeight: 500,
                     borderRadius: 999,
                     padding: '0.15rem 0.65rem',
                     fontSize: '0.78rem',
@@ -217,9 +221,8 @@ export default function ScannerPage() {
                 <div
                   key={`${v.port}-${v.service}`}
                   style={{
-                    borderLeft: `3px solid ${SEVERIDAD[v.severity].color}`,
-                    background: '#101722',
-                    borderRadius: '0 8px 8px 0',
+                    background: MARCA.blanco,
+                    borderRadius: 8,
                     padding: '0.7rem 0.9rem',
                   }}
                 >

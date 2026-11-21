@@ -130,7 +130,6 @@ export default function RevenueSimulator() {
     <div className="dashboard">
       <HeroSection
         badge={t.badge}
-        badgeColor="#7ea6d4"
         title={t.title}
         description={t.description}
         stats={t.stats}
@@ -145,7 +144,6 @@ export default function RevenueSimulator() {
             target="_blank"
             rel="noreferrer"
             className="dash-open-btn"
-            style={{ background: '#7ea6d4' }}
           >
             {t.abrir} ↗
           </a>

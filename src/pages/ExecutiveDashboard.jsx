@@ -69,7 +69,6 @@ export default function ExecutiveDashboard() {
     <div className="dashboard">
       <HeroSection
         badge={t.badge}
-        badgeColor="#6fae8c"
         title={t.title}
         description={t.description}
         stats={[

@@ -3,6 +3,7 @@ import {
   AreaChart, Area, BarChart, Bar, LineChart, Line, XAxis, YAxis,
   CartesianGrid, Tooltip, Legend, ResponsiveContainer, Cell,
 } from 'recharts'
+import { MARCA, SERIE, SEM, REJILLA, CAJA_PROPS, CURSOR_BARRA, leyenda } from '../tema/graficos'
 import HeroSection     from '../components/HeroSection'
 import PortfolioFooter from '../components/PortfolioFooter'
 import BusinessCta     from '../components/BusinessCta'
@@ -19,26 +20,23 @@ import { useLang }     from '../contexts/LangContext'
  */
 
 const REPO = 'https://github.com/mindset-code/project-security-log-analysis'
-const VERDE = '#6fae8c'
-const AZUL  = '#7ea6d4'
-const ORO   = '#d0a458'
-const ROJO  = '#c9756b'
-const TENUE = '#a9b6c5'
-const REJILLA = '#22303f'
+const VERDE = SEM.bien
+const AZUL  = SERIE[0]
+const ORO   = SEM.aviso
+const ROJO  = SEM.mal
+const TENUE = MARCA.tenue
 
 // El color dice si el evento es rutina o es una amenaza; el orden, cuanto pesa.
 const COLOR_EVENTO = {
   LOGIN_SUCCESS: VERDE,
   LOGIN_FAILED: ORO,
   BRUTE_FORCE_ATTEMPT: ROJO,
-  ACCESS_DENIED: '#b98fb5',
+  ACCESS_DENIED: SEM.alta,
   PORT_SCAN_DETECTED: AZUL,
 }
 
 const FICHEROS = ['resumen', 'eventos', 'top_ips', 'top_fallidos', 'por_hora', 'por_dia']
 
-const CAJA = { background: '#101722', border: '1px solid #2c3d50', borderRadius: 8 }
-const leyenda = v => <span style={{ color: TENUE, fontSize: 11 }}>{v}</span>
 
 const T = {
   es: {
@@ -136,7 +134,6 @@ export default function LogsDashboard() {
     <div className="dashboard">
       <HeroSection
         badge={t.badge}
-        badgeColor={ROJO}
         title={t.title}
         description={t.description}
         stats={[
@@ -156,11 +153,11 @@ export default function LogsDashboard() {
             <p className="card-desc">{t.horaDesc}</p>
             <ResponsiveContainer width="100%" height={300}>
               <AreaChart data={datos.por_hora} margin={{ top: 8, right: 8, bottom: 4, left: 8 }}>
-                <CartesianGrid stroke={REJILLA} vertical={false} />
+                <CartesianGrid {...REJILLA} vertical={false} />
                 <XAxis dataKey="hora" stroke={TENUE} fontSize={11} interval={1} />
                 <YAxis stroke={TENUE} fontSize={12} />
-                <Tooltip contentStyle={CAJA} />
-                <Legend formatter={leyenda} />
+                <Tooltip {...CAJA_PROPS} />
+                <Legend formatter={leyenda(11)} />
                 {r.tipos.map(tipo => (
                   <Area
                     key={tipo}
@@ -184,12 +181,12 @@ export default function LogsDashboard() {
             <p className="card-desc">{t.eventosDesc}</p>
             <ResponsiveContainer width="100%" height={260}>
               <BarChart data={datos.eventos} layout="vertical" margin={{ top: 8, right: 24, bottom: 4, left: 8 }}>
-                <CartesianGrid stroke={REJILLA} horizontal={false} />
+                <CartesianGrid {...REJILLA} horizontal={false} />
                 <XAxis type="number" stroke={TENUE} fontSize={12} />
                 {/* Los nombres de evento son largos y con guion bajo; sin un
                     ancho generoso recharts los parte por la mitad. */}
                 <YAxis type="category" dataKey="evento" stroke={TENUE} fontSize={10} width={150} />
-                <Tooltip contentStyle={CAJA} formatter={v => [num(v), t.eventosLbl]} />
+                <Tooltip cursor={CURSOR_BARRA} {...CAJA_PROPS} formatter={v => [num(v), t.eventosLbl]} />
                 <Bar dataKey="conteo" radius={[0, 3, 3, 0]}>
                   {datos.eventos.map(e => (
                     <Cell key={e.evento} fill={COLOR_EVENTO[e.evento] ?? TENUE} />
@@ -208,10 +205,10 @@ export default function LogsDashboard() {
                   «01-11»-- que es justo el dia mas reciente, el que primero
                   se mira. */}
               <LineChart data={datos.por_dia} margin={{ top: 8, right: 26, bottom: 4, left: 8 }}>
-                <CartesianGrid stroke={REJILLA} vertical={false} />
+                <CartesianGrid {...REJILLA} vertical={false} />
                 <XAxis dataKey="dia" stroke={TENUE} fontSize={10} interval={0} tickFormatter={v => v.slice(5)} />
                 <YAxis stroke={TENUE} fontSize={12} domain={[0, 'dataMax + 100']} />
-                <Tooltip contentStyle={CAJA} formatter={v => [num(v), t.eventosLbl]} />
+                <Tooltip {...CAJA_PROPS} formatter={v => [num(v), t.eventosLbl]} />
                 <Line type="monotone" dataKey="conteo" stroke={AZUL} strokeWidth={2} dot={{ r: 3 }} />
               </LineChart>
             </ResponsiveContainer>
@@ -224,10 +221,10 @@ export default function LogsDashboard() {
             <p className="card-desc">{t.fallidosDesc}</p>
             <ResponsiveContainer width="100%" height={240}>
               <BarChart data={datos.top_fallidos} layout="vertical" margin={{ top: 8, right: 24, bottom: 4, left: 8 }}>
-                <CartesianGrid stroke={REJILLA} horizontal={false} />
+                <CartesianGrid {...REJILLA} horizontal={false} />
                 <XAxis type="number" stroke={TENUE} fontSize={12} />
                 <YAxis type="category" dataKey="ip" stroke={TENUE} fontSize={11} width={112} />
-                <Tooltip contentStyle={CAJA} formatter={v => [num(v), t.intentos]} />
+                <Tooltip cursor={CURSOR_BARRA} {...CAJA_PROPS} formatter={v => [num(v), t.intentos]} />
                 <Bar dataKey="conteo" fill={ROJO} radius={[0, 3, 3, 0]} />
               </BarChart>
             </ResponsiveContainer>

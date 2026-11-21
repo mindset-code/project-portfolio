@@ -21,15 +21,6 @@ export default function PortfolioIndexPage() {
   const { lang } = useLang()
   const t = T[lang]
 
-  const getStackColor = (tech) => {
-    if (tech.includes('Python') || tech.includes('SQL') || tech.includes('Pandas') || tech.includes('NumPy')) return '#4f7fae'
-    if (tech.includes('React') || tech.includes('HTML5') || tech.includes('CSS3') || tech.includes('JavaScript')) return '#c07a45'
-    if (tech.includes('Power BI') || tech.includes('Tableau') || tech.includes('Recharts') || tech.includes('Canvas')) return '#4f9273'
-    if (tech.includes('Security') || tech.includes('Cybersecurity')) return '#cc6f6a'
-    if (tech.includes('Firebase') || tech.includes('Cloud')) return '#d0a458'
-    return '#7b8a9c'
-  }
-
   return (
     <div className="portfolio-index-page">
       <div className="portfolio-index-hero">
@@ -68,7 +59,6 @@ export default function PortfolioIndexPage() {
                 <span
                   key={idx}
                   className="portfolio-index-card-tech"
-                  style={{ '--tech-color': getStackColor(tech) }}
                 >
                   {tech}
                 </span>

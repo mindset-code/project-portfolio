@@ -48,7 +48,6 @@ export default function EtlDashboard({ data }) {
     <div className="dashboard">
       <HeroSection
         badge={t.badge}
-        badgeColor="#7ea6d4"
         title={t.title}
         description={t.description}
         stats={[

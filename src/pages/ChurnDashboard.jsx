@@ -72,7 +72,6 @@ export default function ChurnDashboard() {
     <div className="dashboard">
       <HeroSection
         badge={t.badge}
-        badgeColor="#9aa9c8"
         title={t.title}
         description={t.description}
         stats={[
