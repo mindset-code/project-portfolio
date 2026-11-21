@@ -19,6 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
     setupEventListeners();
     calculateRevenue();
     drawRevenueChart();
+    // El lienzo no espera a la fuente: si Geist llega despues del primer
+    // dibujo, se vuelve a pintar con ella.
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(drawRevenueChart);
+    }
 });
 
 // ============================================
@@ -151,8 +156,12 @@ function drawRevenueChart() {
     const minRevenue = Math.min(...revenues) * 0.9;
     const range = maxRevenue - minRevenue;
     
+    // Identidad G: rejilla recesiva, barras en el azul de la marca, texto en
+    // tinta de texto (nunca en el color de la serie).
+    const FUENTE = "'Geist', system-ui, sans-serif";
+
     // Draw grid
-    ctx.strokeStyle = '#e0e0e0';
+    ctx.strokeStyle = '#e1e8f1';
     ctx.lineWidth = 1;
     for (let i = 0; i <= 5; i++) {
         const y = padding + (chartHeight / 5) * i;
@@ -171,29 +180,25 @@ function drawRevenueChart() {
         const barHeight = (revenue - minRevenue) / range * chartHeight;
         const y = canvas.height - padding - barHeight;
         
-        // Draw bar with gradient
-        const gradient = ctx.createLinearGradient(x, y, x, canvas.height - padding);
-        gradient.addColorStop(0, '#667eea');
-        gradient.addColorStop(1, '#764ba2');
-        
-        ctx.fillStyle = gradient;
+        // Draw bar
+        ctx.fillStyle = '#2c4a6e';
         ctx.fillRect(x, y, barWidth - 2 * barPadding, barHeight);
         
         // Draw label
-        ctx.fillStyle = '#333';
-        ctx.font = 'bold 12px Arial';
+        ctx.fillStyle = '#3d4f66';
+        ctx.font = '500 12px ' + FUENTE;
         ctx.textAlign = 'center';
         ctx.fillText(days[index], x + (barWidth - 2 * barPadding) / 2, canvas.height - padding + 20);
         
         // Draw value on top of bar
-        ctx.fillStyle = '#667eea';
-        ctx.font = 'bold 11px Arial';
+        ctx.fillStyle = '#2a3347';
+        ctx.font = '600 11px ' + FUENTE;
         ctx.fillText('$' + (revenue / 1000).toFixed(1) + 'k', x + (barWidth - 2 * barPadding) / 2, y - 5);
     });
     
     // Draw axes
-    ctx.strokeStyle = '#333';
-    ctx.lineWidth = 2;
+    ctx.strokeStyle = '#c4d1e3';
+    ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(padding, padding);
     ctx.lineTo(padding, canvas.height - padding);
@@ -201,8 +206,8 @@ function drawRevenueChart() {
     ctx.stroke();
     
     // Draw Y-axis labels
-    ctx.fillStyle = '#666';
-    ctx.font = '11px Arial';
+    ctx.fillStyle = '#5d6573';
+    ctx.font = '11px ' + FUENTE;
     ctx.textAlign = 'right';
     for (let i = 0; i <= 5; i++) {
         const value = minRevenue + (range / 5) * i;
