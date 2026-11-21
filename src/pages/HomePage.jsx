@@ -278,12 +278,12 @@ const CERTS = [
   { org:'Google',                color:'#3b6290', name:'Google IT Support',                            date:'Sep 2024',  id:'XYFRQ9AI' },
   { org:'ESSEC Business School', color:'#3b6290', name:'Hotel Management: Revenue & Demand Management',date:'Aug 2025',  id:'TDEGVC60' },
   { org:'Univ. of Illinois',     color:'#3b6290', name:'Digital Marketing',                            date:'Sep 2020',  id:'CQ2UHRF2' },
-  /* No es una certificación: es la cuenta de desarrollador de Play Console
-     con la identidad verificada por Google (correo del 17/11/2026). El nombre
-     dice exactamente eso. Sigue siendo cuenta PERSONAL: el paso a organización
-     (D-U-N-S) está pendiente de vincular el perfil de pagos, comprobado en la
-     consola el 21/11/2026. Al completarlo, cambiar el texto, no antes. */
-  { org:'Google Play',           color:'#3b6290', name:{ es:'Cuenta de desarrollador · identidad verificada', en:'Developer account · identity verified' }, date:'Nov 2026', id:'play-console' },
+  /* No es una certificación: es la cuenta de desarrollador de Play Console,
+     y el nombre dice exactamente eso. Identidad verificada el 17/11/2026; tipo
+     de cuenta ORGANIZACIÓN, con el registro D-U-N-S del perfil de pagos
+     verificado, desde el 21/11/2026 (consola en vivo y correo de Play Console
+     «Los detalles de tu cuenta se han actualizado correctamente»). */
+  { org:'Google Play',           color:'#3b6290', name:{ es:'Cuenta de desarrollador · organización verificada (D-U-N-S)', en:'Developer account · verified organization (D-U-N-S)' }, date:'Nov 2026', id:'play-console' },
 ]
 
 /* ── Org Logo SVGs ─────────────────────────────────────────────────────────── */
