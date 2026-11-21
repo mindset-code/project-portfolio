@@ -22,3 +22,5 @@ firebase.personal.json
 # marca, que es justo la que no debe llevar cara (ver src/identidad.js).
 personal/
 firebase-debug.log
+# Capturas de verificacion del rediseno (Playwright, locales)
+.capturas-rediseno/
