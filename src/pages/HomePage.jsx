@@ -278,12 +278,18 @@ const CERTS = [
   { org:'Google',                color:'#3b6290', name:'Google IT Support',                            date:'Sep 2024',  id:'XYFRQ9AI' },
   { org:'ESSEC Business School', color:'#3b6290', name:'Hotel Management: Revenue & Demand Management',date:'Aug 2025',  id:'TDEGVC60' },
   { org:'Univ. of Illinois',     color:'#3b6290', name:'Digital Marketing',                            date:'Sep 2020',  id:'CQ2UHRF2' },
+  /* No es una certificación: es la cuenta de desarrollador de Play Console
+     con la identidad verificada por Google (correo del 17/11/2026). El nombre
+     dice exactamente eso. Sigue siendo cuenta PERSONAL: el paso a organización
+     (D-U-N-S) está pendiente de vincular el perfil de pagos, comprobado en la
+     consola el 21/11/2026. Al completarlo, cambiar el texto, no antes. */
+  { org:'Google Play',           color:'#3b6290', name:{ es:'Cuenta de desarrollador · identidad verificada', en:'Developer account · identity verified' }, date:'Nov 2026', id:'play-console' },
 ]
 
 /* ── Org Logo SVGs ─────────────────────────────────────────────────────────── */
 function OrgLogo({ org }) {
   const ff = "system-ui,-apple-system,'Segoe UI',sans-serif"
-  if (org === 'Google') return (
+  if (org === 'Google' || org === 'Google Play') return (
     <svg viewBox="0 0 24 24" width="26" height="26" aria-label="Google">
       <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
       <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
@@ -508,7 +514,7 @@ export default function HomePage() {
                   <span className="home-cert-icon"><OrgLogo org={org} /></span>
                   <span className="home-cert-org" style={{ color }}>{org}</span>
                 </div>
-                <p className="home-cert-name">{name}</p>
+                <p className="home-cert-name">{typeof name === 'string' ? name : name[lang] ?? name.es}</p>
                 {date && <p className="home-cert-date">{date}</p>}
               </div>
             ))}
