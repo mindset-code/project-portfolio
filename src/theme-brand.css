@@ -1,164 +1,921 @@
 /* ─────────────────────────────────────────────────────────────────────────────
-   Tema de marca — Mindset & Code
-   Se carga DESPUÉS de App.css: fija tipografía, textura y tema oscuro estable.
-   Paleta tomada del sitio real (favicon.svg + assets/index-*.css de mindset-code.com):
-     azul #2c4a6e · tinta #151b26 · crema #f5f1ea · papel #faf7f1
-     azul claro #c4d1e3 · beige #d9d2c4 · verde #2f6b4f · burdeos #a33a34 · ámbar #8a6420
+   Tema de marca — Mindset & Code, identidad G (aprobada en noviembre de 2026)
+   Se carga DESPUÉS de App.css. Fuente de verdad: el prototipo
+   consultoria-tech/prototipos/portada-g.html y src/rediseno.css del sitio
+   principal, de donde salen los tokens --g-* con los mismos nombres y valores.
+
+   Reglas de la identidad que este fichero hace cumplir:
+   - Fondo blanco; las superficies se separan por un PASO DE TONO (blanco →
+     banda → suave), no con contornos de 1 px ni con sombras en reposo.
+   - Una sola familia, Geist, alojada aquí (no se pide a Google). Titulares en
+     seminegrita con tracking negativo; nada de serif ni de rótulos en
+     mayúsculas con interletraje ancho. La monoespaciada, solo para código.
+   - Azules de la marca para todo lo que no tiene significado. Verde, rojo y
+     ámbar solo donde significan algo (bien, mal, atención).
    ───────────────────────────────────────────────────────────────────────────── */
 
+/* ── Tipografías (SIL Open Font License, copiadas del sitio principal) ───── */
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('/fonts/Geist-normal-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('/fonts/Geist-normal-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('/fonts/GeistMono-normal-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('/fonts/GeistMono-normal-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ── Tokens ─────────────────────────────────────────────────────────────── */
 :root {
-  --mc-azul: #2c4a6e;
-  --mc-azul-medio: #3b6290;
-  --mc-azul-claro: #c4d1e3;
-  --mc-crema: #f5f1ea;
-  --mc-tinta: #101722;
-  --mc-superficie: #1a2533;
-  --mc-borde: rgba(196, 209, 227, 0.16);
+  --g-blanco: #ffffff;
+  --g-banda: #e7eef7;    /* secciones alternas y superficies: un azul claro, no un gris */
+  --g-placa: #d8e3f1;    /* bandeja donde se apoya una interfaz */
+  --g-suave: #dde5ef;    /* estados :hover sobre la banda */
+  --g-linea: #c4d1e3;
+  --g-celeste: #9fc0e6;
+  --g-azul-3: #567ca8;
+  --g-azul-2: #3b6290;
+  --g-azul: #2c4a6e;     /* la marca: botones, enlaces, cifras */
+  --g-hondo: #233b5c;    /* titulares */
+  --g-texto: #2a3347;
+  --g-texto-2: #3d4f66;  /* 7:1 sobre la banda, 8:1 sobre blanco */
+  --g-tenue: #5d6573;    /* 5:1 sobre la banda */
+
+  /* Significado: mismos matices que el tema anterior, en tonos que pasan
+     4,5:1 sobre blanco y sobre la banda. No se usan como decoración. */
+  --g-bien: #2f6b4f;
+  --g-mal: #a33a34;
+  --g-aviso: #8a6420;
+  --g-bien-suave: #e3eee8;
+  --g-mal-suave: #f5e4e3;
+  --g-aviso-suave: #f3ebdc;
+
+  --g-t-body: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  --g-t-lead: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+  --g-t-head: clamp(1.625rem, 1.2rem + 1.6vw, 2.5rem);
+  --g-t-hero: clamp(2.125rem, 1.2rem + 3vw, 3.75rem);
+  --g-m: clamp(16px, 3vw, 40px);
+  --g-r: 10px;
+  --g-nav: 72px;
+  --g-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --g-ancho: 1200px;
 
   --sans: 'Geist', system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: 'Fraunces', Georgia, 'Times New Roman', serif;
   --mono: 'Geist Mono', ui-monospace, Consolas, monospace;
+  /* Sin serif: lo que aún pida --heading recibe Geist. */
+  --heading: var(--sans);
 
-  /* el portafolio se ve siempre en oscuro: no dependemos del tema del sistema */
-  color-scheme: dark;
-  --text: #a9b6c5;
-  --text-h: var(--mc-crema);
-  --bg: var(--mc-tinta);
-  --border: var(--mc-borde);
+  color-scheme: light;
+  --text: var(--g-texto);
+  --text-h: var(--g-hondo);
+  --bg: var(--g-blanco);
+  --border: transparent;
 }
 
+/* ── Base ───────────────────────────────────────────────────────────────── */
 html,
 body {
-  background: var(--mc-tinta);
-  color: var(--text);
+  background: var(--g-blanco);
+  color: var(--g-texto);
   font-family: var(--sans);
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Retícula técnica de fondo: sutil, sin ruido visual, evoca papel milimetrado
-   y editor de código a la vez. */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background-image:
-    linear-gradient(rgba(196, 209, 227, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(196, 209, 227, 0.035) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: radial-gradient(120% 90% at 50% 0%, #000 0%, transparent 78%);
-  -webkit-mask-image: radial-gradient(120% 90% at 50% 0%, #000 0%, transparent 78%);
-}
+body { overflow-x: clip; }
+
+::selection { background: var(--g-celeste); color: var(--g-azul); }
+
+:focus-visible { outline: 3px solid var(--g-azul-3); outline-offset: 3px; }
+
+a { color: var(--g-azul); }
+
+code, pre, kbd, samp { font-family: var(--mono); }
 
 #root {
-  position: relative;
-  z-index: 1;
-  border-inline-color: var(--mc-borde);
+  width: 100%;
+  max-width: none;
+  border-inline: 0;
+  text-align: left;
 }
 
-/* ── Tipografía ──────────────────────────────────────────────────────────── */
-h1, h2, h3, h4,
+h1, h2, h3, h4 {
+  font-family: var(--sans);
+  font-weight: 600;
+  color: var(--g-hondo);
+  text-wrap: balance;
+}
+
+/* Titulares grandes: seminegrita y tracking negativo, como en el prototipo */
 .home-name,
-.home-section-title,
+.hero-title,
+.ctech-hero-title,
+.auto-hero-title,
+.dash-hero-title,
 .portfolio-title,
 .portfolio-index-title,
-.bcta-title {
-  font-family: var(--heading);
+.portfolio-error h1 {
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  color: var(--g-hondo);
+}
+
+.home-name,
+.ctech-hero-title,
+.auto-hero-title,
+.dash-hero-title,
+.portfolio-index-title,
+.portfolio-title { font-size: var(--g-t-hero); }
+
+.hero-title { font-size: clamp(1.875rem, 1.3rem + 2vw, 2.75rem); }
+
+.home-section-title,
+.dash-how-title {
+  font-size: var(--g-t-head);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--g-hondo);
+}
+
+.card h2,
+.portfolio-section h2,
+.dash-section-title {
   font-weight: 600;
   letter-spacing: -0.015em;
-  color: var(--mc-crema);
+  color: var(--g-hondo);
 }
 
-.home-name { letter-spacing: -0.03em; }
+.card h2 { font-size: 1.0625rem; }
+.card .card-desc { color: var(--g-tenue); font-size: 0.875rem; }
 
-/* Etiquetas y metadatos en monoespaciada: el "toque tecnológico" que separa
-   la parte fiscal (serif) de la parte de ingeniería (mono). */
-.home-hero-badge,
-.home-stat-lbl,
-.home-project-badge,
-.home-skill-cat,
-.nav-subitem-badge,
-.portfolio-status-badge,
-.portfolio-metric-label,
-.home-cert-org,
-.bcta-kicker {
-  font-family: var(--mono);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.72rem;
-}
-
-.home-hero-badge {
-  background: rgba(44, 74, 110, 0.35) !important;
-  border: 1px solid rgba(196, 209, 227, 0.28) !important;
-  color: var(--mc-azul-claro) !important;
-}
-
+/* Cifras: tabulares, en el azul de la marca salvo que el componente diga otra cosa */
+.kpi-value,
 .home-stat-num,
+.hero-stat-value,
 .portfolio-metric-value,
-.home-ctech-stat-num {
-  font-family: var(--heading);
-  font-weight: 600;
+.portfolio-index-metric-value,
+.home-ctech-stat-num,
+.ctech-hero-stat-num,
+.auto-hero-stat-num {
   font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  letter-spacing: -0.03em;
 }
 
-.home-project-tech,
-.home-skill-pill,
-.portfolio-tech-pill,
-.home-career-chip,
-.home-ctech-tech {
-  font-family: var(--mono);
-  font-size: 0.76rem;
-  letter-spacing: 0.01em;
+/* ── Banda de cabecera a sangre ──────────────────────────────────────────
+   Las cabeceras de página llevan la banda azul clara de borde a borde
+   aunque vivan dentro de un contenedor estrecho. La sombra de 100vmax
+   recortada con clip-path pinta el fondo fuera de la caja sin ensanchar
+   el documento (100vw sí desbordaría por la barra de desplazamiento). */
+.hero,
+.home-hero,
+.dash-hero,
+.portfolio-index-hero {
+  /* Banda a sangre con border-image: una sola capa pintada (sin la costura
+     de 1 px que deja box-shadow + clip-path en posiciones fraccionarias) y
+     sin desbordamiento horizontal, porque el outset no cuenta para el scroll. */
+  background: var(--g-banda);
+  border-image: conic-gradient(var(--g-banda) 0 0) fill 0 / / 0 100vmax;
 }
 
-/* ── Navegación ──────────────────────────────────────────────────────────── */
+/* ── Barra de navegación ─────────────────────────────────────────────────
+   Blanca y separada del contenido: la separa el cambio de tono con la banda
+   de cabecera; al bajar, una sombra suave (clase .navbar--bajo). */
 .navbar {
-  background: rgba(16, 23, 34, 0.92) !important;
-  border-bottom: 1px solid var(--mc-borde) !important;
-  backdrop-filter: blur(8px);
+  height: var(--g-nav);
+  padding: 0 max(var(--g-m), calc((100% - var(--g-ancho)) / 2));
+  background: rgba(255, 255, 255, 0.98);
+  border: 0;
+  transition: box-shadow 0.25s;
 }
 
-.navbar-name { font-family: var(--heading); font-weight: 600; }
-.navbar-role { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; }
+.navbar--bajo { box-shadow: 0 1px 0 var(--g-suave), 0 8px 24px rgba(44, 74, 110, 0.06); }
 
-/* ── Superficies ─────────────────────────────────────────────────────────── */
-.home-project-card,
-.home-career-card,
-.home-skill-group,
-.home-cert-card,
-.home-avail-box,
-.portfolio-index-card,
-.home-ctech-card {
-  background: linear-gradient(180deg, rgba(26, 37, 51, 0.9) 0%, rgba(16, 23, 34, 0.9) 100%) !important;
-  border: 1px solid var(--mc-borde) !important;
+.navbar-brand {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  min-width: 0;
 }
 
-.home-project-card:hover,
-.portfolio-index-card:hover {
-  border-color: rgba(196, 209, 227, 0.4) !important;
+.navbar-logo { width: 22px; height: 22px; flex-shrink: 0; }
+
+.navbar-name {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--g-azul);
+  white-space: nowrap;
 }
 
-/* ── Botones principales ─────────────────────────────────────────────────── */
-.home-cta-primary {
-  background: var(--mc-crema) !important;
-  color: #1a2b41 !important;
-  border: 1px solid var(--mc-crema) !important;
+/* Solo en la variante personal (ver Navbar.jsx): de que marca es el trabajo. */
+.navbar-role {
+  color: var(--g-tenue);
+  font: 400 0.8125rem/1.3 var(--sans);
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .navbar-role { display: none; }
+}
+
+.nav-links { gap: 2px; }
+
+.nav-home-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 12px;
+  border-radius: 8px;
+  color: var(--g-texto-2);
+  font-size: 0.9375rem;
   font-weight: 500;
 }
 
-.home-cta-secondary {
-  background: rgba(245, 241, 234, 0.06) !important;
-  color: #e8eef7 !important;
-  border: 1px solid rgba(196, 209, 227, 0.3) !important;
+.nav-home-link:hover { color: var(--g-azul); background: var(--g-banda); }
+.nav-home-link--active { color: var(--g-azul); background: var(--g-banda); }
+
+.nav-trigger {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--g-texto-2);
+  font: 500 0.9375rem/1 var(--sans);
 }
 
-.home-inline-link,
-.footer-link,
-a { color: var(--mc-azul-claro); }
+.nav-trigger-label { font-size: 0.9375rem; font-weight: 500; }
+.nav-trigger:hover,
+.nav-trigger--open { color: var(--g-azul); background: var(--g-banda); }
+.nav-trigger-arrow { color: currentColor; }
 
-/* ── Impresión de las fichas (se exportan a PDF desde la propia página) ──── */
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-left: 6px;
+  padding: 0 16px;
+  border-radius: var(--g-r);
+  background: var(--g-azul);
+  color: var(--g-blanco);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.2s, transform 0.2s var(--g-ease);
+}
+
+.nav-cta:hover { background: var(--g-azul-2); }
+.nav-cta:active { transform: scale(0.97); }
+
+.lang-toggle {
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--g-texto-2);
+  font: 500 0.875rem/1 var(--sans);
+  min-height: 44px;
+  padding: 0 10px;
+}
+
+.lang-toggle:hover { background: var(--g-banda); color: var(--g-azul); }
+
+/* Desplegable de proyectos: un panel blanco que flota sobre el contenido */
+.nav-dropdown {
+  top: calc(100% + 6px);
+  right: max(var(--g-m), calc((100% - var(--g-ancho)) / 2));
+  background: var(--g-blanco);
+  border: 0;
+  border-radius: 14px;
+  padding: 6px;
+  min-width: 320px;
+}
+
+.nav-cat { border: 0; }
+.nav-cat-header { border-radius: 8px; color: var(--g-texto-2); min-height: 44px; }
+.nav-cat-header:hover,
+.nav-cat-header--open { background: var(--g-banda); color: var(--g-azul); }
+.nav-cat-header--open .nav-cat-label { color: var(--g-azul); }
+.nav-cat-label { font-size: 0.875rem; font-weight: 600; letter-spacing: -0.005em; }
+.nav-cat-count { background: var(--g-blanco); color: var(--g-tenue); }
+.nav-cat-header--open .nav-cat-count { background: var(--g-blanco); color: var(--g-azul); }
+.nav-cat-items { background: transparent; border: 0; padding: 2px 0 6px; }
+.nav-subitem { border: 0; border-radius: 8px; padding: 0.55rem 0.9rem 0.55rem 1.4rem; }
+.nav-subitem + .nav-subitem { border: 0; }
+.nav-subitem:hover { background: var(--g-banda); }
+.nav-subitem--active { background: var(--g-banda); }
+.nav-subitem-label { color: var(--g-texto); font-size: 0.875rem; font-weight: 500; }
+.nav-subitem:hover .nav-subitem-label,
+.nav-subitem--active .nav-subitem-label { color: var(--g-azul); }
+.nav-subitem-badge { color: var(--g-tenue) !important; opacity: 1; font-size: 0.75rem; font-weight: 400; }
+.nav-subitem-icon,
+.nav-cat-icon { color: var(--g-azul-3); }
+
+/* En móvil caben la marca, «Proyectos» y el idioma. Inicio se alcanza por la
+   marca, las fichas desde la portada (como antes del rediseño) y contratar,
+   en el cierre de cada página. Esta regla tiene que ir aquí: la base de
+   .nav-home-link de arriba (display: inline-flex) anularía la de App.css. */
+@media (max-width: 640px) {
+  .navbar { padding: 0 16px; }
+  .navbar-brand { display: flex; }
+  .nav-home-link,
+  .nav-cta { display: none; }
+  .nav-dropdown { right: 16px; left: 16px; min-width: 0; }
+}
+
+@media (max-width: 380px) {
+  .navbar-name { font-size: 0.9375rem; }
+}
+
+/* ── Cabeceras de página ─────────────────────────────────────────────── */
+.hero {
+  padding: clamp(36px, 5vw, 56px) 0 clamp(32px, 4vw, 44px);
+  margin-bottom: clamp(28px, 3vw, 40px);
+  /* border-width y no el atajo border: el atajo reinicia border-image y se
+     llevaria la banda a sangre de arriba. */
+  border-width: 0;
+  text-align: left;
+}
+
+.hero-top,
+.ctech-hero-top,
+.auto-hero-top { justify-content: flex-start; }
+
+.hero-desc {
+  margin: 14px 0 22px;
+  max-width: 68ch;
+  color: var(--g-texto-2);
+  font-size: var(--g-t-lead);
+  line-height: 1.5;
+}
+
+.hero-stats,
+.hero-techs { justify-content: flex-start; }
+.hero-stat { align-items: flex-start; }
+.hero-stat-value { color: var(--g-azul); font-size: 1.625rem; }
+.hero-stat-label { color: var(--g-tenue); font-size: 0.8125rem; text-align: left; }
+
+/* Fichas y chips: tono sobre tono, sin contorno y en caja normal */
+.hero-badge,
+.home-hero-badge,
+.ctech-hero-badge,
+.auto-hero-badge,
+.dash-hero-badge,
+.portfolio-status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--g-blanco);
+  color: var(--g-azul);
+  font: 500 0.8125rem/1.3 var(--sans);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* «Portfolio» es una etiqueta, no un estado: sin verde. */
+.portfolio-status-badge { background: var(--g-blanco); color: var(--g-azul); }
+
+.hero-tech,
+.home-project-tech,
+.home-skill-pill,
+.home-career-chip,
+.home-ctech-tech,
+.portfolio-index-card-tech,
+.ctech-hero-techs .hero-tech {
+  border: 0;
+  border-radius: 6px;
+  background: var(--g-blanco);
+  color: var(--g-texto-2);
+  font: 500 0.8125rem/1.35 var(--sans);
+  letter-spacing: 0;
+  padding: 3px 9px;
+}
+
+.portfolio-tech-pill {
+  border: 0;
+  border-radius: 6px;
+  background: var(--g-banda);
+  color: var(--g-azul);
+  font: 500 0.875rem/1.35 var(--sans);
+  padding: 4px 11px;
+}
+
+/* Enlaces de cabecera tipo botón secundario */
+.hero-github,
+.ctech-hero-gh {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--g-blanco);
+  color: var(--g-azul);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.hero-github:hover,
+.ctech-hero-gh:hover { background: var(--g-suave); }
+
+/* ── Botones ─────────────────────────────────────────────────────────── */
+.home-cta-primary,
+.dash-open-btn,
+.portfolio-cta.github,
+.portfolio-demo-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: var(--g-r);
+  background: var(--g-azul);
+  color: var(--g-blanco);
+  font: 500 0.9375rem/1 var(--sans);
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.2s var(--g-ease);
+}
+
+.home-cta-primary:hover,
+.dash-open-btn:hover,
+.portfolio-cta.github:hover,
+.portfolio-demo-link:hover { background: var(--g-azul-2); filter: none; }
+
+.home-cta-primary:active,
+.dash-open-btn:active,
+.portfolio-cta:active { transform: scale(0.97); }
+
+.home-cta-secondary,
+.dash-copy-btn,
+.portfolio-cta.export {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: var(--g-r);
+  background: var(--g-blanco);
+  color: var(--g-azul);
+  font: 500 0.9375rem/1 var(--sans);
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.home-cta-secondary:hover,
+.dash-copy-btn:hover,
+.portfolio-cta.export:hover { background: var(--g-suave); filter: none; }
+
+.dash-copy-btn,
+.portfolio-cta.export { background: var(--g-blanco); }
+.dash-copy-btn.is-copied { background: var(--g-bien-suave); color: var(--g-bien); }
+
+/* ── Superficies ─────────────────────────────────────────────────────── */
+.card,
+.kpi-card,
+.home-project-card,
+.home-career-card,
+.home-skill-group,
+.home-avail-box,
+.home-edu-item,
+.home-cert-card,
+.home-ctech-card,
+.portfolio-index-card,
+.portfolio-metric-card,
+.auto-workflow-card,
+.auto-agent-card,
+.dash-section,
+.dash-how {
+  background: var(--g-banda);
+  border: 0;
+  box-shadow: none;
+}
+
+.card { border-radius: 14px; }
+.kpi-card { border-radius: 12px; }
+
+.kpi-label {
+  color: var(--g-tenue);
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.kpi-value { font-size: 1.5rem; color: var(--g-azul); }
+.kpi-sub { color: var(--g-tenue); font-size: 0.8125rem; }
+
+.home-project-card,
+.portfolio-index-card {
+  transition: background-color 0.2s;
+}
+
+.home-project-card:hover,
+.portfolio-index-card:hover,
+.home-career-card:hover { background: var(--g-suave); transform: none; }
+
+/* ── Portada ─────────────────────────────────────────────────────────── */
+/* Mismo borde izquierdo que la barra: ancho de contenido --g-ancho más el
+   margen a cada lado (box-sizing: border-box). */
+.home-page { max-width: calc(var(--g-ancho) + 2 * var(--g-m)); padding: 0 var(--g-m) 0; }
+
+.home-hero {
+  align-items: center;
+  gap: clamp(20px, 3vw, 36px);
+  padding: clamp(44px, 6vw, 80px) 0;
+  border-width: 0; /* no el atajo border: reiniciaria border-image */
+}
+
+.home-avatar {
+  width: clamp(96px, 10vw, 128px);
+  height: clamp(96px, 10vw, 128px);
+  border-radius: 22px;
+  background: var(--g-azul);
+}
+
+.home-avatar img { border-radius: 22px; }
+
+.home-hero-top { margin-bottom: 14px; }
+.home-name { margin-bottom: 10px; }
+
+.home-hero-role {
+  color: var(--g-azul-2);
+  font-size: var(--g-t-lead);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  margin-bottom: 14px;
+}
+
+.home-hero-tagline {
+  max-width: 62ch;
+  color: var(--g-texto-2);
+  font-size: var(--g-t-body);
+  line-height: 1.55;
+  margin-bottom: 26px;
+}
+
+.home-ctas { gap: 10px; }
+
+/* Cifras de la portada: baldosas en un paso de tono, sin rayas entre ellas */
+.home-stats-row {
+  gap: 10px;
+  margin: clamp(28px, 3vw, 40px) 0 clamp(56px, 6vw, 88px);
+  border: 0;
+}
+
+.home-stat-box {
+  align-items: flex-start;
+  padding: 18px 20px;
+  border: 0 !important;
+  border-radius: 12px;
+  background: var(--g-banda);
+  text-align: left;
+}
+
+.home-stat-num { color: var(--g-azul); font-size: 1.75rem; }
+.home-stat-lbl { margin-top: 6px; color: var(--g-tenue); font-size: 0.875rem; font-weight: 400; }
+
+.home-section { margin-bottom: clamp(56px, 6vw, 88px); }
+
+.home-section-title-center { text-align: left; }
+
+.home-section-desc {
+  margin: 12px 0 clamp(24px, 3vw, 36px);
+  max-width: 66ch;
+  color: var(--g-texto-2);
+  font-size: var(--g-t-lead);
+  line-height: 1.5;
+  text-align: left;
+}
+
+.home-section-title + .home-skills-grid,
+.home-section-title + .home-certs-grid { margin-top: 20px; }
+
+.home-career-grid,
+.home-projects-grid,
+.home-skills-grid { gap: 12px; }
+
+.home-career-card,
+.home-project-card,
+.home-skill-group { border-radius: 14px; padding: 22px; }
+
+.home-career-icon,
+.home-project-icon,
+.home-ctech-icon { color: var(--g-azul-3); }
+
+.home-career-title,
+.home-project-title {
+  color: var(--g-hondo);
+  font-size: 1.0625rem;
+  letter-spacing: -0.015em;
+}
+
+.home-career-body,
+.home-project-desc { color: var(--g-texto-2); font-size: 0.9375rem; line-height: 1.55; }
+.home-career-list li { color: var(--g-texto); font-size: 0.875rem; }
+.home-career-list li::before { background: var(--g-azul-3); }
+
+.home-project-badge {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--g-blanco);
+  color: var(--g-azul-2);
+  font: 500 0.75rem/1.35 var(--sans);
+}
+
+.home-project-link { color: var(--g-azul); font-size: 0.875rem; font-weight: 500; }
+
+.home-skill-cat {
+  color: var(--g-hondo);
+  font: 600 0.9375rem/1.3 var(--sans);
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+
+.home-about-grid { gap: clamp(32px, 5vw, 72px); }
+.home-about-p { color: var(--g-texto-2); font-size: var(--g-t-body); line-height: 1.6; }
+.home-about-p strong { color: var(--g-texto); }
+.home-inline-link { color: var(--g-azul); font-weight: 500; text-decoration: underline; text-underline-offset: 4px; }
+
+.home-avail-box,
+.home-ctech-card { border-radius: 14px; padding: 20px 22px; }
+.home-avail-title { color: var(--g-hondo); font-size: 1rem; font-weight: 600; letter-spacing: -0.01em; }
+.home-avail-item { color: var(--g-texto); font-size: 0.9375rem; }
+
+.home-ctech-link { color: var(--g-azul); }
+.home-ctech-badge,
+.home-ctech-desc { color: var(--g-texto-2); }
+.home-ctech-stat { background: var(--g-blanco); border-radius: 8px; padding: 10px 8px; }
+.home-ctech-stat-num { color: var(--g-azul); font-size: 1.125rem; }
+.home-ctech-stat-lbl { color: var(--g-tenue); font-size: 0.75rem; }
+
+.home-edu-item { border-radius: 12px; padding: 16px 18px; }
+.home-edu-title { color: var(--g-hondo); font-size: 0.9375rem; }
+.home-edu-sub { color: var(--g-tenue); font-size: 0.875rem; }
+
+.home-cert-card { border-radius: 12px; padding: 14px 16px; }
+.home-cert-org { color: var(--g-azul-2) !important; font: 600 0.8125rem/1.3 var(--sans); }
+.home-cert-name { color: var(--g-texto); font-size: 0.875rem; font-weight: 500; }
+.home-cert-date { color: var(--g-tenue); font-size: 0.8125rem; }
+
+@media (max-width: 640px) {
+  .home-hero { flex-direction: column; align-items: flex-start; }
+  .home-stats-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .home-stat-box:last-child { grid-column: 1 / -1; }
+  .home-ctas > * { flex: 1 1 100%; }
+}
+
+/* ── Páginas con cabecera propia ─────────────────────────────────────── */
+.ctech-hero,
+.auto-hero,
+.portfolio-hero {
+  background: var(--g-banda);
+  border: 0;
+  text-align: left;
+  padding: clamp(40px, 6vw, 72px) var(--g-m) clamp(32px, 4vw, 52px);
+}
+
+.ctech-hero-inner,
+.auto-hero-inner { max-width: var(--g-ancho); }
+
+/* La primera tarjeta no puede pegarse a la banda: mismo aire que .hero. */
+.ctech-hero { margin-bottom: clamp(28px, 3vw, 40px); }
+
+.ctech-hero-desc,
+.auto-hero-desc,
+.portfolio-description,
+.dash-hero-tag,
+.portfolio-index-desc {
+  color: var(--g-texto-2);
+  font-size: var(--g-t-lead);
+  line-height: 1.5;
+  max-width: 66ch;
+}
+
+.ctech-hero-desc strong,
+.auto-hero-desc strong { color: var(--g-texto); }
+
+.ctech-hero-stats,
+.auto-hero-stats,
+.ctech-hero-techs { justify-content: flex-start; }
+
+.ctech-hero-stat,
+.auto-hero-stat { align-items: flex-start; }
+.ctech-hero-stat-num,
+.auto-hero-stat-num { color: var(--g-azul); }
+.ctech-hero-stat-lbl,
+.auto-hero-stat-lbl { color: var(--g-tenue); font-size: 0.8125rem; }
+
+.auto-hero-link { color: var(--g-azul); }
+
+.auto-tabs-bar { background: var(--g-banda); border: 0; padding: 0 var(--g-m); }
+.auto-tabs { max-width: var(--g-ancho); }
+.auto-tab { color: var(--g-texto-2); min-height: 48px; }
+.auto-tab:hover { color: var(--g-azul); }
+.auto-tab--active { color: var(--g-azul); border-bottom-color: var(--g-azul); }
+
+.auto-content { max-width: calc(var(--g-ancho) + 2 * var(--g-m)); padding-inline: var(--g-m); }
+.auto-section-desc { text-align: left; margin-left: 0; color: var(--g-texto-2); font-size: 1rem; }
+.auto-workflow-header:hover { background: var(--g-suave); }
+.auto-workflow-name,
+.auto-agent-name,
+.auto-node-detail-name { color: var(--g-hondo); }
+.auto-flow-node { background: var(--g-blanco); border: 0; }
+.auto-flow-node:hover { background: var(--g-suave); transform: none; }
+.auto-flow-node--selected { background: var(--g-azul); }
+.auto-flow-node--selected .auto-node-name,
+.auto-flow-node--selected .auto-node-type,
+.auto-flow-node--selected .auto-node-icon { color: var(--g-blanco) !important; }
+.auto-node-detail,
+.auto-notice { background: var(--g-blanco); border: 0; }
+.auto-notice p { color: var(--g-texto-2); }
+.auto-flow-arrow,
+.auto-workflow-chevron { color: var(--g-azul-2); }
+/* Estado del workflow: texto de estado sobre blanco (sobre la banda con
+   tinte bajaba de 4,5:1). */
+.auto-badge--active,
+.auto-badge--dev,
+.auto-badge--inactive { background: var(--g-blanco); font-size: 0.75rem; }
+.auto-agent-model { background: var(--g-blanco); color: var(--g-tenue); }
+.auto-node-param-key { color: var(--g-azul); }
+.auto-workflow-hint { color: var(--g-tenue); }
+
+.ctech-service-card,
+.ctech-agent-card,
+.ctech-workflow-card,
+.ctech-tech-card,
+.ctech-arch-box { background: var(--g-blanco); border: 0; }
+
+.ctech-arch-box strong { color: var(--g-hondo); }
+.ctech-arch-icon,
+.ctech-agent-icon,
+.ctech-service-icon { color: var(--g-azul-3); }
+.ctech-agent-role,
+.ctech-tech-name { color: var(--g-azul-2); }
+.ctech-workflow-icon { background: var(--g-banda); color: var(--g-azul-2); }
+.ctech-arch-box small,
+.ctech-tech-desc,
+.ctech-agent-name { color: var(--g-tenue); }
+.ctech-arch-arrow,
+.ctech-arch-down { color: var(--g-azul-2); }
+.ctech-workflow-tech { color: var(--g-tenue); }
+.ctech-status--dev { background: var(--g-suave); color: var(--g-texto-2); }
+
+/* Cuadros de mando embebidos (/dashboards) */
+.dashboards-page { max-width: calc(var(--g-ancho) + 2 * var(--g-m)); padding: 0 var(--g-m) 0; }
+.dashboard { max-width: calc(var(--g-ancho) + 2 * var(--g-m)); padding: 0 var(--g-m) 2rem; }
+.dash-hero { padding: clamp(40px, 6vw, 72px) 0 clamp(32px, 4vw, 48px); margin-bottom: clamp(28px, 3vw, 40px); text-align: left; }
+.dash-hero-title { color: var(--g-hondo); background: none; -webkit-text-fill-color: currentColor; }
+.dash-hero-tag { margin: 0; }
+.dash-section { border-radius: 16px; padding: clamp(18px, 3vw, 28px); }
+.dash-section::before { display: none; }
+.dash-section-icon { color: var(--g-azul-3); }
+.dash-section-sub,
+.dash-section-desc { color: var(--g-texto-2); }
+.dash-kpi-lbl { color: var(--g-tenue); }
+.dash-kpi-pill { border: 0; background: var(--g-blanco); color: var(--g-azul); font-weight: 500; }
+.dash-preview { border: 0; border-radius: 12px; background: var(--g-blanco); }
+.dash-url-box { border: 0; background: var(--g-blanco); }
+.dash-url-box code { color: var(--g-azul); }
+.dash-how { border-radius: 16px; }
+.dash-how-col h3 { border: 0; padding-bottom: 0; color: var(--g-hondo); }
+.dash-how-col ol { color: var(--g-texto); }
+.dash-how-note { border: 0; background: var(--g-bien-suave); color: var(--g-texto); }
+.dash-how-note strong { color: var(--g-bien); }
+
+/* Fichas técnicas (/portfolio) */
+/* El indice no tiene pie: el aire de abajo lo pone el propio contenedor. */
+.portfolio-index-page { max-width: calc(var(--g-ancho) + 2 * var(--g-m)); padding: 0 var(--g-m) clamp(48px, 6vw, 80px); }
+.portfolio-index-hero { padding: clamp(40px, 6vw, 72px) 0 clamp(32px, 4vw, 48px); margin-bottom: clamp(28px, 3vw, 40px); text-align: left; }
+.portfolio-index-desc { margin: 0; }
+.portfolio-index-grid { gap: 12px; }
+.portfolio-index-card { border-radius: 16px; }
+.portfolio-index-card-title { color: var(--g-hondo); font-size: 1.125rem; letter-spacing: -0.015em; }
+.portfolio-index-card-category { color: var(--g-texto-2); }
+.portfolio-index-card-icon { color: var(--g-azul-3); }
+.portfolio-index-metric-label { color: var(--g-tenue); font-size: 0.8125rem; font-weight: 400; }
+.portfolio-index-metric-value { color: var(--g-azul); }
+.portfolio-index-card-tech-more { color: var(--g-tenue); }
+.portfolio-index-card-footer { border: 0; padding-top: 4px; }
+.portfolio-index-card-link { color: var(--g-azul); font-weight: 500; }
+
+.portfolio-hero-top,
+.portfolio-hero-main { max-width: var(--g-ancho); }
+.portfolio-category { color: var(--g-azul-2); font-weight: 500; }
+/* Sin relleno lateral: la cifra arranca en la misma vertical que el titulo,
+   como las metricas de las demas cabeceras. */
+.portfolio-metric-card { border-radius: 12px; text-align: left; padding-inline: 0; }
+.portfolio-metric-value { color: var(--g-azul); }
+.portfolio-metric-label { color: var(--g-tenue); font-size: 0.8125rem; font-weight: 400; }
+@media (max-width: 480px) {
+  /* En movil la etiqueta y el boton siguen alineados a la izquierda, como en
+     el resto de cabeceras, y las cuatro metricas van en 2x2: en una sola
+     columna dejaban cuatro filas casi vacias. */
+  .portfolio-hero-top { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: flex-start; }
+  .portfolio-metrics-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.portfolio-content { max-width: calc(var(--g-ancho) + 2 * var(--g-m)); padding-inline: var(--g-m); }
+.portfolio-section p,
+.portfolio-findings-list li { color: var(--g-texto); }
+.portfolio-findings-list li::before { color: var(--g-azul-3); }
+.portfolio-cta-bar { border: 0; }
+.portfolio-screenshot { border: 0; border-radius: 14px; background: var(--g-banda); }
+.portfolio-screenshot-placeholder { border: 0; background: var(--g-banda); color: var(--g-azul-2); }
+.portfolio-placeholder-icon { color: var(--g-azul-3); }
+.portfolio-page > .bcta { margin-bottom: clamp(48px, 6vw, 80px); }
+/* El pie de la ficha es el mismo pie azul del resto del sitio: mismo ancho de
+   texto que el cuerpo y banda a sangre. border-width y no el atajo border, que
+   reiniciaria el border-image heredado de footer. */
+.portfolio-footer {
+  width: 100%;
+  max-width: calc(var(--g-ancho) + 2 * var(--g-m));
+  margin-inline: auto;
+  padding: 36px var(--g-m) 40px;
+  border-width: 0;
+  background: var(--g-azul);
+  color: var(--g-suave);
+  font-size: 0.875rem;
+  text-align: left;
+}
+.portfolio-footer a { color: var(--g-blanco); }
+.portfolio-error p { color: var(--g-texto-2); }
+
+/* ── Pie ─────────────────────────────────────────────────────────────── */
+footer {
+  margin-top: clamp(48px, 6vw, 80px);
+  padding: 36px 0 40px;
+  border: 0;
+  background: var(--g-azul);
+  border-image: conic-gradient(var(--g-azul) 0 0) fill 0 / / 0 100vmax;
+  color: var(--g-suave);
+  font-size: 0.875rem;
+  text-align: left;
+}
+/* Fuera de un contenedor con margen (Automatizaciones) el texto del pie se
+   limita al ancho de contenido; la banda azul sigue a sangre por border-image.
+   Dentro de uno, el contenedor ya pone el margen. */
+footer {
+  width: min(calc(100% - 2 * var(--g-m)), var(--g-ancho));
+  margin-inline: auto;
+}
+:is(.dashboard, .home-page, .dashboards-page, .portfolio-index-page) > footer { width: auto; }
+
+.footer-links { justify-content: flex-start; gap: 6px 18px; }
+.footer-link { color: var(--g-blanco); font-size: 0.875rem; min-height: 40px; }
+.footer-link:hover { color: var(--g-blanco); text-decoration: underline; text-underline-offset: 3px; }
+.footer-icon { opacity: 1; }
+.footer-sep { color: var(--g-celeste); }
+.footer-context { color: var(--g-suave); font-size: 0.875rem; }
+.footer-context a,
+.footer-built a { color: var(--g-blanco); }
+.footer-built { color: var(--g-suave); font-size: 0.8125rem; margin-top: 10px; }
+
+@media (max-width: 640px) {
+  .footer-links { justify-content: flex-start; }
+}
+
+/* ── Carga y error ───────────────────────────────────────────────────── */
+.loading { color: var(--g-tenue); }
+.error { color: var(--g-mal); }
+
+/* ── Impresión de las fichas (se exportan a PDF desde la propia página) ── */
 @media print {
-  body::before { display: none; }
+  .hero,
+  .home-hero,
+  .dash-hero,
+  .portfolio-index-hero,
+  footer { border-image: none; }
+  footer { background: none; color: #333; }
   .bcta { break-inside: avoid; }
 }
