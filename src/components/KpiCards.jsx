@@ -1,3 +1,4 @@
+import { MARCA } from '../tema/graficos'
 const fmt = (v) =>
   new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(v)
 
@@ -28,31 +29,31 @@ export default function KpiCards({ category, monthly, weekend }) {
         label="Total Revenue"
         value={fmt(totalRevenue)}
         sub="All categories · all years"
-        color="#7ea6d4"
+        color={MARCA.azul}
       />
       <KpiCard
         label="Total Orders"
         value={fmtNum(totalOrders)}
         sub="Transactions processed"
-        color="#6fae8c"
+        color={MARCA.azul}
       />
       <KpiCard
         label="Avg Order Value"
         value={fmt(avgOrder)}
         sub="Revenue per transaction"
-        color="#c2a98b"
+        color={MARCA.azul}
       />
       <KpiCard
         label="Top Category"
         value={topCat?.category}
         sub={fmt(topCat?.total_sales) + ' revenue'}
-        color="#d0a458"
+        color={MARCA.azul}
       />
       <KpiCard
         label="Peak Month"
         value={peakMonth?.period}
         sub={fmt(peakMonth?.total_sales) + ' revenue'}
-        color="#9aa9c8"
+        color={MARCA.azul}
       />
     </div>
   )

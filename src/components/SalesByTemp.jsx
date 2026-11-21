@@ -1,12 +1,13 @@
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell,
 } from 'recharts'
+import { MARCA, TEMPERATURA, REJILLA, eje, CAJA_PROPS, CURSOR_BARRA } from '../tema/graficos'
 
 const TEMP_COLORS = {
-  'Cold (<10°C)':  '#c4d1e3',
-  'Mild (10-20°C)': '#6fae8c',
-  'Warm (20-30°C)': '#d0a458',
-  'Hot (>30°C)':   '#d18a86',
+  'Cold (<10°C)':  TEMPERATURA[0],
+  'Mild (10-20°C)': TEMPERATURA[1],
+  'Warm (20-30°C)': TEMPERATURA[2],
+  'Hot (>30°C)':   TEMPERATURA[3],
 }
 
 const fmt = (v) =>
@@ -26,17 +27,16 @@ export default function SalesByTemp({ data }) {
       <p className="card-desc">Revenue by temperature band — the gaps follow how many orders fall in each band, not the weather</p>
       <ResponsiveContainer width="100%" height={260}>
         <BarChart data={sorted} margin={{ top: 8, right: 16, bottom: 0, left: 16 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#2c3d50" />
-          <XAxis dataKey="temp_category" tick={{ fill: '#a9b6c5', fontSize: 11 }} />
-          <YAxis tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`} tick={{ fill: '#a9b6c5', fontSize: 11 }} />
-          <Tooltip
+          <CartesianGrid {...REJILLA} />
+          <XAxis dataKey="temp_category" tick={eje(11)} />
+          <YAxis tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`} tick={eje(11)} />
+          <Tooltip cursor={CURSOR_BARRA}
             formatter={(v, name) => [fmt(v), name === 'total_sales' ? 'Total Revenue' : 'Avg Order']}
-            contentStyle={{ background: '#101722', border: '1px solid #2c3d50', borderRadius: 8 }}
-            labelStyle={{ color: '#c4d1e3' }}
+            {...CAJA_PROPS}
           />
           <Bar dataKey="total_sales" radius={[4, 4, 0, 0]}>
             {sorted.map((entry) => (
-              <Cell key={entry.temp_category} fill={TEMP_COLORS[entry.temp_category] || '#a9b6c5'} />
+              <Cell key={entry.temp_category} fill={TEMP_COLORS[entry.temp_category] || MARCA.linea} />
             ))}
           </Bar>
         </BarChart>

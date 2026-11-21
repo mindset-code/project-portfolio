@@ -1,8 +1,9 @@
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell,
 } from 'recharts'
+import { SERIE, REJILLA, eje, CAJA_PROPS, CURSOR_BARRA } from '../tema/graficos'
 
-const COLORS = ['#7ea6d4', '#6fae8c', '#c2a98b']
+const COLORS = SERIE
 
 const fmt = (v) =>
   new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(v)
@@ -15,13 +16,12 @@ export default function SalesByCategory({ data }) {
       <p className="card-desc">Total sales revenue per product category</p>
       <ResponsiveContainer width="100%" height={260}>
         <BarChart data={data} margin={{ top: 8, right: 16, bottom: 0, left: 16 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#2c3d50" />
-          <XAxis dataKey="category" tick={{ fill: '#a9b6c5', fontSize: 12 }} />
-          <YAxis tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`} tick={{ fill: '#a9b6c5', fontSize: 11 }} />
-          <Tooltip
+          <CartesianGrid {...REJILLA} />
+          <XAxis dataKey="category" tick={eje(12)} />
+          <YAxis tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`} tick={eje(11)} />
+          <Tooltip cursor={CURSOR_BARRA}
             formatter={(v, name) => [fmt(v), name === 'total_sales' ? 'Total Revenue' : name]}
-            contentStyle={{ background: '#101722', border: '1px solid #2c3d50', borderRadius: 8 }}
-            labelStyle={{ color: '#c4d1e3' }}
+            {...CAJA_PROPS}
           />
           <Bar dataKey="total_sales" radius={[4, 4, 0, 0]}>
             {data.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}

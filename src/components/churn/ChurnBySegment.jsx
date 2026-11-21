@@ -1,11 +1,15 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, LabelList } from 'recharts'
+import { MARCA, SEM, REJILLA, eje, CAJA_PROPS, CURSOR_BARRA, ROTULO_VALOR } from '../../tema/graficos'
 
 import { techoDelDato } from './escala'
 
 const fmtPct = (v) => `${(v * 100).toFixed(1)}%`
 
-const SUB_COLORS   = { Basic: '#7ea6d4', Standard: '#d0a458', Premium: '#6fae8c' }
-const CONT_COLORS  = { Monthly: '#d18a86', Annual: '#d0a458', '2-Year': '#6fae8c' }
+// El plan es identidad, no un juicio: un solo azul y el eje dice cual es cual.
+// (Antes Premium iba en verde justo siendo el plan que mas abandona.)
+const SUB_COLORS   = { Basic: MARCA.azul2, Standard: MARCA.azul2, Premium: MARCA.azul2 }
+// La permanencia si es riesgo: rojo el mes a mes, verde el de dos anos.
+const CONT_COLORS  = { Monthly: SEM.mal, Annual: SEM.aviso, '2-Year': SEM.bien }
 
 function SegmentBar({ data, colorMap, title, desc }) {
   if (!data) return null
@@ -15,19 +19,18 @@ function SegmentBar({ data, colorMap, title, desc }) {
       <p className="card-desc">{desc}</p>
       <ResponsiveContainer width="100%" height={240}>
         <BarChart data={data} margin={{ top: 16, right: 24, bottom: 8, left: 8 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#2c3d50" />
-          <XAxis dataKey="segment" tick={{ fill: '#a9b6c5', fontSize: 12 }} />
-          <YAxis tickFormatter={fmtPct} domain={[0, techoDelDato]} tick={{ fill: '#a9b6c5', fontSize: 11 }} />
-          <Tooltip
+          <CartesianGrid {...REJILLA} />
+          <XAxis dataKey="segment" tick={eje(12)} />
+          <YAxis tickFormatter={fmtPct} domain={[0, techoDelDato]} tick={eje(11)} />
+          <Tooltip cursor={CURSOR_BARRA}
             formatter={(v) => [fmtPct(v), 'Churn Rate']}
-            contentStyle={{ background: '#101722', border: '1px solid #2c3d50', borderRadius: 8 }}
-            labelStyle={{ color: '#c4d1e3' }}
+            {...CAJA_PROPS}
           />
           <Bar dataKey="churn_rate" radius={[6, 6, 0, 0]}>
             <LabelList dataKey="churn_rate" position="top" formatter={fmtPct}
-              style={{ fill: '#a9b6c5', fontSize: 11 }} />
+              style={ROTULO_VALOR} />
             {data.map(({ segment }) => (
-              <Cell key={segment} fill={colorMap[segment] || '#a9b6c5'} />
+              <Cell key={segment} fill={colorMap[segment] || MARCA.linea} />
             ))}
           </Bar>
         </BarChart>
